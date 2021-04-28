@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="11472" started-at="2021-04-28T15:43:35 EDT" finished-at="2021-04-28T15:43:46 EDT">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@30b8a058]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Surefire test" duration-ms="11472" started-at="2021-04-28T15:43:35 EDT" finished-at="2021-04-28T15:43:46 EDT">
+      <class name="TestRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:TestRunner@30b8a058]" name="setUpClass" is-config="true" duration-ms="204" started-at="2021-04-28T15:43:35 EDT" finished-at="2021-04-28T15:43:35 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@30b8a058]" name="runScenario" duration-ms="11197" started-at="2021-04-28T15:43:35 EDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-04-28T15:43:46 EDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login with valid email and password"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Optional[Login]"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.NoSuchMethodError">
+            <message>
+              <![CDATA[okhttp3.RequestBody.create([B)Lokhttp3/RequestBody;]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NoSuchMethodError: okhttp3.RequestBody.create([B)Lokhttp3/RequestBody;
+at com.twocaptcha.ApiClient.in(ApiClient.java:49)
+at com.twocaptcha.TwoCaptcha.send(TwoCaptcha.java:212)
+at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:154)
+at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:142)
+at pageObject.Login_page.captchaVia2captcha(Login_page.java:101)
+at stepDef.Login_steps.iLoginAsRegisteredUser(Login_steps.java:23)
+at ✽.I login as registered user(file:///C:/Users/hassan01.bhuiyan/Documents/Automation/captcha/src/test/java/features/login/login.feature:6)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NoSuchMethodError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:TestRunner@30b8a058]" name="tearDownClass" is-config="true" duration-ms="48" started-at="2021-04-28T15:43:46 EDT" finished-at="2021-04-28T15:43:46 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- TestRunner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
