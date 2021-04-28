@@ -82,12 +82,12 @@ public class Login_page extends Config{
         // captcha
         WebElement ele = driver.findElement(By.id("customizedCaptcha_CaptchaImage"));
         File scrFile = ele.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "/screenShots/captcha.png"));
+        FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "/screenShots/captcha.jpg"));
         System.out.println ("...................Going to start the Captcha2 thing................");
 
         TwoCaptcha solver = new TwoCaptcha("3940daf4eab14ff372ce54691f3de0ac");
         Normal captcha = new Normal();
-        captcha.setFile(System.getProperty("user.dir") + "/screenShots/captcha.png");
+        captcha.setFile(System.getProperty("user.dir") + "/screenShots/captcha.jpg");
         captcha.setNumeric(4);
         captcha.setMinLen(4);
         captcha.setMaxLen(20);
@@ -95,7 +95,7 @@ public class Login_page extends Config{
         captcha.setCaseSensitive(true);
         captcha.setCalc(false);
         captcha.setLang("en");
-        captcha.setHintImg(new File(System.getProperty("user.dir") + "/screenShots/captcha.png"));
+        captcha.setHintImg(new File(System.getProperty("user.dir") + "/screenShots/captcha.jpg"));
         captcha.setHintText("Type red symbols only");
         try {
             solver.solve(captcha);
@@ -104,6 +104,7 @@ public class Login_page extends Config{
             System.out.println("Error occurred: " + e.getMessage());
         }
     }
+
     public void handleCaptcha() throws IOException, InterruptedException {
         File scrFile = driver.findElement(By.id("customizedCaptcha_CaptchaImage")).getScreenshotAs(OutputType.FILE);
         String path = System.getProperty("user.dir")+"/screenShots/captcha.png";
