@@ -45,8 +45,8 @@ public class Hook extends Config {
         } catch (Exception e){
             System.out.println(e);
         }
-        driver.close();
-        driver.quit();
+//        driver.close();
+//        driver.quit();
     }
 
 }
