@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Surefire test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Apr 30 17:00:32 EDT 2021</td>
+<td>Started on:</td><td>Fri Apr 30 17:10:53 EDT 2021</td>
 </tr>
-<tr><td>Total time:</td><td>9 seconds (9019 ms)</td>
+<tr><td>Total time:</td><td>40 seconds (40977 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,34 +67,17 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='TestRunner.runScenario()'><b>runScenario</b><br>Test class: TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login with valid email and password", "Optional[Login]"</td>
-<td><div><pre>java.lang.NoSuchMethodError: okhttp3.RequestBody.create([B)Lokhttp3/RequestBody;
-	at com.twocaptcha.ApiClient.in(ApiClient.java:49)
-	at com.twocaptcha.TwoCaptcha.send(TwoCaptcha.java:212)
-	at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:154)
-	at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:142)
-	at pageObject.Login_page.captchaVia2captcha(Login_page.java:101)
-	at stepDef.Login_steps.iLoginAsRegisteredUser(Login_steps.java:23)
-	at ?.I login as registered user(file:///C:/Users/hassan01.bhuiyan/Documents/Automation/captcha/src/test/java/features/login/login.feature:6)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2138789547", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2138789547'><pre>java.lang.NoSuchMethodError: okhttp3.RequestBody.create([B)Lokhttp3/RequestBody;
-	at com.twocaptcha.ApiClient.in(ApiClient.java:49)
-	at com.twocaptcha.TwoCaptcha.send(TwoCaptcha.java:212)
-	at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:154)
-	at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:142)
-	at pageObject.Login_page.captchaVia2captcha(Login_page.java:101)
-	at stepDef.Login_steps.iLoginAsRegisteredUser(Login_steps.java:23)
-	at ?.I login as registered user(file:///C:/Users/hassan01.bhuiyan/Documents/Automation/captcha/src/test/java/features/login/login.feature:6)
-</pre></div></td>
-<td>8</td>
+<td title='TestRunner.runScenario()'><b>runScenario</b><br>Test class: TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Signup and verify the account", "Optional[Login]"</td>
+<td></td>
+<td>40</td>
 <td>TestRunner@6c49835d</td></tr>
 </table><p>
 </body>

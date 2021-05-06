@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="9019" started-at="2021-04-30T17:00:32 EDT" finished-at="2021-04-30T17:00:41 EDT">
+  <suite name="Surefire suite" duration-ms="40977" started-at="2021-04-30T17:10:53 EDT" finished-at="2021-04-30T17:11:34 EDT">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@6c49835d]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Surefire test" duration-ms="9019" started-at="2021-04-30T17:00:32 EDT" finished-at="2021-04-30T17:00:41 EDT">
+    <test name="Surefire test" duration-ms="40977" started-at="2021-04-30T17:10:53 EDT" finished-at="2021-04-30T17:11:34 EDT">
       <class name="TestRunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:TestRunner@6c49835d]" name="setUpClass" is-config="true" duration-ms="201" started-at="2021-04-30T17:00:32 EDT" finished-at="2021-04-30T17:00:32 EDT">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:TestRunner@6c49835d]" name="setUpClass" is-config="true" duration-ms="190" started-at="2021-04-30T17:10:53 EDT" finished-at="2021-04-30T17:10:54 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@6c49835d]" name="runScenario" duration-ms="8769" started-at="2021-04-30T17:00:32 EDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-04-30T17:00:41 EDT">
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@6c49835d]" name="runScenario" duration-ms="40737" started-at="2021-04-30T17:10:54 EDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-04-30T17:11:34 EDT">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Login with valid email and password"]]>
+                <![CDATA["Signup and verify the account"]]>
               </value>
             </param>
             <param index="1">
@@ -27,26 +27,10 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.NoSuchMethodError">
-            <message>
-              <![CDATA[okhttp3.RequestBody.create([B)Lokhttp3/RequestBody;]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.NoSuchMethodError: okhttp3.RequestBody.create([B)Lokhttp3/RequestBody;
-at com.twocaptcha.ApiClient.in(ApiClient.java:49)
-at com.twocaptcha.TwoCaptcha.send(TwoCaptcha.java:212)
-at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:154)
-at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:142)
-at pageObject.Login_page.captchaVia2captcha(Login_page.java:101)
-at stepDef.Login_steps.iLoginAsRegisteredUser(Login_steps.java:23)
-at ✽.I login as registered user(file:///C:/Users/hassan01.bhuiyan/Documents/Automation/captcha/src/test/java/features/login/login.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NoSuchMethodError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:TestRunner@6c49835d]" name="tearDownClass" is-config="true" duration-ms="45" started-at="2021-04-30T17:00:41 EDT" finished-at="2021-04-30T17:00:41 EDT">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:TestRunner@6c49835d]" name="tearDownClass" is-config="true" duration-ms="39" started-at="2021-04-30T17:11:34 EDT" finished-at="2021-04-30T17:11:34 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
