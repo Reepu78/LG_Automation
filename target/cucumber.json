@@ -3,12 +3,13 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-04-30T21:10:54.181Z",
+        "start_timestamp": "2021-05-10T13:55:34.150Z",
         "before": [
           {
             "result": {
-              "duration": 3764000000,
-              "status": "passed"
+              "error_message": "java.lang.NoSuchFieldError: Companion\r\n\tat okhttp3.internal.Util.\u003cclinit\u003e(Util.kt:71)\r\n\tat okhttp3.internal.concurrent.TaskRunner.\u003cclinit\u003e(TaskRunner.kt:309)\r\n\tat okhttp3.ConnectionPool.\u003cinit\u003e(ConnectionPool.kt:41)\r\n\tat okhttp3.ConnectionPool.\u003cinit\u003e(ConnectionPool.kt:47)\r\n\tat org.openqa.selenium.remote.internal.OkHttpClient$Factory.\u003cinit\u003e(OkHttpClient.java:116)\r\n\tat org.openqa.selenium.remote.http.HttpClient$Factory.createDefault(HttpClient.java:66)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.\u003cclinit\u003e(HttpCommandExecutor.java:47)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:181)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:168)\r\n\tat org.openqa.selenium.chrome.ChromeDriver.\u003cinit\u003e(ChromeDriver.java:157)\r\n\tat base.Config.initDriver(Config.java:36)\r\n\tat stepDef.Hook.openBrowser(Hook.java:28)\r\n",
+              "duration": 462000000,
+              "status": "failed"
             },
             "match": {
               "location": "stepDef.Hook.openBrowser()"
@@ -16,13 +17,13 @@
           }
         ],
         "line": 4,
-        "name": "Signup and verify the account",
+        "name": "Login with valid email and password",
         "description": "",
-        "id": "login;signup-and-verify-the-account",
+        "id": "login;login-with-valid-email-and-password",
         "after": [
           {
             "result": {
-              "duration": 1000000,
+              "duration": 2000000,
               "status": "passed"
             },
             "match": {
@@ -35,8 +36,7 @@
         "steps": [
           {
             "result": {
-              "duration": 19000000,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 5,
             "name": "I am at LG Home Page",
@@ -47,80 +47,28 @@
           },
           {
             "result": {
-              "duration": 7160000000,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 6,
-            "name": "User navigates to Email Site and generates random mail",
+            "name": "I login as registered user",
             "match": {
-              "location": "stepDef.Signup_steps.shouldCreateRandomEmail()"
+              "location": "stepDef.Login_steps.iLoginAsRegisteredUser()"
             },
-            "keyword": "And "
+            "keyword": "Then "
           },
           {
             "result": {
-              "duration": 9043000000,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 7,
-            "name": "User navigates to LG Registration SignUp Page and enters all of required details",
-            "match": {
-              "location": "stepDef.Signup_steps.iLoginAsRegisteredUser()"
-            },
+            "name": "I enter visa card",
+            "match": {},
             "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 219000000,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "Selects the Terms and conditions for Account Creation",
-            "match": {
-              "location": "stepDef.Signup_steps.selectsCondition()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 6206000000,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "Clicks on Signup Button",
-            "match": {
-              "location": "stepDef.Signup_steps.clickSignup()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 27000000,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "LG Account should be created with provided email ID",
-            "match": {
-              "location": "stepDef.Signup_steps.checkEmailCreate()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 14211000000,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "I should be able to activate the account from Mailbox",
-            "match": {
-              "location": "stepDef.Signup_steps.activateAccount()"
-            },
-            "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@signup"
+            "name": "@test"
           }
         ]
       }
@@ -129,7 +77,7 @@
     "description": "",
     "id": "login",
     "keyword": "Feature",
-    "uri": "file:src/test/java/features/signup/signup.feature",
+    "uri": "file:src/test/java/features/login/login.feature",
     "tags": []
   }
 ]

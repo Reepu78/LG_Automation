@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="40977" started-at="2021-04-30T17:10:53 EDT" finished-at="2021-04-30T17:11:34 EDT">
+  <suite name="Surefire suite" duration-ms="816" started-at="2021-05-10T09:55:33 EDT" finished-at="2021-05-10T09:55:34 EDT">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@6c49835d]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@4f063c0a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Surefire test" duration-ms="40977" started-at="2021-04-30T17:10:53 EDT" finished-at="2021-04-30T17:11:34 EDT">
+    <test name="Surefire test" duration-ms="816" started-at="2021-05-10T09:55:33 EDT" finished-at="2021-05-10T09:55:34 EDT">
       <class name="TestRunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:TestRunner@6c49835d]" name="setUpClass" is-config="true" duration-ms="190" started-at="2021-04-30T17:10:53 EDT" finished-at="2021-04-30T17:10:54 EDT">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:TestRunner@4f063c0a]" name="setUpClass" is-config="true" duration-ms="199" started-at="2021-05-10T09:55:33 EDT" finished-at="2021-05-10T09:55:34 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@6c49835d]" name="runScenario" duration-ms="40737" started-at="2021-04-30T17:10:54 EDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-04-30T17:11:34 EDT">
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@4f063c0a]" name="runScenario" duration-ms="564" started-at="2021-05-10T09:55:34 EDT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-05-10T09:55:34 EDT">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Signup and verify the account"]]>
+                <![CDATA["Login with valid email and password"]]>
               </value>
             </param>
             <param index="1">
@@ -27,10 +27,31 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.NoSuchFieldError">
+            <message>
+              <![CDATA[Companion]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NoSuchFieldError: Companion
+at okhttp3.internal.Util.<clinit>(Util.kt:71)
+at okhttp3.internal.concurrent.TaskRunner.<clinit>(TaskRunner.kt:309)
+at okhttp3.ConnectionPool.<init>(ConnectionPool.kt:41)
+at okhttp3.ConnectionPool.<init>(ConnectionPool.kt:47)
+at org.openqa.selenium.remote.internal.OkHttpClient$Factory.<init>(OkHttpClient.java:116)
+at org.openqa.selenium.remote.http.HttpClient$Factory.createDefault(HttpClient.java:66)
+at org.openqa.selenium.remote.HttpCommandExecutor.<clinit>(HttpCommandExecutor.java:47)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:181)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:168)
+at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+at base.Config.initDriver(Config.java:36)
+at stepDef.Hook.openBrowser(Hook.java:28)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NoSuchFieldError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:TestRunner@6c49835d]" name="tearDownClass" is-config="true" duration-ms="39" started-at="2021-04-30T17:11:34 EDT" finished-at="2021-04-30T17:11:34 EDT">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:TestRunner@4f063c0a]" name="tearDownClass" is-config="true" duration-ms="39" started-at="2021-05-10T09:55:34 EDT" finished-at="2021-05-10T09:55:34 EDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Surefire test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Apr 30 17:10:53 EDT 2021</td>
+<td>Started on:</td><td>Mon May 10 09:55:33 EDT 2021</td>
 </tr>
-<tr><td>Total time:</td><td>40 seconds (40977 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (816 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,18 +67,45 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='TestRunner.runScenario()'><b>runScenario</b><br>Test class: TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Signup and verify the account", "Optional[Login]"</td>
-<td></td>
-<td>40</td>
-<td>TestRunner@6c49835d</td></tr>
+<td title='TestRunner.runScenario()'><b>runScenario</b><br>Test class: TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Login with valid email and password", "Optional[Login]"</td>
+<td><div><pre>java.lang.NoSuchFieldError: Companion
+	at okhttp3.internal.Util.&lt;clinit&gt;(Util.kt:71)
+	at okhttp3.internal.concurrent.TaskRunner.&lt;clinit&gt;(TaskRunner.kt:309)
+	at okhttp3.ConnectionPool.&lt;init&gt;(ConnectionPool.kt:41)
+	at okhttp3.ConnectionPool.&lt;init&gt;(ConnectionPool.kt:47)
+	at org.openqa.selenium.remote.internal.OkHttpClient$Factory.&lt;init&gt;(OkHttpClient.java:116)
+	at org.openqa.selenium.remote.http.HttpClient$Factory.createDefault(HttpClient.java:66)
+	at org.openqa.selenium.remote.HttpCommandExecutor.&lt;clinit&gt;(HttpCommandExecutor.java:47)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:181)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:168)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)
+	at base.Config.initDriver(Config.java:36)
+	at stepDef.Hook.openBrowser(Hook.java:28)
+</pre></div><a href='#' onClick='toggleBox("stack-trace261434698", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace261434698'><pre>java.lang.NoSuchFieldError: Companion
+	at okhttp3.internal.Util.&lt;clinit&gt;(Util.kt:71)
+	at okhttp3.internal.concurrent.TaskRunner.&lt;clinit&gt;(TaskRunner.kt:309)
+	at okhttp3.ConnectionPool.&lt;init&gt;(ConnectionPool.kt:41)
+	at okhttp3.ConnectionPool.&lt;init&gt;(ConnectionPool.kt:47)
+	at org.openqa.selenium.remote.internal.OkHttpClient$Factory.&lt;init&gt;(OkHttpClient.java:116)
+	at org.openqa.selenium.remote.http.HttpClient$Factory.createDefault(HttpClient.java:66)
+	at org.openqa.selenium.remote.HttpCommandExecutor.&lt;clinit&gt;(HttpCommandExecutor.java:47)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:181)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:168)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)
+	at base.Config.initDriver(Config.java:36)
+	at stepDef.Hook.openBrowser(Hook.java:28)
+</pre></div></td>
+<td>0</td>
+<td>TestRunner@4f063c0a</td></tr>
 </table><p>
 </body>
 </html>

@@ -15,6 +15,7 @@ import java.time.Duration;
 
 public class Signup_page extends Config{
 
+
     public Signup_page(WebDriver driver){
         PageFactory.initElements(driver, this);
     }

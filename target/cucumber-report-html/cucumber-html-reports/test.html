@@ -76,7 +76,7 @@ $(document).ready(function() {
           <tr class="info">
             <td>captcha</td>
                           <td>1</td>
-                        <td>30 Apr 2021, 17:00</td>
+                        <td>10 May 2021, 09:55</td>
           </tr>
         </tbody>
       </table>
@@ -126,13 +126,13 @@ $(document).ready(function() {
                     <td >0</td>
           <td  class="failed"    >1</td>
           <td class="total">1</td>
-          <td      class="passed"    >1</td>
-          <td      class="failed"    >1</td>
           <td >0</td>
           <td >0</td>
+          <td     class="skipped"   >3</td>
           <td >0</td>
-          <td class="total">2</td>
-          <td class="duration" data-value="3193000000">3s 193ms</td>
+          <td >0</td>
+          <td class="total">3</td>
+          <td class="duration" data-value="0">000ms</td>
           <td class="failed">Failed</td>
         </tr>
         </tbody>
@@ -177,9 +177,9 @@ $(document).ready(function() {
   <div id="element-1" class="collapse collapsable-details  in ">
     
   <div class="inner-level hooks-before">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#before-2">
+        <div data-toggle="collapse" class=" collapsable-control" data-target="#before-2">
       
-<div class="brief passed">
+<div class="brief failed">
   <span class="keyword indention">Hooks</span>
   <span class="name"></span>
   
@@ -189,17 +189,41 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="before-2" class="inner-level collapse collapsable-details ">
+    <div id="before-2" class="inner-level collapse collapsable-details  in ">
               <div class="hook">
-          <div class="brief passed">
+          <div class="brief failed">
             <span class="keyword indention">Before</span>
                           <span class="location name">stepDef.Hook.openBrowser()</span>
                         
-  <span class="lead-duration duration">5s 332ms</span>
+  <span class="lead-duration duration">462ms</span>
 
           </div>
 
                       
+
+  <div class="inner-level">
+    <div class="message indention">
+      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-3">
+          <a>Error message</a>
+      </div>
+      <div id="msg-3" class="collapse collapsable-details">
+        <pre>java.lang.NoSuchFieldError: Companion
+	at okhttp3.internal.Util.<clinit>(Util.kt:71)
+	at okhttp3.internal.concurrent.TaskRunner.<clinit>(TaskRunner.kt:309)
+	at okhttp3.ConnectionPool.<init>(ConnectionPool.kt:41)
+	at okhttp3.ConnectionPool.<init>(ConnectionPool.kt:47)
+	at org.openqa.selenium.remote.internal.OkHttpClient$Factory.<init>(OkHttpClient.java:116)
+	at org.openqa.selenium.remote.http.HttpClient$Factory.createDefault(HttpClient.java:66)
+	at org.openqa.selenium.remote.HttpCommandExecutor.<clinit>(HttpCommandExecutor.java:47)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:181)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:168)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at base.Config.initDriver(Config.java:36)
+	at stepDef.Hook.openBrowser(Hook.java:28)
+</pre>
+      </div>
+    </div>
+  </div>
 
           
           
@@ -211,7 +235,7 @@ $(document).ready(function() {
 
     
 <div class="steps inner-level">
-    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-3">
+    <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-4">
     
 <div class="brief failed">
   <span class="keyword indention">Steps</span>
@@ -223,14 +247,14 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-3" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-4" class="inner-level collapse collapsable-details  in ">
           <div class="step">
         
-<div class="brief passed">
+<div class="brief skipped">
   <span class="keyword indention">Given</span>
   <span class="name">I am at LG Home Page</span>
   
-  <span class="lead-duration duration">015ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
@@ -247,34 +271,36 @@ $(document).ready(function() {
       </div>
           <div class="step">
         
-<div class="brief failed">
+<div class="brief skipped">
   <span class="keyword indention">Then</span>
   <span class="name">I login as registered user</span>
   
-  <span class="lead-duration duration">3s 178ms</span>
+  <span class="lead-duration duration">000ms</span>
 
   </div>
 
         
 
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class="collapsable-control" data-target="#msg-4">
-          <a>Error message</a>
+
+        
+        
+
+        
+
+        
+
       </div>
-      <div id="msg-4" class="collapse collapsable-details">
-        <pre>java.lang.NoSuchMethodError: okhttp3.RequestBody.create([B)Lokhttp3/RequestBody;
-	at com.twocaptcha.ApiClient.in(ApiClient.java:49)
-	at com.twocaptcha.TwoCaptcha.send(TwoCaptcha.java:212)
-	at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:154)
-	at com.twocaptcha.TwoCaptcha.solve(TwoCaptcha.java:142)
-	at pageObject.Login_page.captchaVia2captcha(Login_page.java:101)
-	at stepDef.Login_steps.iLoginAsRegisteredUser(Login_steps.java:23)
-	at ✽.I login as registered user(file:///C:/Users/hassan01.bhuiyan/Documents/Automation/captcha/src/test/java/features/login/login.feature:6)
-</pre>
-      </div>
-    </div>
+          <div class="step">
+        
+<div class="brief skipped">
+  <span class="keyword indention">And</span>
+  <span class="name">I enter visa card</span>
+  
+  <span class="lead-duration duration">000ms</span>
+
   </div>
+
+        
 
 
         
@@ -309,7 +335,7 @@ $(document).ready(function() {
             <span class="keyword indention">After</span>
                           <span class="location name">stepDef.Hook.tearDown(io.cucumber.java.Scenario)</span>
                         
-  <span class="lead-duration duration">156ms</span>
+  <span class="lead-duration duration">002ms</span>
 
           </div>
 
@@ -317,17 +343,6 @@ $(document).ready(function() {
 
           
           
-  <div class="embeddings inner-level">
-                <div class="embedding indention">
-    <div data-toggle="collapse" data-target="#embedding_embedding_1692165634" class="collapsable-control">
-      <a>Attachment 1 (png)</a>
-      <a href="embeddings/embedding_1692165634.png" target="_blank"><span class="download-button glyphicon glyphicon-download-alt"></span></a>
-    </div>
-    <div id="embedding_embedding_1692165634" class="collapse collapsable-detail">
-      <span class="embedding-content"><img src="embeddings/embedding_1692165634.png"></span>
-    </div>
-  </div>
-        </div>
 
         </div>
           </div>

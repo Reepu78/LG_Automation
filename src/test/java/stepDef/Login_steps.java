@@ -23,4 +23,10 @@ public class Login_steps extends Config {
         login.captchaVia2captcha();
 
     }
+    @Then("I enter visa|mc|discover|jwc card")
+    public void enterVisa() throws Exception {
+
+
+    }
+
 }
