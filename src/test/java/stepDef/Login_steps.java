@@ -1,32 +1,10 @@
 package stepDef;
 
-import base.Config;
-import base.Util;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import base.Setup;
 import pageObject.Login_page;
 
-import java.io.IOException;
+public class Login_steps extends Setup {
+    Login_page LOGIN = new Login_page(driver);
 
-public class Login_steps extends Config {
-    Login_page login = new Login_page(driver);
-    @Given("I am at LG Home Page")
-    public void iAmAtLGHomePage(){
-
-    }
-
-    @Then("I login as registered user")
-    public void iLoginAsRegisteredUser() throws Exception {
-        login.clickOnLoginLink();
-        login.clickOnSignInSignUpLink();
-        Thread.sleep(1000);
-        login.captchaVia2captcha();
-
-    }
-    @Then("I enter visa|mc|discover|jwc card")
-    public void enterVisa() throws Exception {
-
-
-    }
 
 }
