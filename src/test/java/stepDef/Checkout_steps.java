@@ -51,8 +51,8 @@ public class Checkout_steps extends Setup {
 		CheckOut.verifySelectedProduct(productCode[0]);
 	}
 
-	@Then("I will check for availibility in area using zipcode")
-	public void checkAvailiability() throws ParseException {
+	@Then("I will check for availability in area using zipcode")
+	public void checkAvailability() throws ParseException {
 		productArea = CheckOut.validateEnterZipCode();
 	}
 
@@ -153,8 +153,13 @@ public class Checkout_steps extends Setup {
 	}
 	
 	@And("I click on Klarna as payment method")
-	public void selectPaymentMethod() throws InterruptedException {
+	public void selectPaymentMethod_klarna() throws InterruptedException {
 		CheckOut.selectPaymentMethod("Buy Now. Pay Later");
+	}
+
+	@And("I click on PayPal as payment method")
+	public void selectPaymentMethod_paypal() throws InterruptedException {
+		CheckOut.selectPaymentMethod("PayPal");
 	}
 	
 	@When("I click on Review and Place Order")

@@ -156,7 +156,7 @@ public class CheckoutPage extends Setup {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_ADD_TO_CART_BUTTON.get(0)));
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PRICE.get(0)));
 		int size1 = CHECKOUT_PRICE.size();
-		double hightestPrice = 0;
+		double highestPrice = 0;
 
 		// Code Block for finding the Highest Price
 		for (int i = 0; i < size1; i++) {
@@ -168,9 +168,9 @@ public class CheckoutPage extends Setup {
 				prc2 = format.parse(price2);
 			}
 			double price = Math.max(Double.parseDouble(prc1.toString()), Double.parseDouble(prc2.toString()));
-			hightestPrice = Math.max(price, hightestPrice);
+			highestPrice = Math.max(price, highestPrice);
 		}
-		String highPrice = format.format(hightestPrice);
+		String highPrice = format.format(highestPrice);
 
 		// Clicking on Add to Cart Button for Product with Highest Price
 		WebElement addCart = driver.findElement(By.xpath("//div[text()='" + highPrice + "']/following::a[1]"));
