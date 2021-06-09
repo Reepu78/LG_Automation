@@ -23,7 +23,6 @@ Feature: Search functionality
 
 
 
-
   @search @smoke @regression
   Scenario: Verify user should be able to search OMD HE Non-Innovel product
 

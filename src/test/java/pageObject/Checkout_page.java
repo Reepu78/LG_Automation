@@ -2,31 +2,31 @@ package pageObject;
 
 import base.GlobalTestData;
 import base.Setup;
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.time.Duration;
-import java.util.List;
-import java.util.Locale;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.github.javafaker.Faker;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
-public class CheckoutPage extends Setup {
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.time.Duration;
+import java.util.List;
+import java.util.Locale;
 
-	public CheckoutPage(WebDriver driver) {
+public class Checkout_page extends Setup {
+
+	public Checkout_page(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	Faker faker = new Faker();
+	public static String productArea;
+	public static String[] productCode = new String[5];
 
 	Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(100))
 			.pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
@@ -123,9 +123,10 @@ public class CheckoutPage extends Setup {
 		actions.moveToElement(CHECKOUT_TV_SECTION).perform();
 	}
 
-	public void clickOLEDSection() {
+	public void clickOLEDSection() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_OLED));
 		CHECKOUT_OLED.click();
+		Thread.sleep(1000);
 	}
 
 	public void verifyOLEDPage() {
@@ -151,7 +152,7 @@ public class CheckoutPage extends Setup {
 		}
 	}
 
-	public String addCartHighPrice() throws ParseException {
+	public String addCartHighPrice() throws ParseException, InterruptedException {
 		NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_ADD_TO_CART_BUTTON.get(0)));
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PRICE.get(0)));
@@ -178,6 +179,7 @@ public class CheckoutPage extends Setup {
 				.findElement(By.xpath("//div[text()='"+highPrice+"']/parent::div/parent::div/preceding-sibling::div[@class='sku']"));
 		String productCode = product.getText().trim();
 		addCart.click();
+		Thread.sleep(1000);
 
 		// returns the selected Product Code and Price
 		return productCode + "#" + highPrice;
@@ -245,9 +247,10 @@ public class CheckoutPage extends Setup {
 		return value;
 	}
 
-	public void clickProceedButton() {
+	public void clickProceedButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PROCEED_BUTTON));
 		CHECKOUT_PROCEED_BUTTON.click();
+		Thread.sleep(1000);
 	}
 
 	public void verifyCartPage() {
@@ -279,7 +282,7 @@ public class CheckoutPage extends Setup {
 		}
 	}
 
-	public void clickCheckOut() {
+	public void clickSecureCheckOut() {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_SECURE_BUTTON));
 		CHECKOUT_SECURE_BUTTON.click();
 	}
@@ -296,7 +299,7 @@ public class CheckoutPage extends Setup {
 		}
 	}
 
-	public void clickContinue() {
+	public void clickContinueAsGuest() {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTINUE_AS_GUEST));
 		CHECKOUT_CONTINUE_AS_GUEST.click();
 	}
@@ -330,23 +333,28 @@ public class CheckoutPage extends Setup {
 		CHECKOUT_POSTCODE_INPUT.sendKeys(zipcode);
 	}
 
-	public void clickSave() {
+	public void clickSaveAndContinueButtonFromShippingPage() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_SAVE_BUTTON));
 		CHECKOUT_SAVE_BUTTON.click();
+		Thread.sleep(1000);
 	}
 
-	public void selectAddress() {
+	public void selectAddress() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_USE_THIS_ADDRESS_BUTTON));
 		if (CHECKOUT_ENTERED_ADDRESS_SECTION.isDisplayed()) {
 			CHECKOUT_ENTERED_ADDRESS_SECTION.click();
+			Thread.sleep(1000);
 		} else {
 			CHECKOUT_SUGGESTED_ADDRESS_SECTION.click();
+			Thread.sleep(1000);
+
 		}
 	}
 
-	public void clickUseAddress() {
+	public void clickUseThisAddressButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_USE_THIS_ADDRESS_BUTTON));
 		CHECKOUT_USE_THIS_ADDRESS_BUTTON.click();
+		Thread.sleep(1000);
 	}
 	
 	public void verifyShippingInfoPage() {
@@ -361,10 +369,11 @@ public class CheckoutPage extends Setup {
 		}
 	}
 
-	public void clickContinuePayment() throws InterruptedException {
+	public void clickContinuePaymentButtonFromShippingPage() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTINUE_PAYMENT_BUTTON));
 		Thread.sleep(4000);
 		CHECKOUT_CONTINUE_PAYMENT_BUTTON.click();
+		Thread.sleep(1000);
 	}
 	
 	public void verifyPaymentInfoPage() {
@@ -379,47 +388,62 @@ public class CheckoutPage extends Setup {
 		}
 	}
 	
-	public void selectPaymentMethod(String paymentMethod) throws InterruptedException {
+	public void selectPaymentMethodFromBillingPage(String paymentMethod) throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYMENT_INFO_TITLE.get(0)));
 		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//span[contains(text(),'"+paymentMethod+"')]//parent::label"))));
 	    Thread.sleep(6000);         
 		WebElement element = driver.findElement(By.xpath("//span[contains(text(),'"+paymentMethod+"')]//parent::label"));
-		element.click();		
+		element.click();
+		Thread.sleep(1000);
 	}
 	
-	public void clickReviewPlaceOrder() {
+	public void clickReviewPlaceOrderButtonFromBillingPage() {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_REVIEW_PLACE_ORDER_BUTTON));
 		//CHECKOUT_REVIEW_PLACE_ORDER_BUTTON.click();
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click();", CHECKOUT_REVIEW_PLACE_ORDER_BUTTON);
 	}
 	
-	public void clickTermsConditions() throws InterruptedException {
+	public void clickTermsConditionsFromReviewPage() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_TERMS_CONDITIONS_CHECKBOX));
 		Thread.sleep(2000);
 		CHECKOUT_TERMS_CONDITIONS_CHECKBOX.click();
+		Thread.sleep(1000);
 	}
 	
-	public void clickPlaceOrder() {
+	public void clickPlaceOrderButtonFromReviewPage() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PLACE_ORDER_BUTTON));
 		CHECKOUT_PLACE_ORDER_BUTTON.click();
+		Thread.sleep(1000);
 	}
 	
-	public String getAlphaNumericString(int n) {
-		// chose a Character random from this String
-		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789" + "abcdefghijklmnopqrstuvxyz";
-
-		// create StringBuffer size of AlphaNumericString
-		StringBuilder sb = new StringBuilder(n);
-		for (int i = 0; i < n; i++) {
-			// generate a random number between
-			// 0 to AlphaNumericString variable length
-			int index = (int) (AlphaNumericString.length() * Math.random());
-
-			// add Character one by one in end of sb
-			sb.append(AlphaNumericString.charAt(index));
+	public void enter_contact_shipping_info() {
+		GlobalTestData.GLOBAL_CUSTOMER_EMAIL = faker.internet().safeEmailAddress();
+		GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME = faker.name().firstName();
+		GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME = faker.name().lastName();
+		String address1 = null;
+		String city = null;
+		String state = null;
+		String zipcode = null;
+		if (productArea.contains("CA")) {
+			address1 = GlobalTestData.GLOBAL_CA_ADDRESS1;
+			city = GlobalTestData.GLOBAL_CA_CITY;
+			state = GlobalTestData.GLOBAL_CA_STATE;
+			zipcode = GlobalTestData.GLOBAL_CA_ZIPCODE;
+		} else if (productArea.contains("NY")) {
+			address1 = GlobalTestData.GLOBAL_NY_ADDRESS1;
+			city = GlobalTestData.GLOBAL_NY_CITY;
+			state = GlobalTestData.GLOBAL_NY_STATE;
+			zipcode = GlobalTestData.GLOBAL_NY_ZIPCODE;
+		} else if (productArea.contains("TX")) {
+			address1 = GlobalTestData.GLOBAL_TX_ADDRESS1;
+			city = GlobalTestData.GLOBAL_TX_CITY;
+			state = GlobalTestData.GLOBAL_TX_STATE;
+			zipcode = GlobalTestData.GLOBAL_TX_ZIPCODE;
 		}
-
-		return sb.toString();
+		enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
+				GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
+				GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, zipcode);
 	}
+
 }

@@ -1,6 +1,8 @@
 package base;
 
-public class GlobalTestData {
+import stepDef.Hook;
+
+public class GlobalTestData{
     public static String GLOBAL_CUSTOMER_FIRST_NAME;
     public static String GLOBAL_CUSTOMER_LAST_NAME;
     public static String GLOBAL_CUSTOMER_EMAIL;
@@ -21,8 +23,22 @@ public class GlobalTestData {
     public static String GLOBAL_NY_CITY = "QUEENS";
     public static String GLOBAL_NY_STATE = "NEW YORK";
     // TX
-    public static String GLOBAL_TX_ZIPCODE = "77056";
-    public static String GLOBAL_TX_ADDRESS1 = "5174 Richmond Avenue";
-    public static String GLOBAL_TX_CITY = "Houston";
+    public static String GLOBAL_TX_ZIPCODE = "75023";
+    public static String GLOBAL_TX_ADDRESS1 = "1104 Cherokee Trl";
+    public static String GLOBAL_TX_CITY = "PLANO";
     public static String GLOBAL_TX_STATE = "TEXAS";
+
+    // Product
+    public static String OMV_Subscription;
+    public static String OMV_Non_Subscription;
+    public static String OMD_HE_Innovel;
+    public static String OMD_HE_Non_Innovel;
+    public static String OMD_HA_Innovel;
+    public static String OMD_HA_Non_Innovel;
+    public static String VISA_CARD_NO;
+    public static String VISA_EXP_NO;
+    public static String VISA_CVV;
+
+
+
 }

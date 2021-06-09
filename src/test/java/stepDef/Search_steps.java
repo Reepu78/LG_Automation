@@ -1,5 +1,6 @@
 package stepDef;
 
+import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,20 +18,21 @@ public class Search_steps extends Setup {
 
     @Given("I enter for OMV subscription product Code into search edit box from GNB")
     public void iSearchForOMVSubscriptionProductFromGNB() {
-        SEARCH.enterAnItemToSearchFromGNB(Hook.OMV_Subscription);
+        SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Subscription);
     }
     @Given("I enter for OMV Non subscription product Code into search edit box from GNB")
     public void iEnterForOMVNonSubscriptionProductCodeIntoSearchEditBoxFromGNB() {
-        SEARCH.enterAnItemToSearchFromGNB(Hook.OMV_Non_Subscription);
+        SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Non_Subscription);
     }
 
     @Then("I will verify OMV Subscription product displays in search results page")
     public void iWillVerifyOMVSubscriptionProductDisplaysInSearchResultsPage() {
-        SEARCH.verifySearchedItemFromSearchResultPage(Hook.OMV_Subscription);
+        // logic here
+        SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMV_Subscription);
     }
 
     @Then("I will verify OMV Non Subscription product displays in search results page")
     public void iWillVerifyOMVNonSubscriptionProductDisplaysInSearchResultsPage() {
-        SEARCH.verifySearchedItemFromSearchResultPage(Hook.OMV_Non_Subscription);
+        SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMV_Non_Subscription);
     }
 }

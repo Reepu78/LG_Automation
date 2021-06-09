@@ -1,5 +1,6 @@
 package stepDef;
 
+import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,12 +15,6 @@ public class Hook extends Setup {
     public static String url;
     public static String baseURL = System.getProperty("env");
     public static String browserType = System.getProperty("browser");
-    public static String OMD_HE_Innovel;
-    public static String OMD_HE_Non_Innovel;
-    public static String OMD_HA_Innovel;
-    public static String OMD_HA_Non_Innovel;
-    public static String OMV_Subscription;
-    public static String OMV_Non_Subscription;
     Logger logger = LoggerFactory.getLogger(Hook.class);
 
     @Before
@@ -34,14 +29,21 @@ public class Hook extends Setup {
         switch (baseURL){
             case "qa" :
                 url = "https://webqa.us.lg.com/us";
+                GlobalTestData.VISA_CARD_NO = "4111111111111111";
+                GlobalTestData.VISA_EXP_NO = "04/29";
+                GlobalTestData.VISA_CVV = "353";
                 break;
             case "stg" :
                 url = "https://wwwstg.us.lg.com/us";
+                GlobalTestData.VISA_CARD_NO = "4111111111111111";
+                GlobalTestData.VISA_EXP_NO = "04/29";
+                GlobalTestData.VISA_CVV = "353";
                 break;
             case "prod" :
                 url = "http://lg.com/us";
-                OMV_Subscription = "LT600P";
-                OMV_Non_Subscription = "5215ER2002G";
+                GlobalTestData.OMV_Subscription = "LT600P";
+                GlobalTestData.OMV_Non_Subscription = "5215ER2002G";
+                GlobalTestData.VISA_CARD_NO = "423234343";
                 break;
         }
         driver.get(url);
