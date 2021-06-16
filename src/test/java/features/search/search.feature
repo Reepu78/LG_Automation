@@ -10,9 +10,6 @@ Feature: Search functionality
   Scenario: Verify user should be able to search OMD HA Innovel product
     Given I search for OMD HA Innovel product from GNB
 
-
-
-
   @search @smoke @regression
   Scenario: Verify user should be able to search OMD HA Non-Innovel product
     Given I search for OMD HA Non Innovel product from GNB

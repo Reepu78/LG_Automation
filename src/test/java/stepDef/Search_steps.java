@@ -24,6 +24,10 @@ public class Search_steps extends Setup {
     public void iEnterForOMVNonSubscriptionProductCodeIntoSearchEditBoxFromGNB() {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Non_Subscription);
     }
+    @Given("I enter for OMD HE Innovel subscription product Code into search edit box from GNB")
+    public void iSearchForOMDHESubscriptionProductFromGNB() {
+        SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMD_HE_Innovel);
+    }
 
     @Then("I will verify OMV Subscription product displays in search results page")
     public void iWillVerifyOMVSubscriptionProductDisplaysInSearchResultsPage() {
@@ -35,4 +39,12 @@ public class Search_steps extends Setup {
     public void iWillVerifyOMVNonSubscriptionProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMV_Non_Subscription);
     }
+    
+    @Then("I will verify OMD HE Innovel Subscription product displays in search results page")
+    public void iWillVerifyOMDHESubscriptionProductDisplaysInSearchResultsPage() {
+        // logic here
+        SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMD_HE_Innovel);
+    }
+    
+    
 }

@@ -38,6 +38,9 @@ public class GlobalTestData{
     public static String VISA_CARD_NO;
     public static String VISA_EXP_NO;
     public static String VISA_CVV;
+    
+    //PromoCode
+    public static String PROMO_CODE="SPRINGS";
 
 
 

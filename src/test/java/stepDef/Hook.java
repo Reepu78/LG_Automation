@@ -43,7 +43,10 @@ public class Hook extends Setup {
                 url = "http://lg.com/us";
                 GlobalTestData.OMV_Subscription = "LT600P";
                 GlobalTestData.OMV_Non_Subscription = "5215ER2002G";
-                GlobalTestData.VISA_CARD_NO = "423234343";
+                GlobalTestData.OMD_HE_Innovel="LSCE365ST";
+                GlobalTestData.VISA_CARD_NO = "4111111111111111";
+                GlobalTestData.VISA_EXP_NO = "04/29";
+                GlobalTestData.VISA_CVV = "353";
                 break;
         }
         driver.get(url);
@@ -60,8 +63,8 @@ public class Hook extends Setup {
         } catch (Exception e){
             System.out.println(e + "failed to take screenshot");
         }
-//        driver.close();
-//        driver.quit();
+          driver.close();
+          driver.quit();
         logger.info("Test Ended");
     }
 

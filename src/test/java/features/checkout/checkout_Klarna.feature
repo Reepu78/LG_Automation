@@ -17,8 +17,9 @@ Feature: Checkout Flow using Klarna Payment Method
     And I verify the suggested address
     When I click on Continue to Payment button
     Then I will see Payment method option list in Billing Page
-    When I choose the Klarna radio button from Billing Page
+    When I choose the "Klarna" radio button from Billing Page
     And I click on Review and Place order button from Billing Page
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     # start Klarna flow TODO
     # confirmation page TODO
+    
