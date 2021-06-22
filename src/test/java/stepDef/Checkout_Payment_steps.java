@@ -39,10 +39,25 @@ public class Checkout_Payment_steps extends Setup {
 	public void iwillenterCreditCardDetails() throws InterruptedException {
 		Payment.enterCardDetails(GlobalTestData.VISA_CARD_NO, GlobalTestData.VISA_EXP_NO, GlobalTestData.VISA_CVV);
 	}
+	
+	@Then("I will enter Master Credit Card Details")
+	public void iwillenterMasterCreditCardDetails() throws InterruptedException {
+		Payment.enterCardDetails(GlobalTestData.MASTER_CARD_NO, GlobalTestData.MASTER_EXP_NO, GlobalTestData.MASTER_CVV);
+	}
+	
+	@Then("I will enter Amex Credit Card Details")
+	public void iwillenterAmexCreditCardDetails() throws InterruptedException {
+		Payment.enterCardDetails(GlobalTestData.AMEX_CARD_NO, GlobalTestData.AMEX_EXP_NO, GlobalTestData.AMEX_CVV);
+	}
 
 	@And("I click on Review and Place order button from Billing Page")
 	public void iClickOnReviewAndPlaceOrderButton() {
 		Payment.clickReviewPlaceOrderButtonFromBillingPage(PaymentMethod);
+	}
+	
+	@Then("I Enter Klarna SSN Details")
+	public void iEnterKlaranaDetails() throws InterruptedException {
+		Payment.enterKlarnaDetails();
 	}
 
 }

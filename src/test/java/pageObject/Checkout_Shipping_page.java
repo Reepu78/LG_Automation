@@ -78,6 +78,11 @@ public class Checkout_Shipping_page extends Setup {
 		String city = null;
 		String state = null;
 		String zipcode = null;
+		if(Cart_page.productArea==null)
+		{
+			Cart_page.productArea = "CA";
+		}
+		
 		if (Cart_page.productArea.contains("CA")) {
 			address1 = GlobalTestData.GLOBAL_CA_ADDRESS1;
 			city = GlobalTestData.GLOBAL_CA_CITY;

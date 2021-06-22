@@ -1,5 +1,6 @@
 package pageObject;
 
+import base.GlobalTestData;
 import base.Setup;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
@@ -35,7 +36,13 @@ public class Checkout_Payment_page extends Setup {
 	public WebElement CHECKOUT_EXPIRY_DATE_INPUT;
 	@FindBy(how = How.XPATH, using = "//span[text()='Security Code']/following::input[1]")
 	public WebElement CHECKOUT_SECURITY_CODE_INPUT;
-
+	@FindBy(how = How.XPATH, using = "//input[@inputmode='numeric']")
+	public WebElement CHECKOUT_SSN_CODE_INPUT;
+	@FindBy(how = How.NAME, using = "dateOfBirth")
+	public WebElement CHECKOUT_DOB_INPUT;
+	@FindBy(how = How.XPATH, using = "//span[text()='Continue']")
+	public WebElement CHECKOUT_CONTINUE_BUTTON;
+	
 		
 	public void verifyPaymentInfoPage() {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYMENT_INFO_TITLE.get(0)));
@@ -75,6 +82,29 @@ public class Checkout_Payment_page extends Setup {
 		CHECKOUT_SECURITY_CODE_INPUT.clear();
 		CHECKOUT_SECURITY_CODE_INPUT.sendKeys(securityCode);	
 	}
+	
+	//Clicks on Review Place Order Button Based on Payment Method
+	public void enterKlarnaDetails() throws InterruptedException {
+		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
+		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_SSN_CODE_INPUT));
+		Thread.sleep(3000);
+		CHECKOUT_SSN_CODE_INPUT.sendKeys(GlobalTestData.GLOBAL_KLARNA_SSN_INPUT);
+		CHECKOUT_DOB_INPUT.sendKeys(GlobalTestData.GLOBAL_KLARNA_SSN_DOB);
+		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTINUE_BUTTON));
+		jsClick(CHECKOUT_CONTINUE_BUTTON);
+		driver.switchTo().defaultContent();
+	}
+	
+	public void jsClick(WebElement element) {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", element);
+	}
+	
+	public void jsInput(WebElement element,String value) {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].value='"+value+"';", element);
+	}
+	
 	
 	
 	

@@ -30,4 +30,6 @@ public class Checkout_Paypal_steps extends Setup {
 		Paypal.clickContinueButton();
 	}
 
+	
+	
 }

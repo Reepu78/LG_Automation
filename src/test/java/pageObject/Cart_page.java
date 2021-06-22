@@ -8,9 +8,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.text.NumberFormat;
@@ -24,6 +27,7 @@ public class Cart_page extends Setup {
 	public Cart_page(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+
 	Faker faker = new Faker();
 	public static String productArea;
 	public static String[] productCode = new String[5];
@@ -65,6 +69,24 @@ public class Cart_page extends Setup {
 	public WebElement CART_SIGNIN_TITLE;
 	@FindBy(how = How.XPATH, using = "//a[text()='Continue as guest']")
 	public WebElement CART_CONTINUE_AS_GUEST;
+	@FindBy(how = How.XPATH, using = "//a[text()='Add to Cart']")
+	public WebElement CART_ADD_TO_CART;
+	@FindBy(how = How.XPATH, using = "//a[text()='PROCEED TO CHECKOUT']")
+	public WebElement CART_PROCEED_TO_CHECKOUT;
+	@FindBy(how = How.XPATH, using = "//select[@title='Qty']")
+	public WebElement CART_QUANTITY;
+	@FindBy(how = How.XPATH, using = "//span[@class='cart-price']/span")
+	public WebElement CART_PRICE;
+	@FindBy(how = How.XPATH, using = "//th[text()='Estimated Tax']/following::span[1]")
+	public WebElement CART_ESTIMATED_PRICE;
+	@FindBy(how = How.XPATH, using = "//strong[text()='Order Total']/following::span[1]")
+	public WebElement CART_TOTAL_PRICE;
+	@FindBy(how = How.XPATH, using = "//strong[contains(text(),'Recommended based on your cart')]/following::span[text()='Add to Cart']")
+	public WebElement CART_RECOMMENDATION_ADD_CART;
+	@FindBy(how = How.XPATH, using = "//h2[contains(text(),'Accessories')]/following::a[text()='Add to Cart']")
+	public WebElement CART_ACCESSORIES_ADD_CART;
+	@FindBy(how = How.XPATH, using = "//span[text()='Remove Item']/parent::a[1]")
+	public WebElement CART_REMOVE_ITEM_BUTTON;
 	
 	
 	public void verifyZipCodePage() {
@@ -118,45 +140,52 @@ public class Cart_page extends Setup {
 		CART_ZIPCODE.clear();
 		CART_ZIPCODE.sendKeys(zipCode);
 	}
-	
+
 	public void enterPromoCode(String promoCode) {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE));
 		CART_PROMOCODE.clear();
 		CART_PROMOCODE.sendKeys(promoCode);
 	}
-	
+
 	public void clickApplyButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(APPLY_BUTTON));
 		APPLY_BUTTON.click();
 		Thread.sleep(1000);
 	}
-	
+
+	public void clickProceedCart() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_PROCEED_TO_CHECKOUT));
+		jsClick(CART_PROCEED_TO_CHECKOUT);
+		// CART_PROCEED_TO_CHECKOUT.click();
+		Thread.sleep(1000);
+	}
+
 	public void clickRemovePromoCode() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CANCEL_BUTTON));
 		Thread.sleep(1000);
-		//CANCEL_BUTTON.click();
+		// CANCEL_BUTTON.click();
 		jsClick(CANCEL_BUTTON);
 		Thread.sleep(1000);
 	}
-	
+
 	public void verifyPromoCode() {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE_MSG));
 		Boolean isDisplayed = CART_PROMOCODE_MSG.isDisplayed();
 		if (!isDisplayed) {
 			Assert.fail("Promocode is not Applied");
-		} 
+		}
 	}
-	
+
 	public void verifyRemovePromoCode() {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_REMOVE_PROMOCODE_MSG));
 		Boolean isDisplayed = CART_REMOVE_PROMOCODE_MSG.isDisplayed();
 		if (!isDisplayed) {
 			Assert.fail("Promocode is not removed");
-		} 
+		}
 	}
-	
+
 	public Boolean checkProductAvailable() throws InterruptedException {
-		//wait.until(ExpectedConditions.visibilityOf(CART_POSTALCODE_MESSAGE));
+		// wait.until(ExpectedConditions.visibilityOf(CART_POSTALCODE_MESSAGE));
 		Thread.sleep(2000);
 		String postalCheck = CART_POSTALCODE_MESSAGE.getText().trim();
 		Boolean value = true;
@@ -206,6 +235,11 @@ public class Cart_page extends Setup {
 		CART_SECURE_BUTTON.click();
 	}
 
+	public void clickAddCartButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_ADD_TO_CART));
+		CART_ADD_TO_CART.click();
+	}
+
 	public void verifySignInPage() {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_SIGNIN_TITLE));
 		Boolean isDisplayed = CART_SIGNIN_TITLE.isDisplayed();
@@ -222,10 +256,92 @@ public class Cart_page extends Setup {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_CONTINUE_AS_GUEST));
 		CART_CONTINUE_AS_GUEST.click();
 	}
-	
+
+	public void selectQuantity(String quantity) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_QUANTITY));
+		Select options = new Select(CART_QUANTITY);
+		options.selectByVisibleText(quantity);
+		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
+						.equals("complete");
+			}
+		};
+		Thread.sleep(1000);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(expectation);
+	}
+
+	public void verifyPrice(String price, String quantity) {
+		char[] a = price.toCharArray();
+		StringBuffer str = new StringBuffer();
+		for (Character ch : a) {
+			if (Character.isDigit(ch) || ch == '.') {
+				str.append(ch);
+			}
+		}
+		String priceValue = str.toString();
+		double expectedPrice = (Double.parseDouble(priceValue)) * (Double.parseDouble(quantity));
+		expectedPrice = Math.round(expectedPrice * 100D) / 100D;
+		char[] splitPrice = getPrice().toCharArray();
+		StringBuffer str1 = new StringBuffer();
+		for (Character ch1 : splitPrice) {
+			if (Character.isDigit(ch1) || ch1 == '.') {
+				str1.append(ch1);
+			}
+		}
+		String spltPrice = str1.toString();
+		double actualPrice = Double.parseDouble(spltPrice);
+		System.out.println(expectedPrice);
+		System.out.println(actualPrice);
+		
+		if (actualPrice!=expectedPrice) {
+			Assert.fail("Price Value is not updated as per selected quantity");
+		}
+
+	}
+
+	public String getPrice() {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_PRICE));
+		String price = CART_PRICE.getText().trim();
+		return price;
+	}
+
 	public void jsClick(WebElement element) {
-		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
+	}
+	
+	public void verifyEstimatedTax() {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_ESTIMATED_PRICE));
+		Boolean isDisplayed = CART_ESTIMATED_PRICE.isDisplayed();
+		if (!isDisplayed) {
+			Assert.fail("Estimated Price is not displayed");
+		}
+	}
+	
+	public void verifyTotalTax() {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_TOTAL_PRICE));
+		Boolean isDisplayed = CART_TOTAL_PRICE.isDisplayed();
+		if (!isDisplayed) {
+			Assert.fail("Total Price is not displayed");
+		}
+	}
+	
+	public void clickAddCartRecommendation() {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_RECOMMENDATION_ADD_CART));
+		CART_RECOMMENDATION_ADD_CART.click();
+	}
+	
+	public void clickAddCartAccessories() {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_ACCESSORIES_ADD_CART));
+		CART_ACCESSORIES_ADD_CART.click();
+	}
+	
+	public void clickRemoveItem() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_REMOVE_ITEM_BUTTON));
+		Thread.sleep(4000);
+		jsClick(CART_REMOVE_ITEM_BUTTON);
 	}
 
 }

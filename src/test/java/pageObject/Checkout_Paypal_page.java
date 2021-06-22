@@ -36,6 +36,10 @@ public class Checkout_Paypal_page extends Setup {
 	public WebElement CHECKOUT_PAYPAL_PHONE_INPUT;
 	@FindBy(how = How.XPATH, using = "//button[contains(text(),'Continue as Guest')]")
 	public WebElement CHECKOUT_PAYPAL_CONTINUE_BUTTON;
+	@FindBy(how = How.XPATH, using = "//button[text()='Continue']")
+	public WebElement CHECKOUT_PAYPAL_CONTINUE;
+	
+	
 				
 	public void clickPayButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_PAY_BUTTON));
@@ -95,7 +99,16 @@ public class Checkout_Paypal_page extends Setup {
 	public void clickContinueButton() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_CONTINUE_BUTTON));
 		Thread.sleep(1000);
-		CHECKOUT_PAYPAL_CONTINUE_BUTTON.click();
+		jsClick(CHECKOUT_PAYPAL_CONTINUE_BUTTON);
+		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_CONTINUE));
+		jsClick(CHECKOUT_PAYPAL_CONTINUE);
 		Thread.sleep(1000);
 	}	
+	
+	
+	public void jsClick(WebElement element) {
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", element);
+	}
+
 }

@@ -11,7 +11,10 @@ public class GlobalTestData{
     public static String GLOBAL_CUSTOMER_BRAND_NEW_EMAIL;
     public static String GLOBAL_CUSTOMER_BRAND_NEW_EMAIL_USER_ID;
     public static String GLOBAL_CUSTOMER_BRAND_NEW_EMAIL_DOMAIN;
-    public static String GLOBAL_CUSTOMER_PHONE_NUMBER = "(123) 343-5554";
+    public static String GLOBAL_CUSTOMER_PHONE_NUMBER = "(213) 621 0002";
+    public static String GLOBAL_KLARNA_SSN_INPUT = "1111";
+    public static String GLOBAL_KLARNA_SSN_DOB = "12/12/1990";
+        
     // CA
     public static String GLOBAL_CA_ZIPCODE = "94111";
     public static String GLOBAL_CA_ADDRESS1 = "52 California Street";
@@ -35,9 +38,16 @@ public class GlobalTestData{
     public static String OMD_HE_Non_Innovel;
     public static String OMD_HA_Innovel;
     public static String OMD_HA_Non_Innovel;
+    public static String OMD_KLARNA;
     public static String VISA_CARD_NO;
     public static String VISA_EXP_NO;
     public static String VISA_CVV;
+    public static String MASTER_CARD_NO;
+    public static String MASTER_EXP_NO;
+    public static String MASTER_CVV;
+    public static String AMEX_CARD_NO;
+    public static String AMEX_EXP_NO;
+    public static String AMEX_CVV;
     
     //PromoCode
     public static String PROMO_CODE="SPRINGS";
