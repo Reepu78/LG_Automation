@@ -1,7 +1,5 @@
 package base;
 
-import stepDef.Hook;
-
 public class GlobalTestData{
     public static String GLOBAL_CUSTOMER_FIRST_NAME;
     public static String GLOBAL_CUSTOMER_LAST_NAME;

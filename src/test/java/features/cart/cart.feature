@@ -4,7 +4,7 @@ Feature: Cart Page
     Given I am at LG Home Page
     
  @checkout @cart @smoke @regression
-  Scenario: As a guest user, ensure you able to Increase Decrease quanty for OMV non subscription product
+  Scenario: As a guest user, ensure you able to Increase Decrease quantity for OMV non subscription product
     Given I enter for OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMV Subscription product displays in search results page
