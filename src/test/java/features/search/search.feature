@@ -44,6 +44,11 @@ Feature: Search functionality
 
   @search @smoke @regression
   Scenario: Verify user should be able to search item with space
-    Given I search for OLED TV
+    Given I search for <productName>
     When I click on search icon from GNB
-    Then I will verify list of OLED TV in my search results page
+    Then I will verify list of <OLED TV> in my search results page
+    Examples:
+      | productName |
+      |    OLED TV |
+      |    SMART TV |
+      |    4K TV |
