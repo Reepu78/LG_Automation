@@ -6,13 +6,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObject.Cart_page;
-import pageObject.Checkout_page;
 
 public class Cart_Steps extends Setup {
-	Checkout_page CheckOut = new Checkout_page(driver);
 	Cart_page Cart = new Cart_page(driver);
-	public String IntialPrice="";
-	public String Quantity="";
+	public String initialPrice ="";
+	public String qty="";
 
 	@SuppressWarnings("static-access")
 	@When("I enter zipCode to check the delivery availability")
@@ -104,17 +102,16 @@ public class Cart_Steps extends Setup {
 	
 	@When("^I will select the \"([^\"]*)\" as quantity$")
 	public void I_will_select_quantity(String quantity) throws InterruptedException {
-		if(IntialPrice.equalsIgnoreCase(""))
-		{
-		IntialPrice=Cart.getPrice();
+		if(initialPrice.equalsIgnoreCase("")) {
+			initialPrice =Cart.getPrice();
 		}
 		Cart.selectQuantity(quantity);	
-		Quantity=quantity;
+		qty=quantity;
 	}
 
 	@When("I should able to see the updated price as per quantity")
 	public void iVerifyPrice() throws InterruptedException {
-		Cart.verifyPrice(IntialPrice, Quantity);
+		Cart.verifyPrice(initialPrice, qty);
 	}
 	
 	@And("I should be able to see Estimated Price and Order Total")

@@ -29,13 +29,10 @@ public class PLP_steps extends Setup {
 	 
 	 @Then("^I will click on Add To Cart Page for \"([^\"]*)\"$")
 		public void IwillclickonAddToCartPage(String productSubscription) throws ParseException, InterruptedException {
-		 if(productSubscription.equalsIgnoreCase("OMV_Subscription"))
-		 {
+		 if(productSubscription.equalsIgnoreCase("OMV_Subscription")) {
 		 PLP.addCartProduct(GlobalTestData.OMV_Subscription);
 		 Cart.productCode[0]=GlobalTestData.OMV_Subscription;
-		 }
-		 else if(productSubscription.equalsIgnoreCase("OMD_HE_Innovel"))
-		 {
+		 } else if(productSubscription.equalsIgnoreCase("OMD_HE_Innovel")) {
 		 PLP.addCartProduct(GlobalTestData.OMD_HE_Innovel);
 		 Cart.productCode[0]=GlobalTestData.OMD_HE_Innovel;
 		 }
