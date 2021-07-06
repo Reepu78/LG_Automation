@@ -49,6 +49,6 @@ Feature: Search functionality
     Then I will verify list of <OLED TV> in my search results page
     Examples:
       | productName |
-      |    OLED TV |
-      |    SMART TV |
-      |    4K TV |
+      | OLED TV     |
+      | SMART TV    |
+      | 4K TV       |

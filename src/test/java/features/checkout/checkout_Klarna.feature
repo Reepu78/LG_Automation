@@ -8,7 +8,7 @@ Feature: Checkout Flow using Klarna Payment Method
 
   @checkout @guest @klarna @smoke @regression
   Scenario: As a brand new guest user, ensure user able to checkout the HE OMD Innoval Product with Klarna monthly installment
-    Given I enter for OMD Klarna enabled product Code into search edit box from GNB
+    Given I enter OMD Klarna enabled product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMD Klarna enabled product displays in search results page
     When  I will enter zipCode for checking the delivery availability for OMD Klarna enabled Product
@@ -24,11 +24,11 @@ Feature: Checkout Flow using Klarna Payment Method
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then  I Enter Klarna SSN Details
     # confirmation page TODO
- 
-   
+
+
   @checkout @guest @klarna @smoke @regression
   Scenario: As a brand new guest user, ensure user able to checkout HE OMD Innoval Product with financing
-    Given I enter for OMD Klarna enabled product Code into search edit box from GNB
+    Given I enter OMD Klarna enabled product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMD Klarna enabled product displays in search results page
     When  I will enter zipCode for checking the delivery availability for OMD Klarna enabled Product

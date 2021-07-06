@@ -14,13 +14,12 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-/** Author: Hassan Bhuiyan */
+/**
+ * Author: Hassan Bhuiyan
+ * Reformat Code or press Ctrl+Alt+L
+ */
 
 public class Setup {
     public static WebDriver driver;

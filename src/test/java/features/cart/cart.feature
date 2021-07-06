@@ -2,8 +2,8 @@ Feature: Cart Page
 
   Background:
     Given I am at LG Home Page
-    
- @checkout @cart @smoke @regression
+
+  @checkout @cart @smoke @regression
   Scenario: As a guest user, ensure you able to Increase Decrease quantity for OMV non subscription product
     Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -37,27 +37,27 @@ Feature: Cart Page
     Then  I will verify product is added into Cart Page
     When  I will enter zipCode to check the delivery availability
     And   I should be able to see Estimated Price and Order Total
-	
+
   @checkout @cart @smoke @regression
   Scenario: As a guest user, ensure system allow you to add Items from Recommended based on your cart after adding HA OMD product
-   Given I enter OMD HA Innovel product Code into search edit box from GNB
-   When  I click on search icon from GNB
-   Then  I will verify OMD HA Innovel product displays in search results page
-   When  I will enter zipCode for checking the delivery availability for OMD HA Innovel Product
-   Then  I click on Add to Cart Button under Recommendations
-     
- @checkout @cart @smoke @regression
- Scenario: As a guest user , ensure that Add accessories button is displayed for the product 
-   Given I enter OMD HA Innovel product Code into search edit box from GNB
-   When  I click on search icon from GNB
-   Then  I will verify OMD HA Innovel product displays in search results page
-   And   I click on Add to Cart Button under Accessories
-   
- @checkout @cart @smoke @regression
- Scenario: As a guest user , ensure that Add accessories button is displayed for the product 
-   Given I enter OMD HA Innovel product Code into search edit box from GNB
-   When  I click on search icon from GNB
-   Then  I will verify OMD HA Innovel product displays in search results page
-   And   I click on Add to Cart Button under Accessories
-   Then  I click on Remove Item Button
+    Given I enter OMD HA Innovel product Code into search edit box from GNB
+    When  I click on search icon from GNB
+    Then  I will verify OMD HA Innovel product displays in search results page
+    When  I will enter zipCode for checking the delivery availability for OMD HA Innovel Product
+    Then  I click on Add to Cart Button under Recommendations
+
+  @checkout @cart @smoke @regression
+  Scenario: As a guest user , ensure that Add accessories button is displayed for the product
+    Given I enter OMD HA Innovel product Code into search edit box from GNB
+    When  I click on search icon from GNB
+    Then  I will verify OMD HA Innovel product displays in search results page
+    And   I click on Add to Cart Button under Accessories
+
+  @checkout @cart @smoke @regression
+  Scenario: As a guest user , ensure that Add accessories button is displayed for the product
+    Given I enter OMD HA Innovel product Code into search edit box from GNB
+    When  I click on search icon from GNB
+    Then  I will verify OMD HA Innovel product displays in search results page
+    And   I click on Add to Cart Button under Accessories
+    Then  I click on Remove Item Button
    

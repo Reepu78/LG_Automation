@@ -8,7 +8,7 @@ Feature: Checkout Flow using PayPal Payment Method
 
   @checkout @paypal @smoke @regression
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product with promotion code and standard shipping using PayPal
-    Given I enter for OMV subscription product Code into search edit box from GNB
+    Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMV Subscription product displays in search results page
     Then  I will click on Add To Cart Page for "OMV_Subscription"
@@ -16,7 +16,7 @@ Feature: Checkout Flow using PayPal Payment Method
     When  I will click on Proceed to Cart Button
     When  I will enter zipCode to check the delivery availability
     Then  I will verify product is added into Cart Page
-    When  I will enter promocode
+    When  I will enter promo code
     Then  I should able to use promo code
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
@@ -32,10 +32,10 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
-    
+
   @checkout @paypal @smoke @regression
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product after removing promotion code once it was applied with overnight shipping
-    Given I enter for OMV subscription product Code into search edit box from GNB
+    Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMV Subscription product displays in search results page
     Then  I will click on Add To Cart Page for "OMV_Subscription"
@@ -43,9 +43,9 @@ Feature: Checkout Flow using PayPal Payment Method
     When  I will click on Proceed to Cart Button
     When  I will enter zipCode to check the delivery availability
     Then  I will verify product is added into Cart Page
-    When  I will enter promocode
+    When  I will enter promo code
     Then  I should able to use promo code
-    When  I will remove promocode
+    When  I will remove promo code
     Then  I should able to remove promo code
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
@@ -61,12 +61,12 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
-    
+
   @checkout @paypal @smoke @regression
   Scenario: As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
-    Given I enter for OMD HE Innovel subscription product Code into search edit box from GNB
+    Given I enter OMD HE Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
-    Then  I will verify OMD HE Innovel Subscription product displays in search results page
+    Then  I will verify OMD HE Innovel product displays in search results page
     When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
@@ -82,13 +82,13 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
-	
-	
+
+
   @checkout @paypal @smoke @regression
   Scenario: As a brand new guest, ensure user able to checkout OMD non innovel  product with promotion code using PayPal
-    Given I enter for OMD HE Non Innovel subscription product Code into search edit box from GNB
+    Given I enter OMD HE Non Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
-    Then  I will verify OMD HE Non Innovel Subscription product displays in search results page
+    Then  I will verify OMD HE Non Innovel product displays in search results page
     When  I will enter zipCode for checking the delivery availability for OMD HE Non Innovel Product
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -103,5 +103,4 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
-    
-  
+

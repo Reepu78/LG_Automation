@@ -79,7 +79,7 @@ public class Cart_Steps extends Setup {
 		Cart.clickContinueAsGuest();
 	}
 	
-	@When("I will enter promocode")
+	@When("I will enter promo code")
 	public void I_will_enter_promocode() throws InterruptedException {
 		Cart.enterPromoCode(GlobalTestData.PROMO_CODE);
 		Cart.clickApplyButton();
@@ -90,7 +90,7 @@ public class Cart_Steps extends Setup {
 		Cart.verifyPromoCode();
 	}
 	
-	@When("I will remove promocode")
+	@When("I will remove promo code")
 	public void I_will_remove_promocode() throws InterruptedException {
 		Cart.clickRemovePromoCode();
 	}

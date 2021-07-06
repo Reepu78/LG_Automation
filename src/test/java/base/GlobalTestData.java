@@ -1,6 +1,6 @@
 package base;
 
-public class GlobalTestData{
+public class GlobalTestData {
     public static String GLOBAL_CUSTOMER_FIRST_NAME;
     public static String GLOBAL_CUSTOMER_LAST_NAME;
     public static String GLOBAL_CUSTOMER_EMAIL;
@@ -12,7 +12,7 @@ public class GlobalTestData{
     public static String GLOBAL_CUSTOMER_PHONE_NUMBER = "(213) 621 0002";
     public static String GLOBAL_KLARNA_SSN_INPUT = "1111";
     public static String GLOBAL_KLARNA_SSN_DOB = "12/12/1990";
-        
+
     // CA
     public static String GLOBAL_CA_ZIPCODE = "94111";
     public static String GLOBAL_CA_ADDRESS1 = "52 California Street";
@@ -46,10 +46,9 @@ public class GlobalTestData{
     public static String AMEX_CARD_NO;
     public static String AMEX_EXP_NO;
     public static String AMEX_CVV;
-    
-    //PromoCode
-    public static String PROMO_CODE="SPRINGS";
 
+    //PromoCode
+    public static String PROMO_CODE = "SPRINGS";
 
 
 }
