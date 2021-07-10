@@ -28,6 +28,11 @@ public class GlobalTestData {
     public static String GLOBAL_TX_ADDRESS1 = "1104 Cherokee Trl";
     public static String GLOBAL_TX_CITY = "PLANO";
     public static String GLOBAL_TX_STATE = "TEXAS";
+    // HU
+    public static String GLOBAL_HU_ZIPCODE = "96816";
+    public static String GLOBAL_HU_ADDRESS1 = "1252 Arron Smith Drive";
+    public static String GLOBAL_HU_CITY = "HONOLULU";
+    public static String GLOBAL_HU_STATE = "HAWAII";
 
     // Product
     public static String OMV_Subscription;

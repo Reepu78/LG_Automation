@@ -2,6 +2,8 @@ package pageObject;
 
 import base.GlobalTestData;
 import base.Setup;
+import stepDef.Cart_Steps;
+
 import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -87,8 +89,9 @@ public class Cart_page extends Setup {
     public WebElement CART_ACCESSORIES_ADD_CART;
     @FindBy(how = How.XPATH, using = "//span[text()='Remove Item']/parent::a[1]")
     public WebElement CART_REMOVE_ITEM_BUTTON;
-
-
+    @FindBy(how = How.XPATH, using = "//div[text()='Your ZIP code qualifies for delivery']")
+    public WebElement CART_ZIP_CODE_MSG;
+    
     public void verifyZipCodePage() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE_PAGE));
         Boolean isDisplayed = CART_ZIPCODE_PAGE.isDisplayed();
@@ -114,26 +117,51 @@ public class Cart_page extends Setup {
 
     public String validateEnterZipCode() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
-        enterZipCode(GlobalTestData.GLOBAL_CA_ZIPCODE);
+        enterZipCode(GlobalTestData.GLOBAL_NY_ZIPCODE);
         String productArea = "";
         CART_CHECK_BUTTON.click();
         Boolean isAvailable = checkProductAvailable();
         if (!isAvailable) {
-            enterZipCode(GlobalTestData.GLOBAL_NY_ZIPCODE);
+            enterZipCode(GlobalTestData.GLOBAL_TX_ZIPCODE);
             CART_CHECK_BUTTON.click();
             isAvailable = checkProductAvailable();
             if (!isAvailable) {
-                enterZipCode(GlobalTestData.GLOBAL_TX_ZIPCODE);
+                enterZipCode(GlobalTestData.GLOBAL_CA_ZIPCODE);
                 CART_CHECK_BUTTON.click();
-                productArea = "GLOBAL_TX";
+                productArea = "GLOBAL_CA";
             } else {
-                productArea = "GLOBAL_NY";
+                productArea = "GLOBAL_TX";
             }
         } else {
-            productArea = "GLOBAL_CA";
+            productArea = "GLOBAL_NY";
         }
         return productArea;
     }
+    
+    @SuppressWarnings("unused")
+	public String validateEnterZipCode(String stateName) throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
+        if(stateName.equalsIgnoreCase("NewYork"))
+        {
+        enterZipCode(GlobalTestData.GLOBAL_NY_ZIPCODE);
+        String productArea = "";
+        CART_CHECK_BUTTON.click();
+        checkProductAvailable();
+        productArea = "GLOBAL_NY";
+        }
+        else if(stateName.equalsIgnoreCase("HAWAII"))
+        {
+        enterZipCode(GlobalTestData.GLOBAL_HU_ZIPCODE);
+        String productArea = "";
+        CART_CHECK_BUTTON.click();
+        checkProductAvailable();
+        productArea = "GLOBAL_HU";
+        }   
+        wait.until(ExpectedConditions.elementToBeClickable(CART_ZIP_CODE_MSG));
+        Thread.sleep(3000);
+        return productArea;
+    }
+
 
     public void enterZipCode(String zipCode) {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
@@ -259,6 +287,7 @@ public class Cart_page extends Setup {
 
     public void selectQuantity(String quantity) throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_QUANTITY));
+        Thread.sleep(4000);
         Select options = new Select(CART_QUANTITY);
         options.selectByVisibleText(quantity);
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
@@ -267,7 +296,7 @@ public class Cart_page extends Setup {
                         .equals("complete");
             }
         };
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(expectation);
     }
@@ -292,9 +321,6 @@ public class Cart_page extends Setup {
         }
         String spltPrice = str1.toString();
         double actualPrice = Double.parseDouble(spltPrice);
-        System.out.println(expectedPrice);
-        System.out.println(actualPrice);
-
         if (actualPrice != expectedPrice) {
             Assert.fail("Price Value is not updated as per selected quantity");
         }
@@ -318,6 +344,51 @@ public class Cart_page extends Setup {
         if (!isDisplayed) {
             Assert.fail("Estimated Price is not displayed");
         }
+    }
+    
+    public String getEstimatedTax() {
+        wait.until(ExpectedConditions.elementToBeClickable(CART_ESTIMATED_PRICE));
+        Boolean isDisplayed = CART_ESTIMATED_PRICE.isDisplayed();
+        return CART_ESTIMATED_PRICE.getText().trim();
+    }
+    
+    public Boolean compareEstimatedTax(String tax1,String tax2)
+    {
+    	//Fetching the Value of Tax1
+    	Boolean value = false;
+        char[] a = tax1.toCharArray();
+        StringBuffer str = new StringBuffer();
+        for (Character ch : a) {
+            if (Character.isDigit(ch) || ch == '.') {
+                str.append(ch);
+            }
+        }
+        String priceValue1 = str.toString();
+        double tax1Price = Double.parseDouble(priceValue1);
+        
+      //Fetching the Value of Tax2
+        char[] b = tax2.toCharArray();
+        StringBuffer str1 = new StringBuffer();
+        for (Character ch1 : b) {
+            if (Character.isDigit(ch1) || ch1 == '.') {
+            	str1.append(ch1);
+            }
+        }
+        String priceValue2 = str1.toString();
+        double tax2Price = Double.parseDouble(priceValue2);
+        System.out.println(tax1Price);
+        System.out.println(tax2Price);
+    	
+        if(tax1Price<tax2Price)
+        {
+        	System.out.println("Huwai Tax is less than other Country Tax");
+        }
+        else
+        {
+        	Assert.fail("Huwai Tax is greater than other Country Tax");
+        }
+             
+    	return value;
     }
 
     public void verifyTotalTax() {

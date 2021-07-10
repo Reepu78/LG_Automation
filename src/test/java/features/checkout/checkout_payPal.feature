@@ -6,7 +6,7 @@ Feature: Checkout Flow using PayPal Payment Method
   Background:
     Given I am at LG Home Page
 
-  @checkout @paypal @smoke @regression
+  @checkout @paypal @smoke @regression @TC_001
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product with promotion code and standard shipping using PayPal
     Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -33,7 +33,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
 
-  @checkout @paypal @smoke @regression
+  @checkout @paypal @smoke @regression @TC_002
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product after removing promotion code once it was applied with overnight shipping
     Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -62,7 +62,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
 
-  @checkout @paypal @smoke @regression
+  @checkout @paypal @smoke @regression @TC_005
   Scenario: As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
     Given I enter OMD HE Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -84,7 +84,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I will click on Continue Button
 
 
-  @checkout @paypal @smoke @regression
+  @checkout @paypal @smoke @regression @TC_022
   Scenario: As a brand new guest, ensure user able to checkout OMD non innovel  product with promotion code using PayPal
     Given I enter OMD HE Non Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB

@@ -6,7 +6,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
   Background:
     Given I am at LG Home Page
 
-  @checkout @cc @smoke @regression
+  @checkout @cc @smoke @regression @TC_001
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with promotion code and standard shipping using credit card
     Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -30,7 +30,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
 
-  @checkout @cc @smoke @regression
+  @checkout @cc @smoke @regression @TC_002
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product after removing promotion code once it was applied with overnight shipping
     Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -56,7 +56,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
 
-  @checkout @cc @smoke @regression
+  @checkout @cc @smoke @regression @TC_005
   Scenario: [Visa] As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
     Given I enter OMD HE Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -74,7 +74,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
 
-  @checkout @cc @smoke @regression
+  @checkout @cc @smoke @regression @TC_010
   Scenario: [MC] As a guest user, checkout OMD product with an accessory
     Given I enter OMD HA Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -92,7 +92,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
 
-  @checkout @cc @smoke @regression
+  @checkout @cc @smoke @regression @TC_011
   Scenario: [AMEX] As a guest user, checkout OMD HE Non Innovel product with different billing address
     Given I enter OMD HE Non Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB

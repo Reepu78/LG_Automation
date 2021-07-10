@@ -6,7 +6,7 @@ Feature: Checkout Flow using Klarna Payment Method
   Background:
     Given I am at LG Home Page
 
-  @checkout @guest @klarna @smoke @regression
+  @checkout @guest @klarna @smoke @regression @TC_001
   Scenario: As a brand new guest user, ensure user able to checkout the HE OMD Innoval Product with Klarna monthly installment
     Given I enter OMD Klarna enabled product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -26,7 +26,7 @@ Feature: Checkout Flow using Klarna Payment Method
     # confirmation page TODO
 
 
-  @checkout @guest @klarna @smoke @regression
+  @checkout @guest @klarna @smoke @regression @TC_003
   Scenario: As a brand new guest user, ensure user able to checkout HE OMD Innoval Product with financing
     Given I enter OMD Klarna enabled product Code into search edit box from GNB
     When  I click on search icon from GNB
