@@ -11,7 +11,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMV Subscription product displays in search results page
-    Then  I will click on Add To Cart Page for "OMV_Subscription"
+    Then  I will click on add to cart Button from Search Results Page for "OMV_Subscription"
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
     When  I will enter zipCode to check the delivery availability
@@ -35,7 +35,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMV Subscription product displays in search results page
-    Then  I will click on Add To Cart Page for "OMV_Subscription"
+    Then  I will click on add to cart Button from Search Results Page for "OMV_Subscription"
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
     When  I will enter zipCode to check the delivery availability

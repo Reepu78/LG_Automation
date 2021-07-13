@@ -26,6 +26,13 @@ public class Cart_Steps extends Setup {
 		Cart.productArea = Cart.validateEnterZipCode();
 		Cart.clickProceedButton();
 	}
+	
+	@SuppressWarnings("static-access")
+	@When("I will enter zipCode to check the delivery availability")
+	public void iEnterZipCodeTheDeliveryAvailability() throws InterruptedException {
+		Cart.verifySelectedProduct(Cart.productCode[0]);
+		Cart.productArea = Cart.validateEnterZipCode();
+	}
 
 	@When("^I enter zipCode to check the delivery availability for \"([^\"]*)\"$")
 	public void iZipCodeToCheckTheDeliveryAvailability(String stateName) throws InterruptedException {
