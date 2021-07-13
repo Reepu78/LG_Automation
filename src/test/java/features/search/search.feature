@@ -43,7 +43,7 @@ Feature: Search functionality
     Then I will verify OMV Non Subscription product displays in search results page
 
   @search @smoke @regression
-  Scenario: Verify user should be able to search item with space
+  Scenario Outline: Verify user should be able to search item with space
     Given I search for "<productName>"
     When I click on search icon from GNB
     Then I will verify list of "<productName>" in my search results page
