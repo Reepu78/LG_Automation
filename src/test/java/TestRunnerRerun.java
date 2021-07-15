@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
                 "pretty",
                 "html:target1/cucumber-reports",
                 "json:target1/cucumber.json",
-                 }
+        }
 )
 
 public class TestRunnerRerun extends AbstractTestNGCucumberTests {

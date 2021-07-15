@@ -1,5 +1,6 @@
 package stepDef;
 
+import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,12 +15,6 @@ public class Hook extends Setup {
     public static String url;
     public static String baseURL = System.getProperty("env");
     public static String browserType = System.getProperty("browser");
-    public static String OMD_HE_Innovel;
-    public static String OMD_HE_Non_Innovel;
-    public static String OMD_HA_Innovel;
-    public static String OMD_HA_Non_Innovel;
-    public static String OMV_Subscription;
-    public static String OMV_Non_Subscription;
     Logger logger = LoggerFactory.getLogger(Hook.class);
 
     @Before
@@ -34,14 +29,34 @@ public class Hook extends Setup {
         switch (baseURL){
             case "qa" :
                 url = "https://webqa.us.lg.com/us";
+                GlobalTestData.VISA_CARD_NO = "4111111111111111";
+                GlobalTestData.VISA_EXP_NO = "04/29";
+                GlobalTestData.VISA_CVV = "353";
                 break;
             case "stg" :
                 url = "https://wwwstg.us.lg.com/us";
+                GlobalTestData.VISA_CARD_NO = "4111111111111111";
+                GlobalTestData.VISA_EXP_NO = "04/29";
+                GlobalTestData.VISA_CVV = "353";
                 break;
             case "prod" :
                 url = "http://lg.com/us";
-                OMV_Subscription = "LT600P";
-                OMV_Non_Subscription = "5215ER2002G";
+                GlobalTestData.OMV_Subscription = "LT600P";
+                GlobalTestData.OMV_Non_Subscription = "5215ER2002G";
+                GlobalTestData.OMD_HE_Innovel = "LSCE365ST";
+                GlobalTestData.OMD_HE_Non_Innovel = "AN-MR18BA";
+                GlobalTestData.OMD_HA_Innovel = "WKGX201HBA";
+                GlobalTestData.OMD_HA_Non_Innovel = "A929KVM";
+                GlobalTestData.OMD_KLARNA = "65NANO90UPA";
+                GlobalTestData.VISA_CARD_NO = "4111111111111111";
+                GlobalTestData.VISA_EXP_NO = "04/29";
+                GlobalTestData.VISA_CVV = "353";
+                GlobalTestData.MASTER_CARD_NO = "5425233430109903";
+                GlobalTestData.MASTER_EXP_NO = "04/23";
+                GlobalTestData.MASTER_CVV = "123";
+                GlobalTestData.AMEX_CARD_NO = "371100001000131";
+                GlobalTestData.AMEX_EXP_NO = "05/23";
+                GlobalTestData.AMEX_CVV = "1234";              
                 break;
         }
         driver.get(url);
@@ -58,8 +73,8 @@ public class Hook extends Setup {
         } catch (Exception e){
             System.out.println(e + "failed to take screenshot");
         }
-//        driver.close();
-//        driver.quit();
+         // driver.close();
+          //driver.quit();
         logger.info("Test Ended");
     }
 

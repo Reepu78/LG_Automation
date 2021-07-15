@@ -6,66 +6,41 @@ Feature: Checkout Flow using Klarna Payment Method
   Background:
     Given I am at LG Home Page
 
-  @checkout @klarna @smoke @regression @highprice
-  Scenario: As a brand new guest user, ensure user able to checkout Highest HE OMD Innoval Product with monthly installment
-  Given I am at LG TV,Audio,Video Page
-  When  I click on TV Section Link
-  Then  I should navigate to OLED TV Page
-  And   I should see only OLED TVs in current page
-  Then  I will click on Add to Cart Button for Available OLED in Highest Price range
-  And   I should navigate to Zip Code Entry Page
-  And   I should see only OLED which is selected in zip Code Entry Page
-  Then  I will check for availability in area using zipcode
-  And   I will click on proceed Button
-  Then  I will navigate to Cart Page
-  And   I should able to see the price, product code which is selected
-  And   I should able to see the Need help section at the bottom
-  When  I click on secure checkout Button
-  Then  I should navigate to Sign In Page
-  When  I click on continue as guest
-  Then  I should navigate to Contact Information Page
-  And   I will enter contact Information details
-  When  I click on Save and Continue Button
-  And   I click on Use This Address Button
-  Then  I should navigate to shipping page
-  And   I click on continue payment Button
-  Then  I should navigate to payment page
-  And   I click on Klarna as payment method
-  When  I click on Review and Place Order
-  And   I click on Terms and conditions checkBox
-  Then  I click on Place Order Button
+  @checkout @guest @klarna @smoke @regression @TC_001
+  Scenario: As a brand new guest user, ensure user able to checkout the HE OMD Innoval Product with Klarna monthly installment
+    Given I enter OMD Klarna enabled product Code into search edit box from GNB
+    When  I click on search icon from GNB
+    Then  I will verify OMD Klarna enabled product displays in search results page
+    When  I will enter zipCode for checking the delivery availability for OMD Klarna enabled Product
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Standard" shipment Method
+    When  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Klarna" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then  I Enter Klarna SSN Details
+    # confirmation page TODO
 
 
-
-  @checkout @klarna @smoke @regression
-  Scenario: As a brand new guest user, ensure user able to checkout HE OMD Innoval Product with monthly installment
-    Given I am at LG TV,Audio,Video Page
-    When  I click on TV Section Link
-    Then  I should navigate to OLED TV Page
-    And   I should see only OLED TVs in current page
-    Then  I will click on Add to Cart Button for Available OLED
-    And   I should navigate to Zip Code Entry Page
-    And   I should see only OLED which is selected in zip Code Entry Page
-    Then  I will check for availability in area using zipcode
-    And   I will click on proceed Button
-    Then  I will navigate to Cart Page
-    And   I should able to see the price, product code which is selected
-    And   I should able to see the Need help section at the bottom
-    When  I click on secure checkout Button
-    Then  I should navigate to Sign In Page
-    When  I click on continue as guest
-    Then  I should navigate to Contact Information Page
-    And   I will enter contact Information details
-    When  I click on Save and Continue Button
-    And   I click on Use This Address Button
-    Then  I should navigate to shipping page
-    And   I click on continue payment Button
-    Then  I should navigate to payment page
-    And   I click on Klarna as payment method
-    When  I click on Review and Place Order
-    And   I click on Terms and conditions checkBox
-    Then  I click on Place Order Button
-
-  
-  
-
+  @checkout @guest @klarna @smoke @regression @TC_003
+  Scenario: As a brand new guest user, ensure user able to checkout HE OMD Innoval Product with financing
+    Given I enter OMD Klarna enabled product Code into search edit box from GNB
+    When  I click on search icon from GNB
+    Then  I will verify OMD Klarna enabled product displays in search results page
+    When  I will enter zipCode for checking the delivery availability for OMD Klarna enabled Product
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Standard" shipment Method
+    When  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Klarna" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then  I Enter Klarna SSN Details
+    # confirmation page TODO 
