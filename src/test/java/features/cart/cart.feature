@@ -33,7 +33,8 @@ Feature: Cart Page
     And   I should be able to see Estimated Price and Order Total
     And   I should be able to see Estimated Tax Price
     Then  I should able see Hawaii estimated tax less than New York estimated tax
-    
+
+
   @checkout @cart @smoke @regression @TC_009
   Scenario: As a guest user, ensure system allow you to add Items from Recommended based on your cart after adding HA OMD product
     Given I enter OMD HA Innovel product Code into search edit box from GNB
@@ -56,4 +57,11 @@ Feature: Cart Page
     Then  I will verify OMD HA Innovel product displays in search results page
     And   I click on Add to Cart Button under Accessories
     Then  I click on Remove Item Button
-   
+
+  @checkout @cart @smoke @regression @TC_024
+  Scenario: As a guest user , ensure that Add accessories button is displayed for the product
+    Given I enter OMD HA Innovel product Code into search edit box from GNB
+    When  I click on search icon from GNB
+    Then  I will verify OMD HA Innovel product displays in search results page
+    And   I click on Add to Cart Button under Accessories
+    Then  I click on Remove Item Button

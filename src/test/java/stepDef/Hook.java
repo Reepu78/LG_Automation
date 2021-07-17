@@ -73,8 +73,7 @@ public class Hook extends Setup {
         } catch (Exception e){
             System.out.println(e + "failed to take screenshot");
         }
-         // driver.close();
-          //driver.quit();
+        driver.quit();
         logger.info("Test Ended");
     }
 

@@ -56,7 +56,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
 
-  @checkout @cc @smoke @regression @TC_005
+  @checkout @cc @smoke @regression @TC_005 @NOT_DONE
   Scenario: [Visa] As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
     Given I enter OMD HE Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
@@ -73,6 +73,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then  I will enter Card Details
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    # CREATE AN ACCOUNT AFTER PLACING ORDER - TODO
 
   @checkout @cc @smoke @regression @TC_010
   Scenario: [MC] As a guest user, checkout OMD product with an accessory

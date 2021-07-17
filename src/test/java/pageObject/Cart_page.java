@@ -151,7 +151,7 @@ public class Cart_page extends Setup {
         }
         else if(stateName.equalsIgnoreCase("HAWAII"))
         {
-        enterZipCode(GlobalTestData.GLOBAL_HU_ZIPCODE);
+        enterZipCode(GlobalTestData.GLOBAL_HI_ZIPCODE);
         String productArea = "";
         CART_CHECK_BUTTON.click();
         checkProductAvailable();
@@ -200,7 +200,7 @@ public class Cart_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE_MSG));
         Boolean isDisplayed = CART_PROMOCODE_MSG.isDisplayed();
         if (!isDisplayed) {
-            Assert.fail("Promocode is not Applied");
+            Assert.fail("Promo code is not Applied");
         }
     }
 
@@ -208,12 +208,12 @@ public class Cart_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(CART_REMOVE_PROMOCODE_MSG));
         Boolean isDisplayed = CART_REMOVE_PROMOCODE_MSG.isDisplayed();
         if (!isDisplayed) {
-            Assert.fail("Promocode is not removed");
+            Assert.fail("Promo code is not removed");
         }
     }
 
     public Boolean checkProductAvailable() throws InterruptedException {
-        // wait.until(ExpectedConditions.visibilityOf(CART_POSTALCODE_MESSAGE));
+        wait.until(ExpectedConditions.visibilityOf(CART_POSTALCODE_MESSAGE));
         Thread.sleep(2000);
         String postalCheck = CART_POSTALCODE_MESSAGE.getText().trim();
         Boolean value = true;
@@ -241,7 +241,7 @@ public class Cart_page extends Setup {
         }
     }
 
-    public void verifyProducDetails(String productCode, String productPrice) {
+    public void verifyProductDetails(String productCode, String productPrice) {
         String actualProductCode = CART_PRODUCTCODE.getText().trim();
         String actualProductPrice = CART_PRODUCTPRICE.getText().trim();
         Assert.assertEquals(actualProductCode, productCode);
