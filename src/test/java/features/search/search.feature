@@ -52,4 +52,4 @@ Feature: Search functionality
       | productName |
       | OLED        |
       | SMART TV    |
-      | 4K TV       |
+      | 4K SMART    |

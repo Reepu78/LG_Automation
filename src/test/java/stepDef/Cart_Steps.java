@@ -1,7 +1,5 @@
 package stepDef;
 
-import java.text.ParseException;
-
 import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.en.And;
@@ -12,7 +10,6 @@ import pageObject.Search_page;
 
 public class Cart_Steps extends Setup {
 	Cart_page Cart = new Cart_page(driver);
-	Search_page searchPage = new Search_page(driver);
 	public static String initialPrice = "";
 	public String qty = "";
 	public String tax1 = "";
@@ -77,7 +74,7 @@ public class Cart_Steps extends Setup {
 	@Then("I will verify product is added into Cart Page")
 	public void iWillSeeProductWillBeAddedIntoCartPage() {
 		Cart.verifyCartPage();
-		Cart.verifyProducDetails(Cart.productCode[0], Cart_Steps.initialPrice);
+		Cart.verifyProductDetails(Cart.productCode[0], Cart_Steps.initialPrice);
 		Cart.verifyHelpSection();
 	}
 

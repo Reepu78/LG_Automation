@@ -83,10 +83,10 @@ public class Checkout_Paypal_page extends Setup {
             zipcode = GlobalTestData.GLOBAL_TX_ZIPCODE;
         }
         else if (Cart_page.productArea.contains("HU")) {
-            address1 = GlobalTestData.GLOBAL_HU_ADDRESS1;
-            city = GlobalTestData.GLOBAL_HU_CITY;
-            state = GlobalTestData.GLOBAL_HU_STATE;
-            zipcode = GlobalTestData.GLOBAL_HU_ZIPCODE;
+            address1 = GlobalTestData.GLOBAL_HI_ADDRESS1;
+            city = GlobalTestData.GLOBAL_HI_CITY;
+            state = GlobalTestData.GLOBAL_HI_STATE;
+            zipcode = GlobalTestData.GLOBAL_HI_ZIPCODE;
         }
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
