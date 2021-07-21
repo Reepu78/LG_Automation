@@ -85,7 +85,7 @@ Feature: Checkout Flow using PayPal Payment Method
 
 
   @checkout @paypal @smoke @regression @TC_022
-  Scenario: As a brand new guest, ensure user able to checkout OMD non innovel  product with promotion code using PayPal
+  Scenario: As a brand new guest, ensure user able to checkout OMD non innovel product with promotion code using PayPal
     Given I enter OMD HE Non Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMD HE Non Innovel product displays in search results page

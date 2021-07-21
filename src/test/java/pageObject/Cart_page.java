@@ -2,11 +2,7 @@ package pageObject;
 
 import base.GlobalTestData;
 import base.Setup;
-import stepDef.Cart_Steps;
-
-import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -17,12 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.time.Duration;
-import java.util.List;
-import java.util.Locale;
 
 public class Cart_page extends Setup {
 
@@ -30,7 +21,6 @@ public class Cart_page extends Setup {
         PageFactory.initElements(driver, this);
     }
 
-    Faker faker = new Faker();
     public static String productArea;
     public static String[] productCode = new String[5];
 
@@ -57,8 +47,8 @@ public class Cart_page extends Setup {
     public WebElement CART_CHECK_BUTTON;
     @FindBy(how = How.XPATH, using = "//div[contains(@data-bind,'message')]/div")
     public WebElement CART_POSTALCODE_MESSAGE;
-    @FindBy(how = How.XPATH, using = "//button[@type='submit']")
-    public WebElement CART_PROCEED_BUTTON;
+    @FindBy(how = How.XPATH, using = "//div[@id='postalcode-validation']/div/div[@class='actions']/div/button/span[text()='Proceed']")
+    public WebElement CART_PROCEED_BUTTON_AFTER_POSTAL_CODE_VERIFY;
     @FindBy(how = How.XPATH, using = "//div[contains(@class,'sku')]")
     public WebElement CART_PRODUCTCODE;
     @FindBy(how = How.XPATH, using = "//span[contains(@class,'cart-price')]/span")
@@ -91,10 +81,34 @@ public class Cart_page extends Setup {
     public WebElement CART_REMOVE_ITEM_BUTTON;
     @FindBy(how = How.XPATH, using = "//div[text()='Your ZIP code qualifies for delivery']")
     public WebElement CART_ZIP_CODE_MSG;
-    
+    @FindBy(how = How.CSS, using = "dl.item-options")
+    public WebElement DELIVERY_FREQUENCY_LIST;
+    @FindBy(how = How.ID, using = "sbilling_period")
+    public WebElement DELIVERY_FREQUENCY;
+
+
+    public void enterDeliveryFrequency(String deliveryFrequency){
+        DELIVERY_FREQUENCY_LIST.click();
+        Select d = new Select (DELIVERY_FREQUENCY);
+        d.selectByVisibleText(deliveryFrequency);
+    }
+    public void acceptAlert() throws InterruptedException {
+        Alert al = driver.switchTo().alert();
+        al.accept();
+        Thread.sleep(1000);
+    }
+    public void verifySixMonthsDeliveryFrequencyIsSelected(){
+        Select select = new Select (DELIVERY_FREQUENCY);
+        WebElement option = select.getFirstSelectedOption();
+        String actualDeliveryFrequency = option.getText();
+        System.out.println(actualDeliveryFrequency);
+        String expDeliveryFrequency = "6 months";
+        Assert.assertEquals(actualDeliveryFrequency, expDeliveryFrequency);
+    }
+
     public void verifyZipCodePage() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE_PAGE));
-        Boolean isDisplayed = CART_ZIPCODE_PAGE.isDisplayed();
+        boolean isDisplayed = CART_ZIPCODE_PAGE.isDisplayed();
         if (isDisplayed) {
             String actualTitle = CART_ZIPCODE_PAGE.getText().trim();
             String expectedTitle = "ZIP Code Entry";
@@ -106,7 +120,7 @@ public class Cart_page extends Setup {
 
     public void verifySelectedProduct(String expectedCode) {
         wait.until(ExpectedConditions.elementToBeClickable(CART_PRODUCT_CODE));
-        Boolean isDisplayed = CART_PRODUCT_CODE.isDisplayed();
+        boolean isDisplayed = CART_PRODUCT_CODE.isDisplayed();
         if (isDisplayed) {
             String actualCode = CART_PRODUCT_CODE.getText().trim();
             Assert.assertEquals(actualCode, expectedCode);
@@ -216,22 +230,21 @@ public class Cart_page extends Setup {
         wait.until(ExpectedConditions.visibilityOf(CART_POSTALCODE_MESSAGE));
         Thread.sleep(2000);
         String postalCheck = CART_POSTALCODE_MESSAGE.getText().trim();
-        Boolean value = true;
+        boolean value = true;
         if (postalCheck.contains("This product is not available to ship to your ZIP code")) {
             value = false;
         }
         return value;
     }
 
-    public void clickProceedButton() throws InterruptedException {
-        wait.until(ExpectedConditions.elementToBeClickable(CART_PROCEED_BUTTON));
-        CART_PROCEED_BUTTON.click();
-        Thread.sleep(1000);
+    public void clickProceedButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(CART_PROCEED_BUTTON_AFTER_POSTAL_CODE_VERIFY));
+        CART_PROCEED_BUTTON_AFTER_POSTAL_CODE_VERIFY.click();
     }
 
     public void verifyCartPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE_PAGE));
-        Boolean isDisplayed = CART_ZIPCODE_PAGE.isDisplayed();
+        boolean isDisplayed = CART_ZIPCODE_PAGE.isDisplayed();
         if (isDisplayed) {
             String actualTitle = CART_ZIPCODE_PAGE.getText().trim();
             String expectedTitle = "Your Cart";
@@ -250,7 +263,7 @@ public class Cart_page extends Setup {
 
     public void verifyHelpSection() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_NEED_HELP_SECTION));
-        Boolean isDisplayed = CART_NEED_HELP_SECTION.isDisplayed();
+        boolean isDisplayed = CART_NEED_HELP_SECTION.isDisplayed();
         if (isDisplayed) {
             Assert.assertTrue(true);
         } else {

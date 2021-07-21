@@ -7,7 +7,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
 import pageObject.Signup_page;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 
 public class Signup_steps extends Setup {
@@ -38,6 +42,13 @@ public class Signup_steps extends Setup {
         SIGNUP.viewCalender();
         SIGNUP.selectYear("2004");
         SIGNUP.selectCurrentDate();
+    }
+
+    @And("I fill out the sign up form with existing email")
+    public void iFillOutTheSignUpFormWithExistingEmail() throws InterruptedException, AWTException {
+        // Enter Existing email
+        SIGNUP.enterEmailInSignUpPage(GlobalTestData.GLOBAL_EXISTING_CUSTOMER_EMAIL);
+        SIGNUP.clickOnPasswordEditBoxInSignUpPage();
     }
 
     @And("I agree with Privacy Policy")
@@ -245,8 +256,8 @@ public class Signup_steps extends Setup {
         SIGNUP.generateRandomMailUsing_emailFake();
     }
 
-    @And("I fill out the sign up form newly created email info")
-    public void iFillOutTheSignUpFormNewlyCreatedEmailInfo() throws InterruptedException {
+    @And("I fill out the sign up form using newly created email info")
+    public void iFillOutTheSignUpFormUsingNewlyCreatedEmailInfo() throws InterruptedException {
         // Enter fake email address
         SIGNUP.enterEmailInSignUpPage(GlobalTestData.GLOBAL_CUSTOMER_BRAND_NEW_EMAIL);
         // Enter password
@@ -268,4 +279,8 @@ public class Signup_steps extends Setup {
         SIGNUP.activateAccount_emailFake();
     }
 
+    @Then("I will see an alert with message saying Your Email already exists")
+    public void iWillSeeAnAlertWithMessageSayingYourEmailAlreadyExists() {
+        SIGNUP.emailAlreadyExist();
+    }
 }

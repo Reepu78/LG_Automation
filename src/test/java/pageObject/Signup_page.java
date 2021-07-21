@@ -2,10 +2,7 @@ package pageObject;
 
 import base.GlobalTestData;
 import base.Setup;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -16,6 +13,8 @@ import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Signup_page extends Setup {
@@ -73,6 +72,9 @@ public class Signup_page extends Setup {
     public WebElement SIGN_UP_COMPLETE_TITLE_TEXT;
     @FindBy(how = How.XPATH, using = "//div[@id='lgContents']/div/div/div/div")
     public WebElement SIGN_UP_COMPLETE_CONFIRMATION_TEXT;
+    @FindBy(how = How.XPATH, using = "//div[@id='modal-duplicate-user']/div/div/div/div/p")
+    public WebElement SIGN_UP_EMAIL_ALREADY_EXIST_MODAL;
+
 
     public void clickOnSignUpNowButtonFromSignUpPage() {
         SIGN_UP_NOW_BUTTON.click();
@@ -86,6 +88,10 @@ public class Signup_page extends Setup {
 
     public void enterPasswordInSignUpPage(String password) {
         SIGN_UP_PASSWORD_TXT_BOX.sendKeys(password);
+    }
+
+    public void clickOnPasswordEditBoxInSignUpPage(){
+        SIGN_UP_PASSWORD_TXT_BOX.click();
     }
 
     public void enterConfirmPasswordInSignUpPage(String password) {
@@ -250,5 +256,13 @@ public class Signup_page extends Setup {
         }
     }
 
+    public void emailAlreadyExist() {
+        Set<String> handles= driver.getWindowHandles();
+        driver.switchTo().window(handles.iterator().next());
+        String exp = "Your Email already exists.";
+        String act = SIGN_UP_EMAIL_ALREADY_EXIST_MODAL.getText();
+        System.out.println(act);
+        Assert.assertEquals(act, exp);
+       }
 
 }

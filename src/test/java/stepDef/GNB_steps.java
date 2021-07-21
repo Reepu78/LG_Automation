@@ -38,8 +38,10 @@ public class GNB_steps extends Setup {
         GNB.clickOnMyAccountIconFromGNB();
         GNB.clickSignInSignUpLinkFromGNB();
     }
-    
-   
 
 
+    @Given("I am at shop page")
+    public void iAmAtShopPage() throws InterruptedException {
+        GNB.clickOnCartIcon();
+    }
 }

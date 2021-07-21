@@ -56,7 +56,8 @@ public class Hook extends Setup {
                 GlobalTestData.MASTER_CVV = "123";
                 GlobalTestData.AMEX_CARD_NO = "371100001000131";
                 GlobalTestData.AMEX_EXP_NO = "05/23";
-                GlobalTestData.AMEX_CVV = "1234";              
+                GlobalTestData.AMEX_CVV = "1234";
+                GlobalTestData.GLOBAL_EXISTING_CUSTOMER_EMAIL = "hasanyc@hotmail.com";
                 break;
         }
         driver.get(url);
@@ -65,16 +66,14 @@ public class Hook extends Setup {
 
     @After
     public void tearDown(Scenario scenario){
-        try{
-            if (scenario.isFailed()){
+        try {
+            if (scenario.isFailed()) {
                 final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(screenshot, "image/png", scenario.getName());
             }
-        } catch (Exception e){
-            System.out.println(e + "failed to take screenshot");
+        } finally {
+            //driver.quit();
+            logger.info("Test Ended");
         }
-        driver.quit();
-        logger.info("Test Ended");
     }
-
 }

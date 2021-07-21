@@ -37,15 +37,31 @@ public class Search_page extends Setup {
 	public List<WebElement> ATC_ADD_TO_CART_BUTTON;
 	@FindBy(how = How.XPATH, using = "//a[@class='ga-model-detail']")
 	public List<WebElement> ATC_PRODUCT_NAME;
+	@FindBy(how = How.XPATH, using = "//h2/strong")
+	public WebElement SEARCH_WE_ARE_SORRY_MSG;
+	@FindBy(how = How.ID, using = "search-keyword")
+	public WebElement SEARCH_INPUT_FROM_SEARCH_RESULTS_PAGE;
+	@FindBy(how = How.XPATH, using = "//*[@id=\"search_for\"]/div/input")
+	public WebElement SEARCH_ICON_FROM_SEARCH_RESULTS_PAGE;
 
 	public void enterAnItemToSearchFromGNB(String searchMe) {
 		SEARCH_EDIT_BOX.clear();
 		SEARCH_EDIT_BOX.sendKeys(searchMe);
 	}
 
+	public void searchForItemFromSearchResultsPage(String searchMe) {
+		SEARCH_INPUT_FROM_SEARCH_RESULTS_PAGE.clear();
+		SEARCH_INPUT_FROM_SEARCH_RESULTS_PAGE.sendKeys(searchMe);
+	}
+
+	public void clickSearchIconFromSearchResultsPage() throws InterruptedException {
+		SEARCH_ICON_FROM_SEARCH_RESULTS_PAGE.click();
+		Thread.sleep(500);
+	}
+
 	public void clickSearchIconFromGNB() throws InterruptedException {
 		SEARCH_ICON_CLICK.click();
-		Thread.sleep(1500);
+		Thread.sleep(1000);
 	}
 
 	public void verifySearchedItemFromSearchResultPage(String modelId) {
@@ -55,6 +71,11 @@ public class Search_page extends Setup {
 		String actSku = SEARCH_FIRST_SKU.getText();
 		String expSku = modelId;
 		Assert.assertEquals(actSku, expSku);
+	}
+	public void verifyWeAreSorryMessageInSearchResultsPage() {
+		String act = SEARCH_WE_ARE_SORRY_MSG.getText();
+		String exp = "We are sorry, your search did not return any results on our site.";
+		Assert.assertEquals(act, exp);
 	}
 
 	// Clicks on Add to Cart Button based on Product Code

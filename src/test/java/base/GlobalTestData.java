@@ -4,6 +4,7 @@ public class GlobalTestData {
     public static String GLOBAL_CUSTOMER_FIRST_NAME;
     public static String GLOBAL_CUSTOMER_LAST_NAME;
     public static String GLOBAL_CUSTOMER_EMAIL;
+    public static String GLOBAL_EXISTING_CUSTOMER_EMAIL;
     public static String GLOBAL_CUSTOMER_PASSWORD = "Test$1234";
     public static String GLOBAL_CUSTOMER_DIFFERENT_PASSWORD = "QA12345";
     public static String GLOBAL_CUSTOMER_BRAND_NEW_EMAIL;

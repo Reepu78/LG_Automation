@@ -25,9 +25,39 @@ public class Search_steps extends Setup {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Subscription);
     }
 
+    @Given("I enter OMV subscription product Code into search edit box from Search Results Page")
+    public void searchForSubscriptionProductFromSearchResultsPage() {
+        SEARCH.searchForItemFromSearchResultsPage(GlobalTestData.OMV_Subscription);
+    }
+
+    @Given("I enter OMV non subscription product Code into search edit box from Search Results Page")
+    public void searchForNonSubscriptionProductFromSearchResultsPage() {
+        SEARCH.searchForItemFromSearchResultsPage(GlobalTestData.OMV_Non_Subscription);
+    }
+
+    @Given("I enter OMD HE Innovel product Code into search edit box from Search Results Page")
+    public void searchForInnovelProductFromSearchResultsPage() {
+        SEARCH.searchForItemFromSearchResultsPage(GlobalTestData.OMD_HE_Non_Innovel);
+    }
+
+    @Given("I enter OMD HA Non Innovel product Code into search edit box from Search Results Page")
+    public void searchForOmdHaNonInnovelProductFromSearchResultsPage() {
+        SEARCH.searchForItemFromSearchResultsPage(GlobalTestData.OMD_HA_Non_Innovel);
+    }
+
     @Given("I enter OMV Non subscription product Code into search edit box from GNB")
     public void iEnterForOMVNonSubscriptionProductCodeIntoSearchEditBoxFromGNB() {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Non_Subscription);
+    }
+
+    @Given("I enter invalid wording into search edit box from GNB")
+    public void enterInvalidValueToSearch() {
+        SEARCH.enterAnItemToSearchFromGNB("Asfdadfasdfasdf");
+    }
+
+    @Given("I enter special characters into search edit box from GNB")
+    public void enterSpecialCharactersToSearch() {
+        SEARCH.enterAnItemToSearchFromGNB("%^$&*!@#[]{}*()+-.");
     }
     
     @Given("I enter OMD HE Innovel product Code into search edit box from GNB")
@@ -59,7 +89,12 @@ public class Search_steps extends Setup {
     public void iWillVerifyOMVNonSubscriptionProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMV_Non_Subscription);
     }
-    
+
+    @Then("I will verify We Are Sorry error message")
+    public void iWillVerifyWeAreSorryErrorMessage() {
+        SEARCH.verifyWeAreSorryMessageInSearchResultsPage();
+    }
+
     @Then("I will verify OMD HE Innovel product displays in search results page")
     public void iWillVerifyOMDHESubscriptionProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMD_HE_Innovel);
@@ -115,6 +150,10 @@ public class Search_steps extends Setup {
     public void iWillVerifyListOfOledTvInMySearchResultsPage(String productName) throws ParseException, InterruptedException {
     	SEARCH.verifyProductName(productName);
     }
-    
-    
+
+
+    @When("I click on search icon from search results page")
+    public void iClickOnSearchIconFromSearchResultsPage() throws InterruptedException {
+        SEARCH.clickSearchIconFromSearchResultsPage();
+    }
 }

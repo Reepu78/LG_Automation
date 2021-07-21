@@ -134,7 +134,7 @@ public class PLP_page extends Setup {
 	}
 
 	// Selects the subscription for the product
-	public void selectSubscription(String subscriptionFrequency) throws ParseException, InterruptedException {
+	public void selectSubscription(String subscriptionFrequency) {
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_SUBSCRIPTION_TITLE));
 		wait.until(ExpectedConditions.elementToBeClickable(
 				driver.findElement(By.xpath("//input[contains(@id,'" + subscriptionFrequency + "')]"))));

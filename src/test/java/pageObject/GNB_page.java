@@ -33,6 +33,8 @@ public class GNB_page extends Setup {
     public WebElement GNB_TV_SECTION;
     @FindBy(how = How.LINK_TEXT, using = "OLED TVs")
     public WebElement GNB_OLED;
+    @FindBy(how = How.XPATH, using = "//div[@class='cart']/a[@data-link-name='cart']")
+    public WebElement GNB_CART_ICON;
 
 
     public void clickOnMyAccountIconFromGNB() {
@@ -53,6 +55,12 @@ public class GNB_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(GNB_OLED));
         GNB_OLED.click();
         Thread.sleep(1000);
+    }
+
+    public void clickOnCartIcon() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(GNB_CART_ICON));
+        GNB_CART_ICON.click();
+        Thread.sleep(500);
     }
 
 }
