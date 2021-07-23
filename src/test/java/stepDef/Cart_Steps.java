@@ -3,12 +3,19 @@ package stepDef;
 import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObject.Cart_page;
+import pageObject.PLP_page;
+import pageObject.Search_page;
+
+import java.text.ParseException;
 
 public class Cart_Steps extends Setup {
 	Cart_page CART = new Cart_page(driver);
+	Search_page SEARCH = new Search_page(driver);
+	PLP_page PLP = new PLP_page(driver);
 	public static String initialPrice = "";
 	public String qty = "";
 	public String tax1 = "";
@@ -52,7 +59,7 @@ public class Cart_Steps extends Setup {
 		CART.verifyZipCodePage();
 		CART.verifySelectedProduct(GlobalTestData.OMD_HA_Innovel);
 		CART.productArea = CART.validateEnterZipCode();
-		Thread.sleep(500);
+		//Thread.sleep(100);
 		CART.clickProceedButton();
 	}
 
@@ -139,7 +146,6 @@ public class Cart_Steps extends Setup {
 		} else {
 			tax2 = CART.getEstimatedTax();
 		}
-
 	}
 	
 	@Then("I should able see Hawaii estimated tax less than New York estimated tax")
@@ -176,5 +182,37 @@ public class Cart_Steps extends Setup {
 	@Then("I should see the updated Delivery Frequency date is reflected")
 	public void iShouldSeeTheUpdatedDeliveryFrequencyDateIsReflected() {
 		CART.verifySixMonthsDeliveryFrequencyIsSelected();
+	}
+	@Given("I enter OMV subscription product Code into search edit box from GNB")
+	public void iSearchForOMVSubscriptionProductFromGNB() {
+		SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Subscription);
+	}
+
+	@And("I add OMV Non Subscription Product into cart")
+	public void iWillAddOMVNonSubscriptionProductIntoCart() throws InterruptedException, ParseException {
+		SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Non_Subscription);
+		SEARCH.clickSearchIconFromGNB();
+		SEARCH.addCartProduct(GlobalTestData.OMV_Non_Subscription);
+		SEARCH.clickViewCartButtonFromModal();
+	}
+
+	@Then("^I add OMV Subscription product into cart with frequency of \"([^\"]*)\"$")
+	public void iAddOMVSubscriptionProductIntoCart(String frequency) throws InterruptedException, ParseException {
+		SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Subscription);
+		SEARCH.clickSearchIconFromGNB();
+		SEARCH.addCartProduct(GlobalTestData.OMV_Subscription);
+		CART.productCode[0]=GlobalTestData.OMV_Subscription;
+		PLP.selectSubscription(frequency);
+		PLP.clickProceedButton();
+	}
+
+	@And("^I will have \"([^\"]*)\" items in cart$")
+	public void iWillHaveTwoItemsInCart(String itemCounts) throws InterruptedException {
+		CART.verifyItemCountsInCartPage(itemCounts);
+	}
+
+	@When("I removed first item from the cart list")
+	public void iRemovedFirstItemFromTheCartList() throws InterruptedException {
+		CART.clickRemoveItemLink();
 	}
 }

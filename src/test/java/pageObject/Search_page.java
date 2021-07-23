@@ -41,8 +41,11 @@ public class Search_page extends Setup {
 	public WebElement SEARCH_WE_ARE_SORRY_MSG;
 	@FindBy(how = How.ID, using = "search-keyword")
 	public WebElement SEARCH_INPUT_FROM_SEARCH_RESULTS_PAGE;
-	@FindBy(how = How.XPATH, using = "//*[@id=\"search_for\"]/div/input")
+	@FindBy(how = How.XPATH, using = "//*[@id='search_for']/div/input")
 	public WebElement SEARCH_ICON_FROM_SEARCH_RESULTS_PAGE;
+	@FindBy(how = How.XPATH, using = "//a[contains(text(),'VIEW CART')]")
+	public WebElement SEARCH_VIEW_CART_FROM_MODAL;
+
 
 	public void enterAnItemToSearchFromGNB(String searchMe) {
 		SEARCH_EDIT_BOX.clear();
@@ -91,7 +94,7 @@ public class Search_page extends Setup {
 	}
 
 	// Verifies the List of Product Name
-	public void verifyProductName(String productCode) throws ParseException, InterruptedException {
+	public void verifyProductName(String productCode){
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_PRODUCT_NAME.get(0)));
 		int size = ATC_PRODUCT_NAME.size();
 		for (int i = 0; i < size; i++) {
@@ -100,5 +103,10 @@ public class Search_page extends Setup {
 				Assert.fail("Displayed product is not " + productCode + " :" + productName);
 			}
 		}
+	}
+
+	// Click view cart button from pop up modal
+	public void clickViewCartButtonFromModal(){
+		SEARCH_VIEW_CART_FROM_MODAL.click();
 	}
 }

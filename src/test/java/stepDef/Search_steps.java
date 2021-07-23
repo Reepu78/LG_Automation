@@ -13,16 +13,11 @@ import pageObject.Search_page;
 
 public class Search_steps extends Setup {
     Search_page SEARCH = new Search_page(driver);
-    Cart_page Cart = new Cart_page(driver);
+    Cart_page CART = new Cart_page(driver);
 
     @When("I click on search icon from GNB")
     public void iClickOnSearchIconFromGNB() throws InterruptedException {
         SEARCH.clickSearchIconFromGNB();
-    }
-
-    @Given("I enter OMV subscription product Code into search edit box from GNB")
-    public void iSearchForOMVSubscriptionProductFromGNB() {
-        SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Subscription);
     }
 
     @Given("I enter OMV subscription product Code into search edit box from Search Results Page")
@@ -126,18 +121,18 @@ public class Search_steps extends Setup {
     }
 
     @Given("I search for OLED TV")
-    public void iSearchForOledTv() {
+    public void iSearchForOLEDTv() {
         SEARCH.enterAnItemToSearchFromGNB("oled tv");
     }
    
     @Then("^I will click on add to cart Button from Search Results Page for \"([^\"]*)\"$")
-	public void IwillclickonAddToCartPage(String productSubscription) throws ParseException, InterruptedException {
+	public void iWillClickOnAddToCartPage(String productSubscription) throws ParseException, InterruptedException {
 	 if(productSubscription.equalsIgnoreCase("OMV_Subscription")) {
      SEARCH.addCartProduct(GlobalTestData.OMV_Subscription);
-	 Cart.productCode[0]=GlobalTestData.OMV_Subscription;
+	 CART.productCode[0]=GlobalTestData.OMV_Subscription;
 	 } else if(productSubscription.equalsIgnoreCase("OMD_HE_Innovel")) {
 	 SEARCH.addCartProduct(GlobalTestData.OMD_HE_Innovel);
-	 Cart.productCode[0]=GlobalTestData.OMD_HE_Innovel;
+	 CART.productCode[0]=GlobalTestData.OMD_HE_Innovel;
 	 }
  }
     

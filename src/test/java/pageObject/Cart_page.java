@@ -47,7 +47,7 @@ public class Cart_page extends Setup {
     public WebElement CART_CHECK_BUTTON;
     @FindBy(how = How.XPATH, using = "//div[contains(@data-bind,'message')]/div")
     public WebElement CART_POSTALCODE_MESSAGE;
-    @FindBy(how = How.XPATH, using = "//div[@id='postalcode-validation']/div/div[@class='actions']/div/button/span[text()='Proceed']")
+    @FindBy(how = How.XPATH, using = "//button[@type='submit']")
     public WebElement CART_PROCEED_BUTTON_AFTER_POSTAL_CODE_VERIFY;
     @FindBy(how = How.XPATH, using = "//div[contains(@class,'sku')]")
     public WebElement CART_PRODUCTCODE;
@@ -79,12 +79,16 @@ public class Cart_page extends Setup {
     public WebElement CART_ACCESSORIES_ADD_CART;
     @FindBy(how = How.XPATH, using = "//span[text()='Remove Item']/parent::a[1]")
     public WebElement CART_REMOVE_ITEM_BUTTON;
+    @FindBy(how = How.XPATH, using = "//*/text()[normalize-space(.)='Remove item']/parent::*")
+    public WebElement CART_REMOVE_ITEM_LINK;
     @FindBy(how = How.XPATH, using = "//div[text()='Your ZIP code qualifies for delivery']")
     public WebElement CART_ZIP_CODE_MSG;
     @FindBy(how = How.CSS, using = "dl.item-options")
     public WebElement DELIVERY_FREQUENCY_LIST;
     @FindBy(how = How.ID, using = "sbilling_period")
     public WebElement DELIVERY_FREQUENCY;
+    @FindBy(how = How.XPATH, using = "//span/span[2]")
+    public WebElement totalItemsInCart;
 
 
     public void enterDeliveryFrequency(String deliveryFrequency){
@@ -238,7 +242,7 @@ public class Cart_page extends Setup {
     }
 
     public void clickProceedButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(CART_PROCEED_BUTTON_AFTER_POSTAL_CODE_VERIFY));
+        //wait.until(ExpectedConditions.elementToBeClickable(CART_PROCEED_BUTTON_AFTER_POSTAL_CODE_VERIFY));
         CART_PROCEED_BUTTON_AFTER_POSTAL_CODE_VERIFY.click();
     }
 
@@ -283,7 +287,7 @@ public class Cart_page extends Setup {
 
     public void verifySignInPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_SIGNIN_TITLE));
-        Boolean isDisplayed = CART_SIGNIN_TITLE.isDisplayed();
+        boolean isDisplayed = CART_SIGNIN_TITLE.isDisplayed();
         if (isDisplayed) {
             String actualTitle = CART_SIGNIN_TITLE.getText().trim();
             String expectedTitle = "Sign in";
@@ -353,7 +357,7 @@ public class Cart_page extends Setup {
 
     public void verifyEstimatedTax() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ESTIMATED_PRICE));
-        Boolean isDisplayed = CART_ESTIMATED_PRICE.isDisplayed();
+        boolean isDisplayed = CART_ESTIMATED_PRICE.isDisplayed();
         if (!isDisplayed) {
             Assert.fail("Estimated Price is not displayed");
         }
@@ -361,14 +365,13 @@ public class Cart_page extends Setup {
     
     public String getEstimatedTax() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ESTIMATED_PRICE));
-        Boolean isDisplayed = CART_ESTIMATED_PRICE.isDisplayed();
+        boolean isDisplayed = CART_ESTIMATED_PRICE.isDisplayed();
         return CART_ESTIMATED_PRICE.getText().trim();
     }
     
-    public Boolean compareEstimatedTax(String tax1,String tax2)
-    {
+    public boolean compareEstimatedTax(String tax1,String tax2) {
     	//Fetching the Value of Tax1
-    	Boolean value = false;
+    	boolean value = false;
         char[] a = tax1.toCharArray();
         StringBuffer str = new StringBuffer();
         for (Character ch : a) {
@@ -406,7 +409,7 @@ public class Cart_page extends Setup {
 
     public void verifyTotalTax() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_TOTAL_PRICE));
-        Boolean isDisplayed = CART_TOTAL_PRICE.isDisplayed();
+        boolean isDisplayed = CART_TOTAL_PRICE.isDisplayed();
         if (!isDisplayed) {
             Assert.fail("Total Price is not displayed");
         }
@@ -424,8 +427,23 @@ public class Cart_page extends Setup {
 
     public void clickRemoveItem() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_REMOVE_ITEM_BUTTON));
-        Thread.sleep(4000);
+        Thread.sleep(3000);
         jsClick(CART_REMOVE_ITEM_BUTTON);
     }
+    public void clickRemoveItemLink() throws InterruptedException {
+        wait.until(ExpectedConditions.elementToBeClickable(CART_REMOVE_ITEM_LINK));
+        jsClick(CART_REMOVE_ITEM_LINK);
+        Thread.sleep(3000);
+    }
+
+    public void verifyItemCountsInCartPage(String itemCounts) throws InterruptedException {
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.visibilityOf(totalItemsInCart));
+        String act = totalItemsInCart.getText();
+        System.out.println("total counts in cart is ==>" + act);
+        String exp = itemCounts;
+        Assert.assertEquals(act, exp);
+    }
+
 
 }

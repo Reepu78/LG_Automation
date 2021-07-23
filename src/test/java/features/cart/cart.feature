@@ -31,7 +31,7 @@ Feature: Cart Page
     Then  I should able to see the updated price as per quantity
 
   @checkout @cart @smoke @regression @TC_003
-  Scenario: As a guest user ensure you able to verify Estimated Tax for Hawaii using OMV non subscription product
+  Scenario: As a guest user ensure you able to verify Estimated Tax for Hawaii using OMV subscription product
     Given I enter OMV subscription product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMV Subscription product displays in search results page
@@ -47,12 +47,20 @@ Feature: Cart Page
     And   I should be able to see Estimated Tax Price
     Then  I should able see Hawaii estimated tax less than New York estimated tax
 
-  @checkout @cart @smoke @regression @TC_004
+  @checkout @cart @smoke @regression @TC_004 @notDONE
   Scenario: As a guest user ensure user able to remove item from cart after adding an OMD HE Product
     Given I enter OMD HA Innovel product Code into search edit box from GNB
     And  I click on search icon from GNB
     And  I will verify OMD HA Innovel product displays in search results page
     And  I will enter zipCode for checking the delivery availability for OMD HA Innovel Product
+
+  @checkout @cart @smoke @regression @TC_005
+  Scenario: As a guest user ensure user able to add two OMV Items and remove one of them
+    Given I add OMV Subscription product into cart with frequency of "3months"
+    And  I add OMV Non Subscription Product into cart
+    And I will have "2" items in cart
+    When I removed first item from the cart list
+    Then I will have "1" items in cart
 
   @checkout @cart @smoke @regression @TC_009
   Scenario: As a guest user ensure system allow you to add Items from Recommended based on your cart after adding HA OMD product
