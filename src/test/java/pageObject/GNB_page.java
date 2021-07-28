@@ -4,6 +4,7 @@ import base.Setup;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class GNB_page extends Setup {
 
@@ -35,8 +38,107 @@ public class GNB_page extends Setup {
     public WebElement GNB_OLED;
     @FindBy(how = How.XPATH, using = "//div[@class='cart']/a[@data-link-name='cart']")
     public WebElement GNB_CART_ICON;
+    // new for GNB Test
+    @FindBy(how = How.XPATH, using = "//*[@id='lgContents']/section/div/div/div/h1")
+    public WebElement GNB_LANDING_PAGE_TITLE;
+    @FindBy(how = How.XPATH, using = "//*[@id='lgContents']/section[1]/div[2]/div/h1")
+    public WebElement GNB_SUPPORT_LANDING_PAGE_TITLE;
+    @FindBy(how = How.LINK_TEXT, using = "MOBILE")
+    public WebElement GNB_MOBILE_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "TV / AUDIO / VIDEO")
+    public WebElement GNB_TV_AUDIO_VIDEO_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "KITCHEN")
+    public WebElement GNB_KITCHEN_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "LAUNDRY")
+    public WebElement GNB_LAUNDRY_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "OTHER APPLIANCES")
+    public WebElement GNB_OTHER_APPLIANCES_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "COMPUTERS")
+    public WebElement GNB_COMPUTERS_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "SOLAR")
+    public WebElement GNB_SOLAR_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "SMALL BUSINESS")
+    public WebElement GNB_SMALL_BUSINESS_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "SUPPORT")
+    public WebElement GNB_SUPPORT_LINK;
 
 
+    // NEW
+    public void clickMobileLinkFromGNB(){
+        GNB_MOBILE_LINK.click();
+    }
+    public void clickTV_AUDIO_VideoLinkFromGNB(){
+        GNB_TV_AUDIO_VIDEO_LINK.click();
+    }
+    public void clickKitchenLinkFromGNB(){
+        GNB_KITCHEN_LINK.click();
+    }
+    public void clickLaundryLinkFromGNB(){
+        GNB_LAUNDRY_LINK.click();
+    }
+    public void clickOtherAppliancesLinkFromGNB(){
+        GNB_OTHER_APPLIANCES_LINK.click();
+    }
+    public void clickComputersLinkFromGNB(){
+        GNB_COMPUTERS_LINK.click();
+    }
+    public void clickSolarLinkFromGNB(){
+        GNB_SOLAR_LINK.click();
+    }
+    public void clickSmallBusinessLinkFromGNB(){
+        GNB_SMALL_BUSINESS_LINK.click();
+    }
+    public void clickSupportLinkFromGNB(){
+        GNB_SUPPORT_LINK.click();
+    }
+
+    public void verifyMobileLandingPage(){
+        String actual = GNB_LANDING_PAGE_TITLE.getText();
+        String expected = "Mobile";
+        Assert.assertEquals(actual, expected);
+    }
+    public void verifyTV_AUDIO_VIDEOLandingPage(){
+        String actual = GNB_LANDING_PAGE_TITLE.getText();
+        String expected = "TV / AUDIO / VIDEO";
+        Assert.assertEquals(actual, expected);
+    }
+    public void verifyKitchenLandingPage(){
+        String actual = GNB_LANDING_PAGE_TITLE.getText();
+        String expected = "Kitchen Appliances";
+        Assert.assertEquals(actual, expected);
+    }
+    public void verifyLaundryLandingPage(){
+        String actual = GNB_LANDING_PAGE_TITLE.getText();
+        String expected = "Laundry";
+        Assert.assertEquals(actual, expected);
+    }
+    public void verifyOtherAppliancesLandingPage(){
+        String actual = GNB_LANDING_PAGE_TITLE.getText();
+        String expected = "Other Appliances";
+        Assert.assertEquals(actual, expected);
+    }
+    public void verifyComputersLandingPage(){
+        String actual = GNB_LANDING_PAGE_TITLE.getText();
+        String expected = "Computers";
+        Assert.assertEquals(actual, expected);
+    }
+    public void verifySolarLandingPage(){
+        String actual = GNB_LANDING_PAGE_TITLE.getText();
+        String expected = "Solar Panels and Installation";
+        Assert.assertEquals(actual, expected);
+    }
+    public void verifySmallBusinessLandingPage(){
+        String actual = GNB_LANDING_PAGE_TITLE.getText();
+        String expected = "Small Business Solutions";
+        Assert.assertEquals(actual, expected);
+    }
+    public void verifySupportLandingPage(){
+        String actual = GNB_SUPPORT_LANDING_PAGE_TITLE.getText();
+        String expected = "Support";
+        Assert.assertEquals(actual, expected);
+    }
+
+    // OLD
     public void clickOnMyAccountIconFromGNB() {
         GNB_MY_ACCOUNT_ICON_LINK.click();
     }
