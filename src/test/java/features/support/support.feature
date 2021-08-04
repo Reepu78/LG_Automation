@@ -8,7 +8,7 @@ Feature: Signup to LG.com
 
   @signup @smoke @regression @TC_001 @TestRun1
   Scenario: Verify user should be able verify their account from their email after successfully sign up
-    Given I click "SUPPORT" on Home Page
+    Given I click on SUPPORT link from GNB
     When I search "OLED" using the search textbox
     And I select Product Category as "TV/Audio/Video" and "TVs" and click Submit
     And I click on Register a product for first Result product

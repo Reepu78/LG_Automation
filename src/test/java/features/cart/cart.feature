@@ -3,7 +3,7 @@ Feature: Cart Page
   Background:
     Given I am at LG Home Page
 
-  @checkout @cart @smoke @regression @TC_001
+  @checkout @cart @smoke @regression @TC_001 @test
   Scenario: As a guest user ensure you able to Edit billing period for OMV subscription product
     Given I enter OMV subscription product Code into search edit box from GNB
     When I click on search icon from GNB
