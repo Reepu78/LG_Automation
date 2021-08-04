@@ -1,5 +1,6 @@
 package stepDef;
 
+import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.en.And;
@@ -12,6 +13,8 @@ import pageObject.Search_page;
 
 import java.text.ParseException;
 
+import org.testng.Assert;
+
 public class Cart_Steps extends Setup {
 	Cart_page CART = new Cart_page(driver);
 	Search_page SEARCH = new Search_page(driver);
@@ -20,6 +23,8 @@ public class Cart_Steps extends Setup {
 	public String qty = "";
 	public String tax1 = "";
 	public String tax2 = "";
+	public static String[] priceBreakdown;
+	public static String firstAccessory="";
 
 	@SuppressWarnings("static-access")
 	@When("I enter zipCode to check the delivery availability")
@@ -215,4 +220,104 @@ public class Cart_Steps extends Setup {
 	public void iRemovedFirstItemFromTheCartList() throws InterruptedException {
 		CART.clickRemoveItemLink();
 	}
+	
+	
+	@When("I Verify {string} item is added to the cart")
+	public void clickAddToCartButton(String noOfItems) throws InterruptedException {
+		CART.validateItemAddedToCart(noOfItems);
+
+	}
+	
+	@And("I Click on {string} link/button")
+	public void removeItem(String linkName) throws InterruptedException {
+		CART.click(linkName);
+	}
+	
+	@Then("Your cart is Empty messge should display along with SEE ALL DEALS button")
+	public void yourCartIsEmptyMessageshouldbeDisplayed() {
+		CART.verifyEmptyCartMessage();
+	}
+	
+	@And("I Select Subscription as {string}")
+	public void selectSubscriptionype(String subscriptionType) throws InterruptedException {
+		CART.click(subscriptionType);
+	}
+	
+	@And("I Input zipcode on price breakdown section and veirfy estimated tax is calculated")
+	public void inputZIPCodeinPriceBreakdown() throws InterruptedException {
+		priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(CART.productArea);
+	}
+	
+	@And("I Input zipcode {string} on price breakdown section and veirfy estimated tax is calculated")
+	public void inputZIPCodeVerifyPriceBreakdown(String zip) throws InterruptedException {
+		priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(zip);
+	}
+	
+	
+	@Then("I verify Order summay section price break down is correct")
+	public void verifyPriceBreakdown() {
+		Assert.assertEquals(CART.CART_PRODUCTPRICE.getText(), CART.CART_AMOUNTS.get(0).getText());
+	}
+	
+	@When("I Enter Promocode {string} under Promo Edit box")
+	public void enterPromocode(String promocode) {
+		CART.enterPromoCode(promocode);
+	}
+
+	@Then("I Should see a validation message saying You used promotion code {string} and Discount and Total price should reflect")
+	public void verifyPromocode(String promo) {
+		CART.validateApplyPromocode(promo);
+	}
+	
+	@Then("I verify {string} is displayed")
+	public void verifyPromoCancelled(String message) {
+		CART.validateCancelPromocode(message);
+		
+	}
+	
+	@Then("I verify {string} is not displayed")
+	public void verifyElementNotDisplayed(String text) throws InterruptedException {
+		Thread.sleep(2000);
+		Assert.assertTrue(GenericFunctions.verifyElementIsNotDisplayedByText(text));
+		
+	}
+	
+	@And("I Enter an invalid zip code {string} under Shipping zip code Field")
+	public void enterInvalidShippingZipCode(String zip) {
+		CART.enterZipCode(zip);
+		
+	}
+	
+	@SuppressWarnings("static-access")
+	@When("I enter zipCode to check the delivery availability for {string} product")
+	public void iEnterZipCodeToCheckTheDeliveryAvailabilityfor(String product) throws InterruptedException {
+		CART.verifyZipCodePage();
+		CART.verifySelectedProduct(GenericFunctions.getData(product));
+		CART.productArea = CART.validateEnterZipCode();
+		CART.clickProceedButton();
+	}
+	
+	@And("I Click on {string} button for the first Accessory")
+	public void recordFirstAccessoryAndAddToCart(String linkName) throws InterruptedException {
+		firstAccessory= CART.readFirstAccessory();
+		CART.click("AddAccessoryToCart");
+	}
+	
+	@And("I verify the Accesory added to cart is still displayed")
+	public void verifyAccessoryisDisplayed() throws InterruptedException {
+		String accessory = CART.readFirstAccessory();
+		firstAccessory= CART.readFirstAccessory();
+		Assert.assertEquals(accessory, firstAccessory);
+	}
+	
+	@Then("I verify Price Breakdown Order Summary section on cart page")
+	public void verifyOrderSummaryPriceBreakdown() throws InterruptedException {
+		CART.verifyPriceBreakdown();
+	}
+	
+	@When("I update product quantity to {string}")
+	public void updateProductQuantity(String qty) throws InterruptedException {
+		CART.updateProductQuantity(qty);
+	}
+	
 }

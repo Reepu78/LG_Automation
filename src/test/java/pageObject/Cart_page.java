@@ -1,8 +1,16 @@
 package pageObject;
 
-import base.GlobalTestData;
-import base.Setup;
-import org.openqa.selenium.*;
+import static org.testng.Assert.assertEquals;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -13,7 +21,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import java.time.Duration;
+
+import base.GenericFunctions;
+import base.GlobalTestData;
+import base.Setup;
 
 public class Cart_page extends Setup {
 
@@ -51,7 +62,7 @@ public class Cart_page extends Setup {
     public WebElement CART_PROCEED_BUTTON_AFTER_POSTAL_CODE_VERIFY;
     @FindBy(how = How.XPATH, using = "//div[contains(@class,'sku')]")
     public WebElement CART_PRODUCTCODE;
-    @FindBy(how = How.XPATH, using = "//span[contains(@class,'cart-price')]/span")
+	@FindBy(how = How.XPATH, using = "(//span[contains(@class,'cart-price')]/span)[1]")
     public WebElement CART_PRODUCTPRICE;
     @FindBy(how = How.XPATH, using = "//h3[contains(text(),'Need Help')]")
     public WebElement CART_NEED_HELP_SECTION;
@@ -61,7 +72,7 @@ public class Cart_page extends Setup {
     public WebElement CART_SIGNIN_TITLE;
     @FindBy(how = How.XPATH, using = "//a[text()='Continue as guest']")
     public WebElement CART_CONTINUE_AS_GUEST;
-    @FindBy(how = How.XPATH, using = "//a[text()='Add to Cart']")
+	@FindBy(how = How.XPATH, using = "(//a[text()='Add to Cart'])[1]")
     public WebElement CART_ADD_TO_CART;
     @FindBy(how = How.XPATH, using = "//a[text()='PROCEED TO CHECKOUT']")
     public WebElement CART_PROCEED_TO_CHECKOUT;
@@ -89,7 +100,38 @@ public class Cart_page extends Setup {
     public WebElement DELIVERY_FREQUENCY;
     @FindBy(how = How.XPATH, using = "//span/span[2]")
     public WebElement totalItemsInCart;
-
+	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Discount')]")
+	public WebElement CART_DISCOUNT;
+	@FindBy(how = How.CSS, using = "td.amount")
+	public List<WebElement> CART_AMOUNTS;
+	@FindBy(how = How.XPATH, using = "(//span[contains(text(),'Remove item')]//parent::a)[1]")
+	public WebElement CART_REMOVE_ITEM;
+	@FindBy(how = How.XPATH, using = "(//*[@data-link-name='cart'])[1]")
+	public WebElement CART_ICON;
+	@FindBy(how = How.XPATH, using = "//*[text()='VIEW CART']")
+	public WebElement VIEW_CART;
+	@FindBy(how = How.XPATH, using = "//*[text()='Item(s) in cart:']//following-sibling::span")
+	public WebElement ITEMS_IN_CART;
+	@FindBy(how = How.XPATH, using = "(//*[@title='Remove item'])[1]")
+	public WebElement REMOVE_ITEM;
+	@FindBy(how = How.XPATH, using = "//h4")
+	public WebElement MESSAGE;
+	@FindBy(how = How.XPATH, using = "(//a[contains(text(),'PROCEED TO CART')])")
+	public WebElement PROCEED_TO_CART;
+	@FindBy(how = How.XPATH, using = "//input[@value='one-time']")
+	public WebElement Single_Purchase_Radio;
+	@FindBy(how = How.XPATH, using = "(//*[@data-role='closeBtn'])[4]")
+	public WebElement CLOSE_ADD_ACCESSORIES_MODAL;
+	@FindBy(how = How.XPATH, using = "(//*[@class=\"accessories-container\"])//a[@class='product-item-link']")
+	public WebElement FIRST_ACCESSORY;
+	@FindBy(how = How.XPATH, using = "(//*[@class=\"accessories-container\"])//*[text()='Add to Cart']")
+	public WebElement ADD_ACCESSORY_TO_CART;
+	@FindBy(how = How.CSS, using = "SPAN.price-excluding-tax")
+	public WebElement FIST_ITEM_PRICE;
+	@FindBy(how = How.XPATH, using = "(//*[@class='amount'])[1]")
+	public WebElement SUBTOTAL;
+	@FindBy(how = How.XPATH, using = "(//*[@title=\"Qty\"])[1]")
+	public WebElement FIRST_ITEM_QTY;
 
     public void enterDeliveryFrequency(String deliveryFrequency){
         DELIVERY_FREQUENCY_LIST.click();
@@ -133,35 +175,24 @@ public class Cart_page extends Setup {
         }
     }
 
-    public String validateEnterZipCode() throws InterruptedException {
-        wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
-        enterZipCode(GlobalTestData.GLOBAL_NY_ZIPCODE);
-        String productArea = "";
-        CART_CHECK_BUTTON.click();
-        Boolean isAvailable = checkProductAvailable();
-        if (!isAvailable) {
-            enterZipCode(GlobalTestData.GLOBAL_TX_ZIPCODE);
-            CART_CHECK_BUTTON.click();
-            isAvailable = checkProductAvailable();
-            if (!isAvailable) {
-                enterZipCode(GlobalTestData.GLOBAL_CA_ZIPCODE);
-                CART_CHECK_BUTTON.click();
-                productArea = "GLOBAL_CA";
-            } else {
-                productArea = "GLOBAL_TX";
-            }
-        } else {
-            productArea = "GLOBAL_NY";
-        }
-        return productArea;
-    }
+	/*
+	 * public String validateEnterZipCode() throws InterruptedException {
+	 * wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
+	 * enterZipCode(GlobalTestData.GLOBAL_NY_ZIPCODE); String productArea = "";
+	 * CART_CHECK_BUTTON.click(); Boolean isAvailable = checkProductAvailable(); if
+	 * (!isAvailable) { enterZipCode(GlobalTestData.GLOBAL_TX_ZIPCODE);
+	 * CART_CHECK_BUTTON.click(); isAvailable = checkProductAvailable(); if
+	 * (!isAvailable) { enterZipCode(GlobalTestData.GLOBAL_CA_ZIPCODE);
+	 * CART_CHECK_BUTTON.click(); productArea = "GLOBAL_CA"; } else { productArea =
+	 * "GLOBAL_TX"; } } else { productArea = "GLOBAL_NY"; } return productArea; }
+	 */
     
     @SuppressWarnings("unused")
 	public String validateEnterZipCode(String stateName) throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
         if(stateName.equalsIgnoreCase("NewYork"))
         {
-        enterZipCode(GlobalTestData.GLOBAL_NY_ZIPCODE);
+        enterZipCode(GlobalTestData.ZIPCODES.get("NY"));
         String productArea = "";
         CART_CHECK_BUTTON.click();
         checkProductAvailable();
@@ -169,7 +200,7 @@ public class Cart_page extends Setup {
         }
         else if(stateName.equalsIgnoreCase("HAWAII"))
         {
-        enterZipCode(GlobalTestData.GLOBAL_HI_ZIPCODE);
+        enterZipCode(GlobalTestData.ZIPCODES.get("HI"));
         String productArea = "";
         CART_CHECK_BUTTON.click();
         checkProductAvailable();
@@ -231,14 +262,15 @@ public class Cart_page extends Setup {
     }
 
     public Boolean checkProductAvailable() throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(CART_POSTALCODE_MESSAGE));
-        Thread.sleep(2000);
-        String postalCheck = CART_POSTALCODE_MESSAGE.getText().trim();
-        boolean value = true;
-        if (postalCheck.contains("This product is not available to ship to your ZIP code")) {
-            value = false;
-        }
-        return value;
+    	try {
+			if (CART_POSTALCODE_MESSAGE.isDisplayed()) {
+				return false;
+			} else {
+				return true;
+			}
+		} catch (Exception e) {
+			return true;
+		}
     }
 
     public void clickProceedButton() {
@@ -320,20 +352,20 @@ public class Cart_page extends Setup {
 
     public void verifyPrice(String price, String quantity) {
         char[] a = price.toCharArray();
-        StringBuffer str = new StringBuffer();
+        String str = "";
         for (Character ch : a) {
             if (Character.isDigit(ch) || ch == '.') {
-                str.append(ch);
+            	str=str+Character.toString(ch);
             }
         }
         String priceValue = str.toString();
         double expectedPrice = (Double.parseDouble(priceValue)) * (Double.parseDouble(quantity));
         expectedPrice = Math.round(expectedPrice * 100D) / 100D;
         char[] splitPrice = getPrice().toCharArray();
-        StringBuffer str1 = new StringBuffer();
+        String str1 = "";
         for (Character ch1 : splitPrice) {
             if (Character.isDigit(ch1) || ch1 == '.') {
-                str1.append(ch1);
+                str1=str1+Character.toString(ch1);
             }
         }
         String spltPrice = str1.toString();
@@ -373,10 +405,12 @@ public class Cart_page extends Setup {
     	//Fetching the Value of Tax1
     	boolean value = false;
         char[] a = tax1.toCharArray();
-        StringBuffer str = new StringBuffer();
+        //StringBuffer str = new StringBuffer();
+        String str = "";
         for (Character ch : a) {
             if (Character.isDigit(ch) || ch == '.') {
-                str.append(ch);
+            	 str=str+Character.toString(ch);
+            	//str.append(ch);
             }
         }
         String priceValue1 = str.toString();
@@ -384,10 +418,12 @@ public class Cart_page extends Setup {
         
       //Fetching the Value of Tax2
         char[] b = tax2.toCharArray();
-        StringBuffer str1 = new StringBuffer();
+        //StringBuffer str1 = new StringBuffer();
+        String str1="";
         for (Character ch1 : b) {
             if (Character.isDigit(ch1) || ch1 == '.') {
-            	str1.append(ch1);
+            	//str1.append(ch1);
+            	 str1=str1+Character.toString(ch1);
             }
         }
         String priceValue2 = str1.toString();
@@ -444,6 +480,136 @@ public class Cart_page extends Setup {
         String exp = itemCounts;
         Assert.assertEquals(act, exp);
     }
+    
+    
+    public String validateEnterZipCode() throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
+		String productArea = "";
+		for (String state : GlobalTestData.GLOBAL_STATES_INSEARCHORDER) {
+			enterZipCode(GlobalTestData.ZIPCODES.get(state));
+			CART_CHECK_BUTTON.click();
+			Thread.sleep(1000);
+			Boolean isAvailable = checkProductAvailable();
+			if (isAvailable) {
+				productArea = state;
+				break;
+			}
+		}
+		return productArea;
+	}
+	
+	
+	public String[] inputZipcodeVerifyPriceBreakdown(String zip) throws InterruptedException {
+		String[] priceBreakDown = { "", "", "", "" };
+		enterZipCode(GlobalTestData.ZIPCODES.get(zip));
+		CART_CHECK_BUTTON.click();
+		Thread.sleep(5000);
+		String estimatedTax = getEstimatedTax();
+		Assert.assertEquals(CART_PRODUCTPRICE.getText(), CART_AMOUNTS.get(0).getText());
+		Assert.assertNotEquals(estimatedTax, "--");
+		
+		int i = 0;
+		for (WebElement el : CART_AMOUNTS) {
+			priceBreakDown[i] = el.getText();
+			i++;
+		}
+		return priceBreakDown;
+	}
+	
 
+	
+
+	public void click(String linkName) throws InterruptedException {
+		switch (linkName) {
+		case "Remove Item":
+			GenericFunctions.jsClick(REMOVE_ITEM);
+			break;
+		case "Add to cart":
+			GenericFunctions.jsClick(CART_ADD_TO_CART);
+			break;
+		case "Proceed to Cart":
+			GenericFunctions.jsClick(PROCEED_TO_CART);
+			break;
+    	case "Single Purchase":
+    		GenericFunctions.jsClick(Single_Purchase_Radio);
+    		break;
+    	case "View cart":
+    		GenericFunctions.jsClick(VIEW_CART);
+    		break;
+    	case "Close Add Accessories":
+    		GenericFunctions.jsClick(CLOSE_ADD_ACCESSORIES_MODAL);
+    		break;
+    	case "AddAccessoryToCart":
+    		GenericFunctions.jsClick(ADD_ACCESSORY_TO_CART);
+    		break;
+    	case "Add Accessories":
+    		Thread.sleep(5000);
+    		GenericFunctions.jsClick(driver.findElement(By.xpath("(//*[text()= '"+linkName+"'])[1]")));
+    		break;
+    	default:
+    		GenericFunctions.jsClick(driver.findElement(By.xpath("(//*[text()= '"+linkName+"'])[1]")));
+			break;
+		}
+
+	}
+
+	public void verifyEmptyCartMessage() {
+		Assert.assertEquals(MESSAGE.getText().trim(), "Your cart is empty");
+	}
+	
+	
+	public void validateApplyPromocode(String promo) {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE_MSG));
+		WebElement message = driver.findElement(By.xpath("//div[contains(text(),'You used promotion code \""+promo+"\"')]"));
+		Boolean isDisplayed = CART_PROMOCODE_MSG.isDisplayed();
+		if (!isDisplayed) {
+			Assert.fail("Promo code is not Applied");
+		}
+		Assert.assertTrue(CART_DISCOUNT.isDisplayed());
+	}
+	
+	
+	public void validateCancelPromocode(String message) {
+		GenericFunctions.verifyElementByText(message);
+		Assert.assertTrue(GenericFunctions.verifyElementNotDisplayed(CART_DISCOUNT));
+	}
+	
+
+	public void clickCartIcon() {
+		wait.until(ExpectedConditions.elementToBeClickable(CART_ICON));
+		CART_ICON.click();
+	}
+
+	public void clickViewCartButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(VIEW_CART));
+		VIEW_CART.click();
+	}
+
+	public void validateItemAddedToCart(String expectednoOfItems) throws InterruptedException {
+		wait.until(ExpectedConditions.visibilityOf(ITEMS_IN_CART));
+		Thread.sleep(2000);
+		String itemInCart = ITEMS_IN_CART.getText().trim();
+		Assert.assertEquals(itemInCart, expectednoOfItems);
+	}
+
+	
+	public void clickRemoveItemButton() {
+	  wait.until(ExpectedConditions.elementToBeClickable(REMOVE_ITEM));
+	  	REMOVE_ITEM.click(); 
+	  }
+
+	public String readFirstAccessory() {
+			wait.until(ExpectedConditions.visibilityOf(FIRST_ACCESSORY));
+		  	return FIRST_ACCESSORY.getText();
+		  }
+	
+	public void verifyPriceBreakdown() {
+		assertEquals(FIST_ITEM_PRICE.getText(), SUBTOTAL.getText());
+	}
+	
+	public void updateProductQuantity(String qty) {
+		Select quantity = new Select(FIRST_ITEM_QTY);
+		quantity.selectByValue(qty);
+	}
 
 }

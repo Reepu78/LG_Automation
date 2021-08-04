@@ -1,8 +1,12 @@
 package base;
 
+import java.util.Map;
+
 public class GlobalTestData {
     public static String GLOBAL_CUSTOMER_FIRST_NAME;
     public static String GLOBAL_CUSTOMER_LAST_NAME;
+    public static String GLOBAL_ALT_CUSTOMER_FIRST_NAME;
+    public static String GLOBAL_ALT_CUSTOMER_LAST_NAME;
     public static String GLOBAL_CUSTOMER_EMAIL;
     public static String GLOBAL_EXISTING_CUSTOMER_EMAIL;
     public static String GLOBAL_CUSTOMER_PASSWORD = "Test$1234";
@@ -13,28 +17,15 @@ public class GlobalTestData {
     public static String GLOBAL_CUSTOMER_PHONE_NUMBER = "(213) 621 0002";
     public static String GLOBAL_KLARNA_SSN_INPUT = "1111";
     public static String GLOBAL_KLARNA_SSN_DOB = "12/12/1990";
-
-    // CA
-    public static String GLOBAL_CA_ZIPCODE = "94111";
-    public static String GLOBAL_CA_ADDRESS1 = "52 California Street";
-    public static String GLOBAL_CA_CITY = "San Francisco";
-    public static String GLOBAL_CA_STATE = "CALIFORNIA";
-    // NY
-    public static String GLOBAL_NY_ZIPCODE = "11416";
-    public static String GLOBAL_NY_ADDRESS1 = "97-30 80TH STREET";
-    public static String GLOBAL_NY_CITY = "QUEENS";
-    public static String GLOBAL_NY_STATE = "NEW YORK";
-    // TX
-    public static String GLOBAL_TX_ZIPCODE = "75023";
-    public static String GLOBAL_TX_ADDRESS1 = "1104 Cherokee Trl";
-    public static String GLOBAL_TX_CITY = "PLANO";
-    public static String GLOBAL_TX_STATE = "TEXAS";
-    // HU
-    public static String GLOBAL_HI_ZIPCODE = "96816";
-    public static String GLOBAL_HI_ADDRESS1 = "1252 Arron Smith Drive";
-    public static String GLOBAL_HI_CITY = "HONOLULU";
-    public static String GLOBAL_HI_STATE = "HAWAII";
-
+    
+    public static String[] GLOBAL_STATES_INSEARCHORDER = {"NY", "NJ", "CA", "TX", "HI"};
+    public static Map<String, String> ZIPCODES = Map.of("NY","11416", "NJ", "08048", "CA", "94111", "TX", "75023", "HI", "96816");
+    public static Map<String, String> ADDRESS = Map.of("NY","97-30 80TH STREET", "NJ", "36 Amaryllis Ln", "CA", "52 California Street", "TX", "1104 Cherokee Trl", "HI", "1252 Arron Smith Drive");
+    public static Map<String, String> CITY = Map.of("NY","QUEENS", "NJ", "Lumberton", "CA", "San Francisco", "TX", "PLANO", "HI", "HONOLULU");
+    public static Map<String, String> STATE = Map.of("NY","NEW YORK", "NJ", "NEW JERSEY", "CA", "CALIFORNIA", "TX", "TEXAS", "HI", "HAWAII");
+    public static Map<String, String> ALTERNATE_ADDRESS = Map.of("NY","76-40 170th St", "NJ", "101 Stonebrook Dr", "CA", "511 1/2 Capp St", "TX", "920 Cross Bend Rd", "HI", "801 Kaheka St");
+    
+   
     // Product
     public static String OMV_Subscription;
     public static String OMV_Non_Subscription;
@@ -52,6 +43,9 @@ public class GlobalTestData {
     public static String AMEX_CARD_NO;
     public static String AMEX_EXP_NO;
     public static String AMEX_CVV;
+    public static String OMV_Non_Subscription_With_Accessories;
+    public static String HA_OMD_KLARNA;
+    public static String HE_OMD_KLARNA;
 
     //PromoCode
     public static String PROMO_CODE = "SPRINGS";

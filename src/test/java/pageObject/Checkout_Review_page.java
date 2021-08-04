@@ -1,5 +1,6 @@
 package pageObject;
 
+import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
 import com.github.javafaker.Faker;
@@ -10,6 +11,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.testng.Assert;
+
+import static org.testng.Assert.assertTrue;
 
 import java.time.Duration;
 
@@ -54,6 +58,34 @@ public class Checkout_Review_page extends Setup {
     public WebElement CHECKOUT_SUGGESTED_ADDRESS_SECTION;
     @FindBy(how = How.XPATH, using = "//span[text()='Continue to payment']")
     public WebElement CHECKOUT_CONTINUE_PAYMENT_BUTTON;
+    @FindBy(how = How.XPATH, using = "//h4[text()='Shipping Address']")
+    public WebElement SHIPPING_ADDRESS;
+    @FindBy(how = How.XPATH, using = "//h4[text()='Contact Information']")
+    public WebElement CONTACT_INFORMATION;
+    @FindBy(how = How.XPATH, using = "//h4[text()='Payment Method']")
+    public WebElement PAYMENT_METHOD;
+    @FindBy(how = How.XPATH, using = "//h4[text()='Billing Address']")
+    public WebElement BILLING_ADDRESS;
+    @FindBy(how = How.XPATH, using = "//h2[text()='Order Summary']")
+    public WebElement ORDER_SUMMARY;
+    @FindBy(how = How.ID, using = "shipping-address")
+    public WebElement SHIPPING_ADDRESS_VALUE;
+    @FindBy(how = How.CSS, using = "div.shipping-information-content")
+    public WebElement SHIPPING_INFORMATION_VALUE;
+    @FindBy(how = How.ID, using = "contact-information")
+    public WebElement CONTACT_INFORMATION_VALUE;
+    @FindBy(how = How.ID, using = "billing-information")
+    public WebElement PAYMENT_METHOD_VALUE;
+    @FindBy(how = How.ID, using = "billing-address")
+    public WebElement BILLING_ADDRESS_VALUE;
+    @FindBy(how = How.ID, using = "agreement_steps_19")
+    public WebElement SIGN_UP_OFFERS_CHECKBOX;
+    @FindBy(how = How.ID, using = "agreement_steps_5")
+    public WebElement TERMS_AND_CONDITIONS_CHECKBOX;
+    @FindBy(how = How.XPATH, using = "(//*[.='Place Order'])[2]")
+    public WebElement PLACE_ORDER;
+    
+    
 
     public void clickTermsConditionsFromReviewPage() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_TERMS_CONDITIONS_CHECKBOX));
@@ -76,22 +108,25 @@ public class Checkout_Review_page extends Setup {
         String city = null;
         String state = null;
         String zipcode = null;
-        if (productArea.contains("CA")) {
-            address1 = GlobalTestData.GLOBAL_CA_ADDRESS1;
-            city = GlobalTestData.GLOBAL_CA_CITY;
-            state = GlobalTestData.GLOBAL_CA_STATE;
-            zipcode = GlobalTestData.GLOBAL_CA_ZIPCODE;
-        } else if (productArea.contains("NY")) {
-            address1 = GlobalTestData.GLOBAL_NY_ADDRESS1;
-            city = GlobalTestData.GLOBAL_NY_CITY;
-            state = GlobalTestData.GLOBAL_NY_STATE;
-            zipcode = GlobalTestData.GLOBAL_NY_ZIPCODE;
-        } else if (productArea.contains("TX")) {
-            address1 = GlobalTestData.GLOBAL_TX_ADDRESS1;
-            city = GlobalTestData.GLOBAL_TX_CITY;
-            state = GlobalTestData.GLOBAL_TX_STATE;
-            zipcode = GlobalTestData.GLOBAL_TX_ZIPCODE;
+        
+        String key = "CA";
+        if (Cart_page.productArea.contains("CA")) {
+        	 key = "CA";
+        } else if (Cart_page.productArea.contains("NY")) {
+        	 key = "NY";
+        } else if (Cart_page.productArea.contains("TX")) {
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
         }
+        
+        address1 = GlobalTestData.ADDRESS.get(key);
+        city = GlobalTestData.CITY.get(key);
+        state = GlobalTestData.STATE.get(key);
+        zipcode = GlobalTestData.ZIPCODES.get(key);
+      
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
                 GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, zipcode);
@@ -110,6 +145,160 @@ public class Checkout_Review_page extends Setup {
         CHECKOUT_REGION_DROPDOWN.sendKeys(state);
         CHECKOUT_POSTCODE_INPUT.sendKeys(zipcode);
     }
+    
+    
 
+    public void verifyShippingAddress() {
+    	Assert.assertNotNull(SHIPPING_ADDRESS);
+    	String shippingAddress = SHIPPING_ADDRESS_VALUE.getText();
+    	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME.toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME.toUpperCase()));
+    	
+        if (Cart_page.productArea == null) {
+            Cart_page.productArea = "CA";
+        }
+        String key = "CA";
+        if (Cart_page.productArea.contains("CA")) {
+        	 key = "CA";
+        } else if (Cart_page.productArea.contains("NY")) {
+        	 key = "NY";
+        } else if (Cart_page.productArea.contains("TX")) {
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
+        }
+        
+        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS.get(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY.get(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.STATE.get(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES.get(key).toUpperCase()));
+    }
+    
+    
+    public void verifyShippingInfo() {
+    	Assert.assertNotNull(SHIPPING_ADDRESS);
+    	String shippingAddress = SHIPPING_INFORMATION_VALUE.getText();
+    	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME.toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME.toUpperCase()));
+    	
+        if (Cart_page.productArea == null) {
+            Cart_page.productArea = "CA";
+        }
+        String key = "CA";
+        if (Cart_page.productArea.contains("CA")) {
+        	 key = "CA";
+        } else if (Cart_page.productArea.contains("NY")) {
+        	 key = "NY";
+        } else if (Cart_page.productArea.contains("TX")) {
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
+        }
+        
+        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS.get(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY.get(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.STATE.get(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES.get(key).toUpperCase()));
+    }
+    
+	public void verifyContactInformation() {
+		Assert.assertNotNull(CONTACT_INFORMATION);
+		String contactInfo = CONTACT_INFORMATION_VALUE.getText();
+		assertTrue(contactInfo.contains(GlobalTestData.GLOBAL_CUSTOMER_EMAIL));
+		String[] phone = GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER.split(" ");
+		String phno = phone[0]+" "+phone[1]+"-"+phone[2];
+		assertTrue(contactInfo.contains(phno));
+	}
+	public void verifyNewBillingAddress() {
+		Assert.assertNotNull(BILLING_ADDRESS);
+
+    	String shippingAddress = SHIPPING_ADDRESS_VALUE.getText();
+    	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME.toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME.toUpperCase()));
+    	
+        if (Cart_page.productArea == null) {
+            Cart_page.productArea = "CA";
+        }
+        String key = "CA";
+        if (Cart_page.productArea.contains("CA")) {
+        	 key = "CA";
+        } else if (Cart_page.productArea.contains("NY")) {
+        	 key = "NA";
+        } else if (Cart_page.productArea.contains("TX")) {
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
+        }
+        
+        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS.get(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY.get(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.STATE.get(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES.get(key).toUpperCase()));
+    
+	}
+	
+	
+	public void verifyUpdatedBillingAddress() {
+		Assert.assertNotNull(BILLING_ADDRESS);
+
+    	String shippingAddress = driver.findElement(By.cssSelector("div.shipping-information-content")).getText();
+    	
+        if (Cart_page.productArea == null) {
+            Cart_page.productArea = "CA";
+        }
+        String key = "CA";
+        if (Cart_page.productArea.contains("CA")) {
+        	 key = "CA";
+        } else if (Cart_page.productArea.contains("NY")) {
+        	 key = "NA";
+        } else if (Cart_page.productArea.contains("TX")) {
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
+        }
+        
+        assertTrue(shippingAddress.contains(GlobalTestData.ALTERNATE_ADDRESS.get(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY.get(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.STATE.get(key).toUpperCase()));
+    
+	}
+	
+	public void verifyPaymentMethod() {
+		Assert.assertNotNull(PAYMENT_METHOD);
+    	String Check = PAYMENT_METHOD.getText();
+    	assertTrue(Check.contains("Buy Now. Pay Later."));
+	}
+	public void verifyOrderSummarySection() {
+		Assert.assertNotNull(ORDER_SUMMARY);
+	}
+	
+	public void verifyCheckboxes() {
+		Assert.assertFalse(CHECKOUT_TERMS_CONDITIONS_CHECKBOX.isSelected());
+		Assert.assertTrue(SIGN_UP_OFFERS_CHECKBOX.isSelected());
+	}
+	
+	public void click(String linkName) throws InterruptedException {switch (linkName) {
+	case "I Agree":
+		GenericFunctions.jsClick(CHECKOUT_TERMS_CONDITIONS_CHECKBOX);
+		break;
+	case "Sign Me Up":
+		GenericFunctions.jsClick(SIGN_UP_OFFERS_CHECKBOX);
+		break;
+	case "Place Order":
+		GenericFunctions.jsClick(PLACE_ORDER);
+		break;
+	default:
+		GenericFunctions.jsClick(driver.findElement(By.xpath("(//*[text()= '"+linkName+"'])[1]")));
+		break;
+	}}
+	
 
 }

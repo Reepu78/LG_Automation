@@ -2,6 +2,7 @@ package stepDef;
 
 import java.text.ParseException;
 
+import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.en.Given;
@@ -133,6 +134,9 @@ public class Search_steps extends Setup {
 	 } else if(productSubscription.equalsIgnoreCase("OMD_HE_Innovel")) {
 	 SEARCH.addCartProduct(GlobalTestData.OMD_HE_Innovel);
 	 CART.productCode[0]=GlobalTestData.OMD_HE_Innovel;
+	 }else if(productSubscription.equalsIgnoreCase("OMV_Non_Subscription")) {
+		 SEARCH.addCartProduct(GlobalTestData.OMV_Non_Subscription);
+		 CART.productCode[0]=GlobalTestData.OMV_Non_Subscription;
 	 }
  }
     
@@ -151,4 +155,19 @@ public class Search_steps extends Setup {
     public void iClickOnSearchIconFromSearchResultsPage() throws InterruptedException {
         SEARCH.clickSearchIconFromSearchResultsPage();
     }
+    
+    
+    
+    @Given("I Find {string} product using search function")
+    public void iSearchItem(String item) throws InterruptedException {
+        SEARCH.enterAnItemToSearchFromGNB(GenericFunctions.getData(item));
+        SEARCH.clickSearchIconFromGNB();
+    }
+    
+    @Then("I will verify {string} product displays in search results page and navigate to PDP page")
+    public void verifyProductDisplayedOnResultsPage(String item) {
+    	SEARCH.verifySearchedItemFromSearchResultPage(GenericFunctions.getData(item));
+    	SEARCH.navigateToPDP(GenericFunctions.getData(item));
+ }
+   
 }

@@ -61,6 +61,46 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
+    
+  @checkout @paypal @smoke @regression @TC_003
+  Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
+    Given I enter OMV Non subscription product Code into search edit box from GNB
+    When  I click on search icon from GNB
+    Then  I will verify OMV Non Subscription product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMV_Non_Subscription"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Overnight" shipment Method
+    When  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Paypal" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+		#Paypal payment incomplete
+	
+  
+  @checkout @paypal @smoke @regression @TC_004 
+  Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
+    Given I enter OMV Non subscription product Code into search edit box from GNB
+    When  I click on search icon from GNB
+    Then  I will verify OMV Non Subscription product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMV_Non_Subscription"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Standard" shipment Method
+    When  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Paypal" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+	#Paypal payment incomplete
+
 
   @checkout @paypal @smoke @regression @TC_005
   Scenario: As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
@@ -103,4 +143,5 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
+    #Paypal payment incomplete
 

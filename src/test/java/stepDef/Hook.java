@@ -58,6 +58,9 @@ public class Hook extends Setup {
                 GlobalTestData.AMEX_EXP_NO = "05/23";
                 GlobalTestData.AMEX_CVV = "1234";
                 GlobalTestData.GLOBAL_EXISTING_CUSTOMER_EMAIL = "hasanyc@hotmail.com";
+                GlobalTestData.OMV_Non_Subscription_With_Accessories = "A927KGMS";
+                GlobalTestData.HA_OMD_KLARNA = "65NANO90UPA";
+                GlobalTestData.HE_OMD_KLARNA = "65NANO90UPA";
                 break;
         }
         driver.get(url);
@@ -72,7 +75,7 @@ public class Hook extends Setup {
                 scenario.attach(screenshot, "image/png", scenario.getName());
             }
         } finally {
-            //driver.quit();
+            driver.quit();
             logger.info("Test Ended");
         }
     }

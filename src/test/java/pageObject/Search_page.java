@@ -48,6 +48,7 @@ public class Search_page extends Setup {
 
 
 	public void enterAnItemToSearchFromGNB(String searchMe) {
+		wait.until(ExpectedConditions.elementToBeClickable(SEARCH_EDIT_BOX));
 		SEARCH_EDIT_BOX.clear();
 		SEARCH_EDIT_BOX.sendKeys(searchMe);
 	}
@@ -108,5 +109,10 @@ public class Search_page extends Setup {
 	// Click view cart button from pop up modal
 	public void clickViewCartButtonFromModal(){
 		SEARCH_VIEW_CART_FROM_MODAL.click();
+	}
+	
+	//Click on product link from search results 
+	public void navigateToPDP(String item) {
+		driver.findElement(By.xpath("(//*[@data-ga-modelname='"+item+"']//a)[1]")).click();	
 	}
 }

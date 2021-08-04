@@ -1,5 +1,6 @@
 package pageObject;
 
+import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
 import com.github.javafaker.Faker;
@@ -52,7 +53,25 @@ public class Checkout_Shipping_page extends Setup {
     public WebElement CHECKOUT_SUGGESTED_ADDRESS_SECTION;
     @FindBy(how = How.XPATH, using = "//span[text()='Continue to payment']")
     public WebElement CHECKOUT_CONTINUE_PAYMENT_BUTTON;
-
+    @FindBy(how = How.XPATH, using = "(//*[text()='Use a different billing address'])[2]")
+    public WebElement USE_DIFFERENT_BILLING_ADDRESS;
+    @FindBy(how = How.XPATH, using = "(//input[@name='firstname'])[2]")
+    public WebElement USE_DIFFERENT_FIRST_NAME_INPUT;
+    @FindBy(how = How.XPATH, using = "(//input[@name='lastname'])[2]")
+    public WebElement USE_DIFFERENT_LAST_NAME_INPUT;
+    @FindBy(how = How.XPATH, using = "(//span[text()='Address']/following::input[1])[2]")
+    public WebElement USE_DIFFERENT_ADDRESS_INPUT;
+    @FindBy(how = How.XPATH, using = "(//input[@name='city'])[2]")
+    public WebElement USE_DIFFERENT_CITY_INPUT;
+    @FindBy(how = How.XPATH, using = "(//select[@name='region_id'])[2]")
+    public WebElement USE_DIFFERENT_REGION_DROPDOWN;
+    @FindBy(how = How.XPATH, using = "(//input[@name='postcode'])[2]")
+    public WebElement USE_DIFFERENT_POSTCODE_INPUT;
+    @FindBy(how = How.XPATH, using = "(//*[text()='Review and Place Order'])[3]")
+    public WebElement REVIEW_AND_PLACE_ORDER;
+    @FindBy(how = How.XPATH, using = "//a[.='Return to Shipping']")
+    public WebElement RETURN_TO_SHIPPING;
+    
 
     public void verifyContactInfoPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTACT_INFO_TITLE.get(0)));
@@ -80,23 +99,23 @@ public class Checkout_Shipping_page extends Setup {
         if (Cart_page.productArea == null) {
             Cart_page.productArea = "CA";
         }
-
+        String key = "CA";
         if (Cart_page.productArea.contains("CA")) {
-            address1 = GlobalTestData.GLOBAL_CA_ADDRESS1;
-            city = GlobalTestData.GLOBAL_CA_CITY;
-            state = GlobalTestData.GLOBAL_CA_STATE;
-            zipcode = GlobalTestData.GLOBAL_CA_ZIPCODE;
+        	 key = "CA";
         } else if (Cart_page.productArea.contains("NY")) {
-            address1 = GlobalTestData.GLOBAL_NY_ADDRESS1;
-            city = GlobalTestData.GLOBAL_NY_CITY;
-            state = GlobalTestData.GLOBAL_NY_STATE;
-            zipcode = GlobalTestData.GLOBAL_NY_ZIPCODE;
+        	 key = "NY";
         } else if (Cart_page.productArea.contains("TX")) {
-            address1 = GlobalTestData.GLOBAL_TX_ADDRESS1;
-            city = GlobalTestData.GLOBAL_TX_CITY;
-            state = GlobalTestData.GLOBAL_TX_STATE;
-            zipcode = GlobalTestData.GLOBAL_TX_ZIPCODE;
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
         }
+        address1 = GlobalTestData.ADDRESS.get(key);
+        city = GlobalTestData.CITY.get(key);
+        state = GlobalTestData.STATE.get(key);
+        zipcode = GlobalTestData.ZIPCODES.get(key);
+        
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
                 GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, zipcode);
@@ -116,6 +135,25 @@ public class Checkout_Shipping_page extends Setup {
         CHECKOUT_POSTCODE_INPUT.clear();
         CHECKOUT_POSTCODE_INPUT.sendKeys(zipcode);
     }
+    
+    public void enterContactInformation(String address) {
+    	wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_EMAIL_INPUT));
+    	CHECKOUT_ADDRESS_INPUT.clear();
+    	CHECKOUT_ADDRESS_INPUT.sendKeys(address);
+    }
+    
+    
+    public void enterContactInformation( String firstName, String lastName, String address, String city, String state, String zipcode) {
+    	wait.until(ExpectedConditions.elementToBeClickable(USE_DIFFERENT_FIRST_NAME_INPUT));
+    	USE_DIFFERENT_FIRST_NAME_INPUT.sendKeys(firstName);
+    	USE_DIFFERENT_LAST_NAME_INPUT.sendKeys(lastName);
+    	USE_DIFFERENT_ADDRESS_INPUT.sendKeys(address);
+    	USE_DIFFERENT_CITY_INPUT.sendKeys(city);
+    	USE_DIFFERENT_REGION_DROPDOWN.click();
+    	USE_DIFFERENT_REGION_DROPDOWN.sendKeys(state);
+    	USE_DIFFERENT_POSTCODE_INPUT.clear();
+    	USE_DIFFERENT_POSTCODE_INPUT.sendKeys(zipcode);
+}
 
     public void clickSaveAndContinueButtonFromShippingPage() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_SAVE_BUTTON));
@@ -162,6 +200,83 @@ public class Checkout_Shipping_page extends Setup {
         driver.findElement(By.xpath("//div[contains(text(),'" + shippingMethod + "')]/parent::label")).click();
         Thread.sleep(1000);
     }
+    
+    public void click(String linkName) throws InterruptedException {
+		switch (linkName) {
+		case "Use a different billing address":
+			GenericFunctions.jsClick(USE_DIFFERENT_BILLING_ADDRESS);
+			break;
+		case "Review and Place Order":
+			GenericFunctions.jsClick(REVIEW_AND_PLACE_ORDER);
+			break;
+		case "Return to Shipping":
+			GenericFunctions.jsClick(RETURN_TO_SHIPPING);
+			break;
+    	default:
+    		GenericFunctions.jsClick(driver.findElement(By.xpath("(//*[text()= '"+linkName+"'])[1]")));
+			break;
+		}
 
+	}
+    
+    
+    public void enterNewAddressOnPaymentPage() throws InterruptedException {
+        GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME = faker.name().firstName();
+        GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME = faker.name().lastName();
+        String address1 = null;
+        String city = null;
+        String state = null;
+        String zipcode = null;
+        if (Cart_page.productArea == null) {
+            Cart_page.productArea = "CA";
+        }
+
+        String key = "CA";
+        if (Cart_page.productArea.contains("CA")) {
+        	 key = "CA";
+        } else if (Cart_page.productArea.contains("NY")) {
+        	 key = "NY";
+        } else if (Cart_page.productArea.contains("TX")) {
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
+        }
+        address1 = GlobalTestData.ALTERNATE_ADDRESS.get(key);
+        city = GlobalTestData.CITY.get(key);
+        state = GlobalTestData.STATE.get(key);
+        zipcode = GlobalTestData.ZIPCODES.get(key);
+        
+        
+        enterContactInformation( GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME,
+                GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME, address1, city, state, zipcode);
+    
+
+  	}
+    
+    
+    
+    public void update_shipping_info() {
+        String address1 = null;
+        if (Cart_page.productArea == null) {
+            Cart_page.productArea = "CA";
+        }
+        String key = "CA";
+        if (Cart_page.productArea.contains("CA")) {
+        	 key = "CA";
+        } else if (Cart_page.productArea.contains("NY")) {
+        	 key = "NY";
+        } else if (Cart_page.productArea.contains("TX")) {
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
+        }
+        address1 = GlobalTestData.ALTERNATE_ADDRESS.get(key);
+        
+        enterContactInformation(address1);
+    }
 
 }

@@ -66,28 +66,27 @@ public class Checkout_Paypal_page extends Setup {
         String city = null;
         String state = null;
         String zipcode = null;
+        
+        
+        String key = "CA";
         if (Cart_page.productArea.contains("CA")) {
-            address1 = GlobalTestData.GLOBAL_CA_ADDRESS1;
-            city = GlobalTestData.GLOBAL_CA_CITY;
-            state = GlobalTestData.GLOBAL_CA_STATE;
-            zipcode = GlobalTestData.GLOBAL_CA_ZIPCODE;
+        	 key = "CA";
         } else if (Cart_page.productArea.contains("NY")) {
-            address1 = GlobalTestData.GLOBAL_NY_ADDRESS1;
-            city = GlobalTestData.GLOBAL_NY_CITY;
-            state = GlobalTestData.GLOBAL_NY_STATE;
-            zipcode = GlobalTestData.GLOBAL_NY_ZIPCODE;
+        	 key = "NY";
         } else if (Cart_page.productArea.contains("TX")) {
-            address1 = GlobalTestData.GLOBAL_TX_ADDRESS1;
-            city = GlobalTestData.GLOBAL_TX_CITY;
-            state = GlobalTestData.GLOBAL_TX_STATE;
-            zipcode = GlobalTestData.GLOBAL_TX_ZIPCODE;
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
         }
-        else if (Cart_page.productArea.contains("HU")) {
-            address1 = GlobalTestData.GLOBAL_HI_ADDRESS1;
-            city = GlobalTestData.GLOBAL_HI_CITY;
-            state = GlobalTestData.GLOBAL_HI_STATE;
-            zipcode = GlobalTestData.GLOBAL_HI_ZIPCODE;
-        }
+        
+        address1 = GlobalTestData.ADDRESS.get(key);
+        city = GlobalTestData.CITY.get(key);
+        state = GlobalTestData.STATE.get(key);
+        zipcode = GlobalTestData.ZIPCODES.get(key);
+      
+       
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
                 GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, zipcode);

@@ -1,3 +1,7 @@
+# To fix code
+CTL+A
+CTL+ALT+L
+
 # lg-functional-ui-test
 Cucumber IO, Gherkin, Selenium WebDriver, Maven, TestNG, JVM Cucumber Report, GitLab and Java
 
