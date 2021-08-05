@@ -34,6 +34,14 @@ public class Product_Registration_page extends Setup {
 	public WebElement PRODUCT;
 	@FindBy(how = How.XPATH, using = "(//a[@class='chosen-single chosen-default'])[3]")
 	public WebElement PRODUCT_TYPE;
+	@FindBy(how = How.XPATH, using = "(//li[contains(text(), 'TV/Audio/Video')])[1]")
+	public WebElement CATEGORY_VALUE;
+	@FindBy(how = How.XPATH, using = "(//li[contains(text(), '15LC1RB.AUS')])[1]")
+	public WebElement MODAL_NUMBER_VALUE;
+	@FindBy(how = How.XPATH, using = "(//li[contains(text(), 'TVs')])[1]")
+	public WebElement PRODUCT_VALUE;
+	@FindBy(how = How.XPATH, using = "(//li[contains(text(), '39 Inch screen size and below')])[1]")
+	public WebElement PRODUCT_TYPE_VALUE;
 	@FindBy(how = How.XPATH, using = "(//a[@class='chosen-single'])[1]")
 	public WebElement MODEL_NUMBER;
 	@FindBy(how = How.XPATH, using = "//input[@id='serialNumber_1']")
@@ -60,7 +68,7 @@ public class Product_Registration_page extends Setup {
 	public WebElement ADDRESS;
 	@FindBy(how = How.XPATH, using = "//input[@id='City']")
 	public WebElement CITY;
-	@FindBy(how = How.XPATH, using = "(//a[@class='chosen-single'])[2]")
+	@FindBy(how = How.XPATH, using = "(//*[@title='Select the State Category'])[2]")
 	public WebElement STATE;
 	@FindBy(how = How.XPATH, using = "//input[@id='ZIPCode']")
 	public WebElement ZIP_CODE;
@@ -76,12 +84,16 @@ public class Product_Registration_page extends Setup {
 
 	public void enterProductInfo() throws InterruptedException {
 		GenericFunctions.jsClick(CATEGORY);
-		GenericFunctions.jsClick(driver.findElement(By.xpath("(//li[contains(text(), 'TV/Audio/Video')])[1]")));
-		GenericFunctions.jsClick(PRODUCT);
-		GenericFunctions.jsClick(driver.findElement(By.xpath("(//li[contains(text(), 'LGs')])[1]")));
-		Select prodType = new Select(PRODUCT_TYPE);
-		prodType.selectByIndex(1);
-		MODEL_NUMBER.sendKeys("ABCABC");
+		CATEGORY.click();
+		CATEGORY.click();
+		CATEGORY_VALUE.click();
+		CATEGORY.click();
+		PRODUCT_VALUE.click();
+		CATEGORY.click();
+		PRODUCT_TYPE_VALUE.click();
+		CATEGORY.click();
+		MODAL_NUMBER_VALUE.click();
+		SERIAL_NUMBER.sendKeys("ABC1233");
 		PLACE_OF_PURCHASE.sendKeys("NEW YORK");
 		PURCHASED_DATE.sendKeys("08/08/2019");
 		PURCHASE_PRICE.sendKeys("8856");
@@ -92,8 +104,9 @@ public class Product_Registration_page extends Setup {
 		MOBILE_PHONE_NUMBER.sendKeys("2145745236");
 		ADDRESS.sendKeys(GlobalTestData.ADDRESS.get("NY"));
 		CITY.sendKeys(GlobalTestData.CITY.get("NY"));
-		STATE.sendKeys(GlobalTestData.STATE.get("NY"));
-		ZIP_CODE.sendKeys(GlobalTestData.ZIPCODES.get("NY"));
+		STATE.click();
+		driver.findElement(By.xpath("//li[contains(text(), 'ALASKA')]")).click();
+		ZIP_CODE.sendKeys(GlobalTestData.ZIPCODES.get("NY").toUpperCase());
 		CHECK_BOX_POLICY.click();
 		REGISTER_A_PRODUCT.click();
 	}

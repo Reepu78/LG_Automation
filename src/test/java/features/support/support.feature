@@ -6,7 +6,7 @@ Feature: Signup to LG.com
   Background:
     Given I am at LG Home Page
 
-  @signup @smoke @regression @TC_001 @TestRun1
+  @signup @smoke @regression @TC_001
   Scenario: Verify user should be able verify their account from their email after successfully sign up
     Given I click on SUPPORT link from GNB
     When I search "OLED" using the search textbox
