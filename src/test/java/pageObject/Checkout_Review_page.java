@@ -122,10 +122,10 @@ public class Checkout_Review_page extends Setup {
         	 key = "HI";
         }
         
-        address1 = GlobalTestData.ADDRESS.get(key);
-        city = GlobalTestData.CITY.get(key);
-        state = GlobalTestData.STATE.get(key);
-        zipcode = GlobalTestData.ZIPCODES.get(key);
+        address1 = GlobalTestData.ADDRESS(key);
+        city = GlobalTestData.CITY(key);
+        state = GlobalTestData.STATE(key);
+        zipcode = GlobalTestData.ZIPCODES(key);
       
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
@@ -170,10 +170,10 @@ public class Checkout_Review_page extends Setup {
         	 key = "HI";
         }
         
-        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS.get(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
-    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY.get(key).toUpperCase()));
-    	assertTrue(shippingAddress.contains(GlobalTestData.STATE.get(key).toUpperCase()));
-    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES.get(key).toUpperCase()));
+        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.STATE(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES(key).toUpperCase()));
     }
     
     
@@ -199,10 +199,10 @@ public class Checkout_Review_page extends Setup {
         	 key = "HI";
         }
         
-        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS.get(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
-    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY.get(key).toUpperCase()));
-    	assertTrue(shippingAddress.contains(GlobalTestData.STATE.get(key).toUpperCase()));
-    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES.get(key).toUpperCase()));
+        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.STATE(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES(key).toUpperCase()));
     }
     
 	public void verifyContactInformation() {
@@ -236,10 +236,10 @@ public class Checkout_Review_page extends Setup {
         	 key = "HI";
         }
         
-        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS.get(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
-    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY.get(key).toUpperCase()));
-    	assertTrue(shippingAddress.contains(GlobalTestData.STATE.get(key).toUpperCase()));
-    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES.get(key).toUpperCase()));
+        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.STATE(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES(key).toUpperCase()));
     
 	}
 	
@@ -265,9 +265,9 @@ public class Checkout_Review_page extends Setup {
         	 key = "HI";
         }
         
-        assertTrue(shippingAddress.contains(GlobalTestData.ALTERNATE_ADDRESS.get(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
-    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY.get(key).toUpperCase()));
-    	assertTrue(shippingAddress.contains(GlobalTestData.STATE.get(key).toUpperCase()));
+        assertTrue(shippingAddress.contains(GlobalTestData.ALTERNATE_ADDRESS(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+    	//assertTrue(shippingAddress.contains(GlobalTestData.CITY(key).toUpperCase()));
+    	assertTrue(shippingAddress.contains(GlobalTestData.STATE(key).toUpperCase()));
     
 	}
 	

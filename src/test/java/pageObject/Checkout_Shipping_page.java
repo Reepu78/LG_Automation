@@ -111,10 +111,10 @@ public class Checkout_Shipping_page extends Setup {
         }else if (Cart_page.productArea.contains("HI")) {
         	 key = "HI";
         }
-        address1 = GlobalTestData.ADDRESS.get(key);
-        city = GlobalTestData.CITY.get(key);
-        state = GlobalTestData.STATE.get(key);
-        zipcode = GlobalTestData.ZIPCODES.get(key);
+        address1 = GlobalTestData.ADDRESS(key);
+        city = GlobalTestData.CITY(key);
+        state = GlobalTestData.STATE(key);
+        zipcode = GlobalTestData.ZIPCODES(key);
         
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
@@ -243,10 +243,10 @@ public class Checkout_Shipping_page extends Setup {
         }else if (Cart_page.productArea.contains("HI")) {
         	 key = "HI";
         }
-        address1 = GlobalTestData.ALTERNATE_ADDRESS.get(key);
-        city = GlobalTestData.CITY.get(key);
-        state = GlobalTestData.STATE.get(key);
-        zipcode = GlobalTestData.ZIPCODES.get(key);
+        address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
+        city = GlobalTestData.CITY(key);
+        state = GlobalTestData.STATE(key);
+        zipcode = GlobalTestData.ZIPCODES(key);
         
         
         enterContactInformation( GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME,
@@ -274,7 +274,7 @@ public class Checkout_Shipping_page extends Setup {
         }else if (Cart_page.productArea.contains("HI")) {
         	 key = "HI";
         }
-        address1 = GlobalTestData.ALTERNATE_ADDRESS.get(key);
+        address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
         
         enterContactInformation(address1);
     }

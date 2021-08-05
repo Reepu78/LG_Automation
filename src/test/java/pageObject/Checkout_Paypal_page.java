@@ -81,10 +81,10 @@ public class Checkout_Paypal_page extends Setup {
         	 key = "HI";
         }
         
-        address1 = GlobalTestData.ADDRESS.get(key);
-        city = GlobalTestData.CITY.get(key);
-        state = GlobalTestData.STATE.get(key);
-        zipcode = GlobalTestData.ZIPCODES.get(key);
+        address1 = GlobalTestData.ADDRESS(key);
+        city = GlobalTestData.CITY(key);
+        state = GlobalTestData.STATE(key);
+        zipcode = GlobalTestData.ZIPCODES(key);
       
        
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,

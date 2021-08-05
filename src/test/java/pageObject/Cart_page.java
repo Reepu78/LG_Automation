@@ -192,7 +192,7 @@ public class Cart_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
         if(stateName.equalsIgnoreCase("NewYork"))
         {
-        enterZipCode(GlobalTestData.ZIPCODES.get("NY"));
+        enterZipCode(GlobalTestData.ZIPCODES("NY"));
         String productArea = "";
         CART_CHECK_BUTTON.click();
         checkProductAvailable();
@@ -200,7 +200,7 @@ public class Cart_page extends Setup {
         }
         else if(stateName.equalsIgnoreCase("HAWAII"))
         {
-        enterZipCode(GlobalTestData.ZIPCODES.get("HI"));
+        enterZipCode(GlobalTestData.ZIPCODES("HI"));
         String productArea = "";
         CART_CHECK_BUTTON.click();
         checkProductAvailable();
@@ -486,7 +486,7 @@ public class Cart_page extends Setup {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
 		String productArea = "";
 		for (String state : GlobalTestData.GLOBAL_STATES_INSEARCHORDER) {
-			enterZipCode(GlobalTestData.ZIPCODES.get(state));
+			enterZipCode(GlobalTestData.ZIPCODES(state));
 			CART_CHECK_BUTTON.click();
 			Thread.sleep(1000);
 			Boolean isAvailable = checkProductAvailable();
@@ -501,7 +501,7 @@ public class Cart_page extends Setup {
 	
 	public String[] inputZipcodeVerifyPriceBreakdown(String zip) throws InterruptedException {
 		String[] priceBreakDown = { "", "", "", "" };
-		enterZipCode(GlobalTestData.ZIPCODES.get(zip));
+		enterZipCode(GlobalTestData.ZIPCODES(zip));
 		CART_CHECK_BUTTON.click();
 		Thread.sleep(5000);
 		String estimatedTax = getEstimatedTax();

@@ -102,11 +102,11 @@ public class Product_Registration_page extends Setup {
 		EMAIL_ADDRESS.sendKeys("brianaftertest@mailinator.com");
 		PHONE_NUMBER.sendKeys("2548564521");
 		MOBILE_PHONE_NUMBER.sendKeys("2145745236");
-		ADDRESS.sendKeys(GlobalTestData.ADDRESS.get("NY"));
-		CITY.sendKeys(GlobalTestData.CITY.get("NY"));
+		ADDRESS.sendKeys(GlobalTestData.ADDRESS("NY"));
+		CITY.sendKeys(GlobalTestData.CITY("NY"));
 		STATE.click();
 		driver.findElement(By.xpath("//li[contains(text(), 'ALASKA')]")).click();
-		ZIP_CODE.sendKeys(GlobalTestData.ZIPCODES.get("NY").toUpperCase());
+		ZIP_CODE.sendKeys(GlobalTestData.ZIPCODES("NY").toUpperCase());
 		CHECK_BOX_POLICY.click();
 		REGISTER_A_PRODUCT.click();
 	}
