@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7bca0f4b-cdd9-4623-a640-3059fe1e914b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/LG_Prectice.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomationTracker.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AutomationTracker.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_Klarna.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_Klarna.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/support/support.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/support/support.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Product_Registration_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Product_Registration_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Support_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Support_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Product_Registration_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Product_Registration_steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/features/TroubleshootHere.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/TroubleshootHere.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestRunner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/base/Setup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/base/Setup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Cart_page$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Cart_page$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Cart_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Cart_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Payment_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Payment_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Review_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Review_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Shipping_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Shipping_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/GNB_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/GNB_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Login_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Login_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/PLP_page$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/PLP_page$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/PLP_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/PLP_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Search_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Search_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Signup_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Signup_page.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/Cart_Steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/Cart_Steps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/Checkout_Payment_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/Checkout_Payment_steps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/Checkout_Review_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/Checkout_Review_steps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/GNB_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/GNB_steps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/PLP_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/PLP_steps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/Signup_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/Signup_steps.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/Default suite/Default test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default suite/Default test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/Default suite/Default test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default suite/Default test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/emailable-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/junitreports/TEST-TestRunner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/junitreports/TEST-TestRunner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default suite/groups.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/methods-alphabetical.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default suite/methods-alphabetical.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/methods.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default suite/methods.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/testng-results.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1vM3fiPOUG3WdIj5KwKALi6RNpU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Automation/Jan2021_UI_FW" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hassan01.bhuiyan\Documents\Automation\captcha\src\test\java\features" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Cucumber Java.Scenario: As a user I should be able to click on SUPPORT link from GNB">
+    <configuration name="Scenario: As a user I should be able to click on LAUNDRY link from GNB" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
+      <option name="GLUE" value="stepDef" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="lg-functional-ui-test" />
+      <option name="NAME_FILTER" value="^As a user I should be able to click on LAUNDRY link from GNB$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on LAUNDRY link from GNB$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on LAUNDRY link from GNB" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: As a user I should be able to click on OTHER COMPUTERS link from GNB" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
+      <option name="GLUE" value="stepDef" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="lg-functional-ui-test" />
+      <option name="NAME_FILTER" value="^As a user I should be able to click on OTHER COMPUTERS link from GNB$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on OTHER COMPUTERS link from GNB$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on OTHER COMPUTERS link from GNB" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: As a user I should be able to click on SMALL BUSINESS link from GNB" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
+      <option name="GLUE" value="stepDef" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="lg-functional-ui-test" />
+      <option name="NAME_FILTER" value="^As a user I should be able to click on SMALL BUSINESS link from GNB$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on SMALL BUSINESS link from GNB$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on SMALL BUSINESS link from GNB" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: As a user I should be able to click on SOLAR link from GNB" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
+      <option name="GLUE" value="stepDef" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="lg-functional-ui-test" />
+      <option name="NAME_FILTER" value="^As a user I should be able to click on SOLAR link from GNB$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on SOLAR link from GNB$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on SOLAR link from GNB" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: As a user I should be able to click on SUPPORT link from GNB" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
+      <option name="GLUE" value="stepDef" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="lg-functional-ui-test" />
+      <option name="NAME_FILTER" value="^As a user I should be able to click on SUPPORT link from GNB$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on SUPPORT link from GNB$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on SUPPORT link from GNB" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cucumber Java.Scenario: As a user I should be able to click on SUPPORT link from GNB" />
+        <item itemvalue="Cucumber Java.Scenario: As a user I should be able to click on SMALL BUSINESS link from GNB" />
+        <item itemvalue="Cucumber Java.Scenario: As a user I should be able to click on SOLAR link from GNB" />
+        <item itemvalue="Cucumber Java.Scenario: As a user I should be able to click on OTHER COMPUTERS link from GNB" />
+        <item itemvalue="Cucumber Java.Scenario: As a user I should be able to click on LAUNDRY link from GNB" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7bca0f4b-cdd9-4623-a640-3059fe1e914b" name="Default Changelist" comment="" />
+      <created>1626358235332</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626358235332</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

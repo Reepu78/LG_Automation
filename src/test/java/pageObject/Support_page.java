@@ -30,9 +30,9 @@ public class Support_page extends Setup {
 	public WebElement SEARCH_EDIT_BOX;
 	@FindBy(how = How.XPATH, using = "//*[@id='search-keyword']//following-sibling::input")
 	public WebElement SEARCH_ICON_CLICK;
-	@FindBy(how = How.XPATH, using = "//a[@aria-labelledby='majorCategory_label']")
+	@FindBy(how = How.XPATH, using = "//a[@aria-labelledby='majorCategory_label']//i")
 	public WebElement PRODUCT_CATEGORY;
-	@FindBy(how = How.XPATH, using = "//a[@aria-labelledby='subCategory_label']")
+	@FindBy(how = How.XPATH, using = "//a[@aria-labelledby='subCategory_label']//i")
 	public WebElement PRODUCT_SUBCATEGORY;
 	@FindBy(how = How.XPATH, using = "(//a[@class='ga-model-detail visual']/img[1])[1]")
 	public WebElement FIRST_RESULT;
@@ -65,9 +65,10 @@ public class Support_page extends Setup {
 	
 	public void selectCategories(String Category, String SubCategory) throws InterruptedException {
 		GenericFunctions.jsClick(PRODUCT_CATEGORY);
-		GenericFunctions.jsClick(driver.findElement(By.xpath("(//li[contains(text(), '"+Category+"')])[1]")));
-		GenericFunctions.jsClick(PRODUCT_SUBCATEGORY);
-		GenericFunctions.jsClick(driver.findElement(By.xpath("(//li[contains(text(), '"+SubCategory+"')])[1]")));
+		PRODUCT_CATEGORY.click();
+		driver.findElement(By.xpath("(//li[contains(text(), '"+Category+"')])[1]")).click();
+		PRODUCT_SUBCATEGORY.click();
+		driver.findElement(By.xpath("(//li[contains(text(), '"+SubCategory+"')])[1]")).click();
 		
 	}
 
