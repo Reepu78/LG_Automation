@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lg-functional-ui-test" />
+        <module name="captcha" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="lg-functional-ui-test" target="9" />
+      <module name="captcha" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

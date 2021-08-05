@@ -5,54 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bca0f4b-cdd9-4623-a640-3059fe1e914b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/LG_Prectice.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomationTracker.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AutomationTracker.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lg-functional-ui-test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/captcha.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_Klarna.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_Klarna.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/support/support.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/support/support.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Product_Registration_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Product_Registration_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Support_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Support_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Product_Registration_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Product_Registration_steps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/features/TroubleshootHere.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/features/TroubleshootHere.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestRunner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/base/Setup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/base/Setup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Cart_page$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Cart_page$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Cart_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Cart_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Payment_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Payment_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Review_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Review_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Shipping_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Checkout_Shipping_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/GNB_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/GNB_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Login_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Login_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/PLP_page$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/PLP_page$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/PLP_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/PLP_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Search_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Search_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pageObject/Signup_page.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pageObject/Signup_page.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/Cart_Steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/Cart_Steps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/Checkout_Payment_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/Checkout_Payment_steps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/Checkout_Review_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/Checkout_Review_steps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/GNB_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/GNB_steps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/PLP_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/PLP_steps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDef/Signup_steps.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDef/Signup_steps.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/Default suite/Default test.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default suite/Default test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/Default suite/Default test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/Default suite/Default test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/emailable-report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/junitreports/TEST-TestRunner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/junitreports/TEST-TestRunner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default suite/groups.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/methods-alphabetical.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default suite/methods-alphabetical.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/methods.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/old/Default suite/methods.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-output/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-output/testng-results.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestRunner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/Default suite/Default test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/Default suite/Default test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/Default suite/testng-failed.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/bullet_point.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/collapseall.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/emailable-report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/failed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/jquery-3.4.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/junitreports/TEST-TestRunner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/navigator-bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/Default test.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/groups.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/methods-alphabetical.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/methods-not-run.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/methods.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/reporter-output.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/testng.xml.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/Default suite/toc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/old/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/passed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/skipped.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-failed.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-reports.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-reports.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-reports1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-reports2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng-results.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-output/testng.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +79,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
       <option name="GLUE" value="stepDef" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="lg-functional-ui-test" />
+      <module name="captcha" />
       <option name="NAME_FILTER" value="^As a user I should be able to click on LAUNDRY link from GNB$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on LAUNDRY link from GNB$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on LAUNDRY link from GNB" />
@@ -108,7 +99,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
       <option name="GLUE" value="stepDef" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="lg-functional-ui-test" />
+      <module name="captcha" />
       <option name="NAME_FILTER" value="^As a user I should be able to click on OTHER COMPUTERS link from GNB$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on OTHER COMPUTERS link from GNB$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on OTHER COMPUTERS link from GNB" />
@@ -128,7 +119,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
       <option name="GLUE" value="stepDef" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="lg-functional-ui-test" />
+      <module name="captcha" />
       <option name="NAME_FILTER" value="^As a user I should be able to click on SMALL BUSINESS link from GNB$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on SMALL BUSINESS link from GNB$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on SMALL BUSINESS link from GNB" />
@@ -148,7 +139,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
       <option name="GLUE" value="stepDef" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="lg-functional-ui-test" />
+      <module name="captcha" />
       <option name="NAME_FILTER" value="^As a user I should be able to click on SOLAR link from GNB$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on SOLAR link from GNB$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on SOLAR link from GNB" />
@@ -168,7 +159,7 @@
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/features/gnb/gnb.feature" />
       <option name="GLUE" value="stepDef" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
-      <module name="lg-functional-ui-test" />
+      <module name="captcha" />
       <option name="NAME_FILTER" value="^As a user I should be able to click on SUPPORT link from GNB$" />
       <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^As a user I should be able to click on SUPPORT link from GNB$&quot;" />
       <option name="SUGGESTED_NAME" value="Scenario: As a user I should be able to click on SUPPORT link from GNB" />

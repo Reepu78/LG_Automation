@@ -18,13 +18,13 @@ public class GlobalTestData {
     public static String GLOBAL_KLARNA_SSN_INPUT = "1111";
     public static String GLOBAL_KLARNA_SSN_DOB = "12/12/1990";
     
-    public static String[] GLOBAL_STATES_INSEARCHORDER = {"NY", "NJ", "CA", "TX", "HI"};
-    public static Map<String, String> ZIPCODES = Map.of("NY","11416", "NJ", "08048", "CA", "94111", "TX", "75023", "HI", "96816");
-    public static Map<String, String> ADDRESS = Map.of("NY","97-30 80TH STREET", "NJ", "36 Amaryllis Ln", "CA", "52 California Street", "TX", "1104 Cherokee Trl", "HI", "1252 Arron Smith Drive");
-    public static Map<String, String> CITY = Map.of("NY","QUEENS", "NJ", "Lumberton", "CA", "San Francisco", "TX", "PLANO", "HI", "HONOLULU");
-    public static Map<String, String> STATE = Map.of("NY","NEW YORK", "NJ", "NEW JERSEY", "CA", "CALIFORNIA", "TX", "TEXAS", "HI", "HAWAII");
-    public static Map<String, String> ALTERNATE_ADDRESS = Map.of("NY","76-40 170th St", "NJ", "101 Stonebrook Dr", "CA", "511 1/2 Capp St", "TX", "920 Cross Bend Rd", "HI", "801 Kaheka St");
-    
+//    public static String[] GLOBAL_STATES_INSEARCHORDER = {"NY", "NJ", "CA", "TX", "HI"};
+//    public static Map<String, String> ZIPCODES = Map.of("NY","11416", "NJ", "08048", "CA", "94111", "TX", "75023", "HI", "96816");
+//    public static Map<String, String> ADDRESS = Map.of("NY","97-30 80TH STREET", "NJ", "36 Amaryllis Ln", "CA", "52 California Street", "TX", "1104 Cherokee Trl", "HI", "1252 Arron Smith Drive");
+//    public static Map<String, String> CITY = Map.of("NY","QUEENS", "NJ", "Lumberton", "CA", "San Francisco", "TX", "PLANO", "HI", "HONOLULU");
+//    public static Map<String, String> STATE = Map.of("NY","NEW YORK", "NJ", "NEW JERSEY", "CA", "CALIFORNIA", "TX", "TEXAS", "HI", "HAWAII");
+//    public static Map<String, String> ALTERNATE_ADDRESS = Map.of("NY","76-40 170th St", "NJ", "101 Stonebrook Dr", "CA", "511 1/2 Capp St", "TX", "920 Cross Bend Rd", "HI", "801 Kaheka St");
+//
    
     // Product
     public static String OMV_Subscription;
