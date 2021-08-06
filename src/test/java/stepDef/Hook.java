@@ -44,12 +44,13 @@ public class Hook extends Setup {
                 GlobalTestData.OMV_Subscription = "LT600P";
                 GlobalTestData.OMV_Non_Subscription = "5215ER2002G";
                 GlobalTestData.OMD_HE_Innovel = "LSCE365ST";
-                GlobalTestData.OMD_HE_Non_Innovel = "AN-MR18BA";
+                GlobalTestData.OMD_HE_Non_Innovel = "24MP400-B";
                 GlobalTestData.OMD_HA_Innovel = "WKGX201HBA";
-                GlobalTestData.OMD_HA_Non_Innovel = "A929KVM";
+                GlobalTestData.OMD_HA_Non_Innovel = "A908VMR";
                 GlobalTestData.OMD_KLARNA = "65NANO90UPA";
                 GlobalTestData.VISA_CARD_NO = "4111111111111111";
                 GlobalTestData.VISA_EXP_NO = "04/29";
+                GlobalTestData.VISA_EXP_INVALIDDATE="04/20";
                 GlobalTestData.VISA_CVV = "353";
                 GlobalTestData.MASTER_CARD_NO = "5425233430109903";
                 GlobalTestData.MASTER_EXP_NO = "04/23";

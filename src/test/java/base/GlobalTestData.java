@@ -28,6 +28,7 @@ public class GlobalTestData {
     public static String OMD_KLARNA;
     public static String VISA_CARD_NO;
     public static String VISA_EXP_NO;
+    public static String VISA_EXP_INVALIDDATE;
     public static String VISA_CVV;
     public static String MASTER_CARD_NO;
     public static String MASTER_EXP_NO;

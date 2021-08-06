@@ -9,8 +9,8 @@ Feature: Checkout Flow using PayPal Payment Method
   @checkout @paypal @smoke @regression @TC_001
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product with promotion code and standard shipping using PayPal
     Given I enter OMV subscription product Code into search edit box from GNB
-    When  I click on search icon from GNB
-    Then  I will verify OMV Subscription product displays in search results page
+     Given I Find "OMV Subscription" product using search function
+    Then  I will verify "OMV Subscription" product displays in search results page  
     Then  I will click on add to cart Button from Search Results Page for "OMV_Subscription"
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
@@ -35,9 +35,8 @@ Feature: Checkout Flow using PayPal Payment Method
 
   @checkout @paypal @smoke @regression @TC_002
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product after removing promotion code once it was applied with overnight shipping
-    Given I enter OMV subscription product Code into search edit box from GNB
-    When  I click on search icon from GNB
-    Then  I will verify OMV Subscription product displays in search results page
+    Given I Find "OMV Subscription" product using search function
+    Then  I will verify "OMV Subscription" product displays in search results page  
     Then  I will click on add to cart Button from Search Results Page for "OMV_Subscription"
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
@@ -64,9 +63,8 @@ Feature: Checkout Flow using PayPal Payment Method
     
   @checkout @paypal @smoke @regression @TC_003
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
-    Given I enter OMV Non subscription product Code into search edit box from GNB
-    When  I click on search icon from GNB
-    Then  I will verify OMV Non Subscription product displays in search results page
+    Given I Find "OMV Non Subscription" product using search function
+    Then  I will verify "OMV Non Subscription" product displays in search results page 
     Then  I will click on add to cart Button from Search Results Page for "OMV_Non_Subscription"
     And   I Click on "View cart" link
     When  I click on Secure Checkout button
@@ -82,11 +80,10 @@ Feature: Checkout Flow using PayPal Payment Method
 		#Paypal payment incomplete
 	
   
-  @checkout @paypal @smoke @regression @TC_004 
+  @checkout @paypal @smoke @regression @TC_004 @TestRun1
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
-    Given I enter OMV Non subscription product Code into search edit box from GNB
-    When  I click on search icon from GNB
-    Then  I will verify OMV Non Subscription product displays in search results page
+    Given I Find "OMV Non Subscription" product using search function
+    Then  I will verify "OMV Non Subscription" product displays in search results page 
     Then  I will click on add to cart Button from Search Results Page for "OMV_Non_Subscription"
     And   I Click on "View cart" link
     When  I click on Secure Checkout button
@@ -104,9 +101,8 @@ Feature: Checkout Flow using PayPal Payment Method
 
   @checkout @paypal @smoke @regression @TC_005
   Scenario: As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
-    Given I enter OMD HE Innovel product Code into search edit box from GNB
-    When  I click on search icon from GNB
-    Then  I will verify OMD HE Innovel product displays in search results page
+    Given I Find "OMD HE Innovel" product using search function
+    Then  I will verify "OMD HE Innovel" product displays in search results page 
     When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page

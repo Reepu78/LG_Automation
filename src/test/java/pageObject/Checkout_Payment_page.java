@@ -44,7 +44,8 @@ public class Checkout_Payment_page extends Setup {
     public WebElement CHECKOUT_DOB_INPUT;
     @FindBy(how = How.XPATH, using = "//span[text()='Continue']")
     public WebElement CHECKOUT_CONTINUE_BUTTON;
-
+    @FindBy(how = How.XPATH, using = "//div[text()='Credit card expired.']")
+    public WebElement EXPRATION_DATE_ERROR;
 
     public void verifyPaymentInfoPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYMENT_INFO_TITLE.get(0)));
@@ -95,6 +96,18 @@ public class Checkout_Payment_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTINUE_BUTTON));
         jsClick(CHECKOUT_CONTINUE_BUTTON);
         driver.switchTo().defaultContent();
+    }
+    
+    public void verifyErrorMessageForVisaExpirationdate() {
+        wait.until(ExpectedConditions.elementToBeClickable(EXPRATION_DATE_ERROR));
+        Boolean isDisplayed = EXPRATION_DATE_ERROR.isDisplayed();
+        if (isDisplayed) {
+            String actualTitle = EXPRATION_DATE_ERROR.getText();
+            String expectedTitle = "Credit card expired.";
+            Assert.assertEquals(actualTitle, expectedTitle);
+        } else {
+            Assert.fail("No message appears");
+        }
     }
 
     public void jsClick(WebElement element) {

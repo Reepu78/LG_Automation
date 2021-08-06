@@ -64,6 +64,7 @@ public class Search_page extends Setup {
 	}
 
 	public void clickSearchIconFromGNB() throws InterruptedException {
+		Thread.sleep(2000);
 		SEARCH_ICON_CLICK.click();
 		Thread.sleep(1000);
 	}
