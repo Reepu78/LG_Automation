@@ -95,6 +95,8 @@ public class GenericFunctions extends Setup{
     		return GlobalTestData.HE_OMD_KLARNA;
     	case "OMD KLARNA":
     		return GlobalTestData.OMD_KLARNA;
+    	case "HE OMD KLARNA PROMO":
+    		return GlobalTestData.HE_OMD_KLARNA_PROMO;
     	case "Test Data":
     		return "EAD65185302";
 		default:
@@ -106,4 +108,16 @@ public class GenericFunctions extends Setup{
 		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
 		driver.switchTo().window(tabs2.get(1));
 	}
+	
+	
+	  public static void click(String elementText) {
+	    	WebElement element  = driver.findElement(By.xpath("(//*[text(), '"+elementText+"'])[1]")); 
+	        wait.until(ExpectedConditions.elementToBeClickable(element));
+	        element.click();
+	    }
+	  
+	  public static void click(WebElement element) {
+	        wait.until(ExpectedConditions.elementToBeClickable(element));
+	        element.click();
+	    }
 }

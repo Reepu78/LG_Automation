@@ -51,7 +51,7 @@ Feature: Cart Page
   Scenario: As a guest user ensure user able to remove item from cart after adding an OMD HE Product
     Given I Find "OMV Non Subscription" product using search function
     And  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link
+    When I Click on "Add to cart" button from PDP page
     And I Click on "View cart" link
     Then  I Verify "1" item is added to the cart
     And I Click on "Remove Item" link
@@ -61,7 +61,7 @@ Feature: Cart Page
   Scenario: As a guest user, ensure guest user able to add two different type of OMV Non Subscription product and remove one of them
     Given I Find "OMV Non Subscription" product using search function
     And  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link
+    When I Click on "Add to cart" link from PDP page
     And I Click on "View cart" link
     Then  I Verify "1" item is added to the cart
     Then I verify Order summay section price break down is correct
@@ -85,7 +85,7 @@ Feature: Cart Page
   Scenario: As a guest user, ensure you able to apply a promo code for an OMV non subscription product
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link
+    When I Click on "Add to cart" link from PDP page
     And I Select Subscription as "Single Purchase"
     And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
@@ -97,21 +97,21 @@ Feature: Cart Page
   Scenario: As a guest user, ensure you able to apply a promo code for an OMV non subscription product
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link
+    When I Click on "Add to cart" link from PDP page
     And I Select Subscription as "Single Purchase"
     And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
     When I Enter Promocode "SPRINGS" under Promo Edit box
     And I Click on "Apply" button
     And I Click on "Cancel" button
-    Then I verify "You canceled the promotion code." is displayed
+    Then I verify You canceled the promotion code. is displayed and discount is removed
 
 
   @checkout @cart @smoke @regression @TC_008
   Scenario: As a guest user, ensure Save for Later should not allow you to save anything for later
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link
+    When I Click on "Add to cart" link from PDP page
     And I Select Subscription as "Single Purchase"
     And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
@@ -132,7 +132,7 @@ Feature: Cart Page
   Scenario: As a guest user, ensure system able to trigger an error message when shipping zip code is invalid
     Given I Find "OMD HA Innovel" product using search function
     And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link
+    When I Click on "Add to cart" link from PDP page
     And I enter zipCode to check the delivery availability for "OMD HA Innovel" product
     And I Enter an invalid zip code "111111" under Shipping zip code Field
     And I Click on "Check" button
@@ -142,7 +142,7 @@ Feature: Cart Page
   Scenario: As a Guest user, ensure system able to trigger an error message when promo code is invalid
     Given I Find "OMD HA Innovel" product using search function
     And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link
+    When I Click on "Add to cart" link from PDP page
     And I enter zipCode to check the delivery availability for "OMD HA Innovel" product
     When I Enter Promocode "STRINGS" under Promo Edit box
     And I Click on "Apply" button
@@ -159,7 +159,7 @@ Feature: Cart Page
   Scenario: As a guest user , ensure that user is able to add product from Add accessories pop up
     Given I Find "OMV Non Subscription With Accessories" product using search function
     And  I will verify "OMV Non Subscription With Accessories" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link
+    When I Click on "Add to cart" link from PDP page
     And I Click on "View cart" link
     And I Click on "Add Accessories" button
     Then I verify "Recommended Accessories" is displayed

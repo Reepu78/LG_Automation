@@ -62,6 +62,7 @@ public class Hook extends Setup {
                 GlobalTestData.OMV_Non_Subscription_With_Accessories = "A927KGMS";
                 GlobalTestData.HA_OMD_KLARNA = "65NANO90UPA";
                 GlobalTestData.HE_OMD_KLARNA = "65NANO90UPA";
+                GlobalTestData.HE_OMD_KLARNA_PROMO = "17U70P-P.AAS8U1";
                 break;
         }
         driver.get(url);

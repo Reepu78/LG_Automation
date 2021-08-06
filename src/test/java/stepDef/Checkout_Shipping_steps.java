@@ -50,7 +50,7 @@ public class Checkout_Shipping_steps extends Setup {
 	@And("I edit the address and click on Save and Continue")
 	public void updateAddress() throws InterruptedException {
 		Shipping.verifyContactInfoPage();
-		Shipping.update_shipping_info();
+		Shipping.update_Shipping_Info();
 		Shipping.clickSaveAndContinueButtonFromShippingPage();
 	}
 	
@@ -59,5 +59,11 @@ public class Checkout_Shipping_steps extends Setup {
 		Shipping.verifyContactInfoPage();
 	}
 
+	@When("I click Save and Continue after updating email and phone number on shipping page")
+	public void updateContactInfo() throws InterruptedException {
+		Shipping.verifyContactInfoPage();
+		Shipping.update_Contact_Info();
+		Shipping.clickSaveAndContinueButtonFromShippingPage();
+	}
 
 }

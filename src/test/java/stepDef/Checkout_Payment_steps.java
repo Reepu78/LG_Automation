@@ -2,6 +2,7 @@ package stepDef;
 
 import java.text.ParseException;
 
+import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.en.And;
@@ -58,6 +59,11 @@ public class Checkout_Payment_steps extends Setup {
 	@Then("I Enter Klarna SSN Details")
 	public void iEnterKlaranaDetails() throws InterruptedException {
 		Payment.enterKlarnaDetails();
+	}
+	
+	@Then("I click on {string} link on checkout page")
+	public void clickLinkOnCheckoutPage(String linkText) throws InterruptedException {
+		GenericFunctions.click(linkText);
 	}
 
 }

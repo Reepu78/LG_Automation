@@ -142,6 +142,12 @@ public class Checkout_Shipping_page extends Setup {
     	CHECKOUT_ADDRESS_INPUT.sendKeys(address);
     }
     
+    public void enterContactInformation(String email, String phoneNumber) {
+    	wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_EMAIL_INPUT));
+    	CHECKOUT_EMAIL_INPUT.sendKeys(email);
+    	CHECKOUT_PHONE_INPUT.sendKeys(phoneNumber);
+    }
+    
     
     public void enterContactInformation( String firstName, String lastName, String address, String city, String state, String zipcode) {
     	wait.until(ExpectedConditions.elementToBeClickable(USE_DIFFERENT_FIRST_NAME_INPUT));
@@ -257,7 +263,7 @@ public class Checkout_Shipping_page extends Setup {
     
     
     
-    public void update_shipping_info() {
+    public void update_Shipping_Info() {
         String address1 = null;
         if (Cart_page.productArea == null) {
             Cart_page.productArea = "CA";
@@ -277,6 +283,14 @@ public class Checkout_Shipping_page extends Setup {
         address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
         
         enterContactInformation(address1);
+    }
+    
+    
+    public void update_Contact_Info() {
+
+        GlobalTestData.GLOBAL_CUSTOMER_EMAIL = faker.internet().safeEmailAddress();
+        
+        enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL, GlobalTestData.GLOBAL_CUSTOMER_ALT_PHONE_NUMBER);
     }
 
 }

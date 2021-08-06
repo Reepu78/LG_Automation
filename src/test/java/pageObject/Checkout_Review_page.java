@@ -84,6 +84,10 @@ public class Checkout_Review_page extends Setup {
     public WebElement TERMS_AND_CONDITIONS_CHECKBOX;
     @FindBy(how = How.XPATH, using = "(//*[.='Place Order'])[2]")
     public WebElement PLACE_ORDER;
+    @FindBy(how = How.XPATH, using = "//*[@id='contact-information']//*[text()='Edit']")
+    public WebElement EDIT_CONTACT_INFO;
+    @FindBy(how = How.XPATH, using = "//*[@id='contact-information']//*[text()='Edit']")
+    public WebElement EDIT_PAYMENT_METHOD;
     
     
 
@@ -271,6 +275,15 @@ public class Checkout_Review_page extends Setup {
     
 	}
 	
+	public void verifyUpdatedContactInformation() {
+		Assert.assertNotNull(BILLING_ADDRESS);
+
+    	String shippingAddress = driver.findElement(By.cssSelector("div.shipping-information-content")).getText();
+        assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_EMAIL));
+    	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_ALT_PHONE_NUMBER));
+    
+	}
+	
 	public void verifyPaymentMethod() {
 		Assert.assertNotNull(PAYMENT_METHOD);
     	String Check = PAYMENT_METHOD.getText();
@@ -294,6 +307,12 @@ public class Checkout_Review_page extends Setup {
 		break;
 	case "Place Order":
 		GenericFunctions.jsClick(PLACE_ORDER);
+		break;
+	case "Edit Contact Information":
+		GenericFunctions.click(EDIT_CONTACT_INFO);
+		break;
+	case "Edit Payment Method":
+		GenericFunctions.click(EDIT_PAYMENT_METHOD);
 		break;
 	default:
 		GenericFunctions.jsClick(driver.findElement(By.xpath("(//*[text()= '"+linkName+"'])[1]")));

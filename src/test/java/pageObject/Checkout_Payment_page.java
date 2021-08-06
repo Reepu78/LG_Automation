@@ -119,6 +119,12 @@ public class Checkout_Payment_page extends Setup {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].value='" + value + "';", element);
     }
+    
+    public void click(String elementText) {
+    	WebElement element  = driver.findElement(By.xpath("(//*[text(), '"+elementText+"'])[1]")); 
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        element.click();
+    }
 
 
 }

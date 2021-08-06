@@ -229,7 +229,12 @@ public class Cart_Steps extends Setup {
 	}
 	
 	@And("I Click on {string} link/button")
-	public void removeItem(String linkName) throws InterruptedException {
+	public void clickItem(String linkName) throws InterruptedException {
+		CART.click(linkName);
+	}
+	
+	@And("I Click on {string} link/button from PDP page")
+	public void clickeItemPDP(String linkName) throws InterruptedException {
 		CART.click(linkName);
 	}
 	
@@ -269,9 +274,15 @@ public class Cart_Steps extends Setup {
 		CART.validateApplyPromocode(promo);
 	}
 	
-	@Then("I verify {string} is displayed")
+	@Then("I verify You canceled the promotion code. is displayed and discount is removed")
 	public void verifyPromoCancelled(String message) {
 		CART.validateCancelPromocode(message);
+		
+	}
+	
+	@Then("I verify {string} is displayed")
+	public void verifyElementIsDisplayed(String message) {
+		GenericFunctions.verifyElementByText(message);
 		
 	}
 	

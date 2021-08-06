@@ -15,6 +15,7 @@ public class GlobalTestData {
     public static String GLOBAL_CUSTOMER_BRAND_NEW_EMAIL_USER_ID;
     public static String GLOBAL_CUSTOMER_BRAND_NEW_EMAIL_DOMAIN;
     public static String GLOBAL_CUSTOMER_PHONE_NUMBER = "(213) 621 0002";
+    public static String GLOBAL_CUSTOMER_ALT_PHONE_NUMBER = "(213) 633 0112";
     public static String GLOBAL_KLARNA_SSN_INPUT = "1111";
     public static String GLOBAL_KLARNA_SSN_DOB = "12/12/1990";
     
@@ -38,6 +39,7 @@ public class GlobalTestData {
     public static String AMEX_CVV;
     public static String OMV_Non_Subscription_With_Accessories;
     public static String HA_OMD_KLARNA;
+    public static String HE_OMD_KLARNA_PROMO;
     public static String HE_OMD_KLARNA;
 
     //PromoCode

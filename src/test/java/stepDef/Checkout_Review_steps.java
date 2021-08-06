@@ -45,4 +45,9 @@ public class Checkout_Review_steps extends Setup {
 	public void click(String linkName) throws InterruptedException {
 		Review.click(linkName);
 	}
+	
+	@Then("I verify Contact Information is updated")
+	public void verifyUpdatedContactInformations() throws InterruptedException {
+		Review.verifyUpdatedContactInformation();
+	}
 }
