@@ -85,6 +85,11 @@ public class Search_steps extends Setup {
     public void iWillVerifyOMVNonSubscriptionProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMV_Non_Subscription);
     }
+    
+    @Then("I will verify {string} product displays in search results page")
+    public void i_will_verify_product_displays_in_search_results_page(String item) {
+	SEARCH.verifySearchedItemFromSearchResultPage(GenericFunctions.getData(item));
+    }
 
     @Then("I will verify We Are Sorry error message")
     public void iWillVerifyWeAreSorryErrorMessage() {
@@ -137,8 +142,16 @@ public class Search_steps extends Setup {
 	 }else if(productSubscription.equalsIgnoreCase("OMV_Non_Subscription")) {
 		 SEARCH.addCartProduct(GlobalTestData.OMV_Non_Subscription);
 		 CART.productCode[0]=GlobalTestData.OMV_Non_Subscription;
+	 }else if(productSubscription.equalsIgnoreCase("OMD_HE_Non_Innovel")) {
+		 SEARCH.addCartProduct(GlobalTestData.OMD_HE_Non_Innovel);
+		 CART.productCode[0]=GlobalTestData.OMD_HE_Non_Innovel;
 	 }
  }
+    
+    @Then("I click on the view Cart button from Pop up modal")
+    public void i_click_on_the_view_cart_button_from_pop_up_modal() {
+    	SEARCH.clickViewCartButtonFromModal();
+    }
     
     @Given("^I search for \"([^\"]*)\"$")
     public void iSearchProduct(String productName) {

@@ -46,6 +46,8 @@ public class Checkout_Payment_page extends Setup {
     public WebElement CHECKOUT_CONTINUE_BUTTON;
     @FindBy(how = How.XPATH, using = "//div[text()='Credit card expired.']")
     public WebElement EXPRATION_DATE_ERROR;
+    @FindBy(how = How.XPATH, using = "//*[@id='chcybersource_cc_number-error']")
+    public WebElement CARD_TYPE_ERROR;
 
     public void verifyPaymentInfoPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYMENT_INFO_TITLE.get(0)));
@@ -110,6 +112,18 @@ public class Checkout_Payment_page extends Setup {
         }
     }
 
+    public void verifyErrorMessageForCreditCardType() {
+        wait.until(ExpectedConditions.elementToBeClickable(CARD_TYPE_ERROR));
+        Boolean isDisplayed = CARD_TYPE_ERROR.isDisplayed();
+        if (isDisplayed) {
+            String actualTitle = CARD_TYPE_ERROR.getText();
+            String expectedTitle = "Please enter a valid credit card type number.";
+            Assert.assertEquals(actualTitle, expectedTitle);
+        } else {
+            Assert.fail("No message appears");
+        }
+    }
+    
     public void jsClick(WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);

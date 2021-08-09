@@ -1,6 +1,8 @@
 package stepDef;
 
 
+import static org.testng.Assert.assertEquals;
+
 import base.GenericFunctions;
 import base.Setup;
 import io.cucumber.java.en.And;
@@ -64,6 +66,27 @@ public class Checkout_Shipping_steps extends Setup {
 		Shipping.verifyContactInfoPage();
 		Shipping.update_Contact_Info();
 		Shipping.clickSaveAndContinueButtonFromShippingPage();
+	}
+	
+	@And("I verify header section is displayed on shipping page")
+	public void verifyHeaderSection() throws InterruptedException {
+		Shipping.verifyHeader();
+	}
+	
+	@When("I click on Call Number")
+	public void clickCallNumber() throws InterruptedException {
+		Shipping.HELPLINE_NO.click();
+	}
+	
+	@When("I click on Cart icon")
+	public void clickCartIcon() throws InterruptedException {
+		Shipping.CART_ICON.click();
+	}
+	
+	@Then("I verify System is showing Make a call from popup")
+	public void verifyMakeACallPopUp() throws InterruptedException {
+		String expectedMessage = "https://www.lg.com wants to open this application.";
+		assertEquals(driver.switchTo().alert().getText(), expectedMessage);
 	}
 
 }

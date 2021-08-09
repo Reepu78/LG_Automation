@@ -41,9 +41,19 @@ public class Checkout_Payment_steps extends Setup {
 		Payment.enterCardDetails(GlobalTestData.VISA_CARD_NO, GlobalTestData.VISA_EXP_NO, GlobalTestData.VISA_CVV);
 	}
 	
+	@Then("I will enter Card Details with Invalid Visa Expiration date")
+	public void i_will_enter_card_details_with_invalid_visa_expiration_date() {
+		Payment.enterCardDetails(GlobalTestData.VISA_CARD_NO, GlobalTestData.VISA_EXP_INVALIDDATE, GlobalTestData.VISA_CVV);
+	}
+	
 	@Then("I will enter Master Credit Card Details")
 	public void iwillenterMasterCreditCardDetails() throws InterruptedException {
 		Payment.enterCardDetails(GlobalTestData.MASTER_CARD_NO, GlobalTestData.MASTER_EXP_NO, GlobalTestData.MASTER_CVV);
+	}
+	
+	@Then("I will enter JCB Card Details with valid Details")
+	public void iwillenterJCBCreditCardDetails() throws InterruptedException {
+		Payment.enterCardDetails(GlobalTestData.JCB_CARD_NO, GlobalTestData.MASTER_EXP_NO, GlobalTestData.MASTER_CVV);
 	}
 	
 	@Then("I will enter Amex Credit Card Details")
@@ -64,6 +74,16 @@ public class Checkout_Payment_steps extends Setup {
 	@Then("I click on {string} link on checkout page")
 	public void clickLinkOnCheckoutPage(String linkText) throws InterruptedException {
 		GenericFunctions.click(linkText);
+	}
+	
+	@Then("I verify the error message for Visa Expiration date")
+	public void i_verify_the_error_message_for_visa_expiration_date() {
+		Payment.verifyErrorMessageForVisaExpirationdate();
+	}
+	
+	@Then("I verify the error message for Credit Card Type")
+	public void i_verify_the_error_message_for_Credit_Card_Type() {
+		Payment.verifyErrorMessageForCreditCardType();
 	}
 
 }

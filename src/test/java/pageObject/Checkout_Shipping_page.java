@@ -71,6 +71,12 @@ public class Checkout_Shipping_page extends Setup {
     public WebElement REVIEW_AND_PLACE_ORDER;
     @FindBy(how = How.XPATH, using = "//a[.='Return to Shipping']")
     public WebElement RETURN_TO_SHIPPING;
+    @FindBy(how = How.XPATH, using = "//span[.='Hours of operation: M-F 8:00 AM - 5:00 PM CST (except national holidays)']")
+    public WebElement HOURS_OF_OPERATION;
+    @FindBy(how = How.XPATH, using = "(//a[.='800 243-0000'])[1]")
+    public WebElement HELPLINE_NO;
+    @FindBy(how = How.XPATH, using = "//a[@class=\"action showcart\"]")
+    public WebElement CART_ICON;
     
 
     public void verifyContactInfoPage() {
@@ -291,6 +297,15 @@ public class Checkout_Shipping_page extends Setup {
         GlobalTestData.GLOBAL_CUSTOMER_EMAIL = faker.internet().safeEmailAddress();
         
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL, GlobalTestData.GLOBAL_CUSTOMER_ALT_PHONE_NUMBER);
+    }
+    
+    
+
+    public void verifyHeader() throws InterruptedException {
+		GenericFunctions.verifyElementByText("Need Help? Call: ");
+		Assert.assertTrue(HOURS_OF_OPERATION.isDisplayed());
+		Assert.assertTrue(HELPLINE_NO.isDisplayed());
+		
     }
 
 }

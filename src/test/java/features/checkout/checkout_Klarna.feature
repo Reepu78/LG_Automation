@@ -179,7 +179,7 @@ Feature: Checkout Flow using Klarna Payment Method
 	    Then  I verify "Buy Now. Pay Later" is not displayed
 	    
 	    
-	@checkout @guest @klarna @smoke @regression @TC_0015 @TestRun
+	@checkout @guest @klarna @smoke @regression @TC_015 @TestRun
   Scenario: As a guest user, checkout combination with OMD and OMV product
 			Given I Find "OMV Subscription" product using search function
    		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
@@ -468,8 +468,8 @@ Feature: Checkout Flow using Klarna Payment Method
   	And I click "Place Order" button on Checkout Review Page
   	
   	
-  @checkout @guest @klarna @smoke @regression @TC_034 
-  Scenario: As a guest user, checkout with OMD products and verify Edit link on Billing Address block (Review & Place Order page) with Klarna payment
+  @checkout @guest @klarna @smoke @regression @TC_038 
+  Scenario: Verify Need Help? Call text and call number navigation of the header section in checkout page
 		Given I Find "OMD HA Klarna" product using search function
  		And  I will verify "OMD HA Klarna" product displays in search results page and navigate to PDP page
 		When I Click on "Add to cart" link from PDP page
@@ -478,8 +478,66 @@ Feature: Checkout Flow using Klarna Payment Method
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
 		Then  I verify "Order Summary" is displayed
-    
+		And I verify header section is displayed on shipping page
+		When I click on Call Number
+		Then I verify System is showing Make a call from popup
 		
+		
+	@checkout @guest @klarna @smoke @regression @TC_039 
+  Scenario: Verify Delivery Notification on checkout page
+		Given I Find "OMD HA Klarna" product using search function
+ 		And  I will verify "OMD HA Klarna" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+		#footer not displayed on shipping page
+		
+		
+		
+	@checkout @guest @klarna @smoke @regression @TC_040
+  Scenario: Verify 'Need Help?' block on the footer section in checkout page
+		Given I Find "OMD HA Klarna" product using search function
+ 		And  I will verify "OMD HA Klarna" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+		#footer not displayed on shipping page
+		
+    
+	@checkout @guest @klarna @smoke @regression @TC_042
+  Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with Klarna payment
+		Given I Find "OMD HA Klarna" product using search function
+ 		And  I will verify "OMD HA Klarna" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+    And  I click on Save and Continue button after fill out Shipping Info
+		And I verify the suggested address
+		And I click on Cart icon
+		Then I verify "Your Cart" is displayed
+		When I update product quantity to "2"
+		And I click on Secure Checkout button	
+		And   I click on Continue as Guest from Sign in page
+    Then  I verify "Order Summary" is displayed
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    When  I click on Continue to Payment button
+    Then  I verify "Order Summary" is displayed
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Klarna" radio button from Billing Page
+  	And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then  I Enter Klarna SSN Details
+			#Incomplete Klarna details  #TestData		
 		
 			
 	    
