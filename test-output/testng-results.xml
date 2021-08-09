@@ -1,95 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-08-09T14:20:21 MYT" name="Default suite" finished-at="2021-08-09T14:20:59 MYT" duration-ms="37530">
+  <suite started-at="2021-08-09T23:29:44 MYT" name="Default suite" finished-at="2021-08-09T23:31:50 MYT" duration-ms="125634">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2021-08-09T14:20:21 MYT" name="Default test" finished-at="2021-08-09T14:20:59 MYT" duration-ms="37530">
+    <test started-at="2021-08-09T23:29:44 MYT" name="Default test" finished-at="2021-08-09T23:31:50 MYT" duration-ms="125634">
       <class name="TestRunner">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T14:20:21 MYT" name="setUpClass" finished-at="2021-08-09T14:20:23 MYT" duration-ms="1346" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T23:29:44 MYT" name="setUpClass" finished-at="2021-08-09T23:29:46 MYT" duration-ms="1195" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T14:20:23 MYT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-08-09T14:20:58 MYT" duration-ms="35866" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T23:29:46 MYT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-08-09T23:31:50 MYT" duration-ms="124236" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["[JCB] As a guest user, checkout OMD HE Non Innovel product with invalid Credit Card Type"]]>
+                <![CDATA["As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with PayPal checkout"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Checkout Flow using Different Types of Credit Cards Payment Methods]"]]>
+                <![CDATA["Optional[Checkout Flow using PayPal Payment Method]"]]>
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.testng.UndefinedStepException">
-            <message>
-              <![CDATA[The step 'I click on the view Cart button from Pop up modal' is undefined.
-You can implement this step using the snippet(s) below:
-
-@Then("I click on the view Cart button from Pop up modal")
-public void i_click_on_the_view_cart_button_from_pop_up_modal() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'I click on the view Cart button from Pop up modal' is undefined.
-You can implement this step using the snippet(s) below:
-
-@Then("I click on the view Cart button from Pop up modal")
-public void i_click_on_the_view_cart_button_from_pop_up_modal() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
-at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
-at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$0(TestNGCucumberRunner.java:118)
-at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:117)
-at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:114)
-at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:31)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
-at org.testng.TestRunner.privateRun(TestRunner.java:764)
-at org.testng.TestRunner.run(TestRunner.java:585)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
-at org.testng.SuiteRunner.run(SuiteRunner.java:286)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
-at org.testng.TestNG.runSuites(TestNG.java:1069)
-at org.testng.TestNG.run(TestNG.java:1037)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T14:20:59 MYT" name="tearDownClass" finished-at="2021-08-09T14:20:59 MYT" duration-ms="176" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T23:31:50 MYT" name="tearDownClass" finished-at="2021-08-09T23:31:50 MYT" duration-ms="154" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

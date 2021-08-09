@@ -179,7 +179,7 @@ Feature: Checkout Flow using Klarna Payment Method
 	    Then  I verify "Buy Now. Pay Later" is not displayed
 	    
 	    
-	@checkout @guest @klarna @smoke @regression @TC_015 @TestRun
+	@checkout @guest @klarna @smoke @regression @TC_015 
   Scenario: As a guest user, checkout combination with OMD and OMV product
 			Given I Find "OMV Subscription" product using search function
    		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
@@ -227,7 +227,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Then  I verify "Order Summary" is displayed
     Then  I will see Payment method option list in Billing Page
     When  I choose the "Klarna" radio button from Billing Page
-  And   I click on Review and Place order button from Billing Page
+  	And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then  I Enter Klarna SSN Details
 			#Incomplete Klarna details  #TestData
