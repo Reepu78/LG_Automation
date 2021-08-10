@@ -368,14 +368,10 @@ Feature: Checkout Flow using Klarna Payment Method
     Then  I will see Payment method option list in Billing Page
     When  I choose the "Klarna" radio button from Billing Page
 		And   I click on Review and Place order button from Billing Page
-		And I click on "Edit Cart" button on Checkout Review Page
-		Then I verify "Your Cart" is displayed
-		When I update product quantity to "2"
-		And I click on Secure Checkout button	
-		And   I click on Continue as Guest from Sign in page
-    Then  I verify "Order Summary" is displayed
-    And   I click on Save and Continue button after fill out Shipping Info
-    And   I verify the suggested address
+		And I click "Edit Shipping Address" button on Checkout Review Page 
+		And I edit the address and click on Save and Continue
+		And   I verify the suggested address
+    Then I verify shipping address is updated
     When  I click on Continue to Payment button
     Then  I verify "Order Summary" is displayed
     Then  I will see Payment method option list in Billing Page
@@ -403,7 +399,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Then  I will see Payment method option list in Billing Page
     When  I choose the "Klarna" radio button from Billing Page
 		And   I click on Review and Place order button from Billing Page
-		And I click on "Edit Contact Information" button on Checkout Review Page
+		And I click "Edit Contact Information" button on Checkout Review Page
 		Then I verify "Checkout" is displayed
 		When I click Save and Continue after updating email and phone number on shipping page
 		And   I verify the suggested address
@@ -435,7 +431,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Then  I will see Payment method option list in Billing Page
     When  I choose the "Klarna" radio button from Billing Page
 		And   I click on Review and Place order button from Billing Page
-		And I click on "Edit Payment Method" button on Checkout Review Page
+		And I click "Edit Payment Method" button on Checkout Review Page
 		Then I verify "Checkout" is displayed
     When  I choose the "Credit Card" radio button from Billing Page
     Then  I will enter Card Details
@@ -460,7 +456,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Then  I will see Payment method option list in Billing Page
     When  I choose the "Klarna" radio button from Billing Page
 		And   I click on Review and Place order button from Billing Page
-		And I click on "Edit Billing Address" button on Checkout Review Page
+		And I click "Edit Billing Address" button on Checkout Review Page
 		Then I verify "Credit or Debit Card" is displayed
      And I click "Use a different billing address" button on checkout page 
     And I enter different Address in Use a different billing address section
