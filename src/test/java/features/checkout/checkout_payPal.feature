@@ -174,7 +174,7 @@ Feature: Checkout Flow using PayPal Payment Method
     When  I will click on Paypal Pay with Debit or Credit Card Button
 		#Incomplete payment from 	paypal page onwards
 
-	@checkout @guest @klarna @smoke @regression @TC_009 @TestRun
+	@checkout @guest @klarna @smoke @regression @TC_009 
   Scenario: As a guest user, checkout combination with OMD and OMV product
 			Given I Find "OMV Subscription" product using search function
    		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page

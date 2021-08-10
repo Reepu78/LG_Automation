@@ -270,10 +270,10 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 	  #email not verified
 	  
 	  
-  @checkout @cc @smoke @regression @TC_035 @TestEditCart
+  @checkout @cc @smoke @regression @TC_035 
   Scenario: [AMEX] As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with Credit/Debit card checkout
-   	Given I Find "OMV Subscription" product using search function
- 		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
+   	Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
 		When I Click on "Add to cart" link from PDP page
  		And I Click on "View cart" link
 		Then I verify Price Breakdown Order Summary section on cart page
@@ -294,10 +294,139 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then  I verify "Order Summary" is displayed
     Then  I will see Payment method option list in Billing Page
    	When  I choose the "Credit Card" radio button from Billing Page
-	  Then  I will enter JCB Card Details with valid Details
-	  And   I click on Review and Place order button from Billing Page
-			#Incomplete Klarna details  #TestData
+		Then  I will enter Amex Credit Card Details
+    And   I click on Review and Place order button from Billing Page
+			
+			
+			
+  @checkout @cc @smoke @regression @TC_036
+  Scenario: [VISA] As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with Credit/Debit card checkout
+   	Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+    And   I click on Save and Continue button after fill out Shipping Info
+		And I verify the suggested address
+		When I verify shipping Address on Checkout page
+		And I Click on "edit" link 
+		And I edit the address and click on Save and Continue
+		And   I verify the suggested address
+    Then I verify shipping address is updated
+    When  I click on Continue to Payment button
+    Then  I verify "Order Summary" is displayed
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Credit Card" radio button from Billing Page
+		Then  I will enter Card Details
+    And   I click on Review and Place order button from Billing Page
 	
-	  
+	@checkout @guest @cc @smoke @regression @TC_037
+  Scenario: [MC] As a guest user, checkout with OMD products and verify Return to Shipping link on checkout(Payment & Billing) page with Credit/Debit card checkout
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+    And   I click on Save and Continue button after fill out Shipping Info
+		And I verify the suggested address
+    When  I click on Continue to Payment button
+    Then  I verify "Order Summary" is displayed
+    And I click "Return to Shipping" button on checkout page
+    Then I verify System should navigate the Shipping page
+    Then  I verify "Order Summary" is displayed
+    When I click "Save and continue" button on checkout page
+    And I verify the suggested address
+    And  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Credit Card" radio button from Billing Page
+		Then  I will enter Master Credit Card Details
+    And   I click on Review and Place order button from Billing Page
+    
+    
+  @checkout @guest @cc @smoke @regression @TC_0038
+  Scenario: [AMEX] As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with Credit/Debit card checkout
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+    And  I click on Save and Continue button after fill out Shipping Info
+		And I verify the suggested address
+		And I click on "Edit Cart" link on checkout page
+		Then I verify "Your Cart" is displayed
+		When I update product quantity to "2"
+		And I click on Secure Checkout button	
+		And   I click on Continue as Guest from Sign in page
+    Then  I verify "Order Summary" is displayed
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    When  I click on Continue to Payment button
+    Then  I verify "Order Summary" is displayed
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Credit Card" radio button from Billing Page
+   	Then  I will enter Amex Credit Card Details
+    And   I click on Review and Place order button from Billing Page 
+    
+    
+  @checkout @guest @cc @smoke @regression @TC_0039
+  Scenario: [AMEX] As a guest user, checkout with OMD products and verify 'Where is my security code link' on checkout(Payment & Billing) page with Credit/Debit card checkout
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+    And  I click on Save and Continue button after fill out Shipping Info
+		And I verify the suggested address
+    When  I click on Continue to Payment button
+    Then  I verify "Order Summary" is displayed
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Credit Card" radio button from Billing Page
+    And I click Where is my Security Code? link from Billing Page
+    Then I verify System should display CVV UI demo with VISA, MC, DISCOVER and AMEX card
+   	Then  I will enter Amex Credit Card Details
+    And   I click on Review and Place order button from Billing Page 
+    
+    
+ 	@checkout @guest @klarna @smoke @regression @TC_041 
+  Scenario: [VISA] Ensure that guests user are able to place order using credit/debit card payment method for promotional products
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+ 		And I Find "OMV Subscription" product using search function
+ 		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
+ 		And I Select Subscription as "Single Purchase"
+ 		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		When I Find "HE OMD KLARNA PROMO" product using search function
+ 		And  I will verify "HE OMD KLARNA PROMO" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+ 		Then  I Verify "3" item is added to the cart
+ 		#I verify promo price is displayed for the promo product
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+    And  I click on Save and Continue button after fill out Shipping Info
+		And I verify the suggested address
+    When  I click on Continue to Payment button
+    Then  I verify "Order Summary" is displayed
+    Then  I will see Payment method option list in Billing Page
+  	 When  I choose the "Credit Card" radio button from Billing Page
+   	Then  I will enter Amex Credit Card Details
+    And   I click on Review and Place order button from Billing Page 
 	  
 	  

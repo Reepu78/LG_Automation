@@ -66,8 +66,8 @@ Feature: Cart Page
     Then  I Verify "1" item is added to the cart
     Then I verify Order summay section price break down is correct
     When I Find "OMV Subscription" product using search function
-    When I Click on "Add to cart" link
     And I Select Subscription as "Single Purchase"
+    When I Click on "Add to cart" link
     And I Click on "Proceed to Cart" link
     Then  I Verify "2" item is added to the cart
     And I Click on "Remove Item" link
@@ -85,8 +85,8 @@ Feature: Cart Page
   Scenario: As a guest user, ensure you able to apply a promo code for an OMV non subscription product
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link from PDP page
     And I Select Subscription as "Single Purchase"
+    When I Click on "Add to cart" link from PDP page
     And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
     When I Enter Promocode "SPRINGS" under Promo Edit box
@@ -97,8 +97,8 @@ Feature: Cart Page
   Scenario: As a guest user, ensure you able to apply a promo code for an OMV non subscription product
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link from PDP page
     And I Select Subscription as "Single Purchase"
+    When I Click on "Add to cart" link from PDP page
     And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
     When I Enter Promocode "SPRINGS" under Promo Edit box
@@ -111,8 +111,8 @@ Feature: Cart Page
   Scenario: As a guest user, ensure Save for Later should not allow you to save anything for later
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
-    When I Click on "Add to cart" link from PDP page
     And I Select Subscription as "Single Purchase"
+    When I Click on "Add to cart" link from PDP page
     And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
     When I Enter Promocode "SPRINGS" under Promo Edit box
@@ -180,4 +180,16 @@ Feature: Cart Page
     Then  I will verify OMD HA Innovel product displays in search results page
     And   I click on Add to Cart Button under Accessories
     Then  I click on Remove Item Button
+    
+    
+  @checkout @cart @smoke @regression @Test
+  Scenario: As a guest usee ensure that OMV Subscription item can be added to cart from Kitchen PLP page
+    When I click on KITCHEN link from GNB
+    Then  I should navigate to KITCHEN landing page
+    When I Find "OMV Subscription" product using search function
+    And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
+    And I Select Subscription as "Single Purchase"
+    When I Click on "Add to cart" link from PDP page
+    And I Click on "Proceed to Cart" link
+    Then  I Verify "1" item is added to the cart
 

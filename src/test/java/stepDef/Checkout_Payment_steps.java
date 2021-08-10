@@ -85,5 +85,10 @@ public class Checkout_Payment_steps extends Setup {
 	public void i_verify_the_error_message_for_Credit_Card_Type() {
 		Payment.verifyErrorMessageForCreditCardType();
 	}
+	
+	@Then("I verify System should display CVV UI demo with VISA, MC, DISCOVER and AMEX card")
+	public void i_verify_CVV_Demo() {
+		Payment.verifyCVVDemo();
+	}
 
 }

@@ -1,5 +1,6 @@
 package stepDef;
 
+import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.en.And;
@@ -28,6 +29,11 @@ public class Checkout_Paypal_steps extends Setup {
 	@And("I will click on Continue Button")
 	public void iclickContinueButton() throws InterruptedException {
 		Paypal.clickContinueButton();
+	}
+	
+	@And("I click Where is my Security Code? link from Billing Page")
+	public void iclickWhereIsMySecurityCodeLink() throws InterruptedException {
+		GenericFunctions.click("Where is my Security Code?");
 	}
 
 	

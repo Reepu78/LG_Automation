@@ -1,5 +1,6 @@
 package pageObject;
 
+import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
 import com.github.javafaker.Faker;
@@ -48,6 +49,9 @@ public class Checkout_Payment_page extends Setup {
     public WebElement EXPRATION_DATE_ERROR;
     @FindBy(how = How.XPATH, using = "//*[@id='chcybersource_cc_number-error']")
     public WebElement CARD_TYPE_ERROR;
+    @FindBy(how = How.CSS, using = "ul.payment-method-cvv-wrapper")
+    public WebElement CVV_DEMO;
+    
 
     public void verifyPaymentInfoPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYMENT_INFO_TITLE.get(0)));
@@ -138,6 +142,14 @@ public class Checkout_Payment_page extends Setup {
     	WebElement element  = driver.findElement(By.xpath("(//*[text(), '"+elementText+"'])[1]")); 
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
+    }
+    
+    
+    public void verifyCVVDemo() {
+    	try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {}
+    	Assert.assertTrue(CVV_DEMO.isDisplayed());
     }
 
 

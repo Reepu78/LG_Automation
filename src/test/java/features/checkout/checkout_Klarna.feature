@@ -205,17 +205,19 @@ Feature: Checkout Flow using Klarna Payment Method
 	    
 	@checkout @guest @klarna @smoke @regression @TC_0024 @TestRun
   Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with Klarna checkout
-		Given I Find "OMV Subscription" product using search function
- 		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
+		Given I Find "HE OMD Klarna" product using search function
+ 		And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
 		When I Click on "Add to cart" link from PDP page
- 		And I Click on "View cart" link
-		Then I verify Price Breakdown Order Summary section on cart page
+  	And I enter zipCode to check the delivery availability for "HE OMD Klarna" product
+  	And I Input zipcode on price breakdown section and veirfy estimated tax is calculated
+ 		#And I Click on "View cart" link
+		#Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
 		Then  I verify "Order Summary" is displayed
     And  I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
-		And I click on "Edit Cart" link
+		And I Click on "Edit Cart" link
 		Then I verify "Your Cart" is displayed
 		When I update product quantity to "2"
 		And I click on Secure Checkout button	

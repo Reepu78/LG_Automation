@@ -2,35 +2,35 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-08-09T23:29:44 MYT" name="Default suite" finished-at="2021-08-09T23:31:50 MYT" duration-ms="125634">
+  <suite started-at="2021-08-10T20:31:55 MYT" name="Default suite" finished-at="2021-08-10T20:34:10 MYT" duration-ms="134518">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2021-08-09T23:29:44 MYT" name="Default test" finished-at="2021-08-09T23:31:50 MYT" duration-ms="125634">
+    <test started-at="2021-08-10T20:31:55 MYT" name="Default test" finished-at="2021-08-10T20:34:10 MYT" duration-ms="134518">
       <class name="TestRunner">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T23:29:44 MYT" name="setUpClass" finished-at="2021-08-09T23:29:46 MYT" duration-ms="1195" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-10T20:31:55 MYT" name="setUpClass" finished-at="2021-08-10T20:31:56 MYT" duration-ms="949" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T23:29:46 MYT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-08-09T23:31:50 MYT" duration-ms="124236" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-10T20:31:56 MYT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-08-10T20:34:09 MYT" duration-ms="133339" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with PayPal checkout"]]>
+                <![CDATA["As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with Klarna checkout"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Checkout Flow using PayPal Payment Method]"]]>
+                <![CDATA["Optional[Checkout Flow using Klarna Payment Method]"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-09T23:31:50 MYT" name="tearDownClass" finished-at="2021-08-09T23:31:50 MYT" duration-ms="154" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-10T20:34:09 MYT" name="tearDownClass" finished-at="2021-08-10T20:34:10 MYT" duration-ms="185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

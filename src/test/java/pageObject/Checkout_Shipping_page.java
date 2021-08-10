@@ -130,8 +130,14 @@ public class Checkout_Shipping_page extends Setup {
     public void enterContactInformation(String email, String phoneNumber, String firstName, String lastName,
                                         String address, String city, String state, String zipcode) {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_EMAIL_INPUT));
+        CHECKOUT_EMAIL_INPUT.clear();
         CHECKOUT_EMAIL_INPUT.sendKeys(email);
+        CHECKOUT_PHONE_INPUT.clear();
         CHECKOUT_PHONE_INPUT.sendKeys(phoneNumber);
+        CHECKOUT_FIRST_NAME_INPUT.clear();
+        CHECKOUT_LAST_NAME_INPUT.clear();
+        CHECKOUT_ADDRESS_INPUT.clear();
+        CHECKOUT_CITY_INPUT.sendKeys(city);
         CHECKOUT_FIRST_NAME_INPUT.sendKeys(firstName);
         CHECKOUT_LAST_NAME_INPUT.sendKeys(lastName);
         CHECKOUT_ADDRESS_INPUT.sendKeys(address);
