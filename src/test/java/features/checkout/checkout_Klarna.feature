@@ -155,7 +155,7 @@ Feature: Checkout Flow using Klarna Payment Method
 	    When  I choose the "Klarna" radio button from Billing Page
 	    And I click "Use a different billing address" button on checkout page 
 	    And I enter different Address in Use a different billing address section
-    	And I click "Review and Place Order" button on checkout page
+    	And   I click on Review and Place order button from Billing Page
     	Then I verify user is on Review and Place order page and all the details are displayed correctly
     	When I click "I Agree" button on Checkout Review Page
     	And I click "Sign Me Up" button on Checkout Review Page
@@ -460,7 +460,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Then I verify "Credit or Debit Card" is displayed
      And I click "Use a different billing address" button on checkout page 
     And I enter different Address in Use a different billing address section
-  	And I click "Review and Place Order" button on checkout page
+  	And   I click on Review and Place order button from Billing Page
   	Then I verify user is on Review and Place order page and all the details are displayed correctly
   	When I click "I Agree" button on Checkout Review Page
   	And I click "Sign Me Up" button on Checkout Review Page

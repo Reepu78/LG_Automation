@@ -1,36 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-08-10T20:31:55 MYT" name="Default suite" finished-at="2021-08-10T20:34:10 MYT" duration-ms="134518">
+  <suite started-at="2021-08-11T14:18:27 MYT" name="Default suite" finished-at="2021-08-11T14:20:09 MYT" duration-ms="102095">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2021-08-10T20:31:55 MYT" name="Default test" finished-at="2021-08-10T20:34:10 MYT" duration-ms="134518">
+    <test started-at="2021-08-11T14:18:27 MYT" name="Default test" finished-at="2021-08-11T14:20:09 MYT" duration-ms="102095">
       <class name="TestRunner">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-10T20:31:55 MYT" name="setUpClass" finished-at="2021-08-10T20:31:56 MYT" duration-ms="949" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-11T14:18:27 MYT" name="setUpClass" finished-at="2021-08-11T14:18:28 MYT" duration-ms="982" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-10T20:31:56 MYT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-08-10T20:34:09 MYT" duration-ms="133339" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-11T14:18:28 MYT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-08-11T14:20:09 MYT" duration-ms="100907" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with Klarna checkout"]]>
+                <![CDATA["[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (Review & Place Order page) with Credit card payment"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Optional[Checkout Flow using Klarna Payment Method]"]]>
+                <![CDATA["Optional[Checkout Flow using Different Types of Credit Cards Payment Methods]"]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at pageObject.Checkout_Review_page.verifyNewBillingAddress(Checkout_Review_page.java:228)
+at stepDef.Checkout_Review_steps.verifyUseIsOnReviewAndPlaceOrderPage(Checkout_Review_steps.java:26)
+at ✽.I verify user is on Review and Place order page and all the details are displayed correctly(file:///C:/Users/Vikas/Desktop/Latest_lg/captcha/src/test/java/features/checkout/checkout_CreditCards.feature:548)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-10T20:34:09 MYT" name="tearDownClass" finished-at="2021-08-10T20:34:10 MYT" duration-ms="185" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner@35047d03]" started-at="2021-08-11T14:20:09 MYT" name="tearDownClass" finished-at="2021-08-11T14:20:09 MYT" duration-ms="158" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

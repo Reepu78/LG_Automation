@@ -53,7 +53,7 @@ public class Checkout_Shipping_page extends Setup {
     public WebElement CHECKOUT_SUGGESTED_ADDRESS_SECTION;
     @FindBy(how = How.XPATH, using = "//span[text()='Continue to payment']")
     public WebElement CHECKOUT_CONTINUE_PAYMENT_BUTTON;
-    @FindBy(how = How.XPATH, using = "(//*[text()='Use a different billing address'])[2]")
+    @FindBy(how = How.XPATH, using = "(//*[text()='Use a different billing address'])[1]")
     public WebElement USE_DIFFERENT_BILLING_ADDRESS;
     @FindBy(how = How.XPATH, using = "(//input[@name='firstname'])[2]")
     public WebElement USE_DIFFERENT_FIRST_NAME_INPUT;
@@ -239,6 +239,7 @@ public class Checkout_Shipping_page extends Setup {
     
     
     public void enterNewAddressOnPaymentPage() throws InterruptedException {
+    	Thread.sleep(1000);
         GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME = faker.name().firstName();
         GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME = faker.name().lastName();
         String address1 = null;

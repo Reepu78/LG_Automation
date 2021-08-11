@@ -3,7 +3,7 @@ Feature: Cart Page
   Background:
     Given I am at LG Home Page
 
-  @checkout @cart @smoke @regression @TC_001 @test
+  @checkout @cart @smoke @regression @TC_001 
   Scenario: As a guest user ensure you able to Edit billing period for OMV subscription product
     Given I enter OMV subscription product Code into search edit box from GNB
     When I click on search icon from GNB
@@ -182,7 +182,7 @@ Feature: Cart Page
     Then  I click on Remove Item Button
     
     
-  @checkout @cart @smoke @regression @Test
+  @checkout @cart @smoke @regression 
   Scenario: As a guest usee ensure that OMV Subscription item can be added to cart from Kitchen PLP page
     When I click on KITCHEN link from GNB
     Then  I should navigate to KITCHEN landing page

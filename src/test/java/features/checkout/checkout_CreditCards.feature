@@ -460,7 +460,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page 
     
     
-  @checkout @guest @cc @smoke @regression @TC_044 @Test 
+  @checkout @guest @cc @smoke @regression @TC_044 
   Scenario: [VISA] As a guest user, checkout with OMD products and verify Edit link on Contact Information block (Review & Place Order page) with Credit card payment
 		Given I Find "OMD HE Non Innovel" product using search function
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -517,5 +517,103 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
-    
+ 
+ 
+ 
+  @checkout @guest @cc @smoke @regression @TC_046 
+  Scenario: [VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (Review & Place Order page) with Credit card payment
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+    And  I click on Save and Continue button after fill out Shipping Info
+		And I verify the suggested address
+		When  I click on Continue to Payment button
+    Then  I verify "Order Summary" is displayed
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Credit Card" radio button from Billing Page
+   	Then  I will enter Card Details
+		And   I click on Review and Place order button from Billing Page
+		And I click "Edit Billing Address" button on Checkout Review Page
+		Then I verify "Credit or Debit Card" is displayed
+		When  I choose the "Credit Card" radio button from Billing Page
+   	Then  I will enter Card Details
+     And I click "Use a different billing address" button on checkout page 
+    And I enter different Address in Use a different billing address section
+  	And   I click on Review and Place order button from Billing Page
+  	Then I verify user is on Review and Place order page and all the details are displayed correctly
+  	
+  	
+  @checkout @guest @cc @smoke @regression @TC_051 
+  Scenario: Verify Need Help? Call text and call number navigation of the header section in checkout page
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+		And I verify header section is displayed on shipping page
+		When I click on Call Number
+		Then I verify System is showing Make a call from popup
+		
+		
+	@checkout @guest @cc @smoke @regression @TC_052 
+  Scenario: Verify Delivery Notification on checkout page
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+		#footer not displayed on shipping page
+		
+		
+		
+	@checkout @guest @cc @smoke @regression @TC_053
+  Scenario: Verify 'Need Help?' block on the footer section in checkout page
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+		#footer not displayed on shipping page
+		
+	@checkout @guest @cc @smoke @regression @TC_055
+  Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with Credit card payment
+		Given I Find "OMD HE Non Innovel" product using search function
+ 		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
+		When I Click on "Add to cart" link from PDP page
+ 		And I Click on "View cart" link
+		Then I verify Price Breakdown Order Summary section on cart page
+		And I click on Secure Checkout button	
+  	And I click on Continue as Guest from Sign in page
+		Then  I verify "Order Summary" is displayed
+    And  I click on Save and Continue button after fill out Shipping Info
+		And I verify the suggested address
+		And I click on Cart icon
+		Then I verify "Your Cart" is displayed
+		When I update product quantity to "2"
+		And I click on Secure Checkout button	
+		And   I click on Continue as Guest from Sign in page
+    Then  I verify "Order Summary" is displayed
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    When  I click on Continue to Payment button
+    Then  I verify "Order Summary" is displayed
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Credit Card" radio button from Billing Page
+   	Then  I will enter Card Details
+    And   I click on Review and Place order button from Billing Page
+			#Incomplete Klarna details  #TestData		
 	  

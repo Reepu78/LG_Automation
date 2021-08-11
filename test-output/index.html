@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Vikas\AppData\Local\Temp\testng-eclipse-462691322\testng-customsuite.xml</span>
+                    <span>C:\Users\Vikas\AppData\Local\Temp\testng-eclipse--1679157361\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,21 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content failed suite-Default_suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page wi...)">runScenario("As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page wi...)</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...)">runScenario("[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -119,28 +119,38 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">TestRunner</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page wi...)">
-                  </a> <!-- runScenario("As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page wi...) -->
+                  <a name="runScenario(&quot;[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...)">
+                  </a> <!-- runScenario("[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...) -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with Klarna checkout", "Optional[Checkout Flow using Klarna Payment Method]")</span>
+                  <span class="parameters">("[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (Review & Place Order page) with Credit card payment", "Optional[Checkout Flow using Different Types of Credit Cards Payment Methods]")</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at org.testng.Assert.assertTrue(Assert.java:55)
+	at pageObject.Checkout_Review_page.verifyNewBillingAddress(Checkout_Review_page.java:228)
+	at stepDef.Checkout_Review_steps.verifyUseIsOnReviewAndPlaceOrderPage(Checkout_Review_steps.java:26)
+	at ✽.I verify user is on Review and Place order page and all the details are displayed correctly(file:///C:/Users/Vikas/Desktop/Latest_lg/captcha/src/test/java/features/checkout/checkout_CreditCards.feature:548)
+
+</div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
+          </div> <!-- suite-Default_suite-class-failed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Vikas\AppData\Local\Temp\testng-eclipse-462691322\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Vikas\AppData\Local\Temp\testng-eclipse--1679157361\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -201,12 +211,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'TestRunner')
-data.setCell(0, 3, 133339);
+data.setCell(0, 3, 100907);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -238,12 +248,14 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">runScenario("As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page wi...)</span>
-                <span class="method-start">969 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...)</span>
+                <span class="method-start">1005 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">134312 ms</span>
+                <span class="method-start">101916 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

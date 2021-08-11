@@ -86,6 +86,10 @@ public class Checkout_Review_page extends Setup {
     public WebElement PLACE_ORDER;
     @FindBy(how = How.XPATH, using = "//*[@id='contact-information']//*[text()='Edit']")
     public WebElement EDIT_CONTACT_INFO;
+    @FindBy(how = How.XPATH, using = "//*[@id='shipping-address']//*[text()='Edit']")
+    public WebElement EDIT_SHIPPING_ADDRESS;
+    @FindBy(how = How.XPATH, using = "//*[@id='billing-address']//*[text()='Edit']")
+    public WebElement EDIT_BILLING_ADDRESS;
     @FindBy(how = How.XPATH, using = "//*[@id='contact-information']//*[text()='Edit']")
     public WebElement EDIT_PAYMENT_METHOD;
     
@@ -298,7 +302,9 @@ public class Checkout_Review_page extends Setup {
 		Assert.assertTrue(SIGN_UP_OFFERS_CHECKBOX.isSelected());
 	}
 	
-	public void click(String linkName) throws InterruptedException {switch (linkName) {
+	public void click(String linkName) throws InterruptedException {
+	Thread.sleep(1000);
+	switch (linkName) {
 	case "I Agree":
 		GenericFunctions.jsClick(CHECKOUT_TERMS_CONDITIONS_CHECKBOX);
 		break;
@@ -313,6 +319,12 @@ public class Checkout_Review_page extends Setup {
 		break;
 	case "Edit Payment Method":
 		GenericFunctions.click(EDIT_PAYMENT_METHOD);
+		break;
+	case "Edit Shipping Address":
+		GenericFunctions.click(EDIT_SHIPPING_ADDRESS);
+		break;
+	case "Edit Billing Address":
+		GenericFunctions.click(EDIT_BILLING_ADDRESS);
 		break;
 	default:
 		GenericFunctions.jsClick(driver.findElement(By.xpath("(//*[text()= '"+linkName+"'])[1]")));
