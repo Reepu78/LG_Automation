@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Aug 11 14:18:27 MYT 2021</td>
+<td>Started on:</td><td>Wed Aug 11 22:58:46 MYT 2021</td>
 </tr>
-<tr><td>Total time:</td><td>102 seconds (102095 ms)</td>
+<tr><td>Total time:</td><td>75 seconds (75801 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,26 +75,40 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='TestRunner.runScenario()'><b>runScenario</b><br>Test class: TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (Review & Place Order page) with Credit card payment", "Optional[Checkout Flow using Different Types of Credit Cards Payment Methods]"</td>
-<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at pageObject.Checkout_Review_page.verifyNewBillingAddress(Checkout_Review_page.java:228)
-	at stepDef.Checkout_Review_steps.verifyUseIsOnReviewAndPlaceOrderPage(Checkout_Review_steps.java:26)
-	at ?.I verify user is on Review and Place order page and all the details are displayed correctly(file:///C:/Users/Vikas/Desktop/Latest_lg/captcha/src/test/java/features/checkout/checkout_CreditCards.feature:548)
-</pre></div><a href='#' onClick='toggleBox("stack-trace799151165", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace799151165'><pre>java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at pageObject.Checkout_Review_page.verifyNewBillingAddress(Checkout_Review_page.java:228)
-	at stepDef.Checkout_Review_steps.verifyUseIsOnReviewAndPlaceOrderPage(Checkout_Review_steps.java:26)
-	at ?.I verify user is on Review and Place order page and all the details are displayed correctly(file:///C:/Users/Vikas/Desktop/Latest_lg/captcha/src/test/java/features/checkout/checkout_CreditCards.feature:548)
+<td title='TestRunner.runScenario()'><b>runScenario</b><br>Test class: TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping", "Optional[Checkout Flow using Different Types of Credit Cards Payment Methods]"</td>
+<td><div><pre>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:373)
+	at java.base/java.util.ArrayList.get(ArrayList.java:426)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at com.sun.proxy.$Proxy28.get(Unknown Source)
+	at pageObject.Search_page.addCartProduct(Search_page.java:88)
+	at stepDef.Search_steps.iWillClickOnAddToCartPage(Search_steps.java:143)
+	at ?.I will click on add to cart Button from Search Results Page for &quot;OMV_Non_Subscription&quot;(file:///C:/Users/Vikas/Desktop/Latest_lg/captcha/src/test/java/features/checkout/checkout_CreditCards.feature:61)
+</pre></div><a href='#' onClick='toggleBox("stack-trace393594087", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace393594087'><pre>java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:373)
+	at java.base/java.util.ArrayList.get(ArrayList.java:426)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at com.sun.proxy.$Proxy28.get(Unknown Source)
+	at pageObject.Search_page.addCartProduct(Search_page.java:88)
+	at stepDef.Search_steps.iWillClickOnAddToCartPage(Search_steps.java:143)
+	at ?.I will click on add to cart Button from Search Results Page for &quot;OMV_Non_Subscription&quot;(file:///C:/Users/Vikas/Desktop/Latest_lg/captcha/src/test/java/features/checkout/checkout_CreditCards.feature:61)
 </pre></div></td>
-<td>100</td>
+<td>73</td>
 <td>TestRunner@35047d03</td></tr>
 </table><p>
 </body>

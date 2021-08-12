@@ -54,7 +54,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
    #	And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     
-      @checkout @cc @smoke @regression @TC_003
+  @checkout @cc @smoke @regression @TC_003 @Test
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
     Given I Find "OMV Non Subscription" product using search function
     Then  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page

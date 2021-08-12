@@ -90,5 +90,9 @@ public class Checkout_Payment_steps extends Setup {
 	public void i_verify_CVV_Demo() {
 		Payment.verifyCVVDemo();
 	}
-
+	
+	@Then("I click on continue button on checkout page")
+	public void iClickOnContinue() throws InterruptedException {
+		Payment.clickoncontinuebutton();
+	}
 }

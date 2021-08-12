@@ -109,6 +109,11 @@ public class GenericFunctions extends Setup{
 		driver.switchTo().window(tabs2.get(1));
 	}
 	
+	public static void switchToTab(int tabNum) {
+		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+		driver.switchTo().window(tabs2.get(tabNum));
+	}
+	
 	
 	  public static void click(String elementText) {
 	    	WebElement element  = driver.findElement(By.xpath("(//*[text(), '"+elementText+"'])[1]")); 

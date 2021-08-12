@@ -90,7 +90,7 @@ public class Checkout_Review_page extends Setup {
     public WebElement EDIT_SHIPPING_ADDRESS;
     @FindBy(how = How.XPATH, using = "//*[@id='billing-address']//*[text()='Edit']")
     public WebElement EDIT_BILLING_ADDRESS;
-    @FindBy(how = How.XPATH, using = "//*[@id='contact-information']//*[text()='Edit']")
+    @FindBy(how = How.XPATH, using = "//[@id='billing-information']//[text()='Edit']")	
     public WebElement EDIT_PAYMENT_METHOD;
     
     

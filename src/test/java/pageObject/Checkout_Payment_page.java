@@ -43,7 +43,7 @@ public class Checkout_Payment_page extends Setup {
     public WebElement CHECKOUT_SSN_CODE_INPUT;
     @FindBy(how = How.NAME, using = "dateOfBirth")
     public WebElement CHECKOUT_DOB_INPUT;
-    @FindBy(how = How.XPATH, using = "//span[text()='Continue']")
+    @FindBy(how = How.XPATH, using = "//span[@id='message-dialog-dismiss-button__text']")
     public WebElement CHECKOUT_CONTINUE_BUTTON;
     @FindBy(how = How.XPATH, using = "//div[text()='Credit card expired.']")
     public WebElement EXPRATION_DATE_ERROR;
@@ -151,6 +151,15 @@ public class Checkout_Payment_page extends Setup {
 		} catch (InterruptedException e) {}
     	Assert.assertTrue(CVV_DEMO.isDisplayed());
     }
-
+	
+	
+	public void clickoncontinuebutton() throws InterruptedException {
+    	driver.switchTo().frame("klarna-pay-over-time-fullscreen");
+    	wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTINUE_BUTTON));
+        jsClick(CHECKOUT_CONTINUE_BUTTON);
+        Thread.sleep(10000);
+        driver.switchTo().defaultContent();
+    	
+    }
 
 }

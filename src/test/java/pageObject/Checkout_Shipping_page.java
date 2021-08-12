@@ -12,6 +12,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
+
+import static org.testng.Assert.assertEquals;
+
 import java.time.Duration;
 import java.util.List;
 
@@ -77,6 +80,14 @@ public class Checkout_Shipping_page extends Setup {
     public WebElement HELPLINE_NO;
     @FindBy(how = How.XPATH, using = "//a[@class=\"action showcart\"]")
     public WebElement CART_ICON;
+    @FindBy(how = How.XPATH, using = "(//*[@class='need-help-support']/p/a)[1]")  
+    public WebElement FOOTER_FAQ;
+    @FindBy(how = How.XPATH, using = "(//*[@class='need-help-support']/p/a)[2]")  
+    public WebElement FOOTER_CALLUS;
+    @FindBy(how = How.XPATH, using = "(//*[@class='need-help-support']/p/a)[3]")  
+    public WebElement FOOTER_EMAILUS;
+    @FindBy(how = How.XPATH, using = "//*[@class='need-help-support']//span")  
+    public WebElement FOOTER_HOURS_OF_OPERATION;
     
 
     public void verifyContactInfoPage() {
@@ -156,6 +167,8 @@ public class Checkout_Shipping_page extends Setup {
     
     public void enterContactInformation(String email, String phoneNumber) {
     	wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_EMAIL_INPUT));
+    	CHECKOUT_EMAIL_INPUT.clear();
+    	CHECKOUT_PHONE_INPUT.clear();
     	CHECKOUT_EMAIL_INPUT.sendKeys(email);
     	CHECKOUT_PHONE_INPUT.sendKeys(phoneNumber);
     }
@@ -313,6 +326,25 @@ public class Checkout_Shipping_page extends Setup {
 		Assert.assertTrue(HOURS_OF_OPERATION.isDisplayed());
 		Assert.assertTrue(HELPLINE_NO.isDisplayed());
 		
+    }
+    
+    public void verifyFooter() throws InterruptedException {
+		GenericFunctions.verifyElementByText("Need Help?");
+		Assert.assertTrue(FOOTER_FAQ.isDisplayed());
+		Assert.assertTrue(FOOTER_CALLUS.isDisplayed());
+		Assert.assertTrue(FOOTER_EMAILUS.isDisplayed());
+		Assert.assertTrue(FOOTER_HOURS_OF_OPERATION.isDisplayed());
+    }
+    
+    public void verifyFAQTab() {
+    	GenericFunctions.switchToTab(1);
+    	String expFaqUrl = "https://www.lg.com/us/shop-lg/shop-faq";
+    	String actFaqUrl = driver.getCurrentUrl();
+    	System.out.println("actFaqUrl " + actFaqUrl);
+    	assertEquals(actFaqUrl, expFaqUrl);
+    	driver.close();
+    	GenericFunctions.switchToTab(0);
+
     }
 
 }

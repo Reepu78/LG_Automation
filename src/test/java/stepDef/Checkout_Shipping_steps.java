@@ -3,6 +3,14 @@ package stepDef;
 
 import static org.testng.Assert.assertEquals;
 
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
 import base.GenericFunctions;
 import base.Setup;
 import io.cucumber.java.en.And;
@@ -13,7 +21,8 @@ import pageObject.Checkout_Shipping_page;
 
 public class Checkout_Shipping_steps extends Setup {
 	Checkout_Shipping_page Shipping = new Checkout_Shipping_page(driver);
-
+	Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(100))
+            .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
 
 	@And("I click on Save and Continue button after fill out Shipping Info")
 	public void iClickOnSaveAndContinueButtonAfterFillOutShippingInfo() throws InterruptedException {
@@ -85,8 +94,24 @@ public class Checkout_Shipping_steps extends Setup {
 	
 	@Then("I verify System is showing Make a call from popup")
 	public void verifyMakeACallPopUp() throws InterruptedException {
+		wait.until(ExpectedConditions.alertIsPresent());
 		String expectedMessage = "https://www.lg.com wants to open this application.";
 		assertEquals(driver.switchTo().alert().getText(), expectedMessage);
+	}
+	
+	@And("I verify footer section is displayed on shipping page")
+	public void verifyfooterSection() throws InterruptedException {
+		Shipping.verifyFooter();
+	}
+	
+	@Then("I verify the FAQ tab")
+	public void verifyFAQTab() {
+		Shipping.verifyFAQTab();
+	}
+	
+	@When("I click on footer Call Number")
+	public void clickFooterCallNumber() throws InterruptedException {
+		Shipping.FOOTER_CALLUS.click();
 	}
 
 }

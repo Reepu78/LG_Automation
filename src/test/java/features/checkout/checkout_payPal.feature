@@ -325,7 +325,32 @@ Feature: Checkout Flow using PayPal Payment Method
     #Paypal payment incomplete
     
     
-    @checkout @paypal @smoke @regression @TC_033 @anees
+    @checkout @paypal @smoke @regression @TC_032 
+  	Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with PayPal checkout
+    Given I Find "OMD HE Non Innovel" product using search function
+    Then  I will verify OMD HE Non Innovel product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Standard" shipment Method
+    When  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    And 	I click "Edit Cart" button on checkout page
+		When  I will select the "2" as quantity
+		When  I click on Secure Checkout button
+		And   I click on Continue as Guest from Sign in page
+		And 	I click "Save and continue" button on checkout page
+		And   I verify the suggested address
+		When  I click on Continue to Payment button
+    When  I choose the "Paypal" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    #Paypal payment incomplete
+    
+    @checkout @paypal @smoke @regression @TC_033 
   	Scenario: As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with PayPal checkout
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify OMD HE Non Innovel product displays in search results page
@@ -416,6 +441,139 @@ Feature: Checkout Flow using PayPal Payment Method
     When  I choose the "Paypal" radio button from Billing Page
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    #Paypal payment incomplete
+    
+    
+       
+    @checkout @paypal @smoke @regression @TC_038  
+  	Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with PayPal checkout
+    Given I Find "OMD HE Non Innovel" product using search function
+    Then  I will verify OMD HE Non Innovel product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Standard" shipment Method
+    When  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    And 	I click "Edit Cart" button on checkout page
+		When  I will select the "2" as quantity
+		When  I click on Secure Checkout button
+		And   I click on Continue as Guest from Sign in page
+		And 	I click "Save and continue" button on checkout page
+		And   I verify the suggested address
+		When  I click on Continue to Payment button
+    When  I choose the "Paypal" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    #Paypal payment incomplete
+    
+    @checkout @paypal @smoke @regression @TC_039  
+  	Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with PayPal checkout
+    Given I Find "OMD HE Non Innovel" product using search function
+    Then  I will verify OMD HE Non Innovel product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Standard" shipment Method
+    When  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Paypal" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    When  I click "Edit Contact Information" button on Checkout Review Page
+    When  I click Save and Continue after updating email and phone number on shipping page
+    And   I verify the suggested address
+    When  I click on Continue to Payment button
+    When  I choose the "Paypal" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page 
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    #Paypal payment incomplete
+    
+    @checkout @paypal @smoke @regression @TC_040   
+    Scenario: As a guest user, checkout with OMD products and verify Edit link on Payment method block (Review & Place Order page) with PayPal payment
+    Given I Find "OMD HE Non Innovel" product using search function
+    Then  I will verify OMD HE Non Innovel product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Standard" shipment Method
+    When  I click on Continue to Payment button
+    Then  I will see Payment method option list in Billing Page
+    When  I choose the "Paypal" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    When  I click "Edit Payment Method" button on Checkout Review Page
+    When  I choose the "Credit Card" radio button from Billing Page
+    Then  I will enter Card Details
+    And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    #Paypal payment incomplete
+    
+    
+     @checkout @paypal @smoke @regression @TC_044   
+    Scenario: Verify Need Help? Call text and call number navigation of the header section in checkout page
+    Given I Find "OMD HE Non Innovel" product using search function
+    Then  I will verify OMD HE Non Innovel product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I verify header section is displayed on shipping page
+    When  I click on Call Number
+    Then  I verify System is showing Make a call from popup
+    
+    @checkout @paypal @smoke @regression @TC_045  
+    Scenario: Verify Delivery Notification on checkout page
+    Given I Find "OMD HE Non Innovel" product using search function
+    Then  I will verify OMD HE Non Innovel product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    
+    @checkout @paypal @smoke @regression @TC_046  
+    Scenario: Verify Need Help? block on the footer section in checkout page
+    Given I Find "OMD HE Non Innovel" product using search function
+    Then  I will verify OMD HE Non Innovel product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+ 		And  I verify footer section is displayed on shipping page
+ 		And  I Click on "Frequently Asked Questions" link
+ 		Then I verify the FAQ tab
+ 		When I click on footer Call Number
+ 		#Then  I verify System is showing Make a call from popup
+ 		
+ 		
+ 		@checkout @paypal @smoke @regression @TC_048  
+  	Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with PayPal payment
+    Given I Find "OMD HE Non Innovel" product using search function
+    Then  I will verify OMD HE Non Innovel product displays in search results page
+    Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
+    And   I Click on "View cart" link
+    When  I click on Secure Checkout button
+    And   I click on Continue as Guest from Sign in page
+    And   I click on Save and Continue button after fill out Shipping Info
+    And   I verify the suggested address
+    Then  I will select the "Standard" shipment Method
+    When  I click on Cart icon
+    When  I will select the "2" as quantity
+		When  I click on Secure Checkout button
+		And   I click on Continue as Guest from Sign in page
+		And 	I click "Save and continue" button on checkout page
+		And   I verify the suggested address
+		When  I click on Continue to Payment button
+    When  I choose the "Paypal" radio button from Billing Page
+    And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page    
     #Paypal payment incomplete
     
     

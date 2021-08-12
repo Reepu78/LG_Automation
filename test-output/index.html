@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Vikas\AppData\Local\Temp\testng-eclipse--1679157361\testng-customsuite.xml</span>
+                    <span>C:\Users\Vikas\AppData\Local\Temp\testng-eclipse--1940647346\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...)">runScenario("[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight ship...)">runScenario("As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight ship...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -127,18 +127,25 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runScenario(&quot;[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...)">
-                  </a> <!-- runScenario("[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...) -->
+                  <a name="runScenario(&quot;As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight ship...)">
+                  </a> <!-- runScenario("As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight ship...) -->
                   <span class="method-name">runScenario</span>
-                  <span class="parameters">("[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (Review & Place Order page) with Credit card payment", "Optional[Checkout Flow using Different Types of Credit Cards Payment Methods]")</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:99)
-	at org.testng.Assert.failNotEquals(Assert.java:1037)
-	at org.testng.Assert.assertTrue(Assert.java:45)
-	at org.testng.Assert.assertTrue(Assert.java:55)
-	at pageObject.Checkout_Review_page.verifyNewBillingAddress(Checkout_Review_page.java:228)
-	at stepDef.Checkout_Review_steps.verifyUseIsOnReviewAndPlaceOrderPage(Checkout_Review_steps.java:26)
-	at ✽.I verify user is on Review and Place order page and all the details are displayed correctly(file:///C:/Users/Vikas/Desktop/Latest_lg/captcha/src/test/java/features/checkout/checkout_CreditCards.feature:548)
+                  <span class="parameters">("As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping", "Optional[Checkout Flow using Different Types of Credit Cards Payment Methods]")</span>
+                  <div class="stack-trace">java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
+	at java.base/java.util.Objects.checkIndex(Objects.java:373)
+	at java.base/java.util.ArrayList.get(ArrayList.java:426)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at com.sun.proxy.$Proxy28.get(Unknown Source)
+	at pageObject.Search_page.addCartProduct(Search_page.java:88)
+	at stepDef.Search_steps.iWillClickOnAddToCartPage(Search_steps.java:143)
+	at ✽.I will click on add to cart Button from Search Results Page for &quot;OMV_Non_Subscription&quot;(file:///C:/Users/Vikas/Desktop/Latest_lg/captcha/src/test/java/features/checkout/checkout_CreditCards.feature:61)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -150,7 +157,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Vikas\AppData\Local\Temp\testng-eclipse--1679157361\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Vikas\AppData\Local\Temp\testng-eclipse--1940647346\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -211,7 +218,7 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'TestRunner')
-data.setCell(0, 3, 100907);
+data.setCell(0, 3, 73152);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -250,12 +257,12 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">runScenario("[VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (R...)</span>
-                <span class="method-start">1005 ms</span>
+                <span class="method-name">runScenario("As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight ship...)</span>
+                <span class="method-start">2236 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">101916 ms</span>
+                <span class="method-start">75409 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
