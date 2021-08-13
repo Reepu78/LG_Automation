@@ -537,6 +537,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I Click on "View cart" link
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
+    #Footer not found on website
     
     @checkout @paypal @smoke @regression @TC_046  
     Scenario: Verify Need Help? block on the footer section in checkout page

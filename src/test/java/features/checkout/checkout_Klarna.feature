@@ -508,7 +508,11 @@ Feature: Checkout Flow using Klarna Payment Method
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
 		Then  I verify "Order Summary" is displayed
-		#footer not displayed on shipping page
+		And  I verify footer section is displayed on shipping page
+ 		And  I Click on "Frequently Asked Questions" link
+ 		Then I verify the FAQ tab
+ 		When I click on footer Call Number
+ 		#Then  I verify System is showing Make a call from popup
 		
     
 	@checkout @guest @klarna @smoke @regression @TC_042
