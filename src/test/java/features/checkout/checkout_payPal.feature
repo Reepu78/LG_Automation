@@ -60,13 +60,15 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
-    
-  @checkout @paypal @smoke @regression @TC_003
+	
+  @checkout @paypal @smoke @regression @TC_003 
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
     Given I Find "OMV Non Subscription" product using search function
-    Then  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page 
-    Then  I will click on add to cart Button from Search Results Page for "OMV_Non_Subscription"
+    And I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page 
+    When I Click on "Add to cart" link from PDP page
     And   I Click on "View cart" link
+    Then  I Verify "1" item is added to the cart
+    Then I verify Price Breakdown Order Summary section on cart page
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -80,12 +82,14 @@ Feature: Checkout Flow using PayPal Payment Method
 		#Paypal payment incomplete
 	
   
-  @checkout @paypal @smoke @regression @TC_004 @TestRun1
-  Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
+  @checkout @paypal @smoke @regression @TC_004 
+  Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with Standard shipping
     Given I Find "OMV Non Subscription" product using search function
     Then  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page 
-    Then  I will click on add to cart Button from Search Results Page for "OMV_Non_Subscription"
-    And   I Click on "View cart" link
+     When I Click on "Add to cart" link from PDP page
+     And   I Click on "View cart" link
+    Then  I Verify "1" item is added to the cart
+    Then I verify Price Breakdown Order Summary section on cart page
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -97,7 +101,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
 	#Paypal payment incomplete
-
+	
 
   @checkout @paypal @smoke @regression @TC_005
   Scenario: As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page

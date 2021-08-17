@@ -44,7 +44,7 @@ public class Hook extends Setup {
                 GlobalTestData.OMV_Subscription = "LT600P";
                 GlobalTestData.OMV_Non_Subscription = "5215ER2002G";
                 GlobalTestData.OMD_HE_Innovel = "LSCE365ST";
-                GlobalTestData.OMD_HE_Non_Innovel = "38BN75C-B";
+                GlobalTestData.OMD_HE_Non_Innovel = "27GP950-B";
                 GlobalTestData.OMD_HA_Innovel = "WKGX201HBA";
                 GlobalTestData.OMD_HA_Non_Innovel = "A908VMR";
                 GlobalTestData.OMD_KLARNA = "65NANO90UPA";
@@ -60,8 +60,8 @@ public class Hook extends Setup {
                 GlobalTestData.AMEX_CVV = "1234";
                 GlobalTestData.GLOBAL_EXISTING_CUSTOMER_EMAIL = "hasanyc@hotmail.com";
                 GlobalTestData.OMV_Non_Subscription_With_Accessories = "A927KGMS";
-                GlobalTestData.HA_OMD_KLARNA = "MD07504477";
-                GlobalTestData.HE_OMD_KLARNA = "65NANO90UPA";
+                GlobalTestData.HA_OMD_KLARNA = "URETC1408N";
+                GlobalTestData.HE_OMD_KLARNA = "OLED65B1PUA";
                 GlobalTestData.HE_OMD_KLARNA_PROMO = "17U70P-P.AAS8U1";
                 GlobalTestData.JCB_CARD_NO = " ";
                 break;

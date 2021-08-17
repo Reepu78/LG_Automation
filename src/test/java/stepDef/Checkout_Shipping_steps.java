@@ -26,6 +26,7 @@ public class Checkout_Shipping_steps extends Setup {
 
 	@And("I click on Save and Continue button after fill out Shipping Info")
 	public void iClickOnSaveAndContinueButtonAfterFillOutShippingInfo() throws InterruptedException {
+		//Checkout_Shipping_page Shipping = new Checkout_Shipping_page(driver);
 		Shipping.verifyContactInfoPage();
 		Shipping.enter_contact_shipping_info();
 		Shipping.clickSaveAndContinueButtonFromShippingPage();

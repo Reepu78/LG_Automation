@@ -55,7 +55,7 @@ Feature: Cart Page
     And I Click on "View cart" link
     Then  I Verify "1" item is added to the cart
     And I Click on "Remove Item" link
-    Then Your cart is Empty messge should display along with SEE ALL DEALS button
+    Then Your cart is Empty message should display along with SEE ALL DEALS button
 
   @checkout @cart @smoke @regression @TC_005
   Scenario: As a guest user, ensure guest user able to add two different type of OMV Non Subscription product and remove one of them
@@ -64,22 +64,14 @@ Feature: Cart Page
     When I Click on "Add to cart" link from PDP page
     And I Click on "View cart" link
     Then  I Verify "1" item is added to the cart
-    Then I verify Order summay section price break down is correct
+    Then I verify Order summary section price break down is correct
     When I Find "OMV Subscription" product using search function
+    And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link
-    And I Click on "Proceed to Cart" link
     Then  I Verify "2" item is added to the cart
     And I Click on "Remove Item" link
     Then  I Verify "1" item is added to the cart
-  
- # @checkout @cart @smoke @regression @TC_005
- # Scenario: As a guest user ensure user able to add two OMV Items and remove one of them
- #   Given I add OMV Subscription product into cart with frequency of "3months"
- #   And  I add OMV Non Subscription Product into cart
- #   And I will have "2" items in cart
- #   When I removed first item from the cart list
- #   Then I will have "1" items in cart
 
   @checkout @cart @smoke @regression @TC_006
   Scenario: As a guest user, ensure you able to apply a promo code for an OMV non subscription product
@@ -87,24 +79,22 @@ Feature: Cart Page
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
-    And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
     When I Enter Promocode "SPRINGS" under Promo Edit box
     And I Click on "Apply" button
     Then I Should see a validation message saying You used promotion code "SPRINGS" and Discount and Total price should reflect
 
   @checkout @cart @smoke @regression @TC_007
-  Scenario: As a guest user, ensure you able to apply a promo code for an OMV non subscription product
+  Scenario: As a guest user, ensure you able Cancel a promo code for an OMV non subscription product
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
-    And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
     When I Enter Promocode "SPRINGS" under Promo Edit box
     And I Click on "Apply" button
     And I Click on "Cancel" button
-    Then I verify You canceled the promotion code. is displayed and discount is removed
+    Then I verify "You canceled the promotion code." is displayed and discount is removed
 
 
   @checkout @cart @smoke @regression @TC_008
@@ -113,7 +103,6 @@ Feature: Cart Page
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
-    And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
     When I Enter Promocode "SPRINGS" under Promo Edit box
     And I Click on "Apply" button
@@ -182,7 +171,7 @@ Feature: Cart Page
     Then  I click on Remove Item Button
     
     
-  @checkout @cart @smoke @regression 
+  @checkout @cart @smoke @regression @TC_031
   Scenario: As a guest usee ensure that OMV Subscription item can be added to cart from Kitchen PLP page
     When I click on KITCHEN link from GNB
     Then  I should navigate to KITCHEN landing page
@@ -190,6 +179,5 @@ Feature: Cart Page
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
-    And I Click on "Proceed to Cart" link
     Then  I Verify "1" item is added to the cart
 

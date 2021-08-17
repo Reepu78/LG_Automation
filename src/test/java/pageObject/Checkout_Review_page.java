@@ -185,7 +185,8 @@ public class Checkout_Review_page extends Setup {
     }
     
     
-    public void verifyShippingInfo() {
+    public void verifyShippingInfo() throws InterruptedException {
+    	Thread.sleep(2000);
     	Assert.assertNotNull(SHIPPING_ADDRESS);
     	String shippingAddress = SHIPPING_INFORMATION_VALUE.getText();
     	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME.toUpperCase()));
@@ -224,7 +225,7 @@ public class Checkout_Review_page extends Setup {
 	public void verifyNewBillingAddress() {
 		Assert.assertNotNull(BILLING_ADDRESS);
 
-    	String shippingAddress = SHIPPING_ADDRESS_VALUE.getText();
+    	String shippingAddress = BILLING_ADDRESS_VALUE.getText();
     	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME.toUpperCase()));
     	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME.toUpperCase()));
     	
@@ -235,7 +236,7 @@ public class Checkout_Review_page extends Setup {
         if (Cart_page.productArea.contains("CA")) {
         	 key = "CA";
         } else if (Cart_page.productArea.contains("NY")) {
-        	 key = "NA";
+        	 key = "NY";
         } else if (Cart_page.productArea.contains("TX")) {
         	 key = "TX";
         }else if (Cart_page.productArea.contains("NJ")) {
@@ -244,7 +245,7 @@ public class Checkout_Review_page extends Setup {
         	 key = "HI";
         }
         
-        assertTrue(shippingAddress.contains(GlobalTestData.ADDRESS(key).toUpperCase().replaceAll("-", "").replace("STREET", "ST")));
+        assertTrue(shippingAddress.contains(GlobalTestData.ALTERNATE_ADDRESS(key).toUpperCase().replace("STREET", "ST")));
     	//assertTrue(shippingAddress.contains(GlobalTestData.CITY(key).toUpperCase()));
     	assertTrue(shippingAddress.contains(GlobalTestData.STATE(key).toUpperCase()));
     	assertTrue(shippingAddress.contains(GlobalTestData.ZIPCODES(key).toUpperCase()));
@@ -252,7 +253,8 @@ public class Checkout_Review_page extends Setup {
 	}
 	
 	
-	public void verifyUpdatedBillingAddress() {
+	public void verifyUpdatedBillingAddress() throws InterruptedException {
+		Thread.sleep(2000);
 		Assert.assertNotNull(BILLING_ADDRESS);
 
     	String shippingAddress = driver.findElement(By.cssSelector("div.shipping-information-content")).getText();
@@ -264,7 +266,7 @@ public class Checkout_Review_page extends Setup {
         if (Cart_page.productArea.contains("CA")) {
         	 key = "CA";
         } else if (Cart_page.productArea.contains("NY")) {
-        	 key = "NA";
+        	 key = "NY";
         } else if (Cart_page.productArea.contains("TX")) {
         	 key = "TX";
         }else if (Cart_page.productArea.contains("NJ")) {
@@ -289,8 +291,8 @@ public class Checkout_Review_page extends Setup {
 	}
 	
 	public void verifyPaymentMethod() {
-		Assert.assertNotNull(PAYMENT_METHOD);
-    	String Check = PAYMENT_METHOD.getText();
+		Assert.assertNotNull(PAYMENT_METHOD_VALUE);
+    	String Check = PAYMENT_METHOD_VALUE.getText();
     	assertTrue(Check.contains("Buy Now. Pay Later."));
 	}
 	public void verifyOrderSummarySection() {

@@ -126,7 +126,7 @@ public class Cart_page extends Setup {
 	public WebElement FIRST_ACCESSORY;
 	@FindBy(how = How.XPATH, using = "(//*[@class=\"accessories-container\"])//*[text()='Add to Cart']")
 	public WebElement ADD_ACCESSORY_TO_CART;
-	@FindBy(how = How.CSS, using = "SPAN.price-excluding-tax")
+	@FindBy(how = How.XPATH, using = "(//span[@class='price'])[1]")
 	public WebElement FIST_ITEM_PRICE;
 	@FindBy(how = How.XPATH, using = "(//*[@class='amount'])[1]")
 	public WebElement SUBTOTAL;

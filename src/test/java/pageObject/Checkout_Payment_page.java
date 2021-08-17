@@ -43,7 +43,7 @@ public class Checkout_Payment_page extends Setup {
     public WebElement CHECKOUT_SSN_CODE_INPUT;
     @FindBy(how = How.NAME, using = "dateOfBirth")
     public WebElement CHECKOUT_DOB_INPUT;
-    @FindBy(how = How.XPATH, using = "//span[@id='message-dialog-dismiss-button__text']")
+    @FindBy(how = How.XPATH, using = "//span[@id='fixedamount_kp-purchase-approval-form-continue-button__text']")
     public WebElement CHECKOUT_CONTINUE_BUTTON;
     @FindBy(how = How.XPATH, using = "//div[text()='Credit card expired.']")
     public WebElement EXPRATION_DATE_ERROR;
@@ -90,6 +90,12 @@ public class Checkout_Payment_page extends Setup {
         CHECKOUT_EXPIRY_DATE_INPUT.sendKeys(expiryDate);
         CHECKOUT_SECURITY_CODE_INPUT.clear();
         CHECKOUT_SECURITY_CODE_INPUT.sendKeys(securityCode);
+    }
+
+    
+    public void verrifyDebitCardSelected() {
+        wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CARDNUMBER_INPUT));
+        Assert.assertNotNull(CHECKOUT_CARDNUMBER_INPUT);
     }
 
     //Clicks on Review Place Order Button Based on Payment Method

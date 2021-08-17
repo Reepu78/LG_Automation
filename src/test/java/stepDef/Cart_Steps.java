@@ -238,7 +238,7 @@ public class Cart_Steps extends Setup {
 		CART.click(linkName);
 	}
 	
-	@Then("Your cart is Empty messge should display along with SEE ALL DEALS button")
+	@Then("Your cart is Empty message should display along with SEE ALL DEALS button")
 	public void yourCartIsEmptyMessageshouldbeDisplayed() {
 		CART.verifyEmptyCartMessage();
 	}
@@ -259,7 +259,7 @@ public class Cart_Steps extends Setup {
 	}
 	
 	
-	@Then("I verify Order summay section price break down is correct")
+	@Then("I verify Order summary section price break down is correct")
 	public void verifyPriceBreakdown() {
 		Assert.assertEquals(CART.CART_PRODUCTPRICE.getText(), CART.CART_AMOUNTS.get(0).getText());
 	}
@@ -274,7 +274,7 @@ public class Cart_Steps extends Setup {
 		CART.validateApplyPromocode(promo);
 	}
 	
-	@Then("I verify You canceled the promotion code. is displayed and discount is removed")
+	@Then("I verify {string} is displayed and discount is removed")
 	public void verifyPromoCancelled(String message) {
 		CART.validateCancelPromocode(message);
 		
@@ -302,6 +302,7 @@ public class Cart_Steps extends Setup {
 	@SuppressWarnings("static-access")
 	@When("I enter zipCode to check the delivery availability for {string} product")
 	public void iEnterZipCodeToCheckTheDeliveryAvailabilityfor(String product) throws InterruptedException {
+		Thread.sleep(3000);
 		CART.verifyZipCodePage();
 		CART.verifySelectedProduct(GenericFunctions.getData(product));
 		CART.productArea = CART.validateEnterZipCode();

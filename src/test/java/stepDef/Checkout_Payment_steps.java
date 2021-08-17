@@ -95,4 +95,9 @@ public class Checkout_Payment_steps extends Setup {
 	public void iClickOnContinue() throws InterruptedException {
 		Payment.clickoncontinuebutton();
 	}
+	
+	@Then("I verify credit or debit card radio button selected")
+	public void verifyCreditDebitCardIsSelected() throws InterruptedException {
+		Payment.verrifyDebitCardSelected();
+	}
 }

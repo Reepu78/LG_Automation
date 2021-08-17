@@ -56,7 +56,7 @@ public class Checkout_Shipping_page extends Setup {
     public WebElement CHECKOUT_SUGGESTED_ADDRESS_SECTION;
     @FindBy(how = How.XPATH, using = "//span[text()='Continue to payment']")
     public WebElement CHECKOUT_CONTINUE_PAYMENT_BUTTON;
-    @FindBy(how = How.XPATH, using = "(//*[text()='Use a different billing address'])[1]")
+    @FindBy(how = How.XPATH, using = "(//*[text()='Use a different billing address'])[2]")
     public WebElement USE_DIFFERENT_BILLING_ADDRESS;
     @FindBy(how = How.XPATH, using = "(//input[@name='firstname'])[2]")
     public WebElement USE_DIFFERENT_FIRST_NAME_INPUT;
@@ -163,6 +163,14 @@ public class Checkout_Shipping_page extends Setup {
     	wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_EMAIL_INPUT));
     	CHECKOUT_ADDRESS_INPUT.clear();
     	CHECKOUT_ADDRESS_INPUT.sendKeys(address);
+    }
+    
+    public void enterAddressInformation(String address, String city) {
+    	wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_EMAIL_INPUT));
+    	CHECKOUT_ADDRESS_INPUT.clear();
+    	CHECKOUT_ADDRESS_INPUT.sendKeys(address);
+    	CHECKOUT_CITY_INPUT.clear();
+    	CHECKOUT_CITY_INPUT.sendKeys(city);
     }
     
     public void enterContactInformation(String email, String phoneNumber) {
@@ -307,8 +315,8 @@ public class Checkout_Shipping_page extends Setup {
         	 key = "HI";
         }
         address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
-        
-        enterContactInformation(address1);
+        String city = GlobalTestData.CITY(key);
+        enterAddressInformation(address1, city);
     }
     
     
