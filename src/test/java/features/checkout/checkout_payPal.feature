@@ -124,11 +124,14 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I will click on Continue Button
     
     
-   @checkout @paypal @smoke @regression @TC_006
+	@checkout @paypal @smoke @regression @TC_006 
   Scenario: As a guest user, checkout OMD HE Non Innovel product 
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page 
-    When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
+    When I Click on "Add to cart" link from PDP page
+    And   I Click on "View cart" link
+    Then  I Verify "1" item is added to the cart
+    Then I verify Price Breakdown Order Summary section on cart page
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -142,12 +145,14 @@ Feature: Checkout Flow using PayPal Payment Method
     When  I will click on Paypal Pay with Debit or Credit Card Button
 		#Incomplete payment from 	paypal page onwards
 		
-   @checkout @paypal @smoke @regression @TC_007
+ @checkout @paypal @smoke @regression @TC_007  
   Scenario: As a guest user, checkout OMD HA Innovel product 
     Given I Find "OMD HA Innovel" product using search function
     Then  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page 
-    When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
-    When  I click on Secure Checkout button
+    When I Click on "Add to cart" link from PDP page
+    And I enter zipCode to check the delivery availability for "OMD HA Innovel" product
+    Then I verify Price Breakdown Order Summary section on cart page
+     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
@@ -160,11 +165,15 @@ Feature: Checkout Flow using PayPal Payment Method
     When  I will click on Paypal Pay with Debit or Credit Card Button
 		#Incomplete payment from 	paypal page onwards
 		
-   @checkout @paypal @smoke @regression @TC_008
+@checkout @paypal @smoke @regression @TC_008 
   Scenario: As a guest user, checkout OMD HA Non Innovel product  
     Given I Find "OMD HA Non Innovel" product using search function
-    Then  I will verify "OMD HA Non Innovel" product displays in search results page and navigate to PDP page 
-    When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
+    Then  I will verify "OMD HA Non Innovel" product displays in search results page and navigate to PDP page
+    When I Click on "Add to cart" link from PDP page
+    And   I Click on "View cart" link
+    Then  I Verify "1" item is added to the cart
+    Then I verify Price Breakdown Order Summary section on cart page 
+    #When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info

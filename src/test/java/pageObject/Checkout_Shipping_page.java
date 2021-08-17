@@ -148,7 +148,7 @@ public class Checkout_Shipping_page extends Setup {
         CHECKOUT_FIRST_NAME_INPUT.clear();
         CHECKOUT_LAST_NAME_INPUT.clear();
         CHECKOUT_ADDRESS_INPUT.clear();
-        CHECKOUT_CITY_INPUT.sendKeys(city);
+        CHECKOUT_CITY_INPUT.clear();
         CHECKOUT_FIRST_NAME_INPUT.sendKeys(firstName);
         CHECKOUT_LAST_NAME_INPUT.sendKeys(lastName);
         CHECKOUT_ADDRESS_INPUT.sendKeys(address);

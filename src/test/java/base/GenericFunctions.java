@@ -116,7 +116,7 @@ public class GenericFunctions extends Setup{
 	
 	
 	  public static void click(String elementText) {
-	    	WebElement element  = driver.findElement(By.xpath("(//*[text(), '"+elementText+"'])[1]")); 
+	    	WebElement element  = driver.findElement(By.xpath("(//*[text()= '"+elementText+"'])[1]")); 
 	        wait.until(ExpectedConditions.elementToBeClickable(element));
 	        element.click();
 	    }

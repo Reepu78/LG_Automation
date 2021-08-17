@@ -290,7 +290,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		#payment Incomplete #testdata
 		
 		
-	@checkout @guest @klarna @smoke @regression @TC_0027 @Test  
+	@checkout @guest @klarna @smoke @regression @TC_0027  
   Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with Klarna checkout
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
@@ -316,11 +316,11 @@ Feature: Checkout Flow using Klarna Payment Method
     When  I choose the "Klarna" radio button from Billing Page
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
-    Then  I Enter Klarna SSN Details
+    #Then  I Enter Klarna SSN Details
 			#Incomplete Klarna details  #TestData
 			
 			
-	@checkout @guest @klarna @smoke @regression @TC_028 
+	@checkout @guest @klarna @smoke @regression @TC_028
   Scenario: Ensure that guests user are able to place order using klarna payment method for promotional products
 		Given I Find "HE OMD KLARNA PROMO" product using search function
  		And  I will verify "HE OMD KLARNA PROMO" product displays in search results page and navigate to PDP page
@@ -353,8 +353,8 @@ Feature: Checkout Flow using Klarna Payment Method
   Scenario: As a guest user, checkout with OMD products and verify Edit link on Shipping Address (Review & Place Order) page with Klarna payment
 		Given I Find "HA OMD Klarna" product using search function
  		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
-		When I Click on "Add to cart" link from PDP page
- 		And I Click on "View cart" link
+ 		When I Click on "Add to cart" link from PDP page
+  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -380,12 +380,12 @@ Feature: Checkout Flow using Klarna Payment Method
     #InComplete Klarna payment
     
     
-  @checkout @guest @klarna @smoke @regression @TC_031 
+  @checkout @guest @klarna @smoke @regression @TC_031  
   Scenario: As a guest user, checkout with OMD products and verify Edit link on Contact Information block (Review & Place Order page) with Klarna payment
 		Given I Find "HA OMD Klarna" product using search function
- 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
-		When I Click on "Add to cart" link from PDP page
- 		And I Click on "View cart" link
+		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
+  	When I Click on "Add to cart" link from PDP page
+  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -412,7 +412,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		#complete klarna payment
 		
 		
-	@checkout @guest @klarna @smoke @regression @TC_032 
+	@checkout @guest @klarna @smoke @regression @TC_032 @Test 
   Scenario: As a guest user, checkout with OMD products and verify Edit link on Payment method block (Review & Place Order page) with Klarna payment
 		Given I Find "HA OMD Klarna" product using search function
  		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
