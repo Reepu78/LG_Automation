@@ -248,7 +248,7 @@ public class Cart_Steps extends Setup {
 		CART.click(subscriptionType);
 	}
 	
-	@And("I Input zipcode on price breakdown section and veirfy estimated tax is calculated")
+	@And("I Input zipcode on price breakdown section and verify estimated tax is calculated")
 	public void inputZIPCodeinPriceBreakdown() throws InterruptedException {
 		priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(CART.productArea);
 	}

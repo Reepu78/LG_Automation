@@ -6,6 +6,7 @@ import static org.testng.Assert.assertEquals;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -94,7 +95,7 @@ public class Checkout_Shipping_steps extends Setup {
 	
 	@Then("I verify System is showing Make a call from popup")
 	public void verifyMakeACallPopUp() throws InterruptedException {
-		wait.until(ExpectedConditions.alertIsPresent());
+		//wait.until(ExpectedConditions.alertIsPresent());
 		String expectedMessage = "https://www.lg.com wants to open this application.";
 		assertEquals(driver.switchTo().alert().getText(), expectedMessage);
 	}
