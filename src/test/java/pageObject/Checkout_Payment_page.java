@@ -127,7 +127,8 @@ public class Checkout_Payment_page extends Setup {
         Boolean isDisplayed = CARD_TYPE_ERROR.isDisplayed();
         if (isDisplayed) {
             String actualTitle = CARD_TYPE_ERROR.getText();
-            String expectedTitle = "Please enter a valid credit card type number.";
+            //String expectedTitle = "Please enter a valid credit card type number.";
+            String expectedTitle = "Please enter a valid number in this field.";
             Assert.assertEquals(actualTitle, expectedTitle);
         } else {
             Assert.fail("No message appears");

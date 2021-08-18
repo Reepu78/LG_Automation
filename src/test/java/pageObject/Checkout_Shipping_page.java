@@ -58,17 +58,17 @@ public class Checkout_Shipping_page extends Setup {
     public WebElement CHECKOUT_CONTINUE_PAYMENT_BUTTON;
     @FindBy(how = How.XPATH, using = "(//*[text()='Use a different billing address'])[2]")
     public WebElement USE_DIFFERENT_BILLING_ADDRESS;
-    @FindBy(how = How.XPATH, using = "(//input[@name='firstname'])[2]")
+    @FindBy(how = How.XPATH, using = "(//input[@name='firstname'])[3]")
     public WebElement USE_DIFFERENT_FIRST_NAME_INPUT;
-    @FindBy(how = How.XPATH, using = "(//input[@name='lastname'])[2]")
+    @FindBy(how = How.XPATH, using = "(//input[@name='lastname'])[3]")
     public WebElement USE_DIFFERENT_LAST_NAME_INPUT;
-    @FindBy(how = How.XPATH, using = "(//span[text()='Address']/following::input[1])[2]")
+    @FindBy(how = How.XPATH, using = "(//span[text()='Address']/following::input[1])[3]")
     public WebElement USE_DIFFERENT_ADDRESS_INPUT;
-    @FindBy(how = How.XPATH, using = "(//input[@name='city'])[2]")
+    @FindBy(how = How.XPATH, using = "(//input[@name='city'])[3]")
     public WebElement USE_DIFFERENT_CITY_INPUT;
-    @FindBy(how = How.XPATH, using = "(//select[@name='region_id'])[2]")
+    @FindBy(how = How.XPATH, using = "(//select[@name='region_id'])[3]")
     public WebElement USE_DIFFERENT_REGION_DROPDOWN;
-    @FindBy(how = How.XPATH, using = "(//input[@name='postcode'])[2]")
+    @FindBy(how = How.XPATH, using = "(//input[@name='postcode'])[3]")
     public WebElement USE_DIFFERENT_POSTCODE_INPUT;
     @FindBy(how = How.XPATH, using = "(//*[text()='Review and Place Order'])[3]")
     public WebElement REVIEW_AND_PLACE_ORDER;
