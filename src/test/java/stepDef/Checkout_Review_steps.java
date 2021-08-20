@@ -36,6 +36,11 @@ public class Checkout_Review_steps extends Setup {
 		Review.verifyShippingInfo();
 	}
 	
+	@Then("I verify item quantity is increased to {string}")
+	public void verifyIncreasedProductQty(String qty) throws InterruptedException {
+		Review.verifyProductQty(qty);
+	}
+	
 	@Then("I verify shipping address is updated")
 	public void verifyUpdatedShippingAddress() throws InterruptedException {
 		Review.verifyUpdatedBillingAddress();

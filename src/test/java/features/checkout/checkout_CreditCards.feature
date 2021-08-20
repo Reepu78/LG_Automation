@@ -13,7 +13,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then  I will click on add to cart Button from Search Results Page for "OMV_Subscription"
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
-    When  I will enter zipCode to check the delivery availability
+    When  I will enter ZipCode to check the delivery availability
     Then  I will verify product is added into Cart Page
     When  I will enter promo code
     Then  I should able to use promo code
@@ -36,7 +36,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then  I will click on add to cart Button from Search Results Page for "OMV_Subscription"
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
-    When  I will enter zipCode to check the delivery availability
+    When  I will enter ZipCode to check the delivery availability
     Then  I will verify product is added into Cart Page
     When  I will enter promo code
     Then  I should able to use promo code
@@ -98,7 +98,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
   Scenario: [Visa] As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
  		Given I Find "OMD HE Innovel" product using search function
  		Then  I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
-    When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
+    When  I will enter ZipCode for checking the delivery availability for OMD HE Innovel Product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -136,8 +136,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 			Given I Find "OMD HA Innovel" product using search function
 			And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
     	When I Click on "Add to cart" link from PDP page
-    	And I enter zipCode to check the delivery availability for "OMD HA Innovel" product
-    	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+    	And I enter ZipCode to check the delivery availability for "OMD HA Innovel" product
+    	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
     	And   I click on Secure Checkout button
     	And   I click on Continue as Guest from Sign in page
 	    Then  I verify "Order Summary" is displayed
@@ -175,8 +175,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Given I Find "OMD HE Innovel" product using search function
 		And  I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "OMD HE Innovel" product
-  	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+  	And I enter ZipCode to check the delivery availability for "OMD HE Innovel" product
+  	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
   	Then I verify Price Breakdown Order Summary section on cart page
     And I Find "OMV Subscription" product using search function
    	And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
@@ -199,7 +199,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Given I Find "OMD HA Innovel" product using search function
     Then  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
     When I Click on "Add to cart" link from PDP page
-    And I enter zipCode to check the delivery availability for "OMD HA Innovel" product
+    And I enter ZipCode to check the delivery availability for "OMD HA Innovel" product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -216,7 +216,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
   Scenario: [AMEX] As a guest user, checkout OMD HE Non Innovel product with different billing address
      Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
-    When  I will enter zipCode for checking the delivery availability for OMD HE Non Innovel Product
+    When  I will enter ZipCode for checking the delivery availability for OMD HE Non Innovel Product
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
@@ -249,7 +249,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
     Then  I verify the error message for Visa Expiration date
    
- @checkout @cc @smoke @regression @TC_013  @Test
+ @checkout @cc @smoke @regression @TC_013  
   Scenario: [JCB] As a guest user, checkout OMD HE Non Innovel product with invalid Credit Card Type
    	Given I Find "OMD HE Non Innovel" product using search function
 	  Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -528,7 +528,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
  
  
  
-  @checkout @guest @cc @smoke @regression @TC_046 
+	@checkout @guest @cc @smoke @regression @TC_046 
   Scenario: [VISA] As a guest user, checkout with OMD products and verify Edit link on Billing Address block (Review & Place Order page) with Credit card payment
 		Given I Find "OMD HE Non Innovel" product using search function
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -550,10 +550,11 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		Then I verify "Credit or Debit Card" is displayed
 		When  I choose the "Credit Card" radio button from Billing Page
    	Then  I will enter Card Details
-     And I click "Use a different billing address" button on checkout page 
+    And I click "Use a different billing address" button on checkout page 
     And I enter different Address in Use a different billing address section
   	And   I click on Review and Place order button from Billing Page
   	Then I verify user is on Review and Place order page and all the details are displayed correctly
+  	And   I click on Place Order button after agreeing Terms and Conditions from Review Page
   	
   	
   @checkout @guest @cc @smoke @regression @TC_051 

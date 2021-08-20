@@ -27,7 +27,7 @@ public class Cart_Steps extends Setup {
 	public static String firstAccessory="";
 
 	@SuppressWarnings("static-access")
-	@When("I enter zipCode to check the delivery availability")
+	@When("I enter ZipCode to check the delivery availability")
 	public void iEnterZipCodeToCheckTheDeliveryAvailability() throws InterruptedException {
 		CART.verifyZipCodePage();
 		CART.verifySelectedProduct(CART.productCode[0]);
@@ -36,19 +36,19 @@ public class Cart_Steps extends Setup {
 	}
 	
 	@SuppressWarnings("static-access")
-	@When("I will enter zipCode to check the delivery availability")
+	@When("I will enter ZipCode to check the delivery availability")
 	public void iEnterZipCodeTheDeliveryAvailability() throws InterruptedException {
 		CART.verifySelectedProduct(CART.productCode[0]);
 		CART.productArea = CART.validateEnterZipCode();
 	}
 
-	@When("^I enter zipCode to check the delivery availability for \"([^\"]*)\"$")
+	@When("^I enter ZipCode to check the delivery availability for \"([^\"]*)\"$")
 	public void iZipCodeToCheckTheDeliveryAvailability(String stateName) throws InterruptedException {
 		CART.verifySelectedProduct(CART.productCode[0]);
 		CART.productArea = CART.validateEnterZipCode(stateName);
 	}
 
-	@When("I will enter zipCode for checking the delivery availability for OMD HE Innovel Product")
+	@When("I will enter ZipCode for checking the delivery availability for OMD HE Innovel Product")
 	public void iZipCodeToCheckTDeliveryAvailability() throws InterruptedException {
 		CART.clickAddCartButton();
 		CART.verifyZipCodePage();
@@ -58,7 +58,7 @@ public class Cart_Steps extends Setup {
 		CART.clickProceedButton();
 	}
 
-	@When("I will enter zipCode for checking the delivery availability for OMD HA Innovel Product")
+	@When("I will enter ZipCode for checking the delivery availability for OMD HA Innovel Product")
 	public void iZipCodeCheckTDeliveryAvailability() throws InterruptedException {
 		CART.clickAddCartButton();
 		CART.verifyZipCodePage();
@@ -68,7 +68,7 @@ public class Cart_Steps extends Setup {
 		CART.clickProceedButton();
 	}
 
-	@When("I will enter zipCode for checking the delivery availability for OMD Klarna enabled Product")
+	@When("I will enter ZipCode for checking the delivery availability for OMD Klarna enabled Product")
 	public void iZipCodeDeliveryAvailability() throws InterruptedException {
 		CART.clickAddCartButton();
 		CART.verifyZipCodePage();
@@ -77,7 +77,7 @@ public class Cart_Steps extends Setup {
 		CART.clickProceedButton();
 	}
 
-	@When("I will enter zipCode for checking the delivery availability for OMD HE Non Innovel Product")
+	@When("I will enter ZipCode for checking the delivery availability for OMD HE Non Innovel Product")
 	public void iZipCodeCheckDeliveryAvailability() throws InterruptedException {
 		CART.clickAddCartButton();
 		CART.clickProceedCart();
@@ -92,7 +92,7 @@ public class Cart_Steps extends Setup {
 	}
 
 	@When("I click on Secure Checkout button")
-	public void iClickOnSecureCheckoutButton() {
+	public void iClickOnSecureCheckoutButton() throws InterruptedException {
 		CART.clickSecureCheckOut();
 	}
 
@@ -248,12 +248,12 @@ public class Cart_Steps extends Setup {
 		CART.click(subscriptionType);
 	}
 	
-	@And("I Input zipcode on price breakdown section and verify estimated tax is calculated")
+	@And("I Input ZipCode on price breakdown section and verify estimated tax is calculated")
 	public void inputZIPCodeinPriceBreakdown() throws InterruptedException {
 		priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(CART.productArea);
 	}
 	
-	@And("I Input zipcode {string} on price breakdown section and veirfy estimated tax is calculated")
+	@And("I Input ZipCode {string} on price breakdown section and veirfy estimated tax is calculated")
 	public void inputZIPCodeVerifyPriceBreakdown(String zip) throws InterruptedException {
 		priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(zip);
 	}
@@ -264,7 +264,7 @@ public class Cart_Steps extends Setup {
 		Assert.assertEquals(CART.CART_PRODUCTPRICE.getText(), CART.CART_AMOUNTS.get(0).getText());
 	}
 	
-	@When("I Enter Promocode {string} under Promo Edit box")
+	@When("I Enter PromoCode{string} under Promo Edit box")
 	public void enterPromocode(String promocode) {
 		CART.enterPromoCode(promocode);
 	}
@@ -300,7 +300,7 @@ public class Cart_Steps extends Setup {
 	}
 	
 	@SuppressWarnings("static-access")
-	@When("I enter zipCode to check the delivery availability for {string} product")
+	@When("I enter ZipCode to check the delivery availability for {string} product")
 	public void iEnterZipCodeToCheckTheDeliveryAvailabilityfor(String product) throws InterruptedException {
 		Thread.sleep(3000);
 		CART.verifyZipCodePage();
@@ -315,7 +315,7 @@ public class Cart_Steps extends Setup {
 		CART.click("AddAccessoryToCart");
 	}
 	
-	@And("I verify the Accesory added to cart is still displayed")
+	@And("I verify the Accessory added to cart is still displayed")
 	public void verifyAccessoryisDisplayed() throws InterruptedException {
 		String accessory = CART.readFirstAccessory();
 		firstAccessory= CART.readFirstAccessory();

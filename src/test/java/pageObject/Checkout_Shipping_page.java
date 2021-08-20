@@ -112,7 +112,7 @@ public class Checkout_Shipping_page extends Setup {
         String address1 = null;
         String city = null;
         String state = null;
-        String zipcode = null;
+        String ZipCode = null;
         if (Cart_page.productArea == null) {
             Cart_page.productArea = "CA";
         }
@@ -131,15 +131,15 @@ public class Checkout_Shipping_page extends Setup {
         address1 = GlobalTestData.ADDRESS(key);
         city = GlobalTestData.CITY(key);
         state = GlobalTestData.STATE(key);
-        zipcode = GlobalTestData.ZIPCODES(key);
+        ZipCode = GlobalTestData.ZIPCODES(key);
         
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
-                GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, zipcode);
+                GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, ZipCode);
     }
 
     public void enterContactInformation(String email, String phoneNumber, String firstName, String lastName,
-                                        String address, String city, String state, String zipcode) {
+                                        String address, String city, String state, String ZipCode) {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_EMAIL_INPUT));
         CHECKOUT_EMAIL_INPUT.clear();
         CHECKOUT_EMAIL_INPUT.sendKeys(email);
@@ -156,7 +156,7 @@ public class Checkout_Shipping_page extends Setup {
         CHECKOUT_REGION_DROPDOWN.click();
         CHECKOUT_REGION_DROPDOWN.sendKeys(state);
         CHECKOUT_POSTCODE_INPUT.clear();
-        CHECKOUT_POSTCODE_INPUT.sendKeys(zipcode);
+        CHECKOUT_POSTCODE_INPUT.sendKeys(ZipCode);
     }
     
     public void enterContactInformation(String address) {
@@ -182,7 +182,7 @@ public class Checkout_Shipping_page extends Setup {
     }
     
     
-    public void enterContactInformation( String firstName, String lastName, String address, String city, String state, String zipcode) {
+    public void enterContactInformation( String firstName, String lastName, String address, String city, String state, String ZipCode) {
     	wait.until(ExpectedConditions.elementToBeClickable(USE_DIFFERENT_FIRST_NAME_INPUT));
     	USE_DIFFERENT_FIRST_NAME_INPUT.sendKeys(firstName);
     	USE_DIFFERENT_LAST_NAME_INPUT.sendKeys(lastName);
@@ -191,7 +191,7 @@ public class Checkout_Shipping_page extends Setup {
     	USE_DIFFERENT_REGION_DROPDOWN.click();
     	USE_DIFFERENT_REGION_DROPDOWN.sendKeys(state);
     	USE_DIFFERENT_POSTCODE_INPUT.clear();
-    	USE_DIFFERENT_POSTCODE_INPUT.sendKeys(zipcode);
+    	USE_DIFFERENT_POSTCODE_INPUT.sendKeys(ZipCode);
 }
 
     public void clickSaveAndContinueButtonFromShippingPage() throws InterruptedException {
@@ -235,12 +235,14 @@ public class Checkout_Shipping_page extends Setup {
     }
 
     public void selectShippingMethod(String shippingMethod) throws InterruptedException {
+    	Thread.sleep(2000);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[contains(text(),'" + shippingMethod + "')]/parent::label"))));
         driver.findElement(By.xpath("//div[contains(text(),'" + shippingMethod + "')]/parent::label")).click();
         Thread.sleep(1000);
     }
     
     public void click(String linkName) throws InterruptedException {
+    	Thread.sleep(2000);
 		switch (linkName) {
 		case "Use a different billing address":
 			GenericFunctions.jsClick(USE_DIFFERENT_BILLING_ADDRESS);
@@ -266,7 +268,7 @@ public class Checkout_Shipping_page extends Setup {
         String address1 = null;
         String city = null;
         String state = null;
-        String zipcode = null;
+        String ZipCode = null;
         if (Cart_page.productArea == null) {
             Cart_page.productArea = "CA";
         }
@@ -286,11 +288,11 @@ public class Checkout_Shipping_page extends Setup {
         address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
         city = GlobalTestData.CITY(key);
         state = GlobalTestData.STATE(key);
-        zipcode = GlobalTestData.ZIPCODES(key);
+        ZipCode = GlobalTestData.ZIPCODES(key);
         
         
         enterContactInformation( GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME,
-                GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME, address1, city, state, zipcode);
+                GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME, address1, city, state, ZipCode);
     
 
   	}

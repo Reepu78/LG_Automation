@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.time.Duration;
@@ -92,7 +93,8 @@ public class Checkout_Review_page extends Setup {
     public WebElement EDIT_BILLING_ADDRESS;
     @FindBy(how = How.XPATH, using = "//*[@id='billing-information']//*[text()='Edit']")	
     public WebElement EDIT_PAYMENT_METHOD;
-    
+    @FindBy(how = How.XPATH, using = "//*[@data-bind='text: getItemsQty()']")	
+    public WebElement QUANTITY;
     
 
     public void clickTermsConditionsFromReviewPage() throws InterruptedException {
@@ -115,7 +117,7 @@ public class Checkout_Review_page extends Setup {
         String address1 = null;
         String city = null;
         String state = null;
-        String zipcode = null;
+        String ZipCode = null;
         
         String key = "CA";
         if (Cart_page.productArea.contains("CA")) {
@@ -133,15 +135,15 @@ public class Checkout_Review_page extends Setup {
         address1 = GlobalTestData.ADDRESS(key);
         city = GlobalTestData.CITY(key);
         state = GlobalTestData.STATE(key);
-        zipcode = GlobalTestData.ZIPCODES(key);
+        ZipCode = GlobalTestData.ZIPCODES(key);
       
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
-                GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, zipcode);
+                GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, ZipCode);
     }
 
     public void enterContactInformation(String email, String phoneNumber, String firstName, String lastName,
-                                        String address, String city, String state, String zipcode) {
+                                        String address, String city, String state, String ZipCode) {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_EMAIL_INPUT));
         CHECKOUT_EMAIL_INPUT.sendKeys(email);
         CHECKOUT_PHONE_INPUT.sendKeys(phoneNumber);
@@ -151,7 +153,7 @@ public class Checkout_Review_page extends Setup {
         CHECKOUT_CITY_INPUT.sendKeys(city);
         CHECKOUT_REGION_DROPDOWN.click();
         CHECKOUT_REGION_DROPDOWN.sendKeys(state);
-        CHECKOUT_POSTCODE_INPUT.sendKeys(zipcode);
+        CHECKOUT_POSTCODE_INPUT.sendKeys(ZipCode);
     }
     
     
@@ -222,6 +224,13 @@ public class Checkout_Review_page extends Setup {
 		String phno = phone[0]+" "+phone[1]+"-"+phone[2];
 		assertTrue(contactInfo.contains(phno));
 	}
+	
+	public void verifyProductQty(String qty) throws InterruptedException {
+		Thread.sleep(1000);
+		String quantity = QUANTITY.getText();
+		assertEquals(quantity.trim(), qty);
+	}
+	
 	public void verifyNewBillingAddress() {
 		Assert.assertNotNull(BILLING_ADDRESS);
 

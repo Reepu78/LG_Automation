@@ -51,6 +51,7 @@ public class Checkout_Shipping_steps extends Setup {
 	
 	@And("I click {string} button on checkout page")
 	public void useADifferentBillingAddress(String linkName) throws InterruptedException {
+		Thread.sleep(2000);
 		Shipping.click(linkName);
 	}
 	

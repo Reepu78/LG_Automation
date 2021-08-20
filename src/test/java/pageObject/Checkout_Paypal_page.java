@@ -65,7 +65,7 @@ public class Checkout_Paypal_page extends Setup {
         String address1 = null;
         String city = null;
         String state = null;
-        String zipcode = null;
+        String ZipCode = null;
         
         
         String key = "CA";
@@ -84,16 +84,16 @@ public class Checkout_Paypal_page extends Setup {
         address1 = GlobalTestData.ADDRESS(key);
         city = GlobalTestData.CITY(key);
         state = GlobalTestData.STATE(key);
-        zipcode = GlobalTestData.ZIPCODES(key);
+        ZipCode = GlobalTestData.ZIPCODES(key);
       
        
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
-                GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, zipcode);
+                GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, address1, city, state, ZipCode);
     }
 
     public void enterContactInformation(String email, String phoneNumber, String firstName, String lastName,
-                                        String address, String city, String state, String zipcode) {
+                                        String address, String city, String state, String ZipCode) {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_EMAIL_INPUT));
         CHECKOUT_PAYPAL_EMAIL_INPUT.clear();
         CHECKOUT_PAYPAL_EMAIL_INPUT.sendKeys(email);

@@ -22,6 +22,7 @@ public class GenericFunctions extends Setup{
 
 	
 	public static void jsClick(WebElement ele) throws InterruptedException {
+		Thread.sleep(2000);
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", ele);

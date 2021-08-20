@@ -39,10 +39,10 @@ Feature: Cart Page
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
     Then  I will verify product is added into Cart Page
-    When  I enter zipCode to check the delivery availability for "HAWAII"
+    When  I enter ZipCode to check the delivery availability for "HAWAII"
     And   I should be able to see Estimated Price and Order Total
     And   I should be able to see Estimated Tax Price
-    When  I enter zipCode to check the delivery availability for "NewYork"
+    When  I enter ZipCode to check the delivery availability for "NewYork"
     And   I should be able to see Estimated Price and Order Total
     And   I should be able to see Estimated Tax Price
     Then  I should able see Hawaii estimated tax less than New York estimated tax
@@ -80,7 +80,7 @@ Feature: Cart Page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
     Then  I Verify "1" item is added to the cart
-    When I Enter Promocode "SPRINGS" under Promo Edit box
+    When I Enter PromoCode"SPRINGS" under Promo Edit box
     And I Click on "Apply" button
     Then I Should see a validation message saying You used promotion code "SPRINGS" and Discount and Total price should reflect
 
@@ -91,7 +91,7 @@ Feature: Cart Page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
     Then  I Verify "1" item is added to the cart
-    When I Enter Promocode "SPRINGS" under Promo Edit box
+    When I Enter PromoCode"SPRINGS" under Promo Edit box
     And I Click on "Apply" button
     And I Click on "Cancel" button
     Then I verify "You canceled the promotion code." is displayed and discount is removed
@@ -104,7 +104,7 @@ Feature: Cart Page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
     Then  I Verify "1" item is added to the cart
-    When I Enter Promocode "SPRINGS" under Promo Edit box
+    When I Enter PromoCode"SPRINGS" under Promo Edit box
     And I Click on "Apply" button
     And I Click on "Cancel" button
     Then I verify "You canceled the promotion code." is displayed
@@ -114,7 +114,7 @@ Feature: Cart Page
     Given I enter OMD HA Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMD HA Innovel product displays in search results page
-    When  I will enter zipCode for checking the delivery availability for OMD HA Innovel Product
+    When  I will enter ZipCode for checking the delivery availability for OMD HA Innovel Product
     Then  I click on Add to Cart Button under Recommendations
 
   @checkout @cart @smoke @regression @TC_010
@@ -122,7 +122,7 @@ Feature: Cart Page
     Given I Find "OMD HA Innovel" product using search function
     And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
     When I Click on "Add to cart" link from PDP page
-    And I enter zipCode to check the delivery availability for "OMD HA Innovel" product
+    And I enter ZipCode to check the delivery availability for "OMD HA Innovel" product
     And I Enter an invalid zip code "111111" under Shipping zip code Field
     And I Click on "Check" button
     Then I verify "Please enter a valid ZIP code (For example 90602)." is displayed
@@ -132,8 +132,8 @@ Feature: Cart Page
     Given I Find "OMD HA Innovel" product using search function
     And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
     When I Click on "Add to cart" link from PDP page
-    And I enter zipCode to check the delivery availability for "OMD HA Innovel" product
-    When I Enter Promocode "STRINGS" under Promo Edit box
+    And I enter ZipCode to check the delivery availability for "OMD HA Innovel" product
+    When I Enter PromoCode"STRINGS" under Promo Edit box
     And I Click on "Apply" button
     Then I verify "The promotion code \"STRINGS\" is not valid" is displayed
 
@@ -160,7 +160,7 @@ Feature: Cart Page
     Then I verify "Your Cart" is displayed
     When I Click on "Add Accessories" button
     Then I verify "Recommended Accessories" is displayed
-    And I verify the Accesory added to cart is still displayed
+    And I verify the Accessory added to cart is still displayed
 
   @checkout @cart @smoke @regression @TC_024
   Scenario: As a guest user ensure that Add accessories button is displayed for the product
@@ -172,7 +172,7 @@ Feature: Cart Page
     
     
   @checkout @cart @smoke @regression @TC_031
-  Scenario: As a guest usee ensure that OMV Subscription item can be added to cart from Kitchen PLP page
+  Scenario: As a guest use ensure that OMV Subscription item can be added to cart from Kitchen PLP page
     When I click on KITCHEN link from GNB
     Then  I should navigate to KITCHEN landing page
     When I Find "OMV Subscription" product using search function

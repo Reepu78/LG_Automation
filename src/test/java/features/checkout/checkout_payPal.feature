@@ -14,7 +14,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will click on add to cart Button from Search Results Page for "OMV_Subscription"
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
-    When  I will enter zipCode to check the delivery availability
+    When  I will enter ZipCode to check the delivery availability
     Then  I will verify product is added into Cart Page
     When  I will enter promo code
     Then  I should able to use promo code
@@ -40,7 +40,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will click on add to cart Button from Search Results Page for "OMV_Subscription"
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
-    When  I will enter zipCode to check the delivery availability
+    When  I will enter ZipCode to check the delivery availability
     Then  I will verify product is added into Cart Page
     When  I will enter promo code
     Then  I should able to use promo code
@@ -107,7 +107,7 @@ Feature: Checkout Flow using PayPal Payment Method
   Scenario: As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
     Given I Find "OMD HE Innovel" product using search function
     Then  I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page 
-    When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
+    When  I will enter ZipCode for checking the delivery availability for OMD HE Innovel Product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -150,7 +150,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Given I Find "OMD HA Innovel" product using search function
     Then  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page 
     When I Click on "Add to cart" link from PDP page
-    And I enter zipCode to check the delivery availability for "OMD HA Innovel" product
+    And I enter ZipCode to check the delivery availability for "OMD HA Innovel" product
     Then I verify Price Breakdown Order Summary section on cart page
      When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
@@ -186,32 +186,34 @@ Feature: Checkout Flow using PayPal Payment Method
     When  I will click on Paypal Pay with Debit or Credit Card Button
 		#Incomplete payment from 	paypal page onwards
 
-	@checkout @guest @klarna @smoke @regression @TC_009
+	@checkout @guest @paypal @smoke @regression @TC_009 
   Scenario: As a guest user, checkout combination with OMD and OMV product
-			Given I Find "OMV Subscription" product using search function
-   		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
-			And I Select Subscription as "Single Purchase"
-			When I Click on "Add to cart" link from PDP page
-			Then  I Verify "1" item is added to the cart
-			Given I Find "OMD HA Non Innovel" product using search function
-	    Then  I will verify "OMD HA Non Innovel" product displays in search results page and navigate to PDP page
-	    When I Click on "Add to cart" link from PDP page
-	    And   I Click on "View cart" link
-   		Then  I Verify "2" item is added to the cart
-   		And   I click on Secure Checkout button	
-    	And   I click on Continue as Guest from Sign in page
-	    Then  I verify "Order Summary" is displayed
-	    And   I click on Save and Continue button after fill out Shipping Info
-	    And   I verify the suggested address
-	    And I click "Overnight Shipping - 2 to 4 business days" button on checkout page
-	    When  I click on Continue to Payment button
-	    Then  I verify "Order Summary" is displayed
-	    Then  I will see Payment method option list in Billing Page
-	    When  I choose the "Paypal" radio button from Billing Page
-	    And   I click on Review and Place order button from Billing Page
-	    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
-	    When  I will click on Paypal Pay with Debit or Credit Card Button
-			#Incomplete payment from 	paypal page onwards
+ 	Given I Find "HE OMD Klarna" product using search function
+ 	And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
+	When I Click on "Add to cart" link from PDP page
+ 	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
+  	And I Input ZipCode on price breakdown section and veirfy estimated tax is calculated
+  	Then  I Verify "1" item is added to the cart
+	Then I verify Price Breakdown Order Summary section on cart page
+	Given I Find "OMV Subscription" product using search function
+   	And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
+	And I Select Subscription as "Single Purchase"
+	When I Click on "Add to cart" link from PDP page
+   	Then  I Verify "2" item is added to the cart
+   	And   I click on Secure Checkout button	
+    And   I click on Continue as Guest from Sign in page
+	Then  I verify "Order Summary" is displayed
+	And   I click on Save and Continue button after fill out Shipping Info
+	And   I verify the suggested address
+	And I click "Overnight Shipping - 2 to 4 business days" button on checkout page
+	When  I click on Continue to Payment button
+	Then  I verify "Order Summary" is displayed
+	Then  I will see Payment method option list in Billing Page
+	When  I choose the "Paypal" radio button from Billing Page
+	And   I click on Review and Place order button from Billing Page
+	And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+	When  I will click on Paypal Pay with Debit or Credit Card Button
+	#Incomplete payment from 	paypal page onwards
 			
 			
 			
@@ -231,15 +233,15 @@ Feature: Checkout Flow using PayPal Payment Method
     Then I verify "Your Cart" is displayed
     When I Click on "Add Accessories" button
     Then I verify "Recommended Accessories" is displayed
-    And I verify the Accesory added to cart is still displayed
+    And I verify the Accessory added to cart is still displayed
     
         
-    @checkout @cart @smoke @regression @TC_021 @Test
+    @checkout @paypal @smoke @regression @TC_021
     Scenario: As a brand new guest, ensure user able to checkout OMD innovel  product with promotion code using PayPal
     Given I Find "OMD HE Innovel" product using search function
     And  I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
-    And I enter zipCode to check the delivery availability for "OMD HE Innovel" product
-    And I Input zipcode on price breakdown section and verify estimated tax is calculated
+    And I enter ZipCode to check the delivery availability for "OMD HE Innovel" product
+    And I Input ZipCode on price breakdown section and verify estimated tax is calculated
     Then I verify Order summay section price break down is correct
     When I will enter promo code
     #Then I should able to use promo code
@@ -259,7 +261,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Given I enter OMD HE Non Innovel product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMD HE Non Innovel product displays in search results page and navigate to PDP page
-    When  I will enter zipCode for checking the delivery availability for OMD HE Non Innovel Product
+    When  I will enter ZipCode for checking the delivery availability for OMD HE Non Innovel Product
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
@@ -302,7 +304,7 @@ Feature: Checkout Flow using PayPal Payment Method
 		Scenario: As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
     Given I Find "OMD HE Innovel" product using search function
     Then  I will verify OMD HE Innovel product displays in search results page 
-    When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product
+    When  I will enter ZipCode for checking the delivery availability for OMD HE Innovel Product
     When 	I will enter promo code
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
@@ -337,12 +339,13 @@ Feature: Checkout Flow using PayPal Payment Method
     #Paypal payment incomplete
     
     
-    @checkout @paypal @smoke @regression @TC_032 
-  	Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with PayPal checkout
+	@checkout @paypal @smoke @regression @TC_032  
+  Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with PayPal checkout
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify OMD HE Non Innovel product displays in search results page
     Then  I will click on add to cart Button from Search Results Page for "OMD_HE_Non_Innovel"
     And   I Click on "View cart" link
+    Then  I Verify "1" item is added to the cart
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -407,7 +410,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     #Paypal payment incomplete
     
-    @checkout @paypal @smoke @regression @TC_035 
+    @checkout @paypal @smoke @regression @TC_035
   	Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with PayPal checkout
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify OMD HE Non Innovel product displays in search results page
@@ -424,6 +427,7 @@ Feature: Checkout Flow using PayPal Payment Method
 		When  I will select the "2" as quantity
 		When  I click on Secure Checkout button
 		And   I click on Continue as Guest from Sign in page
+		Then I verify item quantity is increased to "2"
 		And 	I click "Save and continue" button on checkout page
 		And   I verify the suggested address
 		When  I click on Continue to Payment button
@@ -457,7 +461,7 @@ Feature: Checkout Flow using PayPal Payment Method
     
     
        
-    @checkout @paypal @smoke @regression @TC_038  
+    @checkout @paypal @smoke @regression @TC_038 
   	Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with PayPal checkout
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify OMD HE Non Innovel product displays in search results page
@@ -482,7 +486,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     #Paypal payment incomplete
     
-    @checkout @paypal @smoke @regression @TC_039  
+    @checkout @paypal @smoke @regression @TC_039
   	Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with PayPal checkout
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify OMD HE Non Innovel product displays in search results page
@@ -506,7 +510,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     #Paypal payment incomplete
     
-    @checkout @paypal @smoke @regression @TC_040   
+    @checkout @paypal @smoke @regression @TC_040  
     Scenario: As a guest user, checkout with OMD products and verify Edit link on Payment method block (Review & Place Order page) with PayPal payment
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify OMD HE Non Innovel product displays in search results page
@@ -566,7 +570,7 @@ Feature: Checkout Flow using PayPal Payment Method
  		#Then  I verify System is showing Make a call from popup
  		
  		
- 		@checkout @paypal @smoke @regression @TC_048  
+ 		@checkout @paypal @smoke @regression @TC_048 
   	Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with PayPal payment
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify OMD HE Non Innovel product displays in search results page

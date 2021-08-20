@@ -307,8 +307,9 @@ public class Cart_page extends Setup {
         }
     }
 
-    public void clickSecureCheckOut() {
+    public void clickSecureCheckOut() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_SECURE_BUTTON));
+        Thread.sleep(2000);
         CART_SECURE_BUTTON.click();
     }
 

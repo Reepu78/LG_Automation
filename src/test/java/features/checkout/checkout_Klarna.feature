@@ -11,7 +11,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Given I enter OMD Klarna enabled product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMD Klarna enabled product displays in search results page
-    When  I will enter zipCode for checking the delivery availability for OMD Klarna enabled Product
+    When  I will enter ZipCode for checking the delivery availability for OMD Klarna enabled Product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -31,8 +31,8 @@ Feature: Checkout Flow using Klarna Payment Method
 			Given I Find "HA OMD Klarna" product using search function
 			And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
     	When I Click on "Add to cart" link  from PDP page
-    	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
-    	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+    	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
+    	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
     	And   I click on Secure Checkout button
     	And   I click on Continue as Guest from Sign in page
 	    Then  I verify "Order Summary" is displayed
@@ -53,7 +53,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Given I enter OMD Klarna enabled product Code into search edit box from GNB
     When  I click on search icon from GNB
     Then  I will verify OMD Klarna enabled product displays in search results page
-    When  I will enter zipCode for checking the delivery availability for OMD Klarna enabled Product
+    When  I will enter ZipCode for checking the delivery availability for OMD Klarna enabled Product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -75,8 +75,8 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
-  	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
   	And   I click on Secure Checkout button
   	And   I click on Continue as Guest from Sign in page
     Then  I verify "Order Summary" is displayed
@@ -96,9 +96,9 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HE OMD Klarna" product using search function
 		And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HE OMD Klarna" product
-  	And I Input zipcode on price breakdown section and verify estimated tax is calculated
-  	When I Enter Promocode "SPRINGS" under Promo Edit box 
+  	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
+  	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
+  	When I Enter PromoCode "SPRINGS" under Promo Edit box 
  		And I Click on "Apply" button
  		Then I Should see a validation message saying You used promotion code "SPRINGS" and Discount and Total price should reflect
   	And   I click on Secure Checkout button
@@ -121,8 +121,8 @@ Feature: Checkout Flow using Klarna Payment Method
 	Given I Find "HE OMD Klarna" product using search function
 	And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HE OMD Klarna" product
-  	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+  	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
+  	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
   	And   I click on Secure Checkout button
   	And   I click on Continue as Guest from Sign in page
     Then  I verify "Order Summary" is displayed
@@ -141,8 +141,8 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HE OMD Klarna" product using search function
 		And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
     	When I Click on "Add to cart" link from PDP page
-    	And I enter zipCode to check the delivery availability for "HE OMD Klarna" product
-    	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+    	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
+    	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
     	And   I click on Secure Checkout button
     	And   I click on Continue as Guest from Sign in page
 	    Then  I verify "Order Summary" is displayed
@@ -167,7 +167,7 @@ Feature: Checkout Flow using Klarna Payment Method
    		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
 			And I Select Subscription as "Single Purchase"
 			When I Click on "Add to cart" link from PDP page
-    	And I Input zipcode "CA" on price breakdown section and verify estimated tax is calculated
+    	And I Input ZipCode "CA" on price breakdown section and verify estimated tax is calculated
     	And   I click on Secure Checkout button
     	And   I click on Continue as Guest from Sign in page
 	    Then  I verify "Order Summary" is displayed
@@ -181,12 +181,12 @@ Feature: Checkout Flow using Klarna Payment Method
   Scenario: As a guest user, checkout combination with OMD and OMV product
   	Given I Find "OMD HE Innovel" product using search function
  	Then  I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
-    When  I will enter zipCode for checking the delivery availability for OMD HE Innovel Product											   
+    When  I will enter ZipCode for checking the delivery availability for OMD HE Innovel Product											   
     Given I Find "OMV Subscription" product using search function
     And I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page											 
-    #And I Input zipcode "CA" on price breakdown section and verify estimated tax is calculated
+    #And I Input ZipCode "CA" on price breakdown section and verify estimated tax is calculated
     Then I Verify "2" item is added to the cart
     And I click on Secure Checkout button
     And I click on Continue as Guest from Sign in page
@@ -205,8 +205,8 @@ Feature: Checkout Flow using Klarna Payment Method
 	Given I Find "HE OMD Klarna" product using search function
  	And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
 	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HE OMD Klarna" product
-  	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+  	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
+  	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
  	#And I Click on "View cart" link
 	#Then I verify Price Breakdown Order Summary section on cart page
 	And I click on Secure Checkout button	
@@ -238,8 +238,8 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HE OMD Klarna" product using search function
  		And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
 		When I Click on "Add to cart" link from PDP page
- 		And I enter zipCode to check the delivery availability for "HE OMD Klarna" product
-  	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+ 		And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
+  	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -266,8 +266,8 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HE OMD Klarna" product using search function
  		And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
 		When I Click on "Add to cart" link from PDP page
- 		And I enter zipCode to check the delivery availability for "HE OMD Klarna" product
-  	And I Input zipcode on price breakdown section and verify estimated tax is calculated
+ 		And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
+  	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -295,7 +295,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -354,7 +354,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
  		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
  		When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -385,7 +385,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -417,7 +417,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -442,7 +442,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
@@ -469,7 +469,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button		
   	And I click on Continue as Guest from Sign in page
@@ -484,7 +484,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button				
   	And I click on Continue as Guest from Sign in page
@@ -498,7 +498,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button		
   	And I click on Continue as Guest from Sign in page
@@ -515,7 +515,7 @@ Feature: Checkout Flow using Klarna Payment Method
 		Given I Find "HA OMD Klarna" product using search function
 		And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
-  	And I enter zipCode to check the delivery availability for "HA OMD Klarna" product
+  	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button		
   	And I click on Continue as Guest from Sign in page
