@@ -54,27 +54,35 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
    #	And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     
- @checkout @cc @smoke @regression @TC_003
+ @checkout @cc @smoke @regression @TC_003  
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
     Given I Find "OMV Non Subscription" product using search function
-    Then  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
+    Then I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
     When I Click on "Add to cart" link from PDP page
-   	And   I Click on "View cart" link
-    Then  I Verify "1" item is added to the cart
+   	And I Click on "View cart" link
+    Then I Verify "1" item is added to the cart
     Then I verify Price Breakdown Order Summary section on cart page
-    When  I click on Secure Checkout button
-    And   I click on Continue as Guest from Sign in page
-    And   I click on Save and Continue button after fill out Shipping Info
-    And   I verify the suggested address
-    Then  I will select the "Overnight" shipment Method
-    When  I click on Continue to Payment button
-    Then  I will see Payment method option list in Billing Page
-    When  I choose the "Credit Card" radio button from Billing Page
-    Then  I will enter Card Details
-    And   I click on Review and Place order button from Billing Page
+    When I click on Secure Checkout button
+    And I click on Continue as Guest from Sign in page
+    Then I verify "Shipping" is displayed
+    Then I verify "Order Summary" is displayed
+    And I click on Save and Continue button after fill out Shipping Info
+    And I verify the suggested address
+    #Then I verify "Verify Your Address " Pop up page is displayed
+    Then I will select the "Overnight" shipment Method
+    When I click on Continue to Payment button
+    Then I will see Payment method option list in Billing Page
+    And I verify Estimated Tax in Order Summary on checkout page
+    When I choose the "Credit Card" radio button from Billing Page
+    Then I will enter Card Details
+    And I click on Review and Place order button from Billing Page
+    And I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
+     # view cart is not displayed in stging
+     # shipping address is not displayed in stging
     
     
-  @checkout @cc @smoke @regression @TC_004  
+  @checkout @cc @smoke @regression @TC_004 
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with Standard shipping
     Given I Find "OMV Non Subscription" product using search function
     Then  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
@@ -84,6 +92,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then I verify Price Breakdown Order Summary section on cart page
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
+    Then I verify "Shipping" is displayed
+    Then I verify "Order Summary" is displayed
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
     Then  I will select the "Standard" shipment Method
@@ -91,8 +101,9 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then  I will see Payment method option list in Billing Page
     When  I choose the "Credit Card" radio button from Billing Page
    Then  I will enter Amex Credit Card Details
-    And   I click on Review and Place order button from Billing Page
-
+   And   I click on Review and Place order button from Billing Page
+   And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+ 	Then I verify confirmation page is displayed
 
   @checkout @cc @smoke @regression @TC_005 @NOT_DONE
   Scenario: [Visa] As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
@@ -112,15 +123,18 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     # CREATE AN ACCOUNT AFTER PLACING ORDER - TODO
 
- @checkout @cc @smoke @regression @TC_006
+ @checkout @cc @smoke @regression @TC_006 @Test
   Scenario:[MC] As a guest user, checkout OMD HE Non Innovel product 
   	Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
     When I Click on "Add to cart" link from PDP page
     And   I Click on "View cart" link
+    Then  I Verify "1" item is added to the cart
     Then I verify Price Breakdown Order Summary section on cart page
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
+     Then I verify "Shipping" is displayed
+    Then I verify "Order Summary" is displayed
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
     Then  I will select the "Standard" shipment Method
@@ -129,9 +143,11 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     When  I choose the "Credit Card" radio button from Billing Page
     Then  I will enter Master Credit Card Details
     And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
     
     
-  @checkout @cc @smoke @regression @TC_007
+  @checkout @cc @smoke @regression @TC_007 
   Scenario: As a guest user, checkout OMD HA Innovel product 
 			Given I Find "OMD HA Innovel" product using search function
 			And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
@@ -176,14 +192,18 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		And  I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
   	And I enter ZipCode to check the delivery availability for "OMD HE Innovel" product
-  	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
+  #	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
+  	Then  I Verify "1" item is added to the cart
   	Then I verify Price Breakdown Order Summary section on cart page
     And I Find "OMV Subscription" product using search function
    	And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
 		And I Select Subscription as "Single Purchase"
 		When I Click on "Add to cart" link from PDP page
+		Then  I Verify "2" item is added to the cart
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
+    Then I verify "Shipping" is displayed
+    Then I verify "Order Summary" is displayed
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
     Then  I will select the "Overnight" shipment Method
@@ -192,9 +212,11 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     When  I choose the "Credit Card" radio button from Billing Page
     Then  I will enter Master Credit Card Details
     And   I click on Review and Place order button from Billing Page
+     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+     Then I verify confirmation page is displayed
 
 	    
-  @checkout @cc @smoke @regression @TC_010
+  @checkout @cc @smoke @regression @TC_010 
   Scenario: [MC] As a guest user, checkout OMD product with an accessory
     Given I Find "OMD HA Innovel" product using search function
     Then  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
@@ -229,7 +251,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     #And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     
     
- @checkout @cc @smoke @regression @TC_012
+ @checkout @cc @smoke @regression @TC_012 
   Scenario: [Visa] As a guest user, checkout OMD HE Non Innovel product with invalid expiration date
   	Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -239,6 +261,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then I verify Price Breakdown Order Summary section on cart page
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
+    Then I verify "Shipping" is displayed
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
     Then  I will select the "Standard" shipment Method
@@ -249,7 +272,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
     Then  I verify the error message for Visa Expiration date
    
- @checkout @cc @smoke @regression @TC_013  
+ @checkout @cc @smoke @regression @TC_013 
   Scenario: [JCB] As a guest user, checkout OMD HE Non Innovel product with invalid Credit Card Type
    	Given I Find "OMD HE Non Innovel" product using search function
 	  Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -259,12 +282,13 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then I verify Price Breakdown Order Summary section on cart page
 	  When  I click on Secure Checkout button
 	  And   I click on Continue as Guest from Sign in page
+	  Then I verify "Shipping" is displayed
 	  And   I click on Save and Continue button after fill out Shipping Info
 	  And   I verify the suggested address
 	  Then  I will select the "Standard" shipment Method
 	  When  I click on Continue to Payment button
 	  Then  I will see Payment method option list in Billing Page
-	  When  I choose the "Credit Card" radio button from Billing Page
+	   When  I choose the "Credit Card" radio button from Billing Page
 	  Then  I will enter JCB Card Details with valid Details
 	  And   I click on Review and Place order button from Billing Page
 	  Then  I verify the error message for Credit Card Type
@@ -289,6 +313,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		When I update product quantity to "2"
 		And I click on Secure Checkout button	
 		And   I click on Continue as Guest from Sign in page
+		Then I verify "Shipping" is displayed
     Then  I verify "Order Summary" is displayed
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
@@ -298,8 +323,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
    	When  I choose the "Credit Card" radio button from Billing Page
 		Then  I will enter Amex Credit Card Details
     And   I click on Review and Place order button from Billing Page
-			
-			
+		And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+     Then I verify confirmation page is displayed	
 			
 	@checkout @cc @smoke @regression @TC_036  
   Scenario: [VISA] As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with Credit/Debit card checkout
@@ -311,6 +336,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
+  	Then I verify "Shipping" is displayed
 		Then  I verify "Order Summary" is displayed
     And   I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
@@ -325,6 +351,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     When  I choose the "Credit Card" radio button from Billing Page
 		Then  I will enter Card Details
     And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
 	
 	@checkout @guest @cc @smoke @regression @TC_037  
   Scenario: [MC] As a guest user, checkout with OMD products and verify Return to Shipping link on checkout(Payment & Billing) page with Credit/Debit card checkout
@@ -336,6 +364,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
+  	Then I verify "Shipping" is displayed
 		Then  I verify "Order Summary" is displayed
     And   I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
@@ -351,6 +380,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     When  I choose the "Credit Card" radio button from Billing Page
 		Then  I will enter Master Credit Card Details
     And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
     
     
  @checkout @guest @cc @smoke @regression @TC_038 
@@ -375,11 +406,14 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Save and Continue button after fill out Shipping Info
     And   I verify the suggested address
     When  I click on Continue to Payment button
+    Then I verify "Shipping" is displayed
     Then  I verify "Order Summary" is displayed
     Then  I will see Payment method option list in Billing Page
     When  I choose the "Credit Card" radio button from Billing Page
    	Then  I will enter Amex Credit Card Details
     And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
     
     
 	@checkout @guest @cc @smoke @regression @TC_0039 
@@ -396,6 +430,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And  I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
     When  I click on Continue to Payment button
+    Then I verify "Shipping" is displayed
     Then  I verify "Order Summary" is displayed
     Then  I will see Payment method option list in Billing Page
     When  I choose the "Credit Card" radio button from Billing Page
@@ -403,6 +438,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then I verify System should display CVV UI demo with VISA, MC, DISCOVER and AMEX card
    	Then  I will enter Amex Credit Card Details
     And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
     
     
 	@checkout @guest @cc @smoke @regression @TC_041 
@@ -417,6 +454,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
  		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
  		And I Select Subscription as "Single Purchase"
  		When I Click on "Add to cart" link from PDP page
+ #		And I Click on "No - One-Time Purchase Only" button
  		Then  I Verify "2" item is added to the cart
 		When I Find "HE OMD KLARNA PROMO" product using search function
  		And  I will verify "HE OMD KLARNA PROMO" product displays in search results page and navigate to PDP page
@@ -426,6 +464,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
  		#I verify promo price is displayed for the promo product
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
+  	Then I verify "Shipping" is displayed
 		Then  I verify "Order Summary" is displayed
     And  I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
@@ -435,6 +474,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
   	When  I choose the "Credit Card" radio button from Billing Page
    	Then  I will enter Amex Credit Card Details
     And   I click on Review and Place order button from Billing Page
+     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
     
     
 	@checkout @guest @cc @smoke @regression @TC_043  
@@ -447,6 +488,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
+  	Then I verify "Shipping" is displayed
 		Then  I verify "Order Summary" is displayed
     And  I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
@@ -466,9 +508,11 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
    	When  I choose the "Credit Card" radio button from Billing Page
    	Then  I will enter Card Details
     And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
     
     
-  @checkout @guest @cc @smoke @regression @TC_044 
+  @checkout @guest @cc @smoke @regression @TC_044     
   Scenario: [VISA] As a guest user, checkout with OMD products and verify Edit link on Contact Information block (Review & Place Order page) with Credit card payment
 		Given I Find "OMD HE Non Innovel" product using search function
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -497,6 +541,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     When  I choose the "Credit Card" radio button from Billing Page
    	Then  I will enter Card Details
     And   I click on Review and Place order button from Billing Page
+    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    #Then I verify confirmation page is displayed
     
  	@checkout @guest @cc @smoke @regression @TC_045 
   Scenario: [VISA] As a guest user, checkout with OMD products and verify Edit link on Payment method block (Review & Place Order page) with Credit card payment
@@ -507,6 +553,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
+  	Then I verify "Shipping" is displayed
 		Then  I verify "Order Summary" is displayed
     And  I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
@@ -525,6 +572,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then  I will enter card Details on Paypal Page
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue Button
+    Then I verify confirmation page is displayed
  
  
  
@@ -537,6 +585,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
+  	Then I verify "Shipping" is displayed
 		Then  I verify "Order Summary" is displayed
     And  I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
@@ -557,7 +606,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
   	And   I click on Place Order button after agreeing Terms and Conditions from Review Page
   	
   	
-  @checkout @guest @cc @smoke @regression @TC_051 
+  @checkout @guest @cc @smoke @regression @TC_051
   Scenario: Verify Need Help? Call text and call number navigation of the header section in checkout page
 		Given I Find "OMD HE Non Innovel" product using search function
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -566,6 +615,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
+  	Then I verify "Shipping" is displayed
 		Then  I verify "Order Summary" is displayed
 		And I verify header section is displayed on shipping page
 		When I click on Call Number
@@ -586,7 +636,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		
 		
 		
-	@checkout @guest @cc @smoke @regression @TC_053
+	@checkout @guest @cc @smoke @regression @TC_053 
   Scenario: Verify 'Need Help?' block on the footer section in checkout page
 		Given I Find "OMD HE Non Innovel" product using search function
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -601,8 +651,9 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
  		Then I verify the FAQ tab
  		When I click on footer Call Number
  		#Then  I verify System is showing Make a call from popup
+ 		And I click on footer Email Id
 		
-	@checkout @guest @cc @smoke @regression @TC_055
+	@checkout @guest @cc @smoke @regression @TC_055  
   Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with Credit card payment
 		Given I Find "OMD HE Non Innovel" product using search function
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -611,6 +662,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button	
   	And I click on Continue as Guest from Sign in page
+  	Then I verify "Shipping" is displayed
 		Then  I verify "Order Summary" is displayed
     And  I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
@@ -628,5 +680,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     When  I choose the "Credit Card" radio button from Billing Page
    	Then  I will enter Card Details
     And   I click on Review and Place order button from Billing Page
+     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed
 			#Incomplete Klarna details  #TestData		
 	  

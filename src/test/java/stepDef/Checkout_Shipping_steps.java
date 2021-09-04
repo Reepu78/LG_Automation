@@ -31,7 +31,12 @@ public class Checkout_Shipping_steps extends Setup {
 		Shipping.enter_contact_shipping_info();
 		Shipping.clickSaveAndContinueButtonFromShippingPage();
 	}
-
+	
+	@And("I click on save and conttinue button")
+	public void iClickOnSaveAndAcontueBtn() throws InterruptedException{
+		Shipping.clickSaveAndContinueButtonFromShippingPage();
+	}
+	
 	@And("I verify the suggested address")
 	public void iVerifyTheSuggestedAddress() throws InterruptedException {
 		Shipping.clickUseThisAddressButton();
@@ -51,8 +56,8 @@ public class Checkout_Shipping_steps extends Setup {
 	
 	@And("I click {string} button on checkout page")
 	public void useADifferentBillingAddress(String linkName) throws InterruptedException {
-		Thread.sleep(2000);
 		Shipping.click(linkName);
+		Thread.sleep(2000);
 	}
 	
 	@And("I enter different Address in Use a different billing address section")
@@ -64,6 +69,7 @@ public class Checkout_Shipping_steps extends Setup {
 	public void updateAddress() throws InterruptedException {
 		Shipping.verifyContactInfoPage();
 		Shipping.update_Shipping_Info();
+		Thread.sleep(3000);
 		Shipping.clickSaveAndContinueButtonFromShippingPage();
 	}
 	
@@ -76,6 +82,20 @@ public class Checkout_Shipping_steps extends Setup {
 	public void updateContactInfo() throws InterruptedException {
 		Shipping.verifyContactInfoPage();
 		Shipping.update_Contact_Info();
+		Thread.sleep(1000);
+		Shipping.clickSaveAndContinueButtonFromShippingPage();
+	}
+	@When("I will update email and phone number on shipping page")
+	public void updateContactEmailAndPhoneNumber() throws InterruptedException{
+		Shipping.verifyContactInfoPage();
+		Shipping.update_Contact_Info();
+	}
+	
+	@When("I update email and phone number on shipping page")
+	public void updateemailAndPhoneNumber() throws InterruptedException {
+		Shipping.verifyContactInfoPage();
+		Shipping.update_Contact_Info();
+		Thread.sleep(3000);
 		Shipping.clickSaveAndContinueButtonFromShippingPage();
 	}
 	
@@ -91,12 +111,13 @@ public class Checkout_Shipping_steps extends Setup {
 	
 	@When("I click on Cart icon")
 	public void clickCartIcon() throws InterruptedException {
+		Thread.sleep(3000);
 		Shipping.CART_ICON.click();
 	}
 	
 	@Then("I verify System is showing Make a call from popup")
 	public void verifyMakeACallPopUp() throws InterruptedException {
-		//wait.until(ExpectedConditions.alertIsPresent());
+		wait.until(ExpectedConditions.alertIsPresent());
 		String expectedMessage = "https://www.lg.com wants to open this application.";
 		assertEquals(driver.switchTo().alert().getText(), expectedMessage);
 	}
@@ -106,14 +127,25 @@ public class Checkout_Shipping_steps extends Setup {
 		Shipping.verifyFooter();
 	}
 	
+	
 	@Then("I verify the FAQ tab")
 	public void verifyFAQTab() {
 		Shipping.verifyFAQTab();
 	}
 	
 	@When("I click on footer Call Number")
-	public void clickFooterCallNumber() throws InterruptedException {
-		Shipping.FOOTER_CALLUS.click();
+	public void clickFooterCallNumber() throws InterruptedException{
+		Shipping.iClickOnCallUs();
+	}
+	
+	@Then("I click on footer Email us")
+	public void clickOnfooterEmail() {
+		Shipping.FOOTER_EMAILUS.click();
+	}
+	
+	@And("I click on footer Email Id")
+	public void iClickOnFooterEmailId() {
+		Shipping.iClickOnEmailId();
 	}
 
 }

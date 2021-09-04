@@ -18,6 +18,12 @@ public class GlobalTestData {
     public static String GLOBAL_CUSTOMER_ALT_PHONE_NUMBER = "(213) 633 0112";
     public static String GLOBAL_KLARNA_SSN_INPUT = "1111";
     public static String GLOBAL_KLARNA_SSN_DOB = "12/12/1990";
+    public static String GLOBAL_GNB_USER_ID = "hassan.bhuiyan";
+    public static String GLOBAL_GNB_PASSWORD = "Lgcns$prod1";
+    public static String GLOBAL_GNB_EMAIL_ID = "qalgcns@gmail.com";
+    public static String GLOBAL_GNB_EMAIL_PASSWORD = "Test1234$";
+    
+    
     
     // Product
     public static String OMV_Subscription;
@@ -42,9 +48,11 @@ public class GlobalTestData {
     public static String HA_OMD_KLARNA;
     public static String HE_OMD_KLARNA_PROMO;
     public static String HE_OMD_KLARNA;
+    public static String HE_OMD_NON_INNOVEL_KLARNA;
 
     //PromoCode
-    public static String PROMO_CODE = "SPRINGS";
+    public static String PROMO_CODE;
+    public static String INVALID_PROMO_CODE;
     
     
     public static String[] GLOBAL_STATES_INSEARCHORDER = {"NY", "NJ", "CA", "TX", "HI"};

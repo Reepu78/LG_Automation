@@ -1,11 +1,14 @@
 package pageObject;
 
 import base.GenericFunctions;
+import base.GlobalTestData;
 import base.Setup;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +31,23 @@ public class GNB_page extends Setup {
             .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
 
     // Elements
+    @FindBy(how = How.XPATH, using = "//*[@id='loginUserId']")
+    public WebElement GNB_USER_ID;
+    @FindBy(how = How.XPATH, using = "//*[@id='password']")
+    public WebElement GNB_PASSWORD;
+    @FindBy(how = How.XPATH, using = "//*[@id='doLogin']")
+    public WebElement GNB_LOGIN;
+    @FindBy(how = How.XPATH, using = "//*[@id='authArea']")
+    public WebElement GNB_SEND_BUTTON;
+    @FindBy(how = How.XPATH, using = "//*[@id='authArea']")
+    public WebElement GNB_LOGIN_CODE_AREA;
+    @FindBy(how = How.XPATH, using = "//*[@id='identifierId']")
+    public WebElement GNB_LOGIN_EMAIL;
+    @FindBy(how = How.XPATH, using = "//*[@name='password']")
+    public WebElement GNB_LOGIN_PASSWORD;
+    @FindBy(how = How.XPATH, using = "//*[text()='Next']")
+    public WebElement GNB_CLICK_NEXT_BUTTON;
+    
     @FindBy(how = How.LINK_TEXT, using = "My LG")
     public WebElement GNB_MY_ACCOUNT_ICON_LINK;
     @FindBy(how = How.LINK_TEXT, using = "Sign In / Sign Up")
@@ -60,6 +80,8 @@ public class GNB_page extends Setup {
     public WebElement GNB_SMALL_BUSINESS_LINK;
     @FindBy(how = How.LINK_TEXT, using = "SUPPORT")
     public WebElement GNB_SUPPORT_LINK;
+   
+    
 
 
     // NEW
@@ -171,5 +193,29 @@ public class GNB_page extends Setup {
 //			break;
 //    	}
 //    }
-
+    
+    public void stagingHome() {
+    	GNB_USER_ID.sendKeys(GlobalTestData.GLOBAL_GNB_USER_ID);
+    	GNB_PASSWORD.sendKeys(GlobalTestData.GLOBAL_GNB_PASSWORD);
+    	GNB_LOGIN.click();
+    	
+    }
+    public void authenticationCode() {
+    	try {
+        	GNB_SEND_BUTTON.click();
+        	//Thread.sleep(2000);
+    		((JavascriptExecutor)driver).executeScript("window.open()");
+    	    ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+    	    driver.switchTo().window(tabs.get(1));
+        	driver.get("https://wwwstg.us.lg.com/us");
+    	}catch(Exception e) {}
+   /* 	GNB_LOGIN_EMAIL.sendKeys(GlobalTestData.GLOBAL_GNB_EMAIL_ID);
+    	GNB_CLICK_NEXT_BUTTON.click();
+    	GNB_LOGIN_PASSWORD.sendKeys(GlobalTestData.GLOBAL_GNB_EMAIL_PASSWORD);
+    	GNB_CLICK_NEXT_BUTTON.click();
+    	
+    	GNB_LOGIN_CODE_AREA.sendKeys(null); */
+    }
+ 
+    
 }

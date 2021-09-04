@@ -29,7 +29,7 @@ public class Checkout_Review_page extends Setup {
     Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(100))
             .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
     // Elements
-    @FindBy(how = How.XPATH, using = "(//div[@class='checkbox-text']//parent::label)[1]")
+    @FindBy(how = How.XPATH, using = "(//div[@class='checkbox-text']//parent::label)[3]")
     public WebElement CHECKOUT_TERMS_CONDITIONS_CHECKBOX;
     @FindBy(how = How.XPATH, using = "//span[text()='Change Shipping Method']//following::button[1]")
     public WebElement CHECKOUT_PLACE_ORDER_BUTTON;

@@ -15,16 +15,22 @@ public class GNB_steps extends Setup {
 
     @Given("I am at LG Home Page")
     public void homePage() {
-        Set<String> winIds = driver.getWindowHandles();
-        System.out.println ("Total windows -> " + winIds.size());
-        if (winIds.size () == 2){
-            Iterator<String> iter = winIds.iterator();
-            String mainWinID = iter.next();
-            String popupWindID = iter.next();
-            driver.switchTo().window(popupWindID);
-            driver.close();
-            driver.switchTo().window(mainWinID);
-        }
+    	if(Hook.baseURL.equals("stg")) {
+    		GNB.stagingHome();
+    		GNB.authenticationCode();
+    	}else {
+    		 Set<String> winIds = driver.getWindowHandles();
+    	        System.out.println ("Total windows -> " + winIds.size());
+    	        if (winIds.size () == 2){
+    	            Iterator<String> iter = winIds.iterator();
+    	            String mainWinID = iter.next();
+    	            String popupWindID = iter.next();
+    	            driver.switchTo().window(popupWindID);
+    	            driver.close();
+    	            driver.switchTo().window(mainWinID);
+    	        }
+    	}
+       
     }
 
     @Given("I came to Signup page from GNB")

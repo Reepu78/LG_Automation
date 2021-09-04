@@ -34,7 +34,7 @@ public class Cart_Steps extends Setup {
 		CART.productArea = CART.validateEnterZipCode();
 		CART.clickProceedButton();
 	}
-	
+
 	@SuppressWarnings("static-access")
 	@When("I will enter ZipCode to check the delivery availability")
 	public void iEnterZipCodeTheDeliveryAvailability() throws InterruptedException {
@@ -44,8 +44,11 @@ public class Cart_Steps extends Setup {
 
 	@When("^I enter ZipCode to check the delivery availability for \"([^\"]*)\"$")
 	public void iZipCodeToCheckTheDeliveryAvailability(String stateName) throws InterruptedException {
+		Thread.sleep(2000);
 		CART.verifySelectedProduct(CART.productCode[0]);
+		Thread.sleep(2000);
 		CART.productArea = CART.validateEnterZipCode(stateName);
+		Thread.sleep(2000);
 	}
 
 	@When("I will enter ZipCode for checking the delivery availability for OMD HE Innovel Product")
@@ -54,7 +57,7 @@ public class Cart_Steps extends Setup {
 		CART.verifyZipCodePage();
 		CART.verifySelectedProduct(GlobalTestData.OMD_HE_Innovel);
 		CART.productArea = CART.validateEnterZipCode();
-		Thread.sleep(500);
+		Thread.sleep(5000);
 		CART.clickProceedButton();
 	}
 
@@ -104,7 +107,7 @@ public class Cart_Steps extends Setup {
 
 	@When("I will enter promo code")
 	public void I_will_enter_promocode() throws InterruptedException {
-		CART.enterPromoCode(GlobalTestData.PROMO_CODE);
+		CART.enterPromoCode();
 		CART.clickApplyButton();
 	}
 
@@ -152,10 +155,10 @@ public class Cart_Steps extends Setup {
 			tax2 = CART.getEstimatedTax();
 		}
 	}
-	
+
 	@Then("I should able see Hawaii estimated tax less than New York estimated tax")
 	public void CompareEstimatedTax() throws InterruptedException {
-	CART.compareEstimatedTax(tax1, tax2);	
+		CART.compareEstimatedTax(tax1, tax2);	
 	}
 
 	@Then("I click on Add to Cart Button under Recommendations")
@@ -220,116 +223,128 @@ public class Cart_Steps extends Setup {
 	public void iRemovedFirstItemFromTheCartList() throws InterruptedException {
 		CART.clickRemoveItemLink();
 	}
-	
-	
+
+
 	@When("I Verify {string} item is added to the cart")
 	public void clickAddToCartButton(String noOfItems) throws InterruptedException {
 		CART.validateItemAddedToCart(noOfItems);
 
 	}
-	
+
 	@And("I Click on {string} link/button")
 	public void clickItem(String linkName) throws InterruptedException {
 		CART.click(linkName);
 	}
-	
+
 	@And("I Click on {string} link/button from PDP page")
 	public void clickeItemPDP(String linkName) throws InterruptedException {
 		CART.click(linkName);
 	}
-	
+
+
 	@Then("Your cart is Empty message should display along with SEE ALL DEALS button")
 	public void yourCartIsEmptyMessageshouldbeDisplayed() {
 		CART.verifyEmptyCartMessage();
 	}
-	
+
 	@And("I Select Subscription as {string}")
 	public void selectSubscriptionype(String subscriptionType) throws InterruptedException {
 		CART.click(subscriptionType);
 	}
-	
+
 	@And("I Input ZipCode on price breakdown section and verify estimated tax is calculated")
 	public void inputZIPCodeinPriceBreakdown() throws InterruptedException {
 		priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(CART.productArea);
 	}
-	
-	@And("I Input ZipCode {string} on price breakdown section and veirfy estimated tax is calculated")
+
+	@And("I Input ZipCode{string}on price breakdown section and veirfy estimated tax is calculated")
 	public void inputZIPCodeVerifyPriceBreakdown(String zip) throws InterruptedException {
 		priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(zip);
 	}
-	
-	
+
+
 	@Then("I verify Order summary section price break down is correct")
 	public void verifyPriceBreakdown() {
 		Assert.assertEquals(CART.CART_PRODUCTPRICE.getText(), CART.CART_AMOUNTS.get(0).getText());
 	}
-	
-	@When("I Enter PromoCode{string} under Promo Edit box")
-	public void enterPromocode(String promocode) {
-		CART.enterPromoCode(promocode);
+
+	@When("I Enter valid PromoCode under Promo Edit box")
+	public void enterPromocode() { 
+		//		CART.enterPromoCode(GlobalTestData.PROMO_CODE);
+		CART.enterPromoCode();
 	}
 
-	@Then("I Should see a validation message saying You used promotion code {string} and Discount and Total price should reflect")
-	public void verifyPromocode(String promo) {
-		CART.validateApplyPromocode(promo);
+	@Then("I Should see a validation message saying You used promotion code and Discount and Total price should reflect")
+	public void verifyPromocode() {
+		CART.validateApplyPromocode(GlobalTestData.PROMO_CODE);
+		CART.validateDiscountedPrice();
 	}
-	
+
 	@Then("I verify {string} is displayed and discount is removed")
 	public void verifyPromoCancelled(String message) {
 		CART.validateCancelPromocode(message);
-		
+
 	}
-	
+
 	@Then("I verify {string} is displayed")
 	public void verifyElementIsDisplayed(String message) {
 		GenericFunctions.verifyElementByText(message);
-		
+
 	}
-	
+
 	@Then("I verify {string} is not displayed")
 	public void verifyElementNotDisplayed(String text) throws InterruptedException {
 		Thread.sleep(2000);
 		Assert.assertTrue(GenericFunctions.verifyElementIsNotDisplayedByText(text));
-		
+
 	}
-	
+
 	@And("I Enter an invalid zip code {string} under Shipping zip code Field")
 	public void enterInvalidShippingZipCode(String zip) {
 		CART.enterZipCode(zip);
-		
+
 	}
-	
+
 	@SuppressWarnings("static-access")
 	@When("I enter ZipCode to check the delivery availability for {string} product")
 	public void iEnterZipCodeToCheckTheDeliveryAvailabilityfor(String product) throws InterruptedException {
-		Thread.sleep(3000);
 		CART.verifyZipCodePage();
 		CART.verifySelectedProduct(GenericFunctions.getData(product));
 		CART.productArea = CART.validateEnterZipCode();
 		CART.clickProceedButton();
 	}
-	
+
 	@And("I Click on {string} button for the first Accessory")
 	public void recordFirstAccessoryAndAddToCart(String linkName) throws InterruptedException {
 		firstAccessory= CART.readFirstAccessory();
 		CART.click("AddAccessoryToCart");
 	}
-	
+
 	@And("I verify the Accessory added to cart is still displayed")
 	public void verifyAccessoryisDisplayed() throws InterruptedException {
 		String accessory = CART.readFirstAccessory();
 		firstAccessory= CART.readFirstAccessory();
 		Assert.assertEquals(accessory, firstAccessory);
 	}
-	
+
 	@Then("I verify Price Breakdown Order Summary section on cart page")
 	public void verifyOrderSummaryPriceBreakdown() throws InterruptedException {
 		CART.verifyPriceBreakdown();
 	}
-	
+
 	@When("I update product quantity to {string}")
 	public void updateProductQuantity(String qty) throws InterruptedException {
 		CART.updateProductQuantity(qty);
 	}
-	
+
+	@And("I click on close pop up page")
+	public void clickOnClosePopUpPage() {
+		CART.iClickOnCloseBtn();
+	}
+
+	@When("I Enter Invalid PromoCode under Promo Edit box")
+	public void iEnterInvalidPromoCode() {
+		CART.enterInvalidPromoCode();
+
+	}
 }

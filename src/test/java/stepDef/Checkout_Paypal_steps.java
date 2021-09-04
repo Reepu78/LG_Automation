@@ -26,16 +26,10 @@ public class Checkout_Paypal_steps extends Setup {
 		Paypal.enter_contact_shipping_info();
 	}
 
-	@And("I will click on Continue Button")
+	@And("I will click on Continue button")
 	public void iclickContinueButton() throws InterruptedException {
 		Paypal.clickContinueButton();
 	}
-	
-	@And("I click Where is my Security Code? link from Billing Page")
-	public void iclickWhereIsMySecurityCodeLink() throws InterruptedException {
-		GenericFunctions.click("Where is my Security Code?");
-	}
-
 	
 	
 }

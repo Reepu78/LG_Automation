@@ -2,6 +2,9 @@ package stepDef;
 
 import java.text.ParseException;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+
 import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
@@ -23,9 +26,10 @@ public class Checkout_Payment_steps extends Setup {
 
 	@When("^I choose the \"([^\"]*)\" radio button from Billing Page$")
 	public void iChoosePaymentRadioButton(String paymentMethod) throws InterruptedException {
+		Thread.sleep(5000);
 		if (paymentMethod.equalsIgnoreCase("Klarna")) {
-			Payment.selectPaymentMethodFromBillingPage("Buy Now. Pay Later");
-			PaymentMethod = "Buy Now. Pay Later";
+			Payment.selectPaymentMethodFromBillingPage("Buy Now. Pay Never in STG.");
+			PaymentMethod = "Buy Now. Pay Never in STG.";
 		} else if (paymentMethod.equalsIgnoreCase("Credit Card")) {
 			Payment.selectPaymentMethodFromBillingPage("Credit or Debit Card");
 			PaymentMethod = "Credit or Debit Card";
@@ -100,4 +104,56 @@ public class Checkout_Payment_steps extends Setup {
 	public void verifyCreditDebitCardIsSelected() throws InterruptedException {
 		Payment.verrifyDebitCardSelected();
 	}
-}
+	
+	@And("I click on confirm button")
+	public void clickOnConfirmBtn() throws InterruptedException {
+		Payment.clickOnConfirmButton();
+	}
+	@And("I click on checkBox in review terms and apply page")
+	public void clickOnCheckBox() {
+		Payment.clickOnReviewTeamAgreeCheckBox();
+	}
+	
+	@And("I click on agree and Submit button in review terms and apply page")
+	public void clickOnAgreeAndSubmitBtn() throws InterruptedException {
+		Payment.clickOnAgreeandSubmit();
+	}
+	
+	@Then("I verify Your tailored plan is displayed")
+	public void iVerifyTailoredPlanPage() {
+		Payment.verifyTailoredPlanIsDisplay();
+	}
+	
+	@Then("I verify Review terms and apply is displayed")
+	public void iVerifyReviewTermsPage() {
+		Payment.verifyReviewTermsIsDisplay();
+	}
+	
+
+	
+	@And("I verify your Detail page and Input phone  number")
+	public void inputPhoneNumber() throws InterruptedException {
+		Payment.verifyYourDetailAndEnterPhoneNumberDisplay();
+		Payment.clickonCheckBox();
+		Payment.clickoncontinuebtn();
+	}
+	
+	@Then("I enter the code")
+	public void enterTheCode() {
+		Payment.enterCode();
+	}
+	
+	@And("I verify Estimated Tax in Order Summary on checkout page")
+	public void iVerifyEstimatedTax() {
+		 Payment.iVerifyEstimatedTax();
+	}
+	@Then("I verify {string} Pop up page is displayed")
+	public void verifyPopUpPageIsDisplayed(String message) {
+		GenericFunctions.verifyElementByText(message);
+	}
+	
+	@And("I click Where is my Security Code? link from Billing Page")
+	public void iclickWhereIsMySecurityCodeLink() throws InterruptedException {
+		GenericFunctions.click("Where is my Security Code?");
+	}
+ }

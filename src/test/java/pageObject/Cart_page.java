@@ -46,6 +46,8 @@ public class Cart_page extends Setup {
     public WebElement CART_ZIPCODE;
     @FindBy(how = How.XPATH, using = "//input[@placeholder='Enter Promotion Code']")
     public WebElement CART_PROMOCODE;
+    @FindBy(how = How.XPATH, using = "//input[@placeholder='Enter Promotion Code']")
+    public WebElement CART_INVALID_PROMOCODE;
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'You used promotion code')]")
     public WebElement CART_PROMOCODE_MSG;
     @FindBy(how = How.XPATH, using = "//div[contains(text(),'You canceled the promotion code')]")
@@ -66,7 +68,7 @@ public class Cart_page extends Setup {
     public WebElement CART_PRODUCTPRICE;
     @FindBy(how = How.XPATH, using = "//h3[contains(text(),'Need Help')]")
     public WebElement CART_NEED_HELP_SECTION;
-    @FindBy(how = How.XPATH, using = "//button[@title='Secure Checkout']")
+    @FindBy(how = How.XPATH, using = "//*[text()='Secure Checkout']")
     public WebElement CART_SECURE_BUTTON;
     @FindBy(how = How.XPATH, using = "//h1[@class='title']")
     public WebElement CART_SIGNIN_TITLE;
@@ -132,7 +134,9 @@ public class Cart_page extends Setup {
 	public WebElement SUBTOTAL;
 	@FindBy(how = How.XPATH, using = "(//*[@title=\"Qty\"])[1]")
 	public WebElement FIRST_ITEM_QTY;
-
+	@FindBy(how = How.XPATH, using = "(//*[@class='action-close'])[1]")
+	public WebElement CLOSE_PAGE_BTN;
+	
     public void enterDeliveryFrequency(String deliveryFrequency){
         DELIVERY_FREQUENCY_LIST.click();
         Select d = new Select (DELIVERY_FREQUENCY);
@@ -153,7 +157,7 @@ public class Cart_page extends Setup {
     }
 
     public void verifyZipCodePage() {
-        wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE_PAGE));
+        wait.until(ExpectedConditions.visibilityOf(CART_ZIPCODE_PAGE));
         boolean isDisplayed = CART_ZIPCODE_PAGE.isDisplayed();
         if (isDisplayed) {
             String actualTitle = CART_ZIPCODE_PAGE.getText().trim();
@@ -165,7 +169,7 @@ public class Cart_page extends Setup {
     }
 
     public void verifySelectedProduct(String expectedCode) {
-        wait.until(ExpectedConditions.elementToBeClickable(CART_PRODUCT_CODE));
+        wait.until(ExpectedConditions.visibilityOf(CART_PRODUCT_CODE));
         boolean isDisplayed = CART_PRODUCT_CODE.isDisplayed();
         if (isDisplayed) {
             String actualCode = CART_PRODUCT_CODE.getText().trim();
@@ -218,10 +222,11 @@ public class Cart_page extends Setup {
         CART_ZIPCODE.sendKeys(zipCode);
     }
 
-    public void enterPromoCode(String promoCode) {
+    public void enterPromoCode() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE));
         CART_PROMOCODE.clear();
-        CART_PROMOCODE.sendKeys(promoCode);
+//        promoCode="SPRINGS";
+        CART_PROMOCODE.sendKeys(GlobalTestData.PROMO_CODE);
     }
 
     public void clickApplyButton() throws InterruptedException {
@@ -234,7 +239,7 @@ public class Cart_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(CART_PROCEED_TO_CHECKOUT));
         jsClick(CART_PROCEED_TO_CHECKOUT);
         // CART_PROCEED_TO_CHECKOUT.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
     public void clickRemovePromoCode() throws InterruptedException {
@@ -309,7 +314,7 @@ public class Cart_page extends Setup {
 
     public void clickSecureCheckOut() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_SECURE_BUTTON));
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         CART_SECURE_BUTTON.click();
     }
 
@@ -484,12 +489,12 @@ public class Cart_page extends Setup {
     
     
     public String validateEnterZipCode() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
+		wait.until(ExpectedConditions.visibilityOf(CART_ZIPCODE));
 		String productArea = "";
 		for (String state : GlobalTestData.GLOBAL_STATES_INSEARCHORDER) {
 			enterZipCode(GlobalTestData.ZIPCODES(state));
 			CART_CHECK_BUTTON.click();
-			Thread.sleep(1000);
+			Thread.sleep(4000);
 			Boolean isAvailable = checkProductAvailable();
 			if (isAvailable) {
 				productArea = state;
@@ -501,7 +506,7 @@ public class Cart_page extends Setup {
 	
 	
 	public String[] inputZipcodeVerifyPriceBreakdown(String zip) throws InterruptedException {
-		String[] priceBreakDown = { "", "", "", "" };
+		String[] priceBreakDown = { "", "", "", "", "" };
 		enterZipCode(GlobalTestData.ZIPCODES(zip));
 		CART_CHECK_BUTTON.click();
 		Thread.sleep(5000);
@@ -521,6 +526,7 @@ public class Cart_page extends Setup {
 	
 
 	public void click(String linkName) throws InterruptedException {
+		
 		switch (linkName) {
 		case "Remove Item":
 			GenericFunctions.jsClick(REMOVE_ITEM);
@@ -562,11 +568,18 @@ public class Cart_page extends Setup {
 	public void validateApplyPromocode(String promo) {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE_MSG));
 		WebElement message = driver.findElement(By.xpath("//div[contains(text(),'You used promotion code \""+promo+"\"')]"));
-		Boolean isDisplayed = CART_PROMOCODE_MSG.isDisplayed();
+		Boolean isDisplayed = message.isDisplayed();
 		if (!isDisplayed) {
 			Assert.fail("Promo code is not Applied");
 		}
+		
+	}
+	
+	public void validateDiscountedPrice() {
 		Assert.assertTrue(CART_DISCOUNT.isDisplayed());
+		float subtotal = GenericFunctions.getPrice(SUBTOTAL.getText());
+		float discountedprice = GenericFunctions.getPrice(CART_TOTAL_PRICE.getText());
+		Assert.assertTrue(discountedprice<subtotal);
 	}
 	
 	
@@ -588,7 +601,7 @@ public class Cart_page extends Setup {
 
 	public void validateItemAddedToCart(String expectednoOfItems) throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOf(ITEMS_IN_CART));
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		String itemInCart = ITEMS_IN_CART.getText().trim();
 		Assert.assertEquals(itemInCart, expectednoOfItems);
 	}
@@ -612,5 +625,14 @@ public class Cart_page extends Setup {
 		Select quantity = new Select(FIRST_ITEM_QTY);
 		quantity.selectByValue(qty);
 	}
-
+    
+	public void iClickOnCloseBtn() {
+		CLOSE_PAGE_BTN.click();
+	}
+	
+	public void enterInvalidPromoCode() {
+		CART_INVALID_PROMOCODE.clear();
+		CART_INVALID_PROMOCODE.sendKeys(GlobalTestData.INVALID_PROMO_CODE);
+	}
+	
 }

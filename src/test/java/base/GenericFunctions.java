@@ -34,6 +34,47 @@ public class GenericFunctions extends Setup{
 		Assert.assertTrue(ele.isDisplayed());
 	}
 	
+	
+	public static float getPrice(String price) {
+		try {
+			price = price.trim().replace("$", "");
+			return Float.parseFloat(price);
+		}catch(Exception e) {
+			return 0;
+		}
+		 
+	}
+	
+	
+//	public static void isDisplayed(WebElement element, String expectedText) {
+//		
+//		 wait.until(ExpectedConditions.elementToBeClickable(element));
+//	       boolean isDisplayed = element.isDisplayed();
+//	       if (isDisplayed) {
+//	           String actualTitle = element.getText().trim();
+//	           String expectedTitle = expectedText;
+//	           Assert.assertEquals(actualTitle, expectedTitle);
+//	       } else {
+//	           Assert.fail(expectedText+" is not displayed");
+//	       }
+//	
+//	}
+	
+	public static void isDisplayedinKlarnaPayOverTimeFrame(WebElement element, String expectedText) {
+		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
+		 wait.until(ExpectedConditions.elementToBeClickable(element));
+	       boolean isDisplayed = element.isDisplayed();
+	       if (isDisplayed) {
+	           String actualTitle = element.getText().trim();
+	           String expectedTitle = expectedText;
+	           Assert.assertEquals(actualTitle, expectedTitle);
+	       } else {
+	           Assert.fail(expectedText+" is not displayed");
+	       }
+	       driver.switchTo().defaultContent();
+	}
+	
+	
 	public static boolean verifyElementNotDisplayed(WebElement ele) {
 		try {
 			if(ele.isDisplayed()) {

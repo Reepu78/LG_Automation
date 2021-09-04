@@ -30,7 +30,7 @@ public class Setup {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             //option.addArguments("--headless");
-            options.addArguments("--incognito");
+            //options.addArguments("--incognito");
             options.addArguments("--test-type");
             options.addArguments("--disable-popup-bloacking");
             options.addArguments("--no-sandbox");
@@ -44,7 +44,7 @@ public class Setup {
             options.addArguments("--output=/dev/null");
             System.setProperty("webdriver.chrome.silentOutput", "true");
             caps.setCapability(ChromeOptions.CAPABILITY, options);
-            caps.setJavascriptEnabled(true);
+            caps.setJavascriptEnabled(true); 
             driver = new ChromeDriver(options);
         } else if (driverType.equalsIgnoreCase("ff")) {
             WebDriverManager.firefoxdriver().setup();

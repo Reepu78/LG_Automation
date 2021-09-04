@@ -105,9 +105,9 @@ public class Checkout_Paypal_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_CONTINUE_BUTTON));
         Thread.sleep(1000);
         jsClick(CHECKOUT_PAYPAL_CONTINUE_BUTTON);
-        wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_CONTINUE));
-        jsClick(CHECKOUT_PAYPAL_CONTINUE);
-        Thread.sleep(1000);
+//        wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_CONTINUE));
+//        jsClick(CHECKOUT_PAYPAL_CONTINUE);
+//        Thread.sleep(1000);
     }
 
 

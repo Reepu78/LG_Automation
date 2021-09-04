@@ -23,7 +23,7 @@ public class Hook extends Setup {
             browserType="ch";
         }
         if (Strings.isNullOrEmpty(baseURL)){
-            baseURL="prod";
+            baseURL="stg";
         }
         driver = initDriver(browserType);
         switch (baseURL){
@@ -35,9 +35,34 @@ public class Hook extends Setup {
                 break;
             case "stg" :
                 url = "https://wwwstg.us.lg.com/us";
+                GlobalTestData.OMV_Subscription = "LT500P3";
+                GlobalTestData.OMV_Non_Subscription = "MEC61904928";
+                GlobalTestData.OMD_HE_Innovel = "75QNED99UPA";
+                GlobalTestData.OMD_HE_Non_Innovel = "FS21GB";
+                GlobalTestData.OMD_HA_Innovel = "WKGX201HBA";
+                GlobalTestData.OMD_HA_Non_Innovel = "AM501YWM1";
+                GlobalTestData.OMD_KLARNA = "65NANO90UPA";
                 GlobalTestData.VISA_CARD_NO = "4111111111111111";
                 GlobalTestData.VISA_EXP_NO = "04/29";
+                GlobalTestData.VISA_EXP_INVALIDDATE="04/20";
                 GlobalTestData.VISA_CVV = "353";
+                GlobalTestData.MASTER_CARD_NO = "5425233430109903";
+                GlobalTestData.MASTER_EXP_NO = "04/23";
+                GlobalTestData.MASTER_CVV = "123";
+                GlobalTestData.AMEX_CARD_NO = "371100001000131";
+                GlobalTestData.AMEX_EXP_NO = "05/23";
+                GlobalTestData.AMEX_CVV = "1234";
+                GlobalTestData.GLOBAL_EXISTING_CUSTOMER_EMAIL = "hasanyc@hotmail.com";
+                GlobalTestData.GLOBAL_CUSTOMER_EMAIL = "hasanyc@hotmail.com";
+                GlobalTestData.OMV_Non_Subscription_With_Accessories = "A927KGMS";
+                GlobalTestData.HA_OMD_KLARNA = "URETC1408N";
+                GlobalTestData.HE_OMD_KLARNA = "OLED55A1PUA";
+                GlobalTestData.HE_OMD_NON_INNOVEL_KLARNA = "65NANO90UPA";
+                GlobalTestData.PROMO_CODE = "TEST1234";
+                GlobalTestData.HE_OMD_KLARNA_PROMO = "13U70P-G.ARW5U1";
+                GlobalTestData.JCB_CARD_NO = "  ";
+                
+               
                 break;
             case "prod" :
                 url = "http://lg.com/us";
@@ -61,9 +86,11 @@ public class Hook extends Setup {
                 GlobalTestData.GLOBAL_EXISTING_CUSTOMER_EMAIL = "hasanyc@hotmail.com";
                 GlobalTestData.OMV_Non_Subscription_With_Accessories = "A927KGMS";
                 GlobalTestData.HA_OMD_KLARNA = "URETC1408N";
-                GlobalTestData.HE_OMD_KLARNA = "OLED65B1PUA";
+                GlobalTestData.HE_OMD_KLARNA = "65NANO90UPA";
                 GlobalTestData.HE_OMD_KLARNA_PROMO = "OLED77GXPUA";
                 GlobalTestData.JCB_CARD_NO = " ";
+                GlobalTestData.PROMO_CODE = "SPRINGS";
+                GlobalTestData.INVALID_PROMO_CODE ="INVALID";
                 break;
         }
         driver.get(url);
