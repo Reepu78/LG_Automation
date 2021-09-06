@@ -192,7 +192,6 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 		And  I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
   	When I Click on "Add to cart" link from PDP page
   	And I enter ZipCode to check the delivery availability for "OMD HE Innovel" product
-  #	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
   	Then  I Verify "1" item is added to the cart
   	Then I verify Price Breakdown Order Summary section on cart page
     And I Find "OMV Subscription" product using search function
@@ -454,7 +453,6 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
  		And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
  		And I Select Subscription as "Single Purchase"
  		When I Click on "Add to cart" link from PDP page
- #		And I Click on "No - One-Time Purchase Only" button
  		Then  I Verify "2" item is added to the cart
 		When I Find "HE OMD KLARNA PROMO" product using search function
  		And  I will verify "HE OMD KLARNA PROMO" product displays in search results page and navigate to PDP page
@@ -682,5 +680,4 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And   I click on Review and Place order button from Billing Page
      And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
-			#Incomplete Klarna details  #TestData		
 	  
