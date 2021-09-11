@@ -22,13 +22,13 @@ public class GenericFunctions extends Setup{
 
 	
 	public static void jsClick(WebElement ele) throws InterruptedException {
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", ele);
 	}
 	
-	public static void verifyElementByText(String text) {
+	public static void verifyElementByText(String text)  {
 		WebElement ele = driver.findElement(By.xpath("//*[text()='"+text+"']"));
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
 		Assert.assertTrue(ele.isDisplayed());

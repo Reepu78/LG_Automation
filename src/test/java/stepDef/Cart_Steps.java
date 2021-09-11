@@ -281,13 +281,13 @@ public class Cart_Steps extends Setup {
 	}
 
 	@Then("I verify {string} is displayed and discount is removed")
-	public void verifyPromoCancelled(String message) {
+	public void verifyPromoCancelled(String message) throws InterruptedException {
 		CART.validateCancelPromocode(message);
 
 	}
 
 	@Then("I verify {string} is displayed")
-	public void verifyElementIsDisplayed(String message) {
+	public void verifyElementIsDisplayed(String message){
 		GenericFunctions.verifyElementByText(message);
 
 	}

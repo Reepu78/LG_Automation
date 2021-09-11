@@ -71,6 +71,9 @@ public class Checkout_Payment_page extends Setup {
 	public WebElement ON_CONTINUE_BTN;
 	@FindBy(how = How.XPATH, using = "//*[@id='otp_field']")
 	public WebElement ENTER_CODE;
+	@FindBy(how = How.XPATH, using = "//*[text()='Confirm and continue']")
+	public WebElement CONFIRM_AND_CONTINUE_BTN;
+	
 	@FindBy(how = How.XPATH, using = "//*[@class='totals-tax']/*/span")
 	public WebElement VERIFY_ESTIMATED_TAX;
 
@@ -218,8 +221,8 @@ public class Checkout_Payment_page extends Setup {
 	public void clickOnAgreeandSubmit() throws InterruptedException {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_AGREE_SUBMIT_BUTTON));
-		jsClick(CHECKOUT_AGREE_SUBMIT_BUTTON);
 		Thread.sleep(3000);
+		jsClick(CHECKOUT_AGREE_SUBMIT_BUTTON);
 		driver.switchTo().defaultContent();
 
 	}
@@ -274,7 +277,15 @@ public class Checkout_Payment_page extends Setup {
 	public void enterCode() {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(ENTER_CODE));
-		ENTER_CODE.sendKeys("+12163547758");
+		ENTER_CODE.sendKeys("123456");
+		driver.switchTo().defaultContent();
+	}
+	
+	public void clickOnConfirmAndContinueBtn() throws InterruptedException {
+		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
+		wait.until(ExpectedConditions.elementToBeClickable(CONFIRM_AND_CONTINUE_BTN));
+		jsClick(CONFIRM_AND_CONTINUE_BTN);
+		Thread.sleep(1000);
 		driver.switchTo().defaultContent();
 	}
 

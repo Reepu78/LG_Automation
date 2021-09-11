@@ -35,7 +35,7 @@ public class Hook extends Setup {
                 break;
             case "stg" :
                 url = "https://wwwstg.us.lg.com/us";
-                GlobalTestData.OMV_Subscription = "LT500P3";
+                GlobalTestData.OMV_Subscription = "LT600P";
                 GlobalTestData.OMV_Non_Subscription = "MEC61904928";
                 GlobalTestData.OMD_HE_Innovel = "75QNED99UPA";
                 GlobalTestData.OMD_HE_Non_Innovel = "FS21GB";
@@ -54,12 +54,13 @@ public class Hook extends Setup {
                 GlobalTestData.AMEX_CVV = "1234";
                 GlobalTestData.GLOBAL_EXISTING_CUSTOMER_EMAIL = "hasanyc@hotmail.com";
                 GlobalTestData.GLOBAL_CUSTOMER_EMAIL = "hasanyc@hotmail.com";
-                GlobalTestData.OMV_Non_Subscription_With_Accessories = "A927KGMS";
+                GlobalTestData.OMV_Non_Subscription_With_Accessories = "LT500P3";
                 GlobalTestData.HA_OMD_KLARNA = "URETC1408N";
-                GlobalTestData.HE_OMD_KLARNA = "OLED55A1PUA";
-                GlobalTestData.HE_OMD_NON_INNOVEL_KLARNA = "65NANO90UPA";
+                GlobalTestData.HE_OMD_KLARNA = "OLED65G1PUA";//75QNED99UPA
+                GlobalTestData.HE_OMD_NON_INNOVEL_KLARNA = "FS21GB";//65NANO90UPA
                 GlobalTestData.PROMO_CODE = "TEST1234";
-                GlobalTestData.HE_OMD_KLARNA_PROMO = "13U70P-G.ARW5U1";
+                GlobalTestData.INVALID_PROMO_CODE ="INVALID";
+                GlobalTestData.HE_OMD_KLARNA_PROMO = "17Z95N-G.AAS8U1";
                 GlobalTestData.JCB_CARD_NO = "  ";
                 
                
@@ -90,7 +91,7 @@ public class Hook extends Setup {
                 GlobalTestData.HE_OMD_KLARNA_PROMO = "OLED77GXPUA";
                 GlobalTestData.JCB_CARD_NO = " ";
                 GlobalTestData.PROMO_CODE = "SPRINGS";
-                GlobalTestData.INVALID_PROMO_CODE ="INVALID";
+                GlobalTestData.INVALID_PROMO_CODE ="SPRINGS";
                 break;
         }
         driver.get(url);

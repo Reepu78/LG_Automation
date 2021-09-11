@@ -8,10 +8,10 @@ Feature: Checkout Flow using Klarna Payment Method
 
   @checkout @guest @klarna @smoke @regression @TC_001 
   Scenario: As a brand new guest user, ensure user able to checkout the HE OMD Innoval Product with Klarna monthly installment
-    Given I enter OMD Klarna enabled product Code into search edit box from GNB
-    When  I click on search icon from GNB
-    Then  I will verify OMD Klarna enabled product displays in search results page
-    When  I will enter ZipCode for checking the delivery availability for OMD Klarna enabled Product
+   Given I Find "HE OMD Klarna" product using search function
+		And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
+  	When I Click on "Add to cart" link from PDP page
+  	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -23,6 +23,12 @@ Feature: Checkout Flow using Klarna Payment Method
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then  I Enter Klarna SSN Details
+     Then  I verify Your tailored plan is displayed
+    And I click on confirm button
+    Then  I verify Review terms and apply is displayed
+    And I click on checkBox in review terms and apply page
+     And I click on agree and Submit button in review terms and apply page
+    Then I verify confirmation page is displayed
     # confirmation page TODO
     
     
@@ -30,7 +36,7 @@ Feature: Checkout Flow using Klarna Payment Method
   Scenario: As a brand new guest user, ensure user able to checkout HA OMD Innoval Product with monthly installment
 			Given I Find "HA OMD Klarna" product using search function
 			And  I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page
-    	When I Click on "Add to cart" link  from PDP page
+    	When I Click on "Add to cart" link from PDP page
     	And I enter ZipCode to check the delivery availability for "HA OMD Klarna" product
     	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
     	And   I click on Secure Checkout button
@@ -44,16 +50,20 @@ Feature: Checkout Flow using Klarna Payment Method
 	    When  I choose the "Klarna" radio button from Billing Page
 	    And   I click on Review and Place order button from Billing Page
 	    And   I click on Place Order button after agreeing Terms and Conditions from Review Page
-	   Then  I Enter Klarna SSN Details
-		#InComplete "4 interest - fee payments of "000.000" is to be selected is not displayed
-
-
+    	Then  I Enter Klarna SSN Details
+    	Then  I verify Your tailored plan is displayed
+    	And I click on confirm button
+     Then  I verify Review terms and apply is displayed
+     And I click on checkBox in review terms and apply page
+     And I click on agree and Submit button in review terms and apply page
+     Then I verify confirmation page is displayed
+    
   @checkout @guest @klarna @smoke @regression @TC_003
   Scenario: As a brand new guest user, ensure user able to checkout HE OMD Innoval Product with financing
-    Given I enter OMD Klarna enabled product Code into search edit box from GNB
-    When  I click on search icon from GNB
-    Then  I will verify OMD Klarna enabled product displays in search results page
-    When  I will enter ZipCode for checking the delivery availability for OMD Klarna enabled Product
+    Given I Find "HE OMD Klarna" product using search function
+		And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
+  	When I Click on "Add to cart" link from PDP page
+  	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
     And   I click on Save and Continue button after fill out Shipping Info
@@ -68,6 +78,12 @@ Feature: Checkout Flow using Klarna Payment Method
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then  I Enter Klarna SSN Details
+    Then  I verify Your tailored plan is displayed
+    And I click on confirm button
+    Then  I verify Review terms and apply is displayed
+    And I click on checkBox in review terms and apply page
+     And I click on agree and Submit button in review terms and apply page
+    Then I verify confirmation page is displayed
     # confirmation page TODO 
     
   @checkout @guest @klarna @smoke @regression @TC_004 
@@ -93,6 +109,7 @@ Feature: Checkout Flow using Klarna Payment Method
     And I click on confirm button
     Then  I verify Review terms and apply is displayed
     And I click on checkBox in review terms and apply page
+     And I click on agree and Submit button in review terms and apply page
     Then I verify confirmation page is displayed
     
    
@@ -106,7 +123,7 @@ Feature: Checkout Flow using Klarna Payment Method
   	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
   	When I Enter valid PromoCode under Promo Edit box 
  		And I Click on "Apply" button
- 		Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
+ #		Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
   	And   I click on Secure Checkout button
   	And   I click on Continue as Guest from Sign in page
     Then  I verify "Order Summary" is displayed
@@ -115,7 +132,7 @@ Feature: Checkout Flow using Klarna Payment Method
     When  I click on Continue to Payment button
     Then  I verify "Order Summary" is displayed
     Then  I will see Payment method option list in Billing Page
-    And   I verify Estimated Tax in Order Summary on checkout page
+    #And   I verify Estimated Tax in Order Summary on checkout page
     When  I choose the "Klarna" radio button from Billing Page
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
@@ -124,6 +141,7 @@ Feature: Checkout Flow using Klarna Payment Method
     And I click on confirm button
     Then  I verify Review terms and apply is displayed
     And I click on checkBox in review terms and apply page
+     And I click on agree and Submit button in review terms and apply page
     Then I verify confirmation page is displayed
 		#InComplete "from $000.00/mo. for 12 months" is to be selected is not displayed
 		
@@ -146,16 +164,18 @@ Feature: Checkout Flow using Klarna Payment Method
     When I choose the "Credit Card" radio button from Billing Page							  
 		And   I verify credit or debit card radio button selected	
 		Then  I will enter Card Details
-    And   I click on Review and Place order button from Billing Page														  
+    And   I click on Review and Place order button from Billing Page
+    And I click on Place Order button after agreeing Terms and Conditions from Review Page
+    Then I verify confirmation page is displayed														  
 		#InComplete "4 interest - fee payments of "000.000" is to be selected is not displayed
 		
-	@checkout @guest @klarna @smoke @regression @TC_0012
+	@checkout @guest @klarna @smoke @regression @TC_0012 
   Scenario: Ensure Guest user should be able to change Billing address during checkout when payment method is Klarna
 		Given I Find "HE OMD Klarna" product using search function
 		And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
     	When I Click on "Add to cart" link from PDP page
     	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product
-    	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
+    #	And I Input ZipCode on price breakdown section and verify estimated tax is calculated
     	And   I click on Secure Checkout button
     	And   I click on Continue as Guest from Sign in page
 	    Then  I verify "Order Summary" is displayed
@@ -165,17 +185,18 @@ Feature: Checkout Flow using Klarna Payment Method
 	    Then  I verify "Order Summary" is displayed
 	    Then  I will see Payment method option list in Billing Page
 	    When  I choose the "Klarna" radio button from Billing Page
-	    And I click "Use a different billing address" button on checkout page 
-	    And I enter different Address in Use a different billing address section
+	     And I click "Use a different billing address" button on checkout page 
+       Then I enter diff Address in Use a different billing address page
     	And   I click on Review and Place order button from Billing Page
     	Then I verify user is on Review and Place order page and all the details are displayed correctly
     	And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     	Then  I Enter Klarna SSN Details
     	Then  I verify Your tailored plan is displayed
-    And I click on confirm button
-    Then  I verify Review terms and apply is displayed
-    And I click on checkBox in review terms and apply page
-    Then I verify confirmation page is displayed
+      And I click on confirm button
+      Then  I verify Review terms and apply is displayed
+      And I click on checkBox in review terms and apply page
+      And I click on agree and Submit button in review terms and apply page
+      Then I verify confirmation page is displayed
     	#Incomplete Klarna details
     	
     	
@@ -194,7 +215,7 @@ Feature: Checkout Flow using Klarna Payment Method
 	    Then  I verify "Buy Now. Pay Later" is not displayed
 	    
 	    
-  @checkout @guest @klarna @smoke @regression @TC_015 
+  @checkout @guest @klarna @smoke @regression @TC_015
   Scenario: As a guest user, checkout combination with OMD and OMV product
   	Given I Find "HE OMD Klarna" product using search function
    	And  I will verify "HE OMD Klarna" product displays in search results page and navigate to PDP page
@@ -202,23 +223,22 @@ Feature: Checkout Flow using Klarna Payment Method
   	And I enter ZipCode to check the delivery availability for "HE OMD Klarna" product							   
      Given I Find "OMV Subscription" product using search function
     And I will verify "OMV Subscription" product displays in search results page and navigate to PDP page 
+    And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
-    And   I Click on "View cart" link
-    #And I Select Subscription as "Single Purchase"
     Then I Verify "2" item is added to the cart
     And I click on Secure Checkout button
     And I click on Continue as Guest from Sign in page
     Then I verify "Order Summary" is displayed
     And I click on Save and Continue button after fill out Shipping Info
     And I verify the suggested address
-    And I click "Overnight Shipping - 2 to 4 business days" button on checkout page
+    Then I will select the "Overnight" shipment Method
     When I click on Continue to Payment button
     Then I verify "Order Summary" is displayed
     Then I verify "Buy Now. Pay Later" is not displayed
   #TestData
 	    
 	    
-	@checkout @guest @klarna @smoke @regression @TC_0024 
+	@checkout @guest @klarna @smoke @regression @TC_0024  
   Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with Klarna checkout
 	Given I Find "OMD HE Non Innovel" product using search function
  	And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -246,12 +266,9 @@ Feature: Checkout Flow using Klarna Payment Method
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     And  I verify your Detail page and Input phone  number
     Then I enter the code
-    #Then  I Enter Klarna SSN Details
-    #Then  I verify Your tailored plan is displayed
-    #And I click on confirm button
-    #Then  I verify Review terms and apply is displayed
-    #And I click on checkBox in review terms and apply page
-    #Then I verify confirmation page is displayed
+    And I click on confirm and continue button
+    Then I verify confirmation page is displayed
+   
 			#Incomplete Klarna details  #TestData
 			
 			
@@ -279,8 +296,10 @@ Feature: Checkout Flow using Klarna Payment Method
     When  I choose the "Klarna" radio button from Billing Page
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
-     And  I verify your Detail page and Input phone  number
-    #Then  I Enter Klarna SSN Details
+    And  I verify your Detail page and Input phone  number
+    Then I enter the code
+    And I click on confirm and continue button
+    Then I verify confirmation page is displayed
 	    #TestData
 	    
 	    
@@ -309,8 +328,9 @@ Feature: Checkout Flow using Klarna Payment Method
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     And  I verify your Detail page and Input phone  number
-    #Then  I Enter Klarna SSN Details	    
-		#payment Incomplete #testdata
+    Then I enter the code
+    And I click on confirm and continue button
+    Then I verify confirmation page is displayed
 		
 		
 	@checkout @guest @klarna @smoke @regression @TC_0027  
@@ -339,12 +359,13 @@ Feature: Checkout Flow using Klarna Payment Method
     When  I choose the "Klarna" radio button from Billing Page
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
-     And  I verify your Detail page and Input phone  number
-    #Then  I Enter Klarna SSN Details
-			#Incomplete Klarna details  #TestData
+    And  I verify your Detail page and Input phone  number
+    Then I enter the code
+    And I click on confirm and continue button
+    Then I verify confirmation page is displayed
 			
 			
-	@checkout @guest @klarna @smoke @regression @TC_028
+	@checkout @guest @klarna @smoke @regression @TC_028 
   Scenario: Ensure that guests user are able to place order using klarna payment method for promotional products
 		Given I Find "HE OMD KLARNA PROMO" product using search function
  		And  I will verify "HE OMD KLARNA PROMO" product displays in search results page and navigate to PDP page
@@ -370,6 +391,12 @@ Feature: Checkout Flow using Klarna Payment Method
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then  I Enter Klarna SSN Details
+    Then  I verify Your tailored plan is displayed
+    And I click on confirm button
+    Then  I verify Review terms and apply is displayed
+    And I click on checkBox in review terms and apply page
+     And I click on agree and Submit button in review terms and apply page
+    Then I verify confirmation page is displayed
 		#Incomplete Klarna details  #TestData
 		
 		
@@ -401,10 +428,12 @@ Feature: Checkout Flow using Klarna Payment Method
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
    And  I verify your Detail page and Input phone  number
-    #InComplete Klarna payment
+   Then I enter the code
+   And I click on confirm and continue button
+   Then I verify confirmation page is displayed
     
     
-  @checkout @guest @klarna @smoke @regression @TC_031  
+  @checkout @guest @klarna @smoke @regression @TC_031 
   Scenario: As a guest user, checkout with OMD products and verify Edit link on Contact Information block (Review & Place Order page) with Klarna payment
 		Given I Find "OMD HE Non Innovel" product using search function
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -434,8 +463,9 @@ Feature: Checkout Flow using Klarna Payment Method
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
     And  I verify your Detail page and Input phone  number
-    #Then  I Enter Klarna SSN Details
-		#complete klarna payment
+    Then I enter the code
+   And I click on confirm and continue button
+   Then I verify confirmation page is displayed
 		
 		
 	@checkout @guest @klarna @smoke @regression @TC_032  
@@ -461,7 +491,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Then  I will enter Card Details
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
-     Then I verify confirmation page is displayed
+    Then I verify confirmation page is displayed
     
     
   @checkout @guest @klarna @smoke @regression @TC_033 
@@ -488,9 +518,10 @@ Feature: Checkout Flow using Klarna Payment Method
   	And   I click on Review and Place order button from Billing Page
   	Then I verify user is on Review and Place order page and all the details are displayed correctly
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
-    And  I verify yourDetail page and Input phone number
-    #Then I verify confirmation page is displayed
-    #Then  I Enter Klarna SSN Details
+     And  I verify your Detail page and Input phone  number
+    Then I enter the code
+   And I click on confirm and continue button
+   Then I verify confirmation page is displayed
 		#complete klarna payment
   	
   @checkout @guest @klarna @smoke @regression @TC_038 
@@ -528,10 +559,10 @@ Feature: Checkout Flow using Klarna Payment Method
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
 		When I Click on "Add to cart" link from PDP page
 		And   I Click on "View cart" link
+		Then  I verify "Order Summary" is displayed
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button		
   	And I click on Continue as Guest from Sign in page
-		Then  I verify "Order Summary" is displayed
 		And  I verify footer section is displayed on shipping page
  		And  I Click on "Frequently Asked Questions" link
  		Then I verify the FAQ tab
@@ -540,16 +571,16 @@ Feature: Checkout Flow using Klarna Payment Method
  		#Then  I verify System is showing Make a call from popup
 		
     
-	@checkout @guest @klarna @smoke @regression @TC_042
+	@checkout @guest @klarna @smoke @regression @TC_042   
   Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with Klarna payment
 		Given I Find "OMD HE Non Innovel" product using search function
  		And  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
 		When I Click on "Add to cart" link from PDP page
 		And   I Click on "View cart" link
+		Then  I verify "Order Summary" is displayed
 		Then I verify Price Breakdown Order Summary section on cart page
 		And I click on Secure Checkout button		
   	And I click on Continue as Guest from Sign in page
-		Then  I verify "Order Summary" is displayed
     And  I click on Save and Continue button after fill out Shipping Info
 		And I verify the suggested address
 		Then  I verify "Order Summary" is displayed
@@ -574,9 +605,10 @@ Feature: Checkout Flow using Klarna Payment Method
   	And   I click on Review and Place order button from Billing Page
   	Then I verify user is on Review and Place order page and all the details are displayed correctly
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
-    And  I verify yourDetail page and Input phone number
+    And  I verify your Detail page and Input phone  number
+    Then I enter the code
+    And I click on confirm and continue button
     Then I verify confirmation page is displayed
-    #Then  I Enter Klarna SSN Details
 			#Incomplete Klarna details  #TestData		
 		
 			

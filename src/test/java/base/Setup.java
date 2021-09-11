@@ -30,7 +30,7 @@ public class Setup {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             //option.addArguments("--headless");
-            options.addArguments("--incognito");
+            //options.addArguments("--incognito");
             options.addArguments("--test-type");
             options.addArguments("--disable-popup-bloacking");
             options.addArguments("--no-sandbox");

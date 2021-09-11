@@ -28,8 +28,10 @@ public class Checkout_Shipping_page extends Setup {
     Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(100))
             .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
     // Elements
-    @FindBy(how = How.XPATH, using = "//h2[@class='step-title']")
+    @FindBy(how = How.XPATH, using = "//h2[text()='Contact Information']")
     public List<WebElement> CHECKOUT_CONTACT_INFO_TITLE;
+    @FindBy(how = How.XPATH, using = "//*[text()='Choose Shipping Method']")
+    public List<WebElement> CHECKOUT_SHIPPING_METHOD;
     @FindBy(how = How.XPATH, using = "//input[@id='customer-email']")
     public WebElement CHECKOUT_EMAIL_INPUT;
     @FindBy(how = How.XPATH, using = "//input[@name='telephone']")
@@ -70,6 +72,18 @@ public class Checkout_Shipping_page extends Setup {
     public WebElement USE_DIFFERENT_REGION_DROPDOWN;
     @FindBy(how = How.XPATH, using = "(//input[@name='postcode'])[4]")
     public WebElement USE_DIFFERENT_POSTCODE_INPUT;
+    @FindBy(how = How.XPATH, using = "(//input[@name='firstname'])[3]")
+    public WebElement USE_DIFFERENT_FIRST_NAME;
+    @FindBy(how = How.XPATH, using = "(//input[@name='lastname'])[3]")
+    public WebElement USE_DIFFERENT_LAST_NAME;
+    @FindBy(how = How.XPATH, using = "(//span[text()='Address']/following::input[1])[3]")
+    public WebElement USE_DIFFERENT_ADDRESS;
+    @FindBy(how = How.XPATH, using = "(//input[@name='city'])[3]")
+    public WebElement USE_DIFFERENT_CITY;
+    @FindBy(how = How.XPATH, using = "(//select[@name='region_id'])[3]")
+    public WebElement USE_DIFFERENT_REGION;
+    @FindBy(how = How.XPATH, using = "(//input[@name='postcode'])[3]")
+    public WebElement USE_DIFFERENT_POSTCODE;
     @FindBy(how = How.XPATH, using = "(//*[text()='Review and Place Order'])[3]")
     public WebElement REVIEW_AND_PLACE_ORDER;
     @FindBy(how = How.XPATH, using = "//a[.='Return to Shipping']")
@@ -194,6 +208,18 @@ public class Checkout_Shipping_page extends Setup {
     	USE_DIFFERENT_POSTCODE_INPUT.clear();
     	USE_DIFFERENT_POSTCODE_INPUT.sendKeys(ZipCode);
 }
+    // For klarna
+    public void enterContactInfo( String firstName, String lastName, String address, String city, String state, String ZipCode) {
+    	wait.until(ExpectedConditions.elementToBeClickable(USE_DIFFERENT_FIRST_NAME_INPUT));
+    	USE_DIFFERENT_FIRST_NAME.sendKeys(firstName);
+    	USE_DIFFERENT_LAST_NAME.sendKeys(lastName);
+    	USE_DIFFERENT_ADDRESS.sendKeys(address);
+    	USE_DIFFERENT_CITY.sendKeys(city);
+    	USE_DIFFERENT_REGION.click();
+    	USE_DIFFERENT_REGION.sendKeys(state);
+    	USE_DIFFERENT_POSTCODE.clear();
+    	USE_DIFFERENT_POSTCODE.sendKeys(ZipCode);
+}
 
     public void clickSaveAndContinueButtonFromShippingPage() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_SAVE_BUTTON));
@@ -214,15 +240,13 @@ public class Checkout_Shipping_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_USE_THIS_ADDRESS_BUTTON));
         Thread.sleep(3000);
         CHECKOUT_USE_THIS_ADDRESS_BUTTON.click();
-       
-        
     }
 
     public void verifyShippingInfoPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTACT_INFO_TITLE.get(0)));
-        Boolean isDisplayed = CHECKOUT_CONTACT_INFO_TITLE.get(0).isDisplayed();
+        wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_SHIPPING_METHOD.get(0)));
+        Boolean isDisplayed = CHECKOUT_SHIPPING_METHOD.get(0).isDisplayed();
         if (isDisplayed) {
-            String actualTitle = CHECKOUT_CONTACT_INFO_TITLE.get(0).getText().trim();
+            String actualTitle = CHECKOUT_SHIPPING_METHOD.get(0).getText().trim();
             String expectedTitle = "Choose Shipping Method";
             Assert.assertEquals(actualTitle, expectedTitle);
         } else {
@@ -238,10 +262,10 @@ public class Checkout_Shipping_page extends Setup {
     }
 
     public void selectShippingMethod(String shippingMethod) throws InterruptedException {
-    	Thread.sleep(2000);
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//div[contains(text(),'" + shippingMethod + "')]/parent::label"))));
-        driver.findElement(By.xpath("//div[contains(text(),'" + shippingMethod + "')]/parent::label")).click();
-        Thread.sleep(1000);
+    	Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("(//div[contains(text(),'" + shippingMethod + "')]/parent::label)[1]"))));
+        driver.findElement(By.xpath("(//div[contains(text(),'" + shippingMethod + "')]/parent::label)[1]")).click();
+        Thread.sleep(2000);
     }
     
     public void click(String linkName) throws InterruptedException {
@@ -296,8 +320,41 @@ public class Checkout_Shipping_page extends Setup {
         
         enterContactInformation( GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME,
                 GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME, address1, city, state, ZipCode);
-    
+   
+  	}
+    public void enterNewAddressOnPayment() throws InterruptedException {
+    	Thread.sleep(1000);
+        GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME = faker.name().firstName();
+        GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME = faker.name().lastName();
+        String address1 = null;
+        String city = null;
+        String state = null;
+        String ZipCode = null;
+        if (Cart_page.productArea == null) {
+            Cart_page.productArea = "CA";
+        }
 
+        String key = "CA";
+        if (Cart_page.productArea.contains("CA")) {
+        	 key = "CA";
+        } else if (Cart_page.productArea.contains("NY")) {
+        	 key = "NY";
+        } else if (Cart_page.productArea.contains("TX")) {
+        	 key = "TX";
+        }else if (Cart_page.productArea.contains("NJ")) {
+        	 key = "NJ";
+        }else if (Cart_page.productArea.contains("HI")) {
+        	 key = "HI";
+        }
+        address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
+        city = GlobalTestData.CITY(key);
+        state = GlobalTestData.STATE(key);
+        ZipCode = GlobalTestData.ZIPCODES(key);
+        
+        
+        enterContactInfo( GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME,
+                GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME, address1, city, state, ZipCode);
+   
   	}
     
     

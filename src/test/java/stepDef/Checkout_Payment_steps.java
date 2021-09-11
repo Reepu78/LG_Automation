@@ -117,6 +117,7 @@ public class Checkout_Payment_steps extends Setup {
 	@And("I click on agree and Submit button in review terms and apply page")
 	public void clickOnAgreeAndSubmitBtn() throws InterruptedException {
 		Payment.clickOnAgreeandSubmit();
+		
 	}
 	
 	@Then("I verify Your tailored plan is displayed")
@@ -141,6 +142,12 @@ public class Checkout_Payment_steps extends Setup {
 	@Then("I enter the code")
 	public void enterTheCode() {
 		Payment.enterCode();
+	}
+	
+	@And("I click on confirm and continue button")
+	public void clickOnConfirmAndContinueButton() throws InterruptedException {
+		Payment.clickOnConfirmAndContinueBtn();
+		
 	}
 	
 	@And("I verify Estimated Tax in Order Summary on checkout page")

@@ -65,6 +65,12 @@ public class Checkout_Shipping_steps extends Setup {
 		Shipping.enterNewAddressOnPaymentPage();
 	}
 	
+	@Then("I enter diff Address in Use a different billing address page")
+	public void enterDifferentAdd() throws InterruptedException {
+		Shipping.enterNewAddressOnPayment();
+	}
+	
+	
 	@And("I edit the address and click on Save and Continue")
 	public void updateAddress() throws InterruptedException {
 		Shipping.verifyContactInfoPage();
@@ -82,7 +88,7 @@ public class Checkout_Shipping_steps extends Setup {
 	public void updateContactInfo() throws InterruptedException {
 		Shipping.verifyContactInfoPage();
 		Shipping.update_Contact_Info();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		Shipping.clickSaveAndContinueButtonFromShippingPage();
 	}
 	@When("I will update email and phone number on shipping page")

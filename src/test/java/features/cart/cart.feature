@@ -25,10 +25,9 @@ Feature: Cart Page
     Then  I will select the subscription Frequency as "0months"
     When  I will click on Proceed to Cart Button
     Then  I will verify product is added into Cart Page
-    When  I will select the "5" as quantity
+    When  I will select the "2" as quantity
     Then  I should able to see the updated price as per quantity
-    When  I will select the "3" as quantity
-    Then  I should able to see the updated price as per quantity
+   
 
   @checkout @cart @smoke @regression @TC_003
   Scenario: As a guest user ensure you able to verify Estimated Tax for Hawaii using OMV subscription product
@@ -47,7 +46,7 @@ Feature: Cart Page
     And   I should be able to see Estimated Tax Price
     Then  I should able see Hawaii estimated tax less than New York estimated tax
 
-  @checkout @cart @smoke @regression @TC_004 
+  @checkout @cart @smoke @regression @TC_004  
   Scenario: As a guest user ensure user able to remove item from cart after adding an OMD HE Product
     Given I Find "OMV Non Subscription" product using search function
     And  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
@@ -57,14 +56,13 @@ Feature: Cart Page
     And I Click on "Remove Item" link
     Then Your cart is Empty message should display along with SEE ALL DEALS button
 
-  @checkout @cart @smoke @regression @TC_005 
+  @checkout @cart @smoke @regression @TC_005  
   Scenario: As a guest user, ensure guest user able to add two different type of OMV Non Subscription product and remove one of them
     Given I Find "OMV Non Subscription" product using search function
     And  I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
     When I Click on "Add to cart" link from PDP page
     And I Click on "View cart" link
     Then  I Verify "1" item is added to the cart
-    Then I verify Order summary section price break down is correct
     When I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
@@ -78,26 +76,28 @@ Feature: Cart Page
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
-    When I Click on "Add to cart" link from PDP page
-    Then  I Verify "1" item is added to the cart
+     When I Click on "Add to cart" link from PDP page
+    Then I Verify "1" item is added to the cart
+    Then I verify Order summary section price break down is correct
     When I Enter valid PromoCode under Promo Edit box
     And I Click on "Apply" button
     Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
 
-  @checkout @cart @smoke @regression @TC_007 
+  @checkout @cart @smoke @regression @TC_007  
   Scenario: As a guest user, ensure you able Cancel a promo code for an OMV non subscription product
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
     Then  I Verify "1" item is added to the cart
+    Then I verify Order summary section price break down is correct
      When I Enter valid PromoCode under Promo Edit box
     And I Click on "Apply" button
     And I Click on "Cancel" button
     Then I verify "You canceled the promotion code." is displayed and discount is removed
 
 
-  @checkout @cart @smoke @regression @TC_008
+  @checkout @cart @smoke @regression @TC_008  
   Scenario: As a guest user, ensure Save for Later should not allow you to save anything for later
     Given I Find "OMD HA Innovel" product using search function
     And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
@@ -123,7 +123,7 @@ Feature: Cart Page
     When  I will enter ZipCode for checking the delivery availability for OMD HA Innovel Product
     Then  I click on Add to Cart Button under Recommendations
 
-  @checkout @cart @smoke @regression @TC_010 
+  @checkout @cart @smoke @regression @TC_010  
   Scenario: As a guest user, ensure system able to trigger an error message when shipping zip code is invalid
     Given I Find "OMD HA Innovel" product using search function
     And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
@@ -133,7 +133,7 @@ Feature: Cart Page
     And I Click on "Check" button
     Then I verify "Please enter a valid ZIP code (For example 90602)." is displayed
 
-  @checkout @cart @smoke @regression @TC_011 
+  @checkout @cart @smoke @regression @TC_011  
   Scenario: As a Guest user, ensure system able to trigger an error message when promo code is invalid
     Given I Find "OMD HA Innovel" product using search function
     And  I will verify "OMD HA Innovel" product displays in search results page and navigate to PDP page
@@ -151,13 +151,13 @@ Feature: Cart Page
     Then  I will verify OMD HA Innovel product displays in search results page
     And   I click on Add to Cart Button under Accessories
 
-  @checkout @cart @smoke @regression @TC_023  
+  @checkout @cart @smoke @regression @TC_023 
   Scenario: As a guest user , ensure that user is able to add product from Add accessories pop up
     Given I Find "OMV Non Subscription With Accessories" product using search function
     And  I will verify "OMV Non Subscription With Accessories" product displays in search results page and navigate to PDP page
     When I Click on "Add to cart" link from PDP page
-    And I Click on "View cart" link
-    And I Click on "Add Accessories" button
+    #And I Click on "View cart" link
+    And I Click on "No - One-Time Purchase Only" button
     Then I verify "Recommended Accessories" is displayed
     When I Click on "Close Add Accessories" button
     Then I verify "Recommended Accessories" is not displayed
@@ -178,7 +178,7 @@ Feature: Cart Page
     Then  I click on Remove Item Button
     
     
-  @checkout @cart @smoke @regression @TC_031
+  @checkout @cart @smoke @regression @TC_031  
   Scenario: As a guest use ensure that OMV Subscription item can be added to cart from Kitchen PLP page
     When I click on KITCHEN link from GNB
     Then  I should navigate to KITCHEN landing page
@@ -186,5 +186,5 @@ Feature: Cart Page
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
-    Then  I Verify "1" item is added to the cart
+   Then  I Verify "1" item is added to the cart
 

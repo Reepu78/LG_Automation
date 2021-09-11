@@ -19,13 +19,21 @@ public class Confirmation_Steps extends Setup {
 	public void iVerifyThankyouPage() throws InterruptedException {
 		Thread.sleep(5000);
 		Confirmation.verifyThanksYouIsDisplay();
+		Thread.sleep(1000);
 		Confirmation.verifyOrderNumberIsDisplay();
+		Thread.sleep(1000);
 		Confirmation.verifyOrderSummaryIsDisplay();
+		Thread.sleep(1000);
 		Confirmation.verifyYourOrderSectionIsDisplay();
+		Thread.sleep(1000);
 		Confirmation.verifyEsitateddateofdeliveryIsDisplay();
+		Thread.sleep(1000);
 		Confirmation.verifyShippingIsDisplay();
+		Thread.sleep(1000);
 		Confirmation.verifyBillingIsDisplay();
+		Thread.sleep(1000);
 		Confirmation.verifyNeedHelpIsDisplay();
+		Thread.sleep(1000);
 	}
 	
 	

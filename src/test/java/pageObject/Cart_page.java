@@ -533,6 +533,7 @@ public class Cart_page extends Setup {
 			break;
 		case "Add to cart":
 			GenericFunctions.jsClick(CART_ADD_TO_CART);
+			Thread.sleep(3000);
 			break;
 		case "Proceed to Cart":
 			GenericFunctions.jsClick(PROCEED_TO_CART);
@@ -604,6 +605,7 @@ public class Cart_page extends Setup {
 		Thread.sleep(5000);
 		String itemInCart = ITEMS_IN_CART.getText().trim();
 		Assert.assertEquals(itemInCart, expectednoOfItems);
+		
 	}
 
 	
