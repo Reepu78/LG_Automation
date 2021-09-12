@@ -103,6 +103,7 @@ public class Checkout_Shipping_page extends Setup {
     @FindBy(how = How.XPATH, using = "//*[@class='need-help-support']//span")  
     public WebElement FOOTER_HOURS_OF_OPERATION;
     
+    
 
     public void verifyContactInfoPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTACT_INFO_TITLE.get(0)));
@@ -425,6 +426,10 @@ public class Checkout_Shipping_page extends Setup {
     
     public void iClickOnEmailId() {
     	FOOTER_EMAILUS.click();
+    }
+    public void iVerifyFooterSection() {
+    	Assert.assertTrue(FOOTER_HOURS_OF_OPERATION.isDisplayed());
+    	
     }
    
 }

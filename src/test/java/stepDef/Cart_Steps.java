@@ -225,6 +225,8 @@ public class Cart_Steps extends Setup {
 	}
 
 
+	
+	
 	@When("I Verify {string} item is added to the cart")
 	public void clickAddToCartButton(String noOfItems) throws InterruptedException {
 		CART.validateItemAddedToCart(noOfItems);

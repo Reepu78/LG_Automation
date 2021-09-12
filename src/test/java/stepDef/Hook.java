@@ -37,7 +37,7 @@ public class Hook extends Setup {
                 url = "https://wwwstg.us.lg.com/us";
                 GlobalTestData.OMV_Subscription = "LT600P";
                 GlobalTestData.OMV_Non_Subscription = "MEC61904928";
-                GlobalTestData.OMD_HE_Innovel = "75QNED99UPA";
+                GlobalTestData.OMD_HE_Innovel = "OLED65G1PUA";
                 GlobalTestData.OMD_HE_Non_Innovel = "FS21GB";
                 GlobalTestData.OMD_HA_Innovel = "WKGX201HBA";
                 GlobalTestData.OMD_HA_Non_Innovel = "AM501YWM1";

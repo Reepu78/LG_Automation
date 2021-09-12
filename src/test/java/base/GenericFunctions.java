@@ -37,7 +37,7 @@ public class GenericFunctions extends Setup{
 	
 	public static float getPrice(String price) {
 		try {
-			price = price.trim().replace("$", "");
+			price = price.trim().replace("$", "").replace(",", "");
 			return Float.parseFloat(price);
 		}catch(Exception e) {
 			return 0;

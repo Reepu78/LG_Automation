@@ -82,7 +82,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-		#Paypal payment incomplete
 	
   
   @checkout @paypal @smoke @regression @TC_004 
@@ -108,7 +107,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-	#Paypal payment incomplete
 	
 
   @checkout @paypal @smoke @regression @TC_005
@@ -157,7 +155,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-		#Incomplete payment from 	paypal page onwards
 		
  @checkout @paypal @smoke @regression @TC_007 
   Scenario: As a guest user, checkout OMD HA Innovel product 
@@ -184,7 +181,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-		#Incomplete payment from 	paypal page onwards
 		
 @checkout @paypal @smoke @regression @TC_008 
   Scenario: As a guest user, checkout OMD HA Non Innovel product  
@@ -211,7 +207,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-		#Incomplete payment from 	paypal page onwards
 
 	@checkout @guest @paypal @smoke @regression @TC_009 
   Scenario: As a guest user, checkout combination with OMD and OMV product
@@ -267,16 +262,17 @@ Feature: Checkout Flow using PayPal Payment Method
     And I verify the Accessory added to cart is still displayed
     
         
-    @checkout @paypal @smoke @regression @TC_021 @Test
+    @checkout @paypal @smoke @regression @TC_021 
     Scenario: As a brand new guest, ensure user able to checkout OMD innovel  product with promotion code using PayPal
     Given I Find "OMD HE Innovel" product using search function
     And  I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
     When I Click on "Add to cart" link from PDP page
     And I enter ZipCode to check the delivery availability for "OMD HE Innovel" product
-    Then I verify Order summay section price break down is correct
+    Then I verify Order summary section price break down is correct
     When I Enter valid PromoCode under Promo Edit box 
  		And I Click on "Apply" button
-   Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
+ 		Then I verify "You used promotion code \"TEST1234\"." is displayed
+   #Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
     When I click on Secure Checkout button
     And  I click on Continue as Guest from Sign in page
     And  I click on Save and Continue button after fill out Shipping Info
@@ -292,7 +288,6 @@ Feature: Checkout Flow using PayPal Payment Method
   Then  I will enter contact Details on Paypal Page
   And   I will click on Continue button
    Then I verify confirmation page is displayed
-    #Incomplete payment from 	paypal page onwards
 
   @checkout @paypal @smoke @regression @TC_022 
   Scenario: As a brand new guest, ensure user able to checkout OMD non innovel product with promotion code using PayPal
@@ -319,9 +314,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-    #Paypal payment incomplete
-
-
     
     
     @checkout @paypal @smoke @regression @TC_023 
@@ -375,7 +367,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-    #Paypal payment incomplete
     
     
     @checkout @paypal @smoke @regression @TC_025
@@ -403,8 +394,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-    #Paypal payment incomplete
-    
+
     
 	@checkout @paypal @smoke @regression @TC_032 
   Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with PayPal checkout
@@ -435,7 +425,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
    Then I verify confirmation page is displayed
-    #Paypal payment incomplete
     
     @checkout @paypal @smoke @regression @TC_033  
   	Scenario: As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with PayPal checkout
@@ -462,7 +451,6 @@ Feature: Checkout Flow using PayPal Payment Method
   Then  I will enter contact Details on Paypal Page
   And   I will click on Continue button
    Then I verify confirmation page is displayed
-    #Paypal payment incomplete
 
     @checkout @paypal @smoke @regression @TC_034 
   	Scenario: As a guest user, checkout with OMD products and verify Return to Shipping link on checkout(Payment & Billing) page with PayPal checkout
@@ -492,7 +480,6 @@ Feature: Checkout Flow using PayPal Payment Method
   Then  I will enter contact Details on Paypal Page
   And   I will click on Continue button
    Then I verify confirmation page is displayed
-    #Paypal payment incomplete
     
     @checkout @paypal @smoke @regression @TC_035 
   	Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with PayPal checkout
@@ -524,7 +511,6 @@ Feature: Checkout Flow using PayPal Payment Method
   Then  I will enter contact Details on Paypal Page
   And   I will click on Continue button
    Then I verify confirmation page is displayed
-    #Paypal payment incomplete
     
     
     @checkout @paypal @smoke @regression @TC_036  
@@ -556,9 +542,6 @@ Feature: Checkout Flow using PayPal Payment Method
   Then  I will enter contact Details on Paypal Page
   And   I will click on Continue button
    Then I verify confirmation page is displayed
-   # step missing.
-    #Paypal payment incomplete
-    
     
        
     @checkout @paypal @smoke @regression @TC_038  
@@ -592,7 +575,6 @@ Feature: Checkout Flow using PayPal Payment Method
   Then  I will enter contact Details on Paypal Page
   And   I will click on Continue button
    Then I verify confirmation page is displayed
-    #Paypal payment incomplete
     
     @checkout @paypal @smoke @regression @TC_039 
   	Scenario: As a guest user, checkout with OMD products and verify Edit link on Contact Information block (Review & Place Order page) with PayPal payment
@@ -628,7 +610,6 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
    Then I verify confirmation page is displayed
-    #Paypal payment incomplete
     
     @checkout @paypal @smoke @regression @TC_040  
     Scenario: As a guest user, checkout with OMD products and verify Edit link on Payment method block (Review & Place Order page) with PayPal payment
@@ -652,7 +633,6 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I click on Review and Place order button from Billing Page
     And   I click on Place Order button after agreeing Terms and Conditions from Review Page
    Then I verify confirmation page is displayed
-    #Paypal payment incomplete
     
     
      @checkout @paypal @smoke @regression @TC_044   
@@ -677,7 +657,8 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I Verify "1" item is added to the cart
     When  I click on Secure Checkout button
     And   I click on Continue as Guest from Sign in page
-    #Footer not found on website
+    Then I verify "Order Summary" is displayed
+    And I verify footer displayed on shipping page
     
     @checkout @paypal @smoke @regression @TC_046  
     Scenario: Verify Need Help? block on the footer section in checkout page
@@ -725,6 +706,5 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
    Then I verify confirmation page is displayed  
-    #Paypal payment incomplete
     
     

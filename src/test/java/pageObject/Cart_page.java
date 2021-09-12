@@ -532,8 +532,8 @@ public class Cart_page extends Setup {
 			GenericFunctions.jsClick(REMOVE_ITEM);
 			break;
 		case "Add to cart":
-			GenericFunctions.jsClick(CART_ADD_TO_CART);
 			Thread.sleep(3000);
+			GenericFunctions.jsClick(CART_ADD_TO_CART);
 			break;
 		case "Proceed to Cart":
 			GenericFunctions.jsClick(PROCEED_TO_CART);
@@ -582,6 +582,7 @@ public class Cart_page extends Setup {
 		float discountedprice = GenericFunctions.getPrice(CART_TOTAL_PRICE.getText());
 		Assert.assertTrue(discountedprice<subtotal);
 	}
+	
 	
 	
 	public void validateCancelPromocode(String message) {

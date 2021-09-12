@@ -7,6 +7,7 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -32,7 +33,7 @@ public class Checkout_Shipping_steps extends Setup {
 		Shipping.clickSaveAndContinueButtonFromShippingPage();
 	}
 	
-	@And("I click on save and conttinue button")
+	@And("I click on save and continue button")
 	public void iClickOnSaveAndAcontueBtn() throws InterruptedException{
 		Shipping.clickSaveAndContinueButtonFromShippingPage();
 	}
@@ -123,6 +124,10 @@ public class Checkout_Shipping_steps extends Setup {
 	
 	@Then("I verify System is showing Make a call from popup")
 	public void verifyMakeACallPopUp() throws InterruptedException {
+		Shipping.HELPLINE_NO.click();
+		Object txt = ((JavascriptExecutor)driver).executeScript("window.alert.name");
+		System.out.println((String)txt);
+		System.out.println(driver.switchTo().alert().getText());
 		wait.until(ExpectedConditions.alertIsPresent());
 		String expectedMessage = "https://www.lg.com wants to open this application.";
 		assertEquals(driver.switchTo().alert().getText(), expectedMessage);
@@ -154,4 +159,10 @@ public class Checkout_Shipping_steps extends Setup {
 		Shipping.iClickOnEmailId();
 	}
 
+	@And("I verify footer displayed on shipping page")
+	public void verifyFooterSection() {
+		Shipping.iVerifyFooterSection();
+		
+	}
+	
 }

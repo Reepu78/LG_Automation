@@ -66,8 +66,8 @@ public class Setup {
         }
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         ((JavascriptExecutor) driver).executeScript("window.confirm = function(msg) { return true; }");
         Thread.sleep(1500);
         return driver;

@@ -82,6 +82,7 @@ Feature: Cart Page
     When I Enter valid PromoCode under Promo Edit box
     And I Click on "Apply" button
     Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
+    #Then I verify "The promotion code \"TEST1234\"." is displayed
 
   @checkout @cart @smoke @regression @TC_007  
   Scenario: As a guest user, ensure you able Cancel a promo code for an OMV non subscription product
