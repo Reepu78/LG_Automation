@@ -239,11 +239,8 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-	#Incomplete payment from 	paypal page onwards
 
-
-
-  @checkout @cart @smoke @regression @TC_010 #Continue
+  @checkout @cart @smoke @regression @TC_010
   Scenario: As a guest user, checkout OMD product with an accessory
     Given I Find "OMV Non Subscription With Accessories" product using search function
     And  I will verify "OMV Non Subscription With Accessories" product displays in search results page and navigate to PDP page
@@ -706,5 +703,3 @@ Feature: Checkout Flow using PayPal Payment Method
     Then  I will enter contact Details on Paypal Page
     And   I will click on Continue button
     Then I verify confirmation page is displayed
-    
-    
