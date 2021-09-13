@@ -51,26 +51,26 @@ public class GNB_steps extends Setup {
         GNB.clickOnCartIcon();
     }
 
-    @When("I click on MOBILE link from GNB")
-    public void iClickOnMOBILELinkFromGNB() {
-        GNB.clickMobileLinkFromGNB();
+    @When("I click on AUDIO link from GNB")
+    public void iClickOnAudioLinkFromGNB() {
+        GNB.clickAudioLinkFromGNB();
     }
 
-    @Then("I should navigate to MOBILE landing page")
+    @Then("I should navigate to AUDIO landing page")
     public void iShouldNavigateToMobileLandingPage() throws InterruptedException {
         Thread.sleep(2000);
-        GNB.verifyMobileLandingPage();
+        GNB.verifyAudioLandingPage();
     }
 
-    @When("^I click on TV\\/AUDIO\\/VIDEO link from GNB")
-    public void iClickOnTVAUDIOVIDEOLinkFromGNB() {
-        GNB.clickTV_AUDIO_VideoLinkFromGNB();
+    @When("^I click on TV\\/VIDEO link from GNB")
+    public void iClickOnTVVIDEOLinkFromGNB() {
+        GNB.clickTV_VideoLinkFromGNB();
     }
 
-    @Then("^I should navigate to TV\\/AUDIO\\/VIDEO landing page")
-    public void iShouldNavigateToTVAUDIOVIDEOLandingPage() throws InterruptedException {
+    @Then("^I should navigate to TV\\/VIDEO landing page")
+    public void iShouldNavigateToTVVIDEOLandingPage() throws InterruptedException {
         Thread.sleep(2000);
-        GNB.verifyTV_AUDIO_VIDEOLandingPage();
+        GNB.verifyTV_VIDEOLandingPage();
     }
 
     @When("I click on KITCHEN link from GNB")

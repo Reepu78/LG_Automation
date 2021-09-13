@@ -1,7 +1,5 @@
 package base;
 
-import java.util.Map;
-
 public class GlobalTestData {
     public static String GLOBAL_CUSTOMER_FIRST_NAME;
     public static String GLOBAL_CUSTOMER_LAST_NAME;
@@ -18,13 +16,11 @@ public class GlobalTestData {
     public static String GLOBAL_CUSTOMER_ALT_PHONE_NUMBER = "(213) 633 0112";
     public static String GLOBAL_KLARNA_SSN_INPUT = "1111";
     public static String GLOBAL_KLARNA_SSN_DOB = "12/12/1990";
-    public static String GLOBAL_GNB_USER_ID = "hassan.bhuiyan";
-    public static String GLOBAL_GNB_PASSWORD = "Lgcns$prod1";
+    public static String GLOBAL_GNB_USER_ID = "qa.tester";
+    public static String GLOBAL_GNB_PASSWORD = "QaAutomation1$";
     public static String GLOBAL_GNB_EMAIL_ID = "qalgcns@gmail.com";
     public static String GLOBAL_GNB_EMAIL_PASSWORD = "Test1234$";
-    
-    
-    
+
     // Product
     public static String OMV_Subscription;
     public static String OMV_Non_Subscription;

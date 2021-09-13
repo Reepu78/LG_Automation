@@ -63,7 +63,6 @@ public class Hook extends Setup {
                 GlobalTestData.HE_OMD_KLARNA_PROMO = "17Z95N-G.AAS8U1";
                 GlobalTestData.JCB_CARD_NO = "  ";
 
-
                 break;
             case "prod":
                 url = "http://lg.com/us";

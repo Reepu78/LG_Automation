@@ -1,10 +1,8 @@
 package pageObject;
 
 import static org.testng.Assert.assertEquals;
-
 import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,7 +19,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
@@ -179,18 +176,6 @@ public class Cart_page extends Setup {
         }
     }
 
-	/*
-	 * public String validateEnterZipCode() throws InterruptedException {
-	 * wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
-	 * enterZipCode(GlobalTestData.GLOBAL_NY_ZIPCODE); String productArea = "";
-	 * CART_CHECK_BUTTON.click(); Boolean isAvailable = checkProductAvailable(); if
-	 * (!isAvailable) { enterZipCode(GlobalTestData.GLOBAL_TX_ZIPCODE);
-	 * CART_CHECK_BUTTON.click(); isAvailable = checkProductAvailable(); if
-	 * (!isAvailable) { enterZipCode(GlobalTestData.GLOBAL_CA_ZIPCODE);
-	 * CART_CHECK_BUTTON.click(); productArea = "GLOBAL_CA"; } else { productArea =
-	 * "GLOBAL_TX"; } } else { productArea = "GLOBAL_NY"; } return productArea; }
-	 */
-    
     @SuppressWarnings("unused")
 	public String validateEnterZipCode(String stateName) throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
@@ -225,7 +210,6 @@ public class Cart_page extends Setup {
     public void enterPromoCode() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE));
         CART_PROMOCODE.clear();
-//        promoCode="SPRINGS";
         CART_PROMOCODE.sendKeys(GlobalTestData.PROMO_CODE);
     }
 
@@ -238,14 +222,12 @@ public class Cart_page extends Setup {
     public void clickProceedCart() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_PROCEED_TO_CHECKOUT));
         jsClick(CART_PROCEED_TO_CHECKOUT);
-        // CART_PROCEED_TO_CHECKOUT.click();
         Thread.sleep(2000);
     }
 
     public void clickRemovePromoCode() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CANCEL_BUTTON));
         Thread.sleep(1000);
-        // CANCEL_BUTTON.click();
         jsClick(CANCEL_BUTTON);
         Thread.sleep(1000);
     }
@@ -266,7 +248,7 @@ public class Cart_page extends Setup {
         }
     }
 
-    public Boolean checkProductAvailable() throws InterruptedException {
+    public Boolean checkProductAvailable() {
     	try {
 			if (CART_POSTALCODE_MESSAGE.isDisplayed()) {
 				return false;
@@ -424,8 +406,7 @@ public class Cart_page extends Setup {
         
       //Fetching the Value of Tax2
         char[] b = tax2.toCharArray();
-        //StringBuffer str1 = new StringBuffer();
-        String str1="";
+          String str1="";
         for (Character ch1 : b) {
             if (Character.isDigit(ch1) || ch1 == '.') {
             	//str1.append(ch1);
@@ -439,11 +420,11 @@ public class Cart_page extends Setup {
     	
         if(tax1Price<tax2Price)
         {
-        	System.out.println("Huwai Tax is less than other Country Tax");
+        	System.out.println("Hawaii Tax is less than other Country Tax");
         }
         else
         {
-        	Assert.fail("Huwai Tax is greater than other Country Tax");
+        	Assert.fail("Hawaii Tax is greater than other Country Tax");
         }
              
     	return value;
@@ -521,9 +502,6 @@ public class Cart_page extends Setup {
 		}
 		return priceBreakDown;
 	}
-	
-
-	
 
 	public void click(String linkName) throws InterruptedException {
 		
@@ -566,7 +544,7 @@ public class Cart_page extends Setup {
 	}
 	
 	
-	public void validateApplyPromocode(String promo) {
+	public void validateApplyPromoCode(String promo) {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE_MSG));
 		WebElement message = driver.findElement(By.xpath("//div[contains(text(),'You used promotion code \""+promo+"\"')]"));
 		Boolean isDisplayed = message.isDisplayed();

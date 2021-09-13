@@ -47,7 +47,7 @@ public class GNB_page extends Setup {
     public WebElement GNB_LOGIN_PASSWORD;
     @FindBy(how = How.XPATH, using = "//*[text()='Next']")
     public WebElement GNB_CLICK_NEXT_BUTTON;
-    
+
     @FindBy(how = How.LINK_TEXT, using = "My LG")
     public WebElement GNB_MY_ACCOUNT_ICON_LINK;
     @FindBy(how = How.LINK_TEXT, using = "Sign In / Sign Up")
@@ -62,10 +62,10 @@ public class GNB_page extends Setup {
     public WebElement GNB_LANDING_PAGE_TITLE;
     @FindBy(how = How.XPATH, using = "//*[@id='lgContents']/section[1]/div[2]/div/h1")
     public WebElement GNB_SUPPORT_LANDING_PAGE_TITLE;
-    @FindBy(how = How.LINK_TEXT, using = "MOBILE")
-    public WebElement GNB_MOBILE_LINK;
-    @FindBy(how = How.LINK_TEXT, using = "TV / AUDIO / VIDEO")
-    public WebElement GNB_TV_AUDIO_VIDEO_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "AUDIO")
+    public WebElement GNB_AUDIO_LINK;
+    @FindBy(how = How.LINK_TEXT, using = "TV / VIDEO")
+    public WebElement GNB_TV_VIDEO_LINK;
     @FindBy(how = How.LINK_TEXT, using = "KITCHEN")
     public WebElement GNB_KITCHEN_LINK;
     @FindBy(how = How.LINK_TEXT, using = "LAUNDRY")
@@ -80,84 +80,99 @@ public class GNB_page extends Setup {
     public WebElement GNB_SMALL_BUSINESS_LINK;
     @FindBy(how = How.LINK_TEXT, using = "SUPPORT")
     public WebElement GNB_SUPPORT_LINK;
-   
-    
 
 
     // NEW
-    public void clickMobileLinkFromGNB(){
-        GNB_MOBILE_LINK.click();
+    public void clickAudioLinkFromGNB() {
+        GNB_AUDIO_LINK.click();
     }
-    public void clickTV_AUDIO_VideoLinkFromGNB(){
-        GNB_TV_AUDIO_VIDEO_LINK.click();
+
+    public void clickTV_VideoLinkFromGNB() {
+        GNB_TV_VIDEO_LINK.click();
     }
-    public void clickKitchenLinkFromGNB(){
+
+    public void clickKitchenLinkFromGNB() {
         GNB_KITCHEN_LINK.click();
     }
-    public void clickLaundryLinkFromGNB(){
+
+    public void clickLaundryLinkFromGNB() {
         GNB_LAUNDRY_LINK.click();
     }
-    public void clickOtherAppliancesLinkFromGNB(){
+
+    public void clickOtherAppliancesLinkFromGNB() {
         GNB_OTHER_APPLIANCES_LINK.click();
     }
-    public void clickComputersLinkFromGNB(){
+
+    public void clickComputersLinkFromGNB() {
         GNB_COMPUTERS_LINK.click();
     }
-    public void clickSolarLinkFromGNB(){
+
+    public void clickSolarLinkFromGNB() {
         GNB_SOLAR_LINK.click();
     }
-    public void clickSmallBusinessLinkFromGNB(){
+
+    public void clickSmallBusinessLinkFromGNB() {
         GNB_SMALL_BUSINESS_LINK.click();
     }
-    public void clickSupportLinkFromGNB(){
+
+    public void clickSupportLinkFromGNB() {
         GNB_SUPPORT_LINK.click();
     }
 
-    public void verifyMobileLandingPage(){
+    public void verifyAudioLandingPage() {
         String actual = GNB_LANDING_PAGE_TITLE.getText();
-        String expected = "Mobile";
+        String expected = "Audio";
         Assert.assertEquals(actual, expected);
     }
-    public void verifyTV_AUDIO_VIDEOLandingPage(){
+
+    public void verifyTV_VIDEOLandingPage() {
         String actual = GNB_LANDING_PAGE_TITLE.getText();
-        String expected = "TV / AUDIO / VIDEO";
+        String expected = "TV / VIDEO";
         Assert.assertEquals(actual, expected);
     }
-    public void verifyKitchenLandingPage(){
+
+    public void verifyKitchenLandingPage() {
         String actual = GNB_LANDING_PAGE_TITLE.getText();
         String expected = "Kitchen Appliances";
         Assert.assertEquals(actual, expected);
     }
-    public void verifyLaundryLandingPage(){
+
+    public void verifyLaundryLandingPage() {
         String actual = GNB_LANDING_PAGE_TITLE.getText();
         String expected = "Laundry";
         Assert.assertEquals(actual, expected);
     }
-    public void verifyOtherAppliancesLandingPage(){
+
+    public void verifyOtherAppliancesLandingPage() {
         String actual = GNB_LANDING_PAGE_TITLE.getText();
         String expected = "Other Appliances";
         Assert.assertEquals(actual, expected);
     }
-    public void verifyComputersLandingPage(){
+
+    public void verifyComputersLandingPage() {
         String actual = GNB_LANDING_PAGE_TITLE.getText();
         String expected = "Computers";
         Assert.assertEquals(actual, expected);
     }
-    public void verifySolarLandingPage(){
+
+    public void verifySolarLandingPage() {
         String actual = GNB_LANDING_PAGE_TITLE.getText();
         String expected = "Solar Panels and Installation";
         Assert.assertEquals(actual, expected);
     }
-    public void verifySmallBusinessLandingPage(){
+
+    public void verifySmallBusinessLandingPage() {
         String actual = GNB_LANDING_PAGE_TITLE.getText();
         String expected = "Small Business Solutions";
         Assert.assertEquals(actual, expected);
     }
-    public void verifySupportLandingPage(){
+
+    public void verifySupportLandingPage() {
         String actual = GNB_SUPPORT_LANDING_PAGE_TITLE.getText();
         String expected = "Support";
         Assert.assertEquals(actual, expected);
     }
+
     public void clickOnMyAccountIconFromGNB() {
         GNB_MY_ACCOUNT_ICON_LINK.click();
     }
@@ -183,39 +198,24 @@ public class GNB_page extends Setup {
         GNB_CART_ICON.click();
         Thread.sleep(500);
     }
-    
-//    public void click(String linkName) throws InterruptedException {
-//    	switch(linkName) {
-//    	case "":
-//    		break;
-//    	default :
-//    		GenericFunctions.jsClick(driver.findElement(By.xpath("(//*[text()= '"+linkName+"'])[1]")));
-//			break;
-//    	}
-//    }
-    
+
     public void stagingHome() {
-    	GNB_USER_ID.sendKeys(GlobalTestData.GLOBAL_GNB_USER_ID);
-    	GNB_PASSWORD.sendKeys(GlobalTestData.GLOBAL_GNB_PASSWORD);
-    	GNB_LOGIN.click();
-    	
+        GNB_USER_ID.sendKeys(GlobalTestData.GLOBAL_GNB_USER_ID);
+        GNB_PASSWORD.sendKeys(GlobalTestData.GLOBAL_GNB_PASSWORD);
+        GNB_LOGIN.click();
+
     }
+
     public void authenticationCode() {
-    	try {
-        	GNB_SEND_BUTTON.click();
-        	//Thread.sleep(2000);
-    		((JavascriptExecutor)driver).executeScript("window.open()");
-    	    ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-    	    driver.switchTo().window(tabs.get(1));
-        	driver.get("https://wwwstg.us.lg.com/us");
-    	}catch(Exception e) {}
-   /* 	GNB_LOGIN_EMAIL.sendKeys(GlobalTestData.GLOBAL_GNB_EMAIL_ID);
-    	GNB_CLICK_NEXT_BUTTON.click();
-    	GNB_LOGIN_PASSWORD.sendKeys(GlobalTestData.GLOBAL_GNB_EMAIL_PASSWORD);
-    	GNB_CLICK_NEXT_BUTTON.click();
-    	
-    	GNB_LOGIN_CODE_AREA.sendKeys(null); */
+        try {
+            GNB_SEND_BUTTON.click();
+            //Thread.sleep(2000);
+            ((JavascriptExecutor) driver).executeScript("window.open()");
+            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            driver.switchTo().window(tabs.get(1));
+            driver.get("https://wwwstg.us.lg.com/us");
+        } catch (Exception e) {
+        }
     }
- 
-    
+
 }

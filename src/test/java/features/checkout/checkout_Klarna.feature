@@ -189,7 +189,7 @@ Feature: Checkout Flow using Klarna Payment Method
     And I click on agree and Submit button in review terms and apply page
     Then I verify confirmation page is displayed
 
-  @checkout @guest @klarna @smoke @regression @TC_0014
+  @checkout @guest @klarna @smoke @regression @TC_014
   Scenario: Ensure OMV product doesnt have Klarna payment option for Guest User
     Given I Find "OMV Subscription" product using search function
     And I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
@@ -224,7 +224,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Then I verify "Order Summary" is displayed
     Then I verify "Buy Now. Pay Later" is not displayed
 
-  @checkout @guest @klarna @smoke @regression @TC_0024
+  @checkout @guest @klarna @smoke @regression @TC_024
   Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with Klarna checkout
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -255,7 +255,7 @@ Feature: Checkout Flow using Klarna Payment Method
     And I click on confirm and continue button
     Then I verify confirmation page is displayed
 
-  @checkout @guest @klarna @smoke @regression @TC_0025
+  @checkout @guest @klarna @smoke @regression @TC_025
   Scenario: As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with Klarna checkout
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -312,7 +312,7 @@ Feature: Checkout Flow using Klarna Payment Method
     And I click on confirm and continue button
     Then I verify confirmation page is displayed
 
-  @checkout @guest @klarna @smoke @regression @TC_0027
+  @checkout @guest @klarna @smoke @regression @TC_027
   Scenario: As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with Klarna checkout
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page

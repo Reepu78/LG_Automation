@@ -265,7 +265,7 @@ public class Cart_Steps extends Setup {
 
     @Then("I Should see a validation message saying You used promotion code and Discount and Total price should reflect")
     public void verifyPromoCode() {
-        CART.validateApplyPromocode(GlobalTestData.PROMO_CODE);
+        CART.validateApplyPromoCode(GlobalTestData.PROMO_CODE);
         CART.validateDiscountedPrice();
     }
 

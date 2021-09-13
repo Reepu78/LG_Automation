@@ -3,15 +3,15 @@ Feature: Global Navigation Bar
   Background:
     Given I am at LG Home Page
 
-  @gnb @smoke @regression @TC_001
-  Scenario: As a user I should be able to click on MOBILE link from GNB
-    When I click on MOBILE link from GNB
-    Then I should navigate to MOBILE landing page
+  @gnb @smoke @regression @TC_001 @test
+  Scenario: As a user I should be able to click on AUDIO link from GNB
+    When I click on AUDIO link from GNB
+    Then I should navigate to AUDIO landing page
 
   @gnb @smoke @regression @TC_002
-  Scenario: As a user I should be able to click on TV/AUDIO/VIDEO link from GNB
-    When I click on TV/AUDIO/VIDEO link from GNB
-    Then I should navigate to TV/AUDIO/VIDEO landing page
+  Scenario: As a user I should be able to click on TV/VIDEO link from GNB
+    When I click on TV/VIDEO link from GNB
+    Then I should navigate to TV/VIDEO landing page
 
   @gnb @smoke @regression @TC_003
   Scenario: As a user I should be able to click on KITCHEN link from GNB
