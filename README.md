@@ -12,4 +12,4 @@ Cucumber IO, Gherkin, Selenium WebDriver, Maven, TestNG, JVM Cucumber Report, Gi
 
 # RUN THE TEST
 1. Clone the project
-2. mvn verify -Denv=prod -Dbrowser=ch -Dcucumber.filter.tags="@smoke"
+2. mvn verify -Denv=stg -Dbrowser=ch -Dcucumber.filter.tags="@test"
