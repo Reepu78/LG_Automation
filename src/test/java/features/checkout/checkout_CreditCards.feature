@@ -50,7 +50,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @cc @smoke @regression @TC_003 @creditCard
+  @checkout @cc @smoke @regression @TC_003
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with overnight shipping
     Given I Find "OMV Non Subscription" product using search function
     Then I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
@@ -74,7 +74,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @cc @smoke @regression @TC_004 @creditCard
+  @checkout @cc @smoke @regression @TC_004
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with Standard shipping
     Given I Find "OMV Non Subscription" product using search function
     Then I will verify "OMV Non Subscription" product displays in search results page and navigate to PDP page
@@ -114,8 +114,9 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Review and Place order button from Billing Page
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
+    # become member
 
-  @checkout @cc @smoke @regression @TC_006 @creditCard
+  @checkout @cc @smoke @regression @TC_006
   Scenario: [MC] As a guest user, checkout OMD HE Non Innovel product
     Given I Find "OMD HE Non Innovel" product using search function
     Then I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -178,7 +179,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @cc @smoke @regression @TC_009 @creditCard
+  @checkout @cc @smoke @regression @TC_009
   Scenario: [Visa] As a guest user, checkout combination with OMD and OMV product
     Given I Find "OMD HE Innovel" product using search function
     And I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
@@ -247,7 +248,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @cc @smoke @regression @TC_012 @creditCard
+  @checkout @cc @smoke @regression @TC_012
   Scenario: [Visa] As a guest user, checkout OMD HE Non Innovel product with invalid expiration date
     Given I Find "OMD HE Non Innovel" product using search function
     Then I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -268,7 +269,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Review and Place order button from Billing Page
     Then I verify the error message for Visa Expiration date
 
-  @checkout @cc @smoke @regression @TC_013 @creditCard
+  @checkout @cc @smoke @regression @TC_013
   Scenario: [JCB] As a guest user, checkout OMD HE Non Innovel product with invalid Credit Card Type
     Given I Find "OMD HE Non Innovel" product using search function
     Then I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -289,7 +290,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Review and Place order button from Billing Page
     Then I verify the error message for Credit Card Type
 
-  @checkout @cc @smoke @regression @TC_035 @creditCard
+  @checkout @cc @smoke @regression @TC_035
   Scenario: [AMEX] As a guest user, checkout with OMD products and verify Edit cart link on checkout(shipping) page with Credit/Debit card checkout
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -320,7 +321,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @cc @smoke @regression @TC_036 @creditCard
+  @checkout @cc @smoke @regression @TC_036
   Scenario: [VISA] As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with Credit/Debit card checkout
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -348,7 +349,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @guest @cc @smoke @regression @TC_037 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_037
   Scenario: [MC] As a guest user, checkout with OMD products and verify Return to Shipping link on checkout(Payment & Billing) page with Credit/Debit card checkout
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -377,7 +378,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @guest @cc @smoke @regression @TC_038 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_038
   Scenario: [AMEX] As a guest user, checkout with OMD products and verify Edit cart link on checkout(Payment & Billing) page with Credit/Debit card checkout
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -408,7 +409,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @guest @cc @smoke @regression @TC_0039 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_0039
   Scenario: [AMEX] As a guest user, checkout with OMD products and verify 'Where is my security code link' on checkout(Payment & Billing) page with Credit/Debit card checkout
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -433,7 +434,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @guest @cc @smoke @regression @TC_041 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_041
   Scenario: [VISA] Ensure that guests user are able to place order using credit/debit card payment method for promotional products
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -466,7 +467,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @guest @cc @smoke @regression @TC_043 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_043
   Scenario: [VISA] As a guest user, checkout with OMD products and verify Edit link on Shipping Address (Review & Place Order) page with Credit card payment
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -532,7 +533,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @guest @cc @smoke @regression @TC_045 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_045
   Scenario: [VISA] As a guest user, checkout with OMD products and verify Edit link on Payment method block (Review & Place Order page) with Credit card payment
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -592,7 +593,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @guest @cc @smoke @regression @TC_051 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_051
   Scenario: Verify Need Help? Call text and call number navigation of the header section in checkout page
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -606,7 +607,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I verify header section is displayed on shipping page
     When I click on Call Number
 
-  @checkout @guest @cc @smoke @regression @TC_052 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_052
   Scenario: Verify Delivery Notification on checkout page
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -618,7 +619,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     Then I verify "Order Summary" is displayed
     And I verify footer displayed on shipping page
 
-  @checkout @guest @cc @smoke @regression @TC_053 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_053
   Scenario: Verify 'Need Help?' block on the footer section in checkout page
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -634,7 +635,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     When I click on footer Call Number
     Then I click on footer Email Id
 
-  @checkout @guest @cc @smoke @regression @TC_055 @creditCard
+  @checkout @guest @cc @smoke @regression @TC_055
   Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with Credit card payment
     Given I Find "OMD HE Non Innovel" product using search function
     And I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page

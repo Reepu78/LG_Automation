@@ -496,7 +496,7 @@ Feature: Checkout Flow using Klarna Payment Method
     And I click on confirm and continue button
     Then I verify confirmation page is displayed
 
-  @checkout @guest @klarna @smoke @regression @TC_038 @Test
+  @checkout @guest @klarna @smoke @regression @TC_038
   Scenario: Verify Need Help? Call text and call number navigation of the header section in checkout page
     Given I Find "HA OMD Klarna" product using search function
     And I will verify "HA OMD Klarna" product displays in search results page and navigate to PDP page

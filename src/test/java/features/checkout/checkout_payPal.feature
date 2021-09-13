@@ -673,7 +673,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And  I Click on "Frequently Asked Questions" link
     Then I verify the FAQ tab
     When I click on footer Call Number
- 		#Then  I verify System is showing Make a call from popup
+   #Then  I verify System is showing Make a call from popup
 
 
   @checkout @paypal @smoke @regression @TC_048
