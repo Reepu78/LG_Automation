@@ -1,23 +1,16 @@
 package stepDef;
 
-import java.text.ParseException;
-
 import base.GenericFunctions;
-import base.GlobalTestData;
 import base.Setup;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import pageObject.Cart_page;
-import pageObject.Search_page;
 import pageObject.Support_page;
 
 
 public class Support_steps extends Setup {
     Support_page SUPPORT = new Support_page(driver);
 
-    @And("I search {string} using the search textbox")
+    @And("I search {string} using the search textBox")
     public void iClickOnSearchIconFromGNB(String product) throws InterruptedException {
     	SUPPORT.searchProduct(product);
     	SUPPORT.clickSearch();
@@ -37,7 +30,7 @@ public class Support_steps extends Setup {
     
     
     @Then("I verify new tab is opened to register the product")
-    public void iverifyNewTabIsOpenedToRegisterProduct() throws InterruptedException {
+    public void iVerifyNewTabIsOpenedToRegisterProduct(){
 	   GenericFunctions.switchToNewTab();
 	   GenericFunctions.verifyElementByText("Register your LG product today");
     }

@@ -15,22 +15,22 @@ public class GNB_steps extends Setup {
 
     @Given("I am at LG Home Page")
     public void homePage() {
-    	if(Hook.baseURL.equals("stg")) {
-    		GNB.stagingHome();
-    		GNB.authenticationCode();
-    	}else {
-    		 Set<String> winIds = driver.getWindowHandles();
-    	        System.out.println ("Total windows -> " + winIds.size());
-    	        if (winIds.size () == 2){
-    	            Iterator<String> iter = winIds.iterator();
-    	            String mainWinID = iter.next();
-    	            String popupWindID = iter.next();
-    	            driver.switchTo().window(popupWindID);
-    	            driver.close();
-    	            driver.switchTo().window(mainWinID);
-    	        }
-    	}
-       
+        if (Hook.baseURL.equals("stg")) {
+            GNB.stagingHome();
+            GNB.authenticationCode();
+        } else {
+            Set<String> winIds = driver.getWindowHandles();
+            System.out.println("Total windows -> " + winIds.size());
+            if (winIds.size() == 2) {
+                Iterator<String> iter = winIds.iterator();
+                String mainWinID = iter.next();
+                String popupWindID = iter.next();
+                driver.switchTo().window(popupWindID);
+                driver.close();
+                driver.switchTo().window(mainWinID);
+            }
+        }
+
     }
 
     @Given("I came to Signup page from GNB")
@@ -45,7 +45,6 @@ public class GNB_steps extends Setup {
         GNB.clickOnMyAccountIconFromGNB();
         GNB.clickSignInSignUpLinkFromGNB();
     }
-
 
     @Given("I am at shop page")
     public void iAmAtShopPage() throws InterruptedException {
@@ -150,6 +149,6 @@ public class GNB_steps extends Setup {
         Thread.sleep(2000);
         GNB.verifySupportLandingPage();
     }
-    
+
 
 }

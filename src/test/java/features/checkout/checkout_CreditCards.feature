@@ -3,7 +3,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
   I want to ensure Credit Card Checkout feature working as expected
   So that our end user can Shop from LG.com without any issues
 
-  Background: 
+  Background:
     Given I am at LG Home Page
 
   @checkout @cc @smoke @regression @TC_001
@@ -137,7 +137,6 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Review and Place order button from Billing Page
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
 
-  #Then I verify confirmation page is displayed
   @checkout @cc @smoke @regression @TC_007
   Scenario: As a guest user, checkout OMD HA Innovel product
     Given I Find "OMD HA Innovel" product using search function
@@ -452,7 +451,6 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     When I Click on "Add to cart" link from PDP page
     And I Click on "View cart" link
     Then I Verify "3" item is added to the cart
-    #I verify promo price is displayed for the promo product
     And I click on Secure Checkout button
     And I click on Continue as Guest from Sign in page
     Then I verify "Shipping" is displayed
@@ -608,7 +606,6 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I verify header section is displayed on shipping page
     When I click on Call Number
 
-  #		Then I verify System is showing Make a call from popup
   @checkout @guest @cc @smoke @regression @TC_052 @creditCard
   Scenario: Verify Delivery Notification on checkout page
     Given I Find "OMD HE Non Innovel" product using search function
@@ -635,8 +632,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I Click on "Frequently Asked Questions" link
     Then I verify the FAQ tab
     When I click on footer Call Number
-    #Then  I verify System is showing Make a call from popup
-    And I click on footer Email Id
+    Then I click on footer Email Id
 
   @checkout @guest @cc @smoke @regression @TC_055 @creditCard
   Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with Credit card payment

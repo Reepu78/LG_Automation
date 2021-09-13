@@ -55,22 +55,22 @@ public class Search_steps extends Setup {
     public void enterSpecialCharactersToSearch() {
         SEARCH.enterAnItemToSearchFromGNB("%^$&*!@#[]{}*()+-.");
     }
-    
+
     @Given("I enter OMD HE Innovel product Code into search edit box from GNB")
     public void iSearchForOMDHESubscriptionProductFromGNB() {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMD_HE_Innovel);
     }
-    
+
     @Given("I enter OMD HA Innovel product Code into search edit box from GNB")
     public void iSearchForOMDHAInnovelSubscriptionProductFromGNB() {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMD_HA_Innovel);
     }
-    
+
     @Given("I enter OMD HE Non Innovel product Code into search edit box from GNB")
     public void iSearchForOMDHENonInnovelSubscriptionProductFromGNB() {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMD_HE_Non_Innovel);
     }
-    
+
     @Given("I enter OMD Klarna enabled product Code into search edit box from GNB")
     public void iSearchForOMDKlarnaProductFromGNB() {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMD_KLARNA);
@@ -85,10 +85,10 @@ public class Search_steps extends Setup {
     public void iWillVerifyOMVNonSubscriptionProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMV_Non_Subscription);
     }
-    
+
     @Then("I will verify {string} product displays in search results page")
     public void i_will_verify_product_displays_in_search_results_page(String item) {
-	SEARCH.verifySearchedItemFromSearchResultPage(GenericFunctions.getData(item));
+        SEARCH.verifySearchedItemFromSearchResultPage(GenericFunctions.getData(item));
     }
 
     @Then("I will verify We Are Sorry error message")
@@ -100,17 +100,17 @@ public class Search_steps extends Setup {
     public void iWillVerifyOMDHESubscriptionProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMD_HE_Innovel);
     }
-    
+
     @Then("I will verify OMD HA Innovel product displays in search results page")
     public void iWillVerifyOMDHASubscriptionProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMD_HA_Innovel);
     }
-    
+
     @Then("I will verify OMD HE Non Innovel product displays in search results page")
     public void iWillVerifyOMDHENonInnovelSubscriptionProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMD_HE_Non_Innovel);
     }
-    
+
     @Then("I will verify OMD Klarna enabled product displays in search results page")
     public void iWillVerifyOMDKlarnaProductDisplaysInSearchResultsPage() {
         SEARCH.verifySearchedItemFromSearchResultPage(GlobalTestData.OMD_KLARNA);
@@ -130,37 +130,37 @@ public class Search_steps extends Setup {
     public void iSearchForOLEDTv() {
         SEARCH.enterAnItemToSearchFromGNB("oled tv");
     }
-   
+
     @Then("^I will click on add to cart Button from Search Results Page for \"([^\"]*)\"$")
-	public void iWillClickOnAddToCartPage(String productSubscription) throws ParseException, InterruptedException {
-	 if(productSubscription.equalsIgnoreCase("OMV_Subscription")) {
-     SEARCH.addCartProduct(GlobalTestData.OMV_Subscription);
-	 CART.productCode[0]=GlobalTestData.OMV_Subscription;
-	 } else if(productSubscription.equalsIgnoreCase("OMD_HE_Innovel")) {
-	 SEARCH.addCartProduct(GlobalTestData.OMD_HE_Innovel);
-	 CART.productCode[0]=GlobalTestData.OMD_HE_Innovel;
-	 }else if(productSubscription.equalsIgnoreCase("OMV_Non_Subscription")) {
-		 SEARCH.addCartProduct(GlobalTestData.OMV_Non_Subscription);
-		 CART.productCode[0]=GlobalTestData.OMV_Non_Subscription;
-	 }else if(productSubscription.equalsIgnoreCase("OMD_HE_Non_Innovel")) {
-		 SEARCH.addCartProduct(GlobalTestData.OMD_HE_Non_Innovel);
-		 CART.productCode[0]=GlobalTestData.OMD_HE_Non_Innovel;
-	 }
- }
-    
+    public void iWillClickOnAddToCartPage(String productSubscription) throws ParseException, InterruptedException {
+        if (productSubscription.equalsIgnoreCase("OMV_Subscription")) {
+            SEARCH.addCartProduct(GlobalTestData.OMV_Subscription);
+            CART.productCode[0] = GlobalTestData.OMV_Subscription;
+        } else if (productSubscription.equalsIgnoreCase("OMD_HE_Innovel")) {
+            SEARCH.addCartProduct(GlobalTestData.OMD_HE_Innovel);
+            CART.productCode[0] = GlobalTestData.OMD_HE_Innovel;
+        } else if (productSubscription.equalsIgnoreCase("OMV_Non_Subscription")) {
+            SEARCH.addCartProduct(GlobalTestData.OMV_Non_Subscription);
+            CART.productCode[0] = GlobalTestData.OMV_Non_Subscription;
+        } else if (productSubscription.equalsIgnoreCase("OMD_HE_Non_Innovel")) {
+            SEARCH.addCartProduct(GlobalTestData.OMD_HE_Non_Innovel);
+            CART.productCode[0] = GlobalTestData.OMD_HE_Non_Innovel;
+        }
+    }
+
     @Then("I click on the view Cart button from Pop up modal")
     public void i_click_on_the_view_cart_button_from_pop_up_modal() {
-    	SEARCH.clickViewCartButtonFromModal();
+        SEARCH.clickViewCartButtonFromModal();
     }
-    
+
     @Given("^I search for \"([^\"]*)\"$")
     public void iSearchProduct(String productName) {
         SEARCH.enterAnItemToSearchFromGNB(productName);
     }
-    
+
     @Then("^I will verify list of \"([^\"]*)\" in my search results page$")
     public void iWillVerifyListOfOledTvInMySearchResultsPage(String productName) throws ParseException, InterruptedException {
-    	SEARCH.verifyProductName(productName);
+        SEARCH.verifyProductName(productName);
     }
 
 
@@ -168,19 +168,17 @@ public class Search_steps extends Setup {
     public void iClickOnSearchIconFromSearchResultsPage() throws InterruptedException {
         SEARCH.clickSearchIconFromSearchResultsPage();
     }
-    
-    
-    
+
     @Given("I Find {string} product using search function")
     public void iSearchItem(String item) throws InterruptedException {
         SEARCH.enterAnItemToSearchFromGNB(GenericFunctions.getData(item));
         SEARCH.clickSearchIconFromGNB();
     }
-    
+
     @Then("I will verify {string} product displays in search results page and navigate to PDP page")
     public void verifyProductDisplayedOnResultsPage(String item) {
-    	SEARCH.verifySearchedItemFromSearchResultPage(GenericFunctions.getData(item));
-    	SEARCH.navigateToPDP(GenericFunctions.getData(item));
- }
-   
+        SEARCH.verifySearchedItemFromSearchResultPage(GenericFunctions.getData(item));
+        SEARCH.navigateToPDP(GenericFunctions.getData(item));
+    }
+
 }

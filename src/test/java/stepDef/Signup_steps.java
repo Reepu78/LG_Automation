@@ -7,11 +7,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Keys;
 import pageObject.Signup_page;
-
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 
 public class Signup_steps extends Setup {
@@ -120,8 +117,8 @@ public class Signup_steps extends Setup {
 
     @Then("I will verify error message under Terms and Conditions")
     public void iWillSeeErrorMessageUnderTermsAndConditions() {
-            SIGNUP.assertTermsAndConditionsErrorMessage();
-        }
+        SIGNUP.assertTermsAndConditionsErrorMessage();
+    }
 
     @Then("I will verify error message under Privacy Policy")
     public void iWillSeeErrorMessageUnderPrivacyPolicy() {
@@ -243,8 +240,8 @@ public class Signup_steps extends Setup {
 
     @Then("I will verify error message under first name")
     public void iWillVerifyErrorMessageUnderFirstName() {
-            SIGNUP.assertFirstNameErrorMessage();
-        }
+        SIGNUP.assertFirstNameErrorMessage();
+    }
 
     @Then("I will verify error message under last name")
     public void iWillVerifyErrorMessageUnderLastName() {
@@ -274,7 +271,8 @@ public class Signup_steps extends Setup {
         SIGNUP.selectYear("1988");
         SIGNUP.selectCurrentDate();
     }
-    @Then ("I should be able to activate the account from Mailbox")
+
+    @Then("I should be able to activate the account from Mailbox")
     public void activateAccount() throws InterruptedException {
         SIGNUP.activateAccount_emailFake();
     }

@@ -537,8 +537,7 @@ Feature: Checkout Flow using Klarna Payment Method
     Then I verify the FAQ tab
     When I click on footer Call Number
     Then I click on footer Email us
-  #Then  I verify System is showing Make a call from popup
-  
+
   @checkout @guest @klarna @smoke @regression @TC_042
   Scenario: As a guest user, checkout with OMD products and verify Cart icon on checkout page with Klarna payment
     Given I Find "OMD HE Non Innovel" product using search function
