@@ -58,7 +58,8 @@ public class GNB_steps extends Setup {
 
     @Then("I should navigate to AUDIO landing page")
     public void iShouldNavigateToMobileLandingPage() throws InterruptedException {
-         GNB.verifyAudioLandingPage();
+        Thread.sleep(2000);
+        GNB.verifyAudioLandingPage();
     }
 
     @When("^I click on TV\\/VIDEO link from GNB")
@@ -68,6 +69,7 @@ public class GNB_steps extends Setup {
 
     @Then("^I should navigate to TV\\/VIDEO landing page")
     public void iShouldNavigateToTVVIDEOLandingPage() throws InterruptedException {
+        Thread.sleep(2000);
         GNB.verifyTV_VIDEOLandingPage();
     }
 

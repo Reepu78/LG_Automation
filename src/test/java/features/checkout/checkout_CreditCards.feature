@@ -8,6 +8,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 
   @checkout @cc @smoke @regression @TC_001
   Scenario: As a brand new guest, ensure user able to checkout OMV Non Subscription product with promotion code and standard shipping using credit card
+    Given I Find "OMV Subscription" product using search function
     And I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
@@ -29,10 +30,11 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
 
   @checkout @cc @smoke @regression @TC_002
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product after removing promotion code once it was applied with overnight shipping
+    Given I Find "OMV Non Subscription" product using search function
     And I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
     And I Select Subscription as "Single Purchase"
     When I Click on "Add to cart" link from PDP page
-    Then I will verify product is added into Cart Page
+    Then I Verify "1" item is added to the cart
     When I will enter promo code
     Then I should able to use promo code
     When I will remove promo code

@@ -101,6 +101,8 @@ public class Cart_page extends Setup {
     public WebElement totalItemsInCart;
 	@FindBy(how = How.XPATH, using = "//span[contains(text(),'Discount')]")
 	public WebElement CART_DISCOUNT;
+	@FindBy(how = How.XPATH, using = "//*[@class='amount-saved']/span")
+	public WebElement CART_SAVE_PRICE;
 	@FindBy(how = How.CSS, using = "td.amount")
 	public List<WebElement> CART_AMOUNTS;
 	@FindBy(how = How.XPATH, using = "(//span[contains(text(),'Remove item')]//parent::a)[1]")
@@ -133,6 +135,7 @@ public class Cart_page extends Setup {
 	public WebElement FIRST_ITEM_QTY;
 	@FindBy(how = How.XPATH, using = "(//*[@class='action-close'])[1]")
 	public WebElement CLOSE_PAGE_BTN;
+	
 	
     public void enterDeliveryFrequency(String deliveryFrequency){
         DELIVERY_FREQUENCY_LIST.click();
@@ -175,6 +178,7 @@ public class Cart_page extends Setup {
             Assert.fail("Selected Product Code is not displayed");
         }
     }
+    
 
     @SuppressWarnings("unused")
 	public String validateEnterZipCode(String stateName) throws InterruptedException {
@@ -614,6 +618,14 @@ public class Cart_page extends Setup {
 	public void enterInvalidPromoCode() {
 		CART_INVALID_PROMOCODE.clear();
 		CART_INVALID_PROMOCODE.sendKeys(GlobalTestData.INVALID_PROMO_CODE);
+	}
+	
+	public void verifySavePrice() {
+        wait.until(ExpectedConditions.visibilityOf(CART_SAVE_PRICE));
+        Boolean isDisplayed = CART_SAVE_PRICE.isDisplayed();
+        if (!isDisplayed) {
+            Assert.fail("Promo Product is not Displayed");
+        }
 	}
 	
 }

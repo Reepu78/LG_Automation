@@ -120,14 +120,12 @@ public class GNB_page extends Setup {
     }
 
     public void verifyAudioLandingPage() {
-        GenericFunctions.waitUntilVisible(GNB_LANDING_PAGE_TITLE);
         String actual = GNB_LANDING_PAGE_TITLE.getText();
         String expected = "Audio";
         Assert.assertEquals(actual, expected);
     }
 
     public void verifyTV_VIDEOLandingPage() {
-        GenericFunctions.waitUntilVisible(GNB_LANDING_PAGE_TITLE);
         String actual = GNB_LANDING_PAGE_TITLE.getText();
         String expected = "TV / VIDEO";
         Assert.assertEquals(actual, expected);

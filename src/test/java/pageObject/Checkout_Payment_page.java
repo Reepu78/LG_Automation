@@ -93,9 +93,8 @@ public class Checkout_Payment_page extends Setup {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYMENT_INFO_TITLE.get(0)));
 		wait.until(ExpectedConditions.elementToBeClickable(
 				driver.findElement(By.xpath("//span[contains(text(),'" + paymentMethod + "')]//parent::label"))));
-		Thread.sleep(6000);
-		WebElement element = driver
-				.findElement(By.xpath("//span[contains(text(),'" + paymentMethod + "')]//parent::label"));
+//		Thread.sleep(6000);
+		WebElement element = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'" + paymentMethod + "')]//parent::label"))));
 		element.click();
 		Thread.sleep(1000);
 	}
@@ -191,7 +190,8 @@ public class Checkout_Payment_page extends Setup {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTINUE_BUTTON));
 		jsClick(CHECKOUT_CONTINUE_BUTTON);
-		Thread.sleep(10000);
+		wait.until(ExpectedConditions.visibilityOf(CHECKOUT_CONTINUE_BUTTON));
+//		Thread.sleep(10000);
 		driver.switchTo().defaultContent();
 
 	}

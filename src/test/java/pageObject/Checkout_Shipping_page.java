@@ -211,7 +211,7 @@ public class Checkout_Shipping_page extends Setup {
 }
     // For klarna
     public void enterContactInfo( String firstName, String lastName, String address, String city, String state, String ZipCode) {
-    	wait.until(ExpectedConditions.elementToBeClickable(USE_DIFFERENT_FIRST_NAME_INPUT));
+    	wait.until(ExpectedConditions.elementToBeClickable(USE_DIFFERENT_FIRST_NAME));
     	USE_DIFFERENT_FIRST_NAME.sendKeys(firstName);
     	USE_DIFFERENT_LAST_NAME.sendKeys(lastName);
     	USE_DIFFERENT_ADDRESS.sendKeys(address);
@@ -224,8 +224,8 @@ public class Checkout_Shipping_page extends Setup {
 
     public void clickSaveAndContinueButtonFromShippingPage() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_SAVE_BUTTON));
-        CHECKOUT_SAVE_BUTTON.click();
         Thread.sleep(3000);
+        CHECKOUT_SAVE_BUTTON.click();
     }
 
     public void selectAddress() throws InterruptedException {
@@ -239,7 +239,7 @@ public class Checkout_Shipping_page extends Setup {
 
     public void clickUseThisAddressButton() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_USE_THIS_ADDRESS_BUTTON));
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         CHECKOUT_USE_THIS_ADDRESS_BUTTON.click();
     }
 

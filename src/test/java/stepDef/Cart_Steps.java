@@ -331,4 +331,8 @@ public class Cart_Steps extends Setup {
     public void iEnterInvalidPromoCode() {
         CART.enterInvalidPromoCode();
     }
+    @And("I verify promo price is displayed for the promo product")
+	public void verifyPromoPriceIsDisplayed() {
+	CART.verifySavePrice();
+	}
 }

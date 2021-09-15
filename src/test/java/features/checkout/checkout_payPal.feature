@@ -6,7 +6,7 @@ Feature: Checkout Flow using PayPal Payment Method
   Background:
     Given I am at LG Home Page
 
-  @checkout @paypal @smoke @regression @TC_001
+  @checkout @paypal @smoke @regression @TC_001 @Test
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product with promotion code and standard shipping using PayPal
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page
@@ -268,8 +268,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Then I verify Order summary section price break down is correct
     When I Enter valid PromoCode under Promo Edit box
     And I Click on "Apply" button
-    Then I verify "You used promotion code \"TEST1234\"." is displayed
-   #Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
+   Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
     When I click on Secure Checkout button
     And  I click on Continue as Guest from Sign in page
     And  I click on Save and Continue button after fill out Shipping Info
@@ -423,7 +422,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I will click on Continue button
     Then I verify confirmation page is displayed
 
-  @checkout @paypal @smoke @regression @TC_033
+  @checkout @paypal @smoke @regression @TC_033 
   Scenario: As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with PayPal checkout
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -573,7 +572,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I will click on Continue button
     Then I verify confirmation page is displayed
 
-  @checkout @paypal @smoke @regression @TC_039
+  @checkout @paypal @smoke @regression @TC_039 
   Scenario: As a guest user, checkout with OMD products and verify Edit link on Contact Information block (Review & Place Order page) with PayPal payment
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -595,7 +594,7 @@ Feature: Checkout Flow using PayPal Payment Method
 #		And 	I click "Save and continue" button on checkout page
     When I click Save and Continue after updating email and phone number on shipping page
     And   I verify the suggested address
-    Then I verify Contact Information is updated
+    #Then I verify Contact Information is updated
     When  I click on Continue to Payment button
     Then  I verify "Order Summary" is displayed
     Then  I will see Payment method option list in Billing Page

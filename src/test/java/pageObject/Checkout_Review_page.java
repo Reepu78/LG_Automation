@@ -290,9 +290,9 @@ public class Checkout_Review_page extends Setup {
     
 	}
 	
-	public void verifyUpdatedContactInformation() {
+	public void verifyUpdatedContactInformation() throws InterruptedException {
 		Assert.assertNotNull(BILLING_ADDRESS);
-
+        Thread.sleep(3000);
     	String shippingAddress = driver.findElement(By.cssSelector("div.shipping-information-content")).getText();
         assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_EMAIL));
     	assertTrue(shippingAddress.contains(GlobalTestData.GLOBAL_CUSTOMER_ALT_PHONE_NUMBER));

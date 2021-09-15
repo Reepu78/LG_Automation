@@ -25,6 +25,7 @@ public class Checkout_Shipping_steps extends Setup {
     public void iClickOnSaveAndContinueButtonAfterFillOutShippingInfo() throws InterruptedException {
         Shipping.verifyContactInfoPage();
         Shipping.enter_contact_shipping_info();
+        Thread.sleep(3000);
         Shipping.clickSaveAndContinueButtonFromShippingPage();
     }
 
@@ -36,6 +37,7 @@ public class Checkout_Shipping_steps extends Setup {
     @And("I verify the suggested address")
     public void iVerifyTheSuggestedAddress() throws InterruptedException {
         Shipping.clickUseThisAddressButton();
+        Thread.sleep(3000);
     }
 
     @Then("^I will select the \"([^\"]*)\" shipment Method$")

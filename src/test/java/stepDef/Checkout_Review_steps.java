@@ -51,7 +51,7 @@ public class Checkout_Review_steps extends Setup {
     }
 
     @Then("I verify Contact Information is updated")
-    public void verifyUpdatedContactInformation() {
+    public void verifyUpdatedContactInformation() throws InterruptedException {
         Review.verifyUpdatedContactInformation();
     }
 }

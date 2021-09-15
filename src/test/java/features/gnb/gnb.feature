@@ -3,7 +3,7 @@ Feature: Global Navigation Bar
   Background:
     Given I am at LG Home Page
 
-  @gnb @smoke @regression @TC_001
+  @gnb @smoke @regression @TC_001 @test
   Scenario: As a user I should be able to click on AUDIO link from GNB
     When I click on AUDIO link from GNB
     Then I should navigate to AUDIO landing page

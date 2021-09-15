@@ -2,6 +2,9 @@ package base;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -10,15 +13,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class GenericFunctions extends Setup{
-
-	public static WebDriverWait waitUntil;
+	
 	public static Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(100))
             .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
 
+	
 	public static void jsClick(WebElement ele) throws InterruptedException {
 		Thread.sleep(3000);
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
@@ -26,18 +28,13 @@ public class GenericFunctions extends Setup{
 		executor.executeScript("arguments[0].click();", ele);
 	}
 	
-	public static void waitUntilVisible(WebElement locator)  {
-		waitUntil = new WebDriverWait(Setup.driver, 45);
-		waitUntil.until(ExpectedConditions.visibilityOf(locator));
-	}
-
 	public static void verifyElementByText(String text)  {
 		WebElement ele = driver.findElement(By.xpath("//*[text()='"+text+"']"));
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
 		Assert.assertTrue(ele.isDisplayed());
 	}
-
-
+	
+	
 	public static float getPrice(String price) {
 		try {
 			price = price.trim().replace("$", "").replace(",", "");
@@ -48,7 +45,22 @@ public class GenericFunctions extends Setup{
 		 
 	}
 	
-	public static void isDisplayedInKlarnaPayOverTimeFrame(WebElement element, String expectedText) {
+	
+//	public static void isDisplayed(WebElement element, String expectedText) {
+//		
+//		 wait.until(ExpectedConditions.elementToBeClickable(element));
+//	       boolean isDisplayed = element.isDisplayed();
+//	       if (isDisplayed) {
+//	           String actualTitle = element.getText().trim();
+//	           String expectedTitle = expectedText;
+//	           Assert.assertEquals(actualTitle, expectedTitle);
+//	       } else {
+//	           Assert.fail(expectedText+" is not displayed");
+//	       }
+//	
+//	}
+	
+	public static void isDisplayedinKlarnaPayOverTimeFrame(WebElement element, String expectedText) {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		 wait.until(ExpectedConditions.elementToBeClickable(element));
 	       boolean isDisplayed = element.isDisplayed();

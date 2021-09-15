@@ -57,7 +57,7 @@ public class Hook extends Setup {
                 GlobalTestData.OMV_Non_Subscription_With_Accessories = "LT500P3";
                 GlobalTestData.HA_OMD_KLARNA = "URETC1408N";
                 GlobalTestData.HE_OMD_KLARNA = "OLED65G1PUA";//75QNED99UPA
-                GlobalTestData.HE_OMD_NON_INNOVEL_KLARNA = "FS21GB";//65NANO90UPA
+                GlobalTestData.HE_OMD_NON_INNOVEL_KLARNA = "27GL850-B";//65NANO90UPA
                 GlobalTestData.PROMO_CODE = "TEST1234";
                 GlobalTestData.INVALID_PROMO_CODE = "INVALID";
                 GlobalTestData.HE_OMD_KLARNA_PROMO = "17Z95N-G.AAS8U1";
