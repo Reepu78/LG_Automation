@@ -2,7 +2,6 @@ package pageObject;
 
 import base.Setup;
 import stepDef.Cart_Steps;
-import stepDef.PLP_steps;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -50,7 +49,7 @@ public class PLP_page extends Setup {
 
 	public void verifyOLEDPage() {
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_OLED_PAGE_TITLE));
-		Boolean isDisplayed = ATC_OLED_PAGE_TITLE.isDisplayed();
+		boolean isDisplayed = ATC_OLED_PAGE_TITLE.isDisplayed();
 		if (isDisplayed) {
 			String actualTitle = ATC_OLED_PAGE_TITLE.getText().trim();
 			String expectedTitle = "OLED TVs";
@@ -62,9 +61,8 @@ public class PLP_page extends Setup {
 
 	public void verifyOLEDTV() {
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_PRODUCT_NAME.get(0)));
-		int size = ATC_PRODUCT_NAME.size();
-		for (int i = 0; i < size; i++) {
-			String productName = ATC_PRODUCT_NAME.get(i).getText().trim();
+		for (WebElement webElement : ATC_PRODUCT_NAME) {
+			String productName = webElement.getText().trim();
 			if (!productName.contains("OLED")) {
 				Assert.fail("Displayed product :" + productName + " is not OLED TV");
 			}
@@ -75,12 +73,11 @@ public class PLP_page extends Setup {
 		NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_ADD_TO_CART_BUTTON.get(0)));
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_PRICE.get(0)));
-		int size = ATC_ADD_TO_CART_BUTTON.size();
 
 		// Iterating through Available Items and fetching the Price
-		ArrayList<String> prices = new ArrayList<String>();
-		for (int j = 0; j < size; j++) {
-			String productID = ATC_ADD_TO_CART_BUTTON.get(j).getAttribute("aria-describedby");
+		ArrayList<String> prices = new ArrayList<>();
+		for (WebElement webElement : ATC_ADD_TO_CART_BUTTON) {
+			String productID = webElement.getAttribute("aria-describedby");
 			String price = driver
 					.findElement(By.xpath("//a[@id='" + productID + "']/following::div[@class='price ga-price']"))
 					.getText().trim();
@@ -154,12 +151,8 @@ public class PLP_page extends Setup {
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_PROCEED));
 		ATC_PROCEED.click();
 		Thread.sleep(1000);
-		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
-                        .equals("complete");
-            }
-        };
+		ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
+				.equals("complete");
         Thread.sleep(5000);
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(expectation);

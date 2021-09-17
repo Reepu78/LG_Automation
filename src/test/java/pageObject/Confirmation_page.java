@@ -91,10 +91,9 @@ public class Confirmation_page extends Setup {
         } else {
             Assert.fail("Page Title is not displayed");
         }
-//        driver.switchTo().defaultContent();
     }
     
- ///==================dateofdelivery======================
+ // ==================dateofdelivery======================
     public void verifyEsitateddateofdeliveryIsDisplay() {
         wait.until(ExpectedConditions.elementToBeClickable(ESTIMATED_DATE_OF_DELIVERY));
         boolean isDisplayed = ESTIMATED_DATE_OF_DELIVERY.isDisplayed();
@@ -109,7 +108,6 @@ public class Confirmation_page extends Setup {
     
 
     public void verifyShippingIsDisplay() {
-// 	   driver.switchTo().frame("klarna-pay-over-time-fullscreen");
         wait.until(ExpectedConditions.elementToBeClickable(VERIFY_SHIPPING));
         boolean isDisplayed = VERIFY_SHIPPING.isDisplayed();
         if (isDisplayed) {
@@ -119,11 +117,9 @@ public class Confirmation_page extends Setup {
         } else {
             Assert.fail("Page Title is not displayed");
         }
-//        driver.switchTo().defaultContent();
     }
     
     public void verifyBillingIsDisplay() {
-// 	   driver.switchTo().frame("klarna-pay-over-time-fullscreen");
         wait.until(ExpectedConditions.elementToBeClickable(VERIFY_BILLING));
         boolean isDisplayed = VERIFY_BILLING.isDisplayed();
         if (isDisplayed) {
@@ -133,11 +129,9 @@ public class Confirmation_page extends Setup {
         } else {
             Assert.fail("Page Title is not displayed");
         }
-//        driver.switchTo().defaultContent();
     }
     
     public void verifyNeedHelpIsDisplay() {
-// 	   driver.switchTo().frame("klarna-pay-over-time-fullscreen");
         wait.until(ExpectedConditions.elementToBeClickable(VERIFY_NEED_HELP));
         boolean isDisplayed = VERIFY_NEED_HELP.isDisplayed();
         if (isDisplayed) {
@@ -147,7 +141,6 @@ public class Confirmation_page extends Setup {
         } else {
             Assert.fail("Page Title is not displayed");
         }
-//        driver.switchTo().defaultContent();
     }
     
  

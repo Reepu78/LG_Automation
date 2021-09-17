@@ -31,8 +31,6 @@ public class Checkout_Payment_page extends Setup {
 	// Elements
 	@FindBy(how = How.XPATH, using = "//div[@class='step-title']")
 	public List<WebElement> CHECKOUT_PAYMENT_INFO_TITLE;
-	@FindBy(how = How.XPATH, using = "(//span[text()='Review and Place Order'])[3]")
-	public WebElement CHECKOUT_REVIEW_PLACE_ORDER_BUTTON;
 	@FindBy(how = How.XPATH, using = "//span[text()='Card Number']/following::input[1]")
 	public WebElement CHECKOUT_CARDNUMBER_INPUT;
 	@FindBy(how = How.XPATH, using = "//span[text()='Expiration Date']/following::input[1]")
@@ -79,7 +77,7 @@ public class Checkout_Payment_page extends Setup {
 
 	public void verifyPaymentInfoPage() {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYMENT_INFO_TITLE.get(0)));
-		Boolean isDisplayed = CHECKOUT_PAYMENT_INFO_TITLE.get(0).isDisplayed();
+		boolean isDisplayed = CHECKOUT_PAYMENT_INFO_TITLE.get(0).isDisplayed();
 		if (isDisplayed) {
 			String actualTitle = CHECKOUT_PAYMENT_INFO_TITLE.get(0).getText().trim();
 			String expectedTitle = "Payment Method";
@@ -93,7 +91,6 @@ public class Checkout_Payment_page extends Setup {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYMENT_INFO_TITLE.get(0)));
 		wait.until(ExpectedConditions.elementToBeClickable(
 				driver.findElement(By.xpath("//span[contains(text(),'" + paymentMethod + "')]//parent::label"))));
-//		Thread.sleep(6000);
 		WebElement element = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[contains(text(),'" + paymentMethod + "')]//parent::label"))));
 		element.click();
 		Thread.sleep(1000);
@@ -103,7 +100,6 @@ public class Checkout_Payment_page extends Setup {
 	public void clickReviewPlaceOrderButtonFromBillingPage(String paymentMethod) {
 		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(
 				"//span[contains(text(),'" + paymentMethod + "')]/following::span[text()='Review and Place Order']"))));
-		// CHECKOUT_REVIEW_PLACE_ORDER_BUTTON.click();
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", driver.findElement(By.xpath(
 				"//span[contains(text(),'" + paymentMethod + "')]/following::span[text()='Review and Place Order']")));
@@ -119,7 +115,7 @@ public class Checkout_Payment_page extends Setup {
 		CHECKOUT_SECURITY_CODE_INPUT.sendKeys(securityCode);
 	}
 
-	public void verrifyDebitCardSelected() {
+	public void verifyDebitCardSelected() {
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CARDNUMBER_INPUT));
 		Assert.assertNotNull(CHECKOUT_CARDNUMBER_INPUT);
 	}
@@ -139,7 +135,7 @@ public class Checkout_Payment_page extends Setup {
 
 	public void verifyErrorMessageForVisaExpirationdate() {
 		wait.until(ExpectedConditions.elementToBeClickable(EXPRATION_DATE_ERROR));
-		Boolean isDisplayed = EXPRATION_DATE_ERROR.isDisplayed();
+		boolean isDisplayed = EXPRATION_DATE_ERROR.isDisplayed();
 		if (isDisplayed) {
 			String actualTitle = EXPRATION_DATE_ERROR.getText();
 			String expectedTitle = "Credit card expired.";
@@ -151,7 +147,7 @@ public class Checkout_Payment_page extends Setup {
 
 	public void verifyErrorMessageForCreditCardType() {
 		wait.until(ExpectedConditions.elementToBeClickable(CARD_TYPE_ERROR));
-		Boolean isDisplayed = CARD_TYPE_ERROR.isDisplayed();
+		boolean isDisplayed = CARD_TYPE_ERROR.isDisplayed();
 		if (isDisplayed) {
 			String actualTitle = CARD_TYPE_ERROR.getText();
 			// String expectedTitle = "Please enter a valid credit card type number.";
@@ -167,7 +163,7 @@ public class Checkout_Payment_page extends Setup {
 		executor.executeScript("arguments[0].click();", element);
 	}
 
-	public void jsInput(WebElement element, String value) {
+	public void jsInput(String value, WebElement element) {
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].value='" + value + "';", element);
 	}
@@ -181,30 +177,29 @@ public class Checkout_Payment_page extends Setup {
 	public void verifyCVVDemo() {
 		try {
 			Thread.sleep(1000);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException ignored) {
 		}
 		Assert.assertTrue(CVV_DEMO.isDisplayed());
 	}
 
-	public void clickoncontinuebutton() throws InterruptedException {
+	public void clickoncontinuebutton() {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTINUE_BUTTON));
 		jsClick(CHECKOUT_CONTINUE_BUTTON);
 		wait.until(ExpectedConditions.visibilityOf(CHECKOUT_CONTINUE_BUTTON));
-//		Thread.sleep(10000);
 		driver.switchTo().defaultContent();
 
 	}
 
-//	public void verifyTextElement(String text) {
-//		 driver.switchTo().frame("klarna-pay-over-time-fullscreen");
-//			WebElement ele = driver.findElement(By.xpath("//*[text()='"+text+"']"));
-//			wait.until(ExpectedConditions.elementToBeClickable(ele));
-//			Assert.assertTrue(ele.isDisplayed());
-//			 driver.switchTo().defaultContent();
-//		}
-//	
-	public void clickOnConfirmButton() throws InterruptedException {
+	public void verifyTextElement(String text) {
+		 driver.switchTo().frame("klarna-pay-over-time-fullscreen");
+			WebElement ele = driver.findElement(By.xpath("//*[text()='"+text+"']"));
+			wait.until(ExpectedConditions.elementToBeClickable(ele));
+			Assert.assertTrue(ele.isDisplayed());
+			 driver.switchTo().defaultContent();
+		}
+	
+	public void clickOnConfirmButton() {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONFIRM_BUTTON));
 		jsClick(CHECKOUT_CONFIRM_BUTTON);
@@ -229,7 +224,6 @@ public class Checkout_Payment_page extends Setup {
 
 	public void verifyTailoredPlanIsDisplay() {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
-//	   GenericFunctions.isDisplayed(VERIFY_REVIEW_TERMS_PAGE, "Review terms and apply");
 		wait.until(ExpectedConditions.elementToBeClickable(VERIFY_TAILORED_PAGE));
 		boolean isDisplayed = VERIFY_TAILORED_PAGE.isDisplayed();
 		if (isDisplayed) {
@@ -244,7 +238,6 @@ public class Checkout_Payment_page extends Setup {
 
 	public void verifyReviewTermsIsDisplay() {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
-//	   GenericFunctions.isDisplayed(VERIFY_REVIEW_TERMS_PAGE, "Review terms and apply");
 		wait.until(ExpectedConditions.elementToBeClickable(VERIFY_REVIEW_TERMS_PAGE));
 		boolean isDisplayed = VERIFY_REVIEW_TERMS_PAGE.isDisplayed();
 		if (isDisplayed) {
@@ -289,7 +282,7 @@ public class Checkout_Payment_page extends Setup {
 		driver.switchTo().defaultContent();
 	}
 
-	public void verifyYourDetailAndEnterPhoneNumberDisplay() throws InterruptedException {
+	public void verifyYourDetailAndEnterPhoneNumberDisplay() {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(VERIFY_YOUR_DETAIL));
 		boolean isDisplayed = VERIFY_YOUR_DETAIL.isDisplayed();
@@ -300,14 +293,13 @@ public class Checkout_Payment_page extends Setup {
 		} else {
 			Assert.fail("Page Title is not displayed");
 		}
-//       Thread.sleep(3000);
 		ENTER_PHONE_NUMBER.sendKeys("+12163547758");
 		driver.switchTo().defaultContent();
 	}
 
 	public void iVerifyEstimatedTax() {
 		wait.until(ExpectedConditions.elementToBeClickable(VERIFY_ESTIMATED_TAX));
-		Boolean isDisplayed = VERIFY_ESTIMATED_TAX.isDisplayed();
+		boolean isDisplayed = VERIFY_ESTIMATED_TAX.isDisplayed();
 		if (isDisplayed) {
 			String actualString = VERIFY_ESTIMATED_TAX.getText().trim();
 			float tax = GenericFunctions.getPrice(actualString);

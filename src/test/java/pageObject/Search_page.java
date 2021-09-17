@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
-import java.text.ParseException;
 import java.time.Duration;
 import java.util.List;
 
@@ -74,8 +73,7 @@ public class Search_page extends Setup {
 		String exp = "Search Results For " + modelId;
 		Assert.assertEquals(act, exp);
 		String actSku = SEARCH_FIRST_SKU.getText();
-		String expSku = modelId;
-		Assert.assertEquals(actSku, expSku);
+		Assert.assertEquals(actSku, modelId);
 	}
 	public void verifyWeAreSorryMessageInSearchResultsPage() {
 		String act = SEARCH_WE_ARE_SORRY_MSG.getText();
@@ -84,7 +82,7 @@ public class Search_page extends Setup {
 	}
 
 	// Clicks on Add to Cart Button based on Product Code
-	public void addCartProduct(String productCode) throws ParseException, InterruptedException {
+	public void addCartProduct(String productCode) {
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_ADD_TO_CART_BUTTON.get(0)));
 		wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("//div[text()='" + productCode + "']/following::div/a[text()='Add to Cart']")));
@@ -98,9 +96,8 @@ public class Search_page extends Setup {
 	// Verifies the List of Product Name
 	public void verifyProductName(String productCode){
 		wait.until(ExpectedConditions.elementToBeClickable(ATC_PRODUCT_NAME.get(0)));
-		int size = ATC_PRODUCT_NAME.size();
-		for (int i = 0; i < size; i++) {
-			String productName = ATC_PRODUCT_NAME.get(i).getText();
+		for (WebElement webElement : ATC_PRODUCT_NAME) {
+			String productName = webElement.getText();
 			if (!productName.contains(productCode)) {
 				Assert.fail("Displayed product is not " + productCode + " :" + productName);
 			}

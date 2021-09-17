@@ -1,8 +1,10 @@
 package pageObject;
 
 import static org.testng.Assert.assertEquals;
+
 import java.time.Duration;
 import java.util.List;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -19,6 +21,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
 import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
@@ -105,10 +108,6 @@ public class Cart_page extends Setup {
 	public WebElement CART_SAVE_PRICE;
 	@FindBy(how = How.CSS, using = "td.amount")
 	public List<WebElement> CART_AMOUNTS;
-	@FindBy(how = How.XPATH, using = "(//span[contains(text(),'Remove item')]//parent::a)[1]")
-	public WebElement CART_REMOVE_ITEM;
-	@FindBy(how = How.XPATH, using = "(//*[@data-link-name='cart'])[1]")
-	public WebElement CART_ICON;
 	@FindBy(how = How.XPATH, using = "//*[text()='VIEW CART']")
 	public WebElement VIEW_CART;
 	@FindBy(how = How.XPATH, using = "//*[text()='Item(s) in cart:']//following-sibling::span")
@@ -180,24 +179,19 @@ public class Cart_page extends Setup {
     }
     
 
-    @SuppressWarnings("unused")
 	public String validateEnterZipCode(String stateName) throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIPCODE));
         if(stateName.equalsIgnoreCase("NewYork"))
         {
         enterZipCode(GlobalTestData.ZIPCODES("NY"));
-        String productArea = "";
         CART_CHECK_BUTTON.click();
         checkProductAvailable();
-        productArea = "GLOBAL_NY";
         }
         else if(stateName.equalsIgnoreCase("HAWAII"))
         {
         enterZipCode(GlobalTestData.ZIPCODES("HI"));
-        String productArea = "";
         CART_CHECK_BUTTON.click();
         checkProductAvailable();
-        productArea = "GLOBAL_HU";
         }   
         wait.until(ExpectedConditions.elementToBeClickable(CART_ZIP_CODE_MSG));
         Thread.sleep(3000);
@@ -238,7 +232,7 @@ public class Cart_page extends Setup {
 
     public void verifyPromoCode() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE_MSG));
-        Boolean isDisplayed = CART_PROMOCODE_MSG.isDisplayed();
+        boolean isDisplayed = CART_PROMOCODE_MSG.isDisplayed();
         if (!isDisplayed) {
             Assert.fail("Promo code is not Applied");
         }
@@ -246,7 +240,7 @@ public class Cart_page extends Setup {
 
     public void verifyRemovePromoCode() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_REMOVE_PROMOCODE_MSG));
-        Boolean isDisplayed = CART_REMOVE_PROMOCODE_MSG.isDisplayed();
+        boolean isDisplayed = CART_REMOVE_PROMOCODE_MSG.isDisplayed();
         if (!isDisplayed) {
             Assert.fail("Promo code is not removed");
         }
@@ -254,11 +248,7 @@ public class Cart_page extends Setup {
 
     public Boolean checkProductAvailable() {
     	try {
-			if (CART_POSTALCODE_MESSAGE.isDisplayed()) {
-				return false;
-			} else {
-				return true;
-			}
+            return !CART_POSTALCODE_MESSAGE.isDisplayed();
 		} catch (Exception e) {
 			return true;
 		}
@@ -331,12 +321,8 @@ public class Cart_page extends Setup {
         Thread.sleep(4000);
         Select options = new Select(CART_QUANTITY);
         options.selectByVisibleText(quantity);
-        ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
-                        .equals("complete");
-            }
-        };
+        ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
+                .equals("complete");
         Thread.sleep(5000);
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(expectation);
@@ -344,23 +330,22 @@ public class Cart_page extends Setup {
 
     public void verifyPrice(String price, String quantity) {
         char[] a = price.toCharArray();
-        String str = "";
-        for (Character ch : a) {
-            if (Character.isDigit(ch) || ch == '.') {
-            	str=str+Character.toString(ch);
-            }
+        StringBuilder str;
+        str = new StringBuilder();
+        for (Character ch : a) if (Character.isDigit(ch) || ch == '.') {
+            str.append(ch);
         }
         String priceValue = str.toString();
         double expectedPrice = (Double.parseDouble(priceValue)) * (Double.parseDouble(quantity));
         expectedPrice = Math.round(expectedPrice * 100D) / 100D;
         char[] splitPrice = getPrice().toCharArray();
-        String str1 = "";
+        StringBuilder str1 = new StringBuilder();
         for (Character ch1 : splitPrice) {
             if (Character.isDigit(ch1) || ch1 == '.') {
-                str1=str1+Character.toString(ch1);
+                str1.append(Character.toString(ch1));
             }
         }
-        String spltPrice = str1.toString();
+        String spltPrice = str1.toString().toString();
         double actualPrice = Double.parseDouble(spltPrice);
         if (actualPrice != expectedPrice) {
             Assert.fail("Price Value is not updated as per selected quantity");
@@ -370,8 +355,7 @@ public class Cart_page extends Setup {
 
     public String getPrice() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_PRICE));
-        String price = CART_PRICE.getText().trim();
-        return price;
+        return CART_PRICE.getText().trim();
     }
 
     public void jsClick(WebElement element) {
@@ -389,7 +373,7 @@ public class Cart_page extends Setup {
     
     public String getEstimatedTax() {
         wait.until(ExpectedConditions.elementToBeClickable(CART_ESTIMATED_PRICE));
-        boolean isDisplayed = CART_ESTIMATED_PRICE.isDisplayed();
+        CART_ESTIMATED_PRICE.isDisplayed();
         return CART_ESTIMATED_PRICE.getText().trim();
     }
     
@@ -401,21 +385,19 @@ public class Cart_page extends Setup {
         String str = "";
         for (Character ch : a) {
             if (Character.isDigit(ch) || ch == '.') {
-            	 str=str+Character.toString(ch);
+            	 str= new StringBuilder().append(str).append(ch).toString();
             	//str.append(ch);
             }
         }
-        String priceValue1 = str.toString();
+        String priceValue1 = str;
         double tax1Price = Double.parseDouble(priceValue1);
         
       //Fetching the Value of Tax2
         char[] b = tax2.toCharArray();
-          String str1="";
+          StringBuilder str1= new StringBuilder();
         for (Character ch1 : b) {
-            if (Character.isDigit(ch1) || ch1 == '.') {
-            	//str1.append(ch1);
-            	 str1=str1+Character.toString(ch1);
-            }
+            //str1.append(ch1);
+            if (Character.isDigit(ch1) || ch1 == '.') str1.append(ch1);
         }
         String priceValue2 = str1.toString();
         double tax2Price = Double.parseDouble(priceValue2);
@@ -423,9 +405,7 @@ public class Cart_page extends Setup {
         System.out.println(tax2Price);
     	
         if(tax1Price<tax2Price)
-        {
-        	System.out.println("Hawaii Tax is less than other Country Tax");
-        }
+            System.out.println("Hawaii Tax is less than other Country Tax");
         else
         {
         	Assert.fail("Hawaii Tax is greater than other Country Tax");
@@ -468,8 +448,7 @@ public class Cart_page extends Setup {
         wait.until(ExpectedConditions.visibilityOf(totalItemsInCart));
         String act = totalItemsInCart.getText();
         System.out.println("total counts in cart is ==>" + act);
-        String exp = itemCounts;
-        Assert.assertEquals(act, exp);
+        Assert.assertEquals(act, itemCounts);
     }
     
     
@@ -551,7 +530,7 @@ public class Cart_page extends Setup {
 	public void validateApplyPromoCode(String promo) {
 		wait.until(ExpectedConditions.elementToBeClickable(CART_PROMOCODE_MSG));
 		WebElement message = driver.findElement(By.xpath("//div[contains(text(),'You used promotion code \""+promo+"\"')]"));
-		Boolean isDisplayed = message.isDisplayed();
+		boolean isDisplayed = message.isDisplayed();
 		if (!isDisplayed) {
 			Assert.fail("Promo code is not Applied");
 		}
@@ -570,13 +549,7 @@ public class Cart_page extends Setup {
 	public void validateCancelPromocode(String message) {
 		GenericFunctions.verifyElementByText(message);
 		Assert.assertTrue(GenericFunctions.verifyElementNotDisplayed(CART_DISCOUNT));
-	}
-	
-
-	public void clickCartIcon() {
-		wait.until(ExpectedConditions.elementToBeClickable(CART_ICON));
-		CART_ICON.click();
-	}
+	}	
 
 	public void clickViewCartButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(VIEW_CART));
@@ -591,7 +564,6 @@ public class Cart_page extends Setup {
 		
 	}
 
-	
 	public void clickRemoveItemButton() {
 	  wait.until(ExpectedConditions.elementToBeClickable(REMOVE_ITEM));
 	  	REMOVE_ITEM.click(); 
@@ -622,7 +594,7 @@ public class Cart_page extends Setup {
 	
 	public void verifySavePrice() {
         wait.until(ExpectedConditions.visibilityOf(CART_SAVE_PRICE));
-        Boolean isDisplayed = CART_SAVE_PRICE.isDisplayed();
+        boolean isDisplayed = CART_SAVE_PRICE.isDisplayed();
         if (!isDisplayed) {
             Assert.fail("Promo Product is not Displayed");
         }

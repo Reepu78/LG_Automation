@@ -1,7 +1,5 @@
 package stepDef;
 
-import java.text.ParseException;
-
 import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
@@ -14,7 +12,6 @@ import pageObject.Search_page;
 
 public class Search_steps extends Setup {
     Search_page SEARCH = new Search_page(driver);
-    Cart_page CART = new Cart_page(driver);
 
     @When("I click on search icon from GNB")
     public void iClickOnSearchIconFromGNB() throws InterruptedException {
@@ -132,19 +129,19 @@ public class Search_steps extends Setup {
     }
 
     @Then("^I will click on add to cart Button from Search Results Page for \"([^\"]*)\"$")
-    public void iWillClickOnAddToCartPage(String productSubscription) throws ParseException, InterruptedException {
+    public void iWillClickOnAddToCartPage(String productSubscription) {
         if (productSubscription.equalsIgnoreCase("OMV_Subscription")) {
             SEARCH.addCartProduct(GlobalTestData.OMV_Subscription);
-            CART.productCode[0] = GlobalTestData.OMV_Subscription;
+            Cart_page.productCode[0] = GlobalTestData.OMV_Subscription;
         } else if (productSubscription.equalsIgnoreCase("OMD_HE_Innovel")) {
             SEARCH.addCartProduct(GlobalTestData.OMD_HE_Innovel);
-            CART.productCode[0] = GlobalTestData.OMD_HE_Innovel;
+            Cart_page.productCode[0] = GlobalTestData.OMD_HE_Innovel;
         } else if (productSubscription.equalsIgnoreCase("OMV_Non_Subscription")) {
             SEARCH.addCartProduct(GlobalTestData.OMV_Non_Subscription);
-            CART.productCode[0] = GlobalTestData.OMV_Non_Subscription;
+            Cart_page.productCode[0] = GlobalTestData.OMV_Non_Subscription;
         } else if (productSubscription.equalsIgnoreCase("OMD_HE_Non_Innovel")) {
             SEARCH.addCartProduct(GlobalTestData.OMD_HE_Non_Innovel);
-            CART.productCode[0] = GlobalTestData.OMD_HE_Non_Innovel;
+            Cart_page.productCode[0] = GlobalTestData.OMD_HE_Non_Innovel;
         }
     }
 
@@ -159,7 +156,7 @@ public class Search_steps extends Setup {
     }
 
     @Then("^I will verify list of \"([^\"]*)\" in my search results page$")
-    public void iWillVerifyListOfOledTvInMySearchResultsPage(String productName) throws ParseException, InterruptedException {
+    public void iWillVerifyListOfOledTvInMySearchResultsPage(String productName) {
         SEARCH.verifyProductName(productName);
     }
 

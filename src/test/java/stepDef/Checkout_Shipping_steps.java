@@ -105,7 +105,7 @@ public class Checkout_Shipping_steps extends Setup {
     }
 
     @And("I verify header section is displayed on shipping page")
-    public void verifyHeaderSection() throws InterruptedException {
+    public void verifyHeaderSection() {
         Shipping.verifyHeader();
     }
 
@@ -132,7 +132,7 @@ public class Checkout_Shipping_steps extends Setup {
     }
 
     @And("I verify footer section is displayed on shipping page")
-    public void verifyFooter() throws InterruptedException {
+    public void verifyFooter() {
         Shipping.verifyFooter();
     }
 

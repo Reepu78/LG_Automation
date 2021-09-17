@@ -10,14 +10,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
-import org.testng.Assert;
-import java.text.ParseException;
 import java.time.Duration;
-import java.util.List;
 
 public class Product_Registration_page extends Setup {
 
@@ -30,8 +25,6 @@ public class Product_Registration_page extends Setup {
 
 	@FindBy(how = How.XPATH, using = "(//a[@class='chosen-single chosen-default'])[1]")
 	public WebElement CATEGORY;
-	@FindBy(how = How.XPATH, using = "(//a[@class='chosen-single chosen-default'])[2]")
-	public WebElement PRODUCT;
 	@FindBy(how = How.XPATH, using = "(//a[@class='chosen-single chosen-default'])[3]")
 	public WebElement PRODUCT_TYPE;
 	@FindBy(how = How.XPATH, using = "(//li[contains(text(), 'TV/Audio/Video')])[1]")

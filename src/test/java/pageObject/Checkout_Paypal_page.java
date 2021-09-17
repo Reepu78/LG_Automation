@@ -37,8 +37,6 @@ public class Checkout_Paypal_page extends Setup {
     public WebElement CHECKOUT_PAYPAL_PHONE_INPUT;
     @FindBy(how = How.XPATH, using = "//button[contains(text(),'Continue as Guest')]")
     public WebElement CHECKOUT_PAYPAL_CONTINUE_BUTTON;
-    @FindBy(how = How.XPATH, using = "//button[text()='Continue']")
-    public WebElement CHECKOUT_PAYPAL_CONTINUE;
 
 
     public void clickPayButton() throws InterruptedException {
@@ -62,10 +60,7 @@ public class Checkout_Paypal_page extends Setup {
         GlobalTestData.GLOBAL_CUSTOMER_EMAIL = faker.internet().safeEmailAddress();
         GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME = faker.name().firstName();
         GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME = faker.name().lastName();
-        String address1 = null;
-        String city = null;
-        String state = null;
-        String ZipCode = null;
+
         
         
         String key = "CA";
@@ -80,11 +75,11 @@ public class Checkout_Paypal_page extends Setup {
         }else if (Cart_page.productArea.contains("HI")) {
         	 key = "HI";
         }
-        
-        address1 = GlobalTestData.ADDRESS(key);
-        city = GlobalTestData.CITY(key);
-        state = GlobalTestData.STATE(key);
-        ZipCode = GlobalTestData.ZIPCODES(key);
+
+        String address1 = GlobalTestData.ADDRESS(key);
+        String city = GlobalTestData.CITY(key);
+        String state = GlobalTestData.STATE(key);
+        String ZipCode = GlobalTestData.ZIPCODES(key);
       
        
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
@@ -105,9 +100,6 @@ public class Checkout_Paypal_page extends Setup {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_CONTINUE_BUTTON));
         Thread.sleep(1000);
         jsClick(CHECKOUT_PAYPAL_CONTINUE_BUTTON);
-//        wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_PAYPAL_CONTINUE));
-//        jsClick(CHECKOUT_PAYPAL_CONTINUE);
-//        Thread.sleep(1000);
     }
 
 

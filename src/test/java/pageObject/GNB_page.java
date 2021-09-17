@@ -1,13 +1,8 @@
 package pageObject;
 
-import base.GenericFunctions;
-import base.GlobalTestData;
-import base.Setup;
-
 import java.time.Duration;
 import java.util.ArrayList;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +15,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
+
+import base.GlobalTestData;
+import base.Setup;
 
 public class GNB_page extends Setup {
 
@@ -39,15 +37,6 @@ public class GNB_page extends Setup {
     public WebElement GNB_LOGIN;
     @FindBy(how = How.XPATH, using = "//*[@id='authArea']")
     public WebElement GNB_SEND_BUTTON;
-    @FindBy(how = How.XPATH, using = "//*[@id='authArea']")
-    public WebElement GNB_LOGIN_CODE_AREA;
-    @FindBy(how = How.XPATH, using = "//*[@id='identifierId']")
-    public WebElement GNB_LOGIN_EMAIL;
-    @FindBy(how = How.XPATH, using = "//*[@name='password']")
-    public WebElement GNB_LOGIN_PASSWORD;
-    @FindBy(how = How.XPATH, using = "//*[text()='Next']")
-    public WebElement GNB_CLICK_NEXT_BUTTON;
-
     @FindBy(how = How.LINK_TEXT, using = "My LG")
     public WebElement GNB_MY_ACCOUNT_ICON_LINK;
     @FindBy(how = How.LINK_TEXT, using = "Sign In / Sign Up")
@@ -209,9 +198,8 @@ public class GNB_page extends Setup {
     public void authenticationCode() {
         try {
             GNB_SEND_BUTTON.click();
-            //Thread.sleep(2000);
             ((JavascriptExecutor) driver).executeScript("window.open()");
-            ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+            ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
             driver.get("https://wwwstg.us.lg.com/us");
         } catch (Exception e) {

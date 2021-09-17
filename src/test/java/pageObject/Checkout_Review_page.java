@@ -49,16 +49,6 @@ public class Checkout_Review_page extends Setup {
     public WebElement CHECKOUT_REGION_DROPDOWN;
     @FindBy(how = How.XPATH, using = "//input[@name='postcode']")
     public WebElement CHECKOUT_POSTCODE_INPUT;
-    @FindBy(how = How.XPATH, using = "//span[contains(text(),'Save')]")
-    public WebElement CHECKOUT_SAVE_BUTTON;
-    @FindBy(how = How.XPATH, using = "//span[text()='Use This Address']")
-    public WebElement CHECKOUT_USE_THIS_ADDRESS_BUTTON;
-    @FindBy(how = How.XPATH, using = "//input[@value='entered-address']")
-    public WebElement CHECKOUT_ENTERED_ADDRESS_SECTION;
-    @FindBy(how = How.XPATH, using = "//input[@value='suggested-address']")
-    public WebElement CHECKOUT_SUGGESTED_ADDRESS_SECTION;
-    @FindBy(how = How.XPATH, using = "//span[text()='Continue to payment']")
-    public WebElement CHECKOUT_CONTINUE_PAYMENT_BUTTON;
     @FindBy(how = How.XPATH, using = "//h4[text()='Shipping Address']")
     public WebElement SHIPPING_ADDRESS;
     @FindBy(how = How.XPATH, using = "//h4[text()='Contact Information']")
@@ -81,8 +71,6 @@ public class Checkout_Review_page extends Setup {
     public WebElement BILLING_ADDRESS_VALUE;
     @FindBy(how = How.ID, using = "agreement_steps_19")
     public WebElement SIGN_UP_OFFERS_CHECKBOX;
-    @FindBy(how = How.ID, using = "agreement_steps_5")
-    public WebElement TERMS_AND_CONDITIONS_CHECKBOX;
     @FindBy(how = How.XPATH, using = "(//*[.='Place Order'])[2]")
     public WebElement PLACE_ORDER;
     @FindBy(how = How.XPATH, using = "//*[@id='contact-information']//*[text()='Edit']")
@@ -114,10 +102,6 @@ public class Checkout_Review_page extends Setup {
         GlobalTestData.GLOBAL_CUSTOMER_EMAIL = faker.internet().safeEmailAddress();
         GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME = faker.name().firstName();
         GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME = faker.name().lastName();
-        String address1 = null;
-        String city = null;
-        String state = null;
-        String ZipCode = null;
         
         String key = "CA";
         if (Cart_page.productArea.contains("CA")) {
@@ -132,10 +116,10 @@ public class Checkout_Review_page extends Setup {
         	 key = "HI";
         }
         
-        address1 = GlobalTestData.ADDRESS(key);
-        city = GlobalTestData.CITY(key);
-        state = GlobalTestData.STATE(key);
-        ZipCode = GlobalTestData.ZIPCODES(key);
+        String address1 = GlobalTestData.ADDRESS(key);
+        String city = GlobalTestData.CITY(key);
+        String state = GlobalTestData.STATE(key);
+        String ZipCode = GlobalTestData.ZIPCODES(key);
       
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,

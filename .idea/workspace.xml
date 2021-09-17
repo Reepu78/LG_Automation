@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0d5fe1e-ef86-4e5e-b56a-d2d256d07023" name="Changes" comment="" />
+    <list default="true" id="c0d5fe1e-ef86-4e5e-b56a-d2d256d07023" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/Setup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Setup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_Klarna.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_Klarna.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_payPal.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_payPal.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Cart_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Cart_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Payment_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Payment_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Paypal_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Paypal_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Review_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Review_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Shipping_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Shipping_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/GNB_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/GNB_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/PLP_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/PLP_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Product_Registration_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Product_Registration_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Search_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Search_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Support_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Support_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Cart_Steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Cart_Steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Checkout_Payment_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Checkout_Payment_steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Checkout_Shipping_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Checkout_Shipping_steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/PLP_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/PLP_steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Search_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Search_steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Signup_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Signup_steps.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +46,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -32,8 +57,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630789186580</updated>
+      <workItem from="1631768216390" duration="465000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

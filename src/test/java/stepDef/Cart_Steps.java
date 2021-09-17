@@ -11,8 +11,6 @@ import pageObject.Cart_page;
 import pageObject.PLP_page;
 import pageObject.Search_page;
 
-import java.text.ParseException;
-
 import org.testng.Assert;
 
 public class Cart_Steps extends Setup {
@@ -45,9 +43,9 @@ public class Cart_Steps extends Setup {
     @When("^I enter ZipCode to check the delivery availability for \"([^\"]*)\"$")
     public void iZipCodeToCheckTheDeliveryAvailability(String stateName) throws InterruptedException {
         Thread.sleep(2000);
-        CART.verifySelectedProduct(CART.productCode[0]);
+        CART.verifySelectedProduct(Cart_page.productCode[0]);
         Thread.sleep(2000);
-        CART.productArea = CART.validateEnterZipCode(stateName);
+        Cart_page.productArea = CART.validateEnterZipCode(stateName);
         Thread.sleep(2000);
     }
 
@@ -56,7 +54,7 @@ public class Cart_Steps extends Setup {
         CART.clickAddCartButton();
         CART.verifyZipCodePage();
         CART.verifySelectedProduct(GlobalTestData.OMD_HE_Innovel);
-        CART.productArea = CART.validateEnterZipCode();
+        Cart_page.productArea = CART.validateEnterZipCode();
         Thread.sleep(5000);
         CART.clickProceedButton();
     }
@@ -66,8 +64,7 @@ public class Cart_Steps extends Setup {
         CART.clickAddCartButton();
         CART.verifyZipCodePage();
         CART.verifySelectedProduct(GlobalTestData.OMD_HA_Innovel);
-        CART.productArea = CART.validateEnterZipCode();
-        //Thread.sleep(100);
+        Cart_page.productArea = CART.validateEnterZipCode();
         CART.clickProceedButton();
     }
 
@@ -76,7 +73,7 @@ public class Cart_Steps extends Setup {
         CART.clickAddCartButton();
         CART.verifyZipCodePage();
         CART.verifySelectedProduct(GlobalTestData.OMD_KLARNA);
-        CART.productArea = CART.validateEnterZipCode();
+        Cart_page.productArea = CART.validateEnterZipCode();
         CART.clickProceedButton();
     }
 
@@ -112,7 +109,7 @@ public class Cart_Steps extends Setup {
     }
 
     @Then("I should able to use promo code")
-    public void I_should_able_to_use_promo_code() throws InterruptedException {
+    public void I_should_able_to_use_promo_code() {
         CART.verifyPromoCode();
     }
 
@@ -122,7 +119,7 @@ public class Cart_Steps extends Setup {
     }
 
     @Then("I should able to remove promo code")
-    public void I_should_able_to_remove_promo_code() throws InterruptedException {
+    public void I_should_able_to_remove_promo_code() {
         CART.verifyRemovePromoCode();
     }
 
@@ -195,7 +192,7 @@ public class Cart_Steps extends Setup {
     }
 
     @And("I add OMV Non Subscription Product into cart")
-    public void iWillAddOMVNonSubscriptionProductIntoCart() throws InterruptedException, ParseException {
+    public void iWillAddOMVNonSubscriptionProductIntoCart() throws InterruptedException {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Non_Subscription);
         SEARCH.clickSearchIconFromGNB();
         SEARCH.addCartProduct(GlobalTestData.OMV_Non_Subscription);
@@ -203,11 +200,11 @@ public class Cart_Steps extends Setup {
     }
 
     @Then("^I add OMV Subscription product into cart with frequency of \"([^\"]*)\"$")
-    public void iAddOMVSubscriptionProductIntoCart(String frequency) throws InterruptedException, ParseException {
+    public void iAddOMVSubscriptionProductIntoCart(String frequency) throws InterruptedException {
         SEARCH.enterAnItemToSearchFromGNB(GlobalTestData.OMV_Subscription);
         SEARCH.clickSearchIconFromGNB();
         SEARCH.addCartProduct(GlobalTestData.OMV_Subscription);
-        CART.productCode[0] = GlobalTestData.OMV_Subscription;
+        Cart_page.productCode[0] = GlobalTestData.OMV_Subscription;
         PLP.selectSubscription(frequency);
         PLP.clickProceedButton();
     }
@@ -250,7 +247,7 @@ public class Cart_Steps extends Setup {
 
     @And("I Input ZipCode on price breakdown section and verify estimated tax is calculated")
     public void inputZIPCodeInPriceBreakdown() throws InterruptedException {
-        priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(CART.productArea);
+        priceBreakdown = CART.inputZipcodeVerifyPriceBreakdown(Cart_page.productArea);
     }
 
     @Then("I verify Order summary section price break down is correct")
@@ -300,7 +297,7 @@ public class Cart_Steps extends Setup {
     }
 
     @And("I Click on {string} button for the first Accessory")
-    public void recordFirstAccessoryAndAddToCart(String linkName) throws InterruptedException {
+    public void recordFirstAccessoryAndAddToCart() throws InterruptedException {
         firstAccessory = CART.readFirstAccessory();
         CART.click("AddAccessoryToCart");
     }

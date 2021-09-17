@@ -12,7 +12,6 @@ import pageObject.PLP_page;
 public class PLP_steps extends Setup {
     GNB_page GNB = new GNB_page(driver);
     PLP_page PLP = new PLP_page(driver);
-    Cart_page Cart = new Cart_page(driver);
 
     @Given("I am able to add an HE OMD Innoval product from PLP")
     public void iAmAbleToClickATCButtonForHEOMDInnovalProduct() throws ParseException, InterruptedException {
@@ -20,7 +19,7 @@ public class PLP_steps extends Setup {
         GNB.clickOLEDSection();
         PLP.verifyOLEDPage();
         PLP.verifyOLEDTV();
-        Cart.productCode = PLP.addCartHighPrice().split("#");
+        Cart_page.productCode = PLP.addCartHighPrice().split("#");
     }
 
     @Then("^I will select the subscription Frequency as \"([^\"]*)\"$")

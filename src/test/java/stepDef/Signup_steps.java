@@ -8,7 +8,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObject.Signup_page;
-import java.awt.*;
 
 
 public class Signup_steps extends Setup {
@@ -42,7 +41,7 @@ public class Signup_steps extends Setup {
     }
 
     @And("I fill out the sign up form with existing email")
-    public void iFillOutTheSignUpFormWithExistingEmail() throws InterruptedException, AWTException {
+    public void iFillOutTheSignUpFormWithExistingEmail() throws InterruptedException {
         // Enter Existing email
         SIGNUP.enterEmailInSignUpPage(GlobalTestData.GLOBAL_EXISTING_CUSTOMER_EMAIL);
         SIGNUP.clickOnPasswordEditBoxInSignUpPage();

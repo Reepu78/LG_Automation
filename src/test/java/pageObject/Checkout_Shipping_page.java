@@ -107,7 +107,7 @@ public class Checkout_Shipping_page extends Setup {
 
     public void verifyContactInfoPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTACT_INFO_TITLE.get(0)));
-        Boolean isDisplayed = CHECKOUT_CONTACT_INFO_TITLE.get(0).isDisplayed();
+        boolean isDisplayed = CHECKOUT_CONTACT_INFO_TITLE.get(0).isDisplayed();
         if (isDisplayed) {
             String actualTitle = CHECKOUT_CONTACT_INFO_TITLE.get(0).getText().trim();
             String expectedTitle = "Contact Information";
@@ -125,10 +125,6 @@ public class Checkout_Shipping_page extends Setup {
         GlobalTestData.GLOBAL_CUSTOMER_EMAIL = faker.internet().safeEmailAddress();
         GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME = faker.name().firstName();
         GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME = faker.name().lastName();
-        String address1 = null;
-        String city = null;
-        String state = null;
-        String ZipCode = null;
         if (Cart_page.productArea == null) {
             Cart_page.productArea = "CA";
         }
@@ -144,10 +140,10 @@ public class Checkout_Shipping_page extends Setup {
         }else if (Cart_page.productArea.contains("HI")) {
         	 key = "HI";
         }
-        address1 = GlobalTestData.ADDRESS(key);
-        city = GlobalTestData.CITY(key);
-        state = GlobalTestData.STATE(key);
-        ZipCode = GlobalTestData.ZIPCODES(key);
+        String address1 = GlobalTestData.ADDRESS(key);
+        String city = GlobalTestData.CITY(key);
+        String state = GlobalTestData.STATE(key);
+        String ZipCode = GlobalTestData.ZIPCODES(key);
         
         enterContactInformation(GlobalTestData.GLOBAL_CUSTOMER_EMAIL,
                 GlobalTestData.GLOBAL_CUSTOMER_PHONE_NUMBER, GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
@@ -245,7 +241,7 @@ public class Checkout_Shipping_page extends Setup {
 
     public void verifyShippingInfoPage() {
         wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_SHIPPING_METHOD.get(0)));
-        Boolean isDisplayed = CHECKOUT_SHIPPING_METHOD.get(0).isDisplayed();
+        boolean isDisplayed = CHECKOUT_SHIPPING_METHOD.get(0).isDisplayed();
         if (isDisplayed) {
             String actualTitle = CHECKOUT_SHIPPING_METHOD.get(0).getText().trim();
             String expectedTitle = "Choose Shipping Method";
@@ -293,10 +289,6 @@ public class Checkout_Shipping_page extends Setup {
     	Thread.sleep(1000);
         GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME = faker.name().firstName();
         GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME = faker.name().lastName();
-        String address1 = null;
-        String city = null;
-        String state = null;
-        String ZipCode = null;
         if (Cart_page.productArea == null) {
             Cart_page.productArea = "CA";
         }
@@ -313,10 +305,10 @@ public class Checkout_Shipping_page extends Setup {
         }else if (Cart_page.productArea.contains("HI")) {
         	 key = "HI";
         }
-        address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
-        city = GlobalTestData.CITY(key);
-        state = GlobalTestData.STATE(key);
-        ZipCode = GlobalTestData.ZIPCODES(key);
+        String address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
+        String city = GlobalTestData.CITY(key);
+        String state = GlobalTestData.STATE(key);
+        String ZipCode = GlobalTestData.ZIPCODES(key);
         
         
         enterContactInformation( GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME,
@@ -327,10 +319,6 @@ public class Checkout_Shipping_page extends Setup {
     	Thread.sleep(1000);
         GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME = faker.name().firstName();
         GlobalTestData.GLOBAL_ALT_CUSTOMER_LAST_NAME = faker.name().lastName();
-        String address1 = null;
-        String city = null;
-        String state = null;
-        String ZipCode = null;
         if (Cart_page.productArea == null) {
             Cart_page.productArea = "CA";
         }
@@ -347,10 +335,10 @@ public class Checkout_Shipping_page extends Setup {
         }else if (Cart_page.productArea.contains("HI")) {
         	 key = "HI";
         }
-        address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
-        city = GlobalTestData.CITY(key);
-        state = GlobalTestData.STATE(key);
-        ZipCode = GlobalTestData.ZIPCODES(key);
+        String address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
+        String city = GlobalTestData.CITY(key);
+        String state = GlobalTestData.STATE(key);
+        String ZipCode = GlobalTestData.ZIPCODES(key);
         
         
         enterContactInfo( GlobalTestData.GLOBAL_ALT_CUSTOMER_FIRST_NAME,
@@ -361,7 +349,6 @@ public class Checkout_Shipping_page extends Setup {
     
     
     public void update_Shipping_Info() {
-        String address1 = null;
         if (Cart_page.productArea == null) {
             Cart_page.productArea = "CA";
         }
@@ -377,7 +364,7 @@ public class Checkout_Shipping_page extends Setup {
         }else if (Cart_page.productArea.contains("HI")) {
         	 key = "HI";
         }
-        address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
+        String address1 = GlobalTestData.ALTERNATE_ADDRESS(key);
         String city = GlobalTestData.CITY(key);
         enterAddressInformation(address1, city);
     }
@@ -392,14 +379,14 @@ public class Checkout_Shipping_page extends Setup {
     
     
 
-    public void verifyHeader() throws InterruptedException {
+    public void verifyHeader() {
 		GenericFunctions.verifyElementByText("Need Help? Call: ");
 		Assert.assertTrue(HOURS_OF_OPERATION.isDisplayed());
 		Assert.assertTrue(HELPLINE_NO.isDisplayed());
 		
     }
     
-    public void verifyFooter() throws InterruptedException {
+    public void verifyFooter() {
 		GenericFunctions.verifyElementByText("Need Help?");
 		Assert.assertTrue(FOOTER_FAQ.isDisplayed());
 		Assert.assertTrue(FOOTER_CALLUS.isDisplayed());
@@ -408,15 +395,10 @@ public class Checkout_Shipping_page extends Setup {
     }
     
     public void verifyFAQTab() {
-//    	GenericFunctions.switchToTab(1);
     	String expFaqTitle = "Checkout LG Electronics";
-//    	String expFaqTitle = "LG Order FAQs, Returns and Policies | LG USA";
     	String actFaqTitle = driver.getTitle();
-//    	String actFaqUrl = driver.getCurrentUrl();
     	System.out.println("actFaqTitle" + actFaqTitle);
     	assertEquals(actFaqTitle, expFaqTitle);
-//    	driver.close();
-//    	GenericFunctions.switchToTab(0);
     }
     
     public void iClickOnCallUs() throws InterruptedException {

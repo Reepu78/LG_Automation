@@ -268,7 +268,7 @@ Feature: Checkout Flow using PayPal Payment Method
     Then I verify Order summary section price break down is correct
     When I Enter valid PromoCode under Promo Edit box
     And I Click on "Apply" button
-   Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
+    Then I Should see a validation message saying You used promotion code and Discount and Total price should reflect
     When I click on Secure Checkout button
     And  I click on Continue as Guest from Sign in page
     And  I click on Save and Continue button after fill out Shipping Info
@@ -422,7 +422,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I will click on Continue button
     Then I verify confirmation page is displayed
 
-  @checkout @paypal @smoke @regression @TC_033 
+  @checkout @paypal @smoke @regression @TC_033
   Scenario: As a guest user, checkout with OMD products and verify Change shipping address on checkout(shipping) page with PayPal checkout
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -572,7 +572,7 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I will click on Continue button
     Then I verify confirmation page is displayed
 
-  @checkout @paypal @smoke @regression @TC_039 
+  @checkout @paypal @smoke @regression @TC_039
   Scenario: As a guest user, checkout with OMD products and verify Edit link on Contact Information block (Review & Place Order page) with PayPal payment
     Given I Find "OMD HE Non Innovel" product using search function
     Then  I will verify "OMD HE Non Innovel" product displays in search results page and navigate to PDP page
@@ -590,8 +590,6 @@ Feature: Checkout Flow using PayPal Payment Method
     And   I click on Review and Place order button from Billing Page
     And I click "Edit Contact Information" button on Checkout Review Page
     Then I verify "Checkout" is displayed
-#		When I will update email and phone number on shipping page
-#		And 	I click "Save and continue" button on checkout page
     When I click Save and Continue after updating email and phone number on shipping page
     And   I verify the suggested address
     #Then I verify Contact Information is updated
