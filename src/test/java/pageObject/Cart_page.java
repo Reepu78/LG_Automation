@@ -71,7 +71,7 @@ public class Cart_page extends Setup {
     @FindBy(how = How.XPATH, using = "//*[text()='Secure Checkout']")
     public WebElement CART_SECURE_BUTTON;
     @FindBy(how = How.XPATH, using = "//h1[@class='title']")
-    public WebElement CART_SIGNIN_TITLE;
+    public WebElement CART_SIGNING_TITLE;
     @FindBy(how = How.XPATH, using = "//a[text()='Continue as guest']")
     public WebElement CART_CONTINUE_AS_GUEST;
 	@FindBy(how = How.XPATH, using = "(//a[text()='Add to Cart'])[1]")
@@ -300,10 +300,10 @@ public class Cart_page extends Setup {
     }
 
     public void verifySignInPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(CART_SIGNIN_TITLE));
-        boolean isDisplayed = CART_SIGNIN_TITLE.isDisplayed();
+        wait.until(ExpectedConditions.elementToBeClickable(CART_SIGNING_TITLE));
+        boolean isDisplayed = CART_SIGNING_TITLE.isDisplayed();
         if (isDisplayed) {
-            String actualTitle = CART_SIGNIN_TITLE.getText().trim();
+            String actualTitle = CART_SIGNING_TITLE.getText().trim();
             String expectedTitle = "Sign in";
             Assert.assertEquals(actualTitle, expectedTitle);
         } else {
@@ -342,11 +342,11 @@ public class Cart_page extends Setup {
         StringBuilder str1 = new StringBuilder();
         for (Character ch1 : splitPrice) {
             if (Character.isDigit(ch1) || ch1 == '.') {
-                str1.append(Character.toString(ch1));
+                str1.append(ch1);
             }
         }
-        String spltPrice = str1.toString().toString();
-        double actualPrice = Double.parseDouble(spltPrice);
+        String splitPriceNew = str1.toString();
+        double actualPrice = Double.parseDouble(splitPriceNew);
         if (actualPrice != expectedPrice) {
             Assert.fail("Price Value is not updated as per selected quantity");
         }
@@ -386,7 +386,6 @@ public class Cart_page extends Setup {
         for (Character ch : a) {
             if (Character.isDigit(ch) || ch == '.') {
             	 str= new StringBuilder().append(str).append(ch).toString();
-            	//str.append(ch);
             }
         }
         String priceValue1 = str;
@@ -540,13 +539,13 @@ public class Cart_page extends Setup {
 	public void validateDiscountedPrice() {
 		Assert.assertTrue(CART_DISCOUNT.isDisplayed());
 		float subtotal = GenericFunctions.getPrice(SUBTOTAL.getText());
-		float discountedprice = GenericFunctions.getPrice(CART_TOTAL_PRICE.getText());
-		Assert.assertTrue(discountedprice<subtotal);
+		float discountedPrice = GenericFunctions.getPrice(CART_TOTAL_PRICE.getText());
+		Assert.assertTrue(discountedPrice<subtotal);
 	}
 	
 	
 	
-	public void validateCancelPromocode(String message) {
+	public void validateCancelPromoCode(String message) {
 		GenericFunctions.verifyElementByText(message);
 		Assert.assertTrue(GenericFunctions.verifyElementNotDisplayed(CART_DISCOUNT));
 	}	
@@ -556,11 +555,11 @@ public class Cart_page extends Setup {
 		VIEW_CART.click();
 	}
 
-	public void validateItemAddedToCart(String expectednoOfItems) throws InterruptedException {
+	public void validateItemAddedToCart(String expectedNoOfItems) throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOf(ITEMS_IN_CART));
 		Thread.sleep(5000);
 		String itemInCart = ITEMS_IN_CART.getText().trim();
-		Assert.assertEquals(itemInCart, expectednoOfItems);
+		Assert.assertEquals(itemInCart, expectedNoOfItems);
 		
 	}
 

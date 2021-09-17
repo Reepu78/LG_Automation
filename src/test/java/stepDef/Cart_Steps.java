@@ -103,7 +103,7 @@ public class Cart_Steps extends Setup {
     }
 
     @When("I will enter promo code")
-    public void I_will_enter_promocode() throws InterruptedException {
+    public void I_will_enter_promoCode() throws InterruptedException {
         CART.enterPromoCode();
         CART.clickApplyButton();
     }
@@ -268,7 +268,7 @@ public class Cart_Steps extends Setup {
 
     @Then("I verify {string} is displayed and discount is removed")
     public void verifyPromoCancelled(String message) {
-        CART.validateCancelPromocode(message);
+        CART.validateCancelPromoCode(message);
     }
 
     @Then("I verify {string} is displayed")

@@ -202,7 +202,7 @@ public class GNB_page extends Setup {
             ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
             driver.switchTo().window(tabs.get(1));
             driver.get("https://wwwstg.us.lg.com/us");
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 

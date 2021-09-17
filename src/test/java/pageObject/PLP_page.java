@@ -103,7 +103,7 @@ public class PLP_page extends Setup {
 		String highPrice = format.format(highestPrice);
 		System.out.println(highPrice);
 
-		// Clicking on Add to Cart Button for Product with Highest Price
+		// Clicking on Add to Cart Button for Product with the Highest Price
 		WebElement addCart = driver.findElement(By.xpath("//div[text()='" + highPrice + "']/following::a[1]"));
 		WebElement product = driver.findElement(By.xpath(
 				"//div[text()='" + highPrice + "']/parent::div/parent::div/preceding-sibling::div[@class='sku']"));

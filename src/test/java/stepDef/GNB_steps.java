@@ -22,9 +22,9 @@ public class GNB_steps extends Setup {
             Set<String> winIds = driver.getWindowHandles();
             System.out.println("Total windows -> " + winIds.size());
             if (winIds.size() == 2) {
-                Iterator<String> iter = winIds.iterator();
-                String mainWinID = iter.next();
-                String popupWindID = iter.next();
+                Iterator<String> itr = winIds.iterator();
+                String mainWinID = itr.next();
+                String popupWindID = itr.next();
                 driver.switchTo().window(popupWindID);
                 driver.close();
                 driver.switchTo().window(mainWinID);

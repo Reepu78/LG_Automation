@@ -74,7 +74,7 @@ public class Checkout_Payment_steps extends Setup {
 
     @Then("I verify the error message for Visa Expiration date")
     public void i_verify_the_error_message_for_visa_expiration_date() {
-        Payment.verifyErrorMessageForVisaExpirationdate();
+        Payment.verifyErrorMessageForVisaExpirationDate();
     }
 
     @Then("I verify the error message for Credit Card Type")
@@ -89,7 +89,7 @@ public class Checkout_Payment_steps extends Setup {
 
     @Then("I click on continue button on checkout page")
     public void iClickOnContinue() {
-        Payment.clickoncontinuebutton();
+        Payment.clickContinueButton();
     }
 
     @Then("I verify credit or debit card radio button selected")
@@ -109,7 +109,7 @@ public class Checkout_Payment_steps extends Setup {
 
     @And("I click on agree and Submit button in review terms and apply page")
     public void clickOnAgreeAndSubmitBtn() throws InterruptedException {
-        Payment.clickOnAgreeandSubmit();
+        Payment.clickOnAgreeAndSubmit();
 
     }
 
@@ -126,8 +126,8 @@ public class Checkout_Payment_steps extends Setup {
     @And("I verify your Detail page and Input phone  number")
     public void inputPhoneNumber() throws InterruptedException {
         Payment.verifyYourDetailAndEnterPhoneNumberDisplay();
-        Payment.clickonCheckBox();
-        Payment.clickoncontinuebtn();
+        Payment.clickCheckBox();
+        Payment.clickOnContinueBtn();
     }
 
     @Then("I enter the code")

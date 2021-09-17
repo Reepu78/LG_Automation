@@ -3,7 +3,6 @@ package pageObject;
 import base.GenericFunctions;
 import base.GlobalTestData;
 import base.Setup;
-import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -22,7 +21,6 @@ public class Checkout_Payment_page extends Setup {
 		PageFactory.initElements(driver, this);
 	}
 
-	Faker faker = new Faker();
 	public static String productArea;
 	public static String[] productCode = new String[5];
 
@@ -44,7 +42,7 @@ public class Checkout_Payment_page extends Setup {
 	@FindBy(how = How.XPATH, using = "//span[@id='fixedamount_kp-purchase-approval-form-continue-button__text']")
 	public WebElement CHECKOUT_CONTINUE_BUTTON;
 	@FindBy(how = How.XPATH, using = "//div[text()='Credit card expired.']")
-	public WebElement EXPRATION_DATE_ERROR;
+	public WebElement EXPIRATION_DATE_ERROR;
 	@FindBy(how = How.XPATH, using = "//*[@id='chcybersource_cc_number-error']")
 	public WebElement CARD_TYPE_ERROR;
 	@FindBy(how = How.CSS, using = "ul.payment-method-cvv-wrapper")
@@ -133,11 +131,11 @@ public class Checkout_Payment_page extends Setup {
 		driver.switchTo().defaultContent();
 	}
 
-	public void verifyErrorMessageForVisaExpirationdate() {
-		wait.until(ExpectedConditions.elementToBeClickable(EXPRATION_DATE_ERROR));
-		boolean isDisplayed = EXPRATION_DATE_ERROR.isDisplayed();
+	public void verifyErrorMessageForVisaExpirationDate() {
+		wait.until(ExpectedConditions.elementToBeClickable(EXPIRATION_DATE_ERROR));
+		boolean isDisplayed = EXPIRATION_DATE_ERROR.isDisplayed();
 		if (isDisplayed) {
-			String actualTitle = EXPRATION_DATE_ERROR.getText();
+			String actualTitle = EXPIRATION_DATE_ERROR.getText();
 			String expectedTitle = "Credit card expired.";
 			Assert.assertEquals(actualTitle, expectedTitle);
 		} else {
@@ -182,7 +180,7 @@ public class Checkout_Payment_page extends Setup {
 		Assert.assertTrue(CVV_DEMO.isDisplayed());
 	}
 
-	public void clickoncontinuebutton() {
+	public void clickContinueButton() {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_CONTINUE_BUTTON));
 		jsClick(CHECKOUT_CONTINUE_BUTTON);
@@ -213,7 +211,7 @@ public class Checkout_Payment_page extends Setup {
 		driver.switchTo().defaultContent();
 	}
 
-	public void clickOnAgreeandSubmit() throws InterruptedException {
+	public void clickOnAgreeAndSubmit() throws InterruptedException {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKOUT_AGREE_SUBMIT_BUTTON));
 		Thread.sleep(3000);
@@ -250,7 +248,7 @@ public class Checkout_Payment_page extends Setup {
 		driver.switchTo().defaultContent();
 	}
 
-	public void clickonCheckBox() throws InterruptedException {
+	public void clickCheckBox() throws InterruptedException {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(CHECKBOX));
 		jsClick(CHECKBOX);
@@ -259,7 +257,7 @@ public class Checkout_Payment_page extends Setup {
 
 	}
 
-	public void clickoncontinuebtn() throws InterruptedException {
+	public void clickOnContinueBtn() throws InterruptedException {
 		driver.switchTo().frame("klarna-pay-over-time-fullscreen");
 		wait.until(ExpectedConditions.elementToBeClickable(ON_CONTINUE_BTN));
 		jsClick(ON_CONTINUE_BTN);
@@ -305,7 +303,7 @@ public class Checkout_Payment_page extends Setup {
 			float tax = GenericFunctions.getPrice(actualString);
 			Assert.assertTrue(tax>0);
 		} else {
-			Assert.fail("Extimated Tax is not displayed");
+			Assert.fail("Estimated Tax is not displayed");
 		}
 	}
 }

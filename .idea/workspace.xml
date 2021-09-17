@@ -6,27 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="c0d5fe1e-ef86-4e5e-b56a-d2d256d07023" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/Setup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/Setup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_Klarna.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_Klarna.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_payPal.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/features/checkout/checkout_payPal.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Cart_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Cart_page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Payment_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Payment_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Paypal_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Paypal_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Review_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Review_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Shipping_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_Shipping_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Checkout_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Confirmation_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Confirmation_page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/GNB_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/GNB_page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/PLP_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/PLP_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Product_Registration_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Product_Registration_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Search_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Search_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Support_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Support_page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pageObject/Signup_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pageObject/Signup_page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Cart_Steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Cart_Steps.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Checkout_Payment_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Checkout_Payment_steps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Checkout_Shipping_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Checkout_Shipping_steps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/PLP_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/PLP_steps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Search_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Search_steps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Signup_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Signup_steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/Confirmation_Steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/Confirmation_Steps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDef/GNB_steps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDef/GNB_steps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

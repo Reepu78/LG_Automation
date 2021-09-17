@@ -94,7 +94,7 @@ public class Confirmation_page extends Setup {
     }
     
  // ==================dateofdelivery======================
-    public void verifyEsitateddateofdeliveryIsDisplay() {
+    public void verifyEstimatedDateOfDeliveryIsDisplay() {
         wait.until(ExpectedConditions.elementToBeClickable(ESTIMATED_DATE_OF_DELIVERY));
         boolean isDisplayed = ESTIMATED_DATE_OF_DELIVERY.isDisplayed();
         if (isDisplayed) {

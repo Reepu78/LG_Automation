@@ -18,7 +18,7 @@ public class Confirmation_Steps extends Setup {
         Thread.sleep(1000);
         Confirmation.verifyYourOrderSectionIsDisplay();
         Thread.sleep(1000);
-        Confirmation.verifyEsitateddateofdeliveryIsDisplay();
+        Confirmation.verifyEstimatedDateOfDeliveryIsDisplay();
         Thread.sleep(1000);
         Confirmation.verifyShippingIsDisplay();
         Thread.sleep(1000);

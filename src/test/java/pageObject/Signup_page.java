@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
