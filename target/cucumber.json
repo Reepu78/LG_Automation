@@ -1,0 +1,315 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 6,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 7743783300,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I am at LG Home Page",
+            "match": {
+              "location": "stepDef.GNB_steps.homePage()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-18T07:30:33.071Z",
+        "before": [
+          {
+            "result": {
+              "duration": 11681916000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDef.Hook.openBrowser()"
+            }
+          }
+        ],
+        "line": 103,
+        "name": "[Visa] As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page",
+        "description": "",
+        "id": "checkout-flow-using-different-types-of-credit-cards-payment-methods;[visa]-as-a-guest-user--checkout-omd-he-innovel-product-and-create-an-account-from-confirmation-page",
+        "after": [
+          {
+            "result": {
+              "duration": 217903800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDef.Hook.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6181783300,
+              "status": "passed"
+            },
+            "line": 104,
+            "name": "I Find \"OMD HE Innovel\" product using search function",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"OMD HE Innovel\"",
+                  "offset": 7
+                }
+              ],
+              "location": "stepDef.Search_steps.iSearchItem(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 13895700500,
+              "status": "passed"
+            },
+            "line": 105,
+            "name": "I will verify \"OMD HE Innovel\" product displays in search results page and navigate to PDP page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"OMD HE Innovel\"",
+                  "offset": 14
+                }
+              ],
+              "location": "stepDef.Search_steps.verifyProductDisplayedOnResultsPage(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 42571840800,
+              "status": "passed"
+            },
+            "line": 106,
+            "name": "I will enter ZipCode for checking the delivery availability for OMD HE Innovel Product",
+            "match": {
+              "location": "stepDef.Cart_Steps.iZipCodeToCheckTDeliveryAvailability()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 9920133400,
+              "status": "passed"
+            },
+            "line": 107,
+            "name": "I click on Secure Checkout button",
+            "match": {
+              "location": "stepDef.Cart_Steps.iClickOnSecureCheckoutButton()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 10103216000,
+              "status": "passed"
+            },
+            "line": 108,
+            "name": "I click on Continue as Guest from Sign in page",
+            "match": {
+              "location": "stepDef.Cart_Steps.iClickOnContinueAsGuestFromSignInPage()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8895297100,
+              "status": "passed"
+            },
+            "line": 109,
+            "name": "I click on Save and Continue button after fill out Shipping Info",
+            "match": {
+              "location": "stepDef.Checkout_Shipping_steps.iClickOnSaveAndContinueButtonAfterFillOutShippingInfo()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10028206800,
+              "status": "passed"
+            },
+            "line": 110,
+            "name": "I verify the suggested address",
+            "match": {
+              "location": "stepDef.Checkout_Shipping_steps.iVerifyTheSuggestedAddress()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 7149370300,
+              "status": "passed"
+            },
+            "line": 111,
+            "name": "I will select the \"Standard\" shipment Method",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Standard",
+                  "offset": 19
+                }
+              ],
+              "location": "stepDef.Checkout_Shipping_steps.iWillSelectShipmentMethod(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 5320239000,
+              "status": "passed"
+            },
+            "line": 112,
+            "name": "I click on Continue to Payment button",
+            "match": {
+              "location": "stepDef.Checkout_Shipping_steps.iClickOnContinueToPaymentButton()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1775580400,
+              "status": "passed"
+            },
+            "line": 113,
+            "name": "I will see Payment method option list in Billing Page",
+            "match": {
+              "location": "stepDef.Checkout_Payment_steps.iWillSeePaymentMethodOptionListInBillingPage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 6226882800,
+              "status": "passed"
+            },
+            "line": 114,
+            "name": "I choose the \"Credit Card\" radio button from Billing Page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Credit Card",
+                  "offset": 14
+                }
+              ],
+              "location": "stepDef.Checkout_Payment_steps.iChoosePaymentRadioButton(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 467718700,
+              "status": "passed"
+            },
+            "line": 115,
+            "name": "I will enter Card Details",
+            "match": {
+              "location": "stepDef.Checkout_Payment_steps.iWillEnterCreditCardDetails()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 243861400,
+              "status": "passed"
+            },
+            "line": 116,
+            "name": "I click on Review and Place order button from Billing Page",
+            "match": {
+              "location": "stepDef.Checkout_Payment_steps.iClickOnReviewAndPlaceOrderButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4476247800,
+              "status": "passed"
+            },
+            "line": 117,
+            "name": "I click on Place Order button after agreeing Terms and Conditions from Review Page",
+            "match": {
+              "location": "stepDef.Checkout_Review_steps.iClickOnTermsAndConditionsCheckbox()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 28153101300,
+              "status": "passed"
+            },
+            "line": 118,
+            "name": "I verify confirmation page is displayed",
+            "match": {
+              "location": "stepDef.Confirmation_Steps.iVerifyThankYouPage()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1036625200,
+              "status": "passed"
+            },
+            "line": 119,
+            "name": "I Create an account and click On Terms and Conditions Check Box On Confirmation Page",
+            "match": {
+              "location": "stepDef.Confirmation_Steps.iClickOnTermsAndConditionsCheckBoxAfterCreateAndAccount()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 13439335000,
+              "status": "passed"
+            },
+            "line": 120,
+            "name": "I verify your account has been created massage is display",
+            "match": {
+              "location": "stepDef.Confirmation_Steps.verifyYourCreatedAnAccountMessage()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@checkout"
+          },
+          {
+            "name": "@cc"
+          },
+          {
+            "name": "@smoke"
+          },
+          {
+            "name": "@regression"
+          },
+          {
+            "name": "@TC_005"
+          },
+          {
+            "name": "@Test"
+          }
+        ]
+      }
+    ],
+    "name": "Checkout Flow using Different Types of Credit Cards Payment Methods",
+    "description": "  As a tester\n  I want to ensure Credit Card Checkout feature working as expected\n  So that our end user can Shop from LG.com without any issues",
+    "id": "checkout-flow-using-different-types-of-credit-cards-payment-methods",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/checkout/checkout_CreditCards.feature",
+    "tags": []
+  }
+]

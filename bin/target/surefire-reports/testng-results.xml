@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="0" passed="0" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-08-05T18:03:31 MYT" name="Surefire suite" finished-at="2021-08-05T18:03:33 MYT" duration-ms="1780">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner@1b68b9a4]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunnerRerun@4f9a3314]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2021-08-05T18:03:31 MYT" name="Surefire test" finished-at="2021-08-05T18:03:33 MYT" duration-ms="1780">
+      <class name="TestRunnerRerun">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunnerRerun@4f9a3314]" started-at="2021-08-05T18:03:33 MYT" name="setUpClass" finished-at="2021-08-05T18:03:33 MYT" duration-ms="54" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunnerRerun@4f9a3314]" started-at="2021-08-05T18:03:33 MYT" name="tearDownClass" finished-at="2021-08-05T18:03:33 MYT" duration-ms="55" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- TestRunnerRerun -->
+      <class name="TestRunner">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunner@1b68b9a4]" started-at="2021-08-05T18:03:31 MYT" name="setUpClass" finished-at="2021-08-05T18:03:33 MYT" duration-ms="1415" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner@1b68b9a4]" started-at="2021-08-05T18:03:33 MYT" name="tearDownClass" finished-at="2021-08-05T18:03:33 MYT" duration-ms="190" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- TestRunner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
