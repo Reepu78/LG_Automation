@@ -6,7 +6,7 @@ Feature: Checkout Flow using PayPal Payment Method
   Background:
     Given I am at LG Home Page
 
-  @checkout @paypal @smoke @regression @TC_001 @Test
+  @checkout @paypal @smoke @regression @TC_001 
   Scenario: As a brand new guest, ensure user able to checkout OMV Subscription product with promotion code and standard shipping using PayPal
     Given I Find "OMV Subscription" product using search function
     And  I will verify "OMV Subscription" product displays in search results page and navigate to PDP page

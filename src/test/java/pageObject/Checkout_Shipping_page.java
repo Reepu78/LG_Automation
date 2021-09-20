@@ -103,6 +103,9 @@ public class Checkout_Shipping_page extends Setup {
     @FindBy(how = How.XPATH, using = "//*[@class='need-help-support']//span")  
     public WebElement FOOTER_HOURS_OF_OPERATION;
     
+   
+    
+    
     
 
     public void verifyContactInfoPage() {

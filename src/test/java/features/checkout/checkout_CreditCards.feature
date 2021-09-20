@@ -99,7 +99,7 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
 
-  @checkout @cc @smoke @regression @TC_005 @NOT_DONE
+  @checkout @cc @smoke @regression @TC_005 @Test
   Scenario: [Visa] As a guest user, checkout OMD HE Innovel product and Create an account from confirmation page
     Given I Find "OMD HE Innovel" product using search function
     Then I will verify "OMD HE Innovel" product displays in search results page and navigate to PDP page
@@ -116,6 +116,8 @@ Feature: Checkout Flow using Different Types of Credit Cards Payment Methods
     And I click on Review and Place order button from Billing Page
     And I click on Place Order button after agreeing Terms and Conditions from Review Page
     Then I verify confirmation page is displayed
+    And I Create an account and click On Terms and Conditions Check Box On Confirmation Page
+    And I verify your account has been created massage is display
     # become member
 
   @checkout @cc @smoke @regression @TC_006

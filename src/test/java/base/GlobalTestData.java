@@ -20,6 +20,10 @@ public class GlobalTestData {
     public static String GLOBAL_GNB_PASSWORD = "QaAutomation1$";
     public static String GLOBAL_GNB_EMAIL_ID = "qalgcns@gmail.com";
     public static String GLOBAL_GNB_EMAIL_PASSWORD = "Test1234$";
+    public static String GLOBAL_PASSWORD = "Test@123";
+    public static String GLOBAL_CONFIRM_PASSWORD = "Test@123";
+    public static String GLOBAL_CALENDAR = "12/02/1999";
+    
 
     // Product
     public static String OMV_Subscription;

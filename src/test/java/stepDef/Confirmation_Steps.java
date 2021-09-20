@@ -1,6 +1,7 @@
 package stepDef;
 
 import base.Setup;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pageObject.Confirmation_page;
 
@@ -27,4 +28,18 @@ public class Confirmation_Steps extends Setup {
         Confirmation.verifyNeedHelpIsDisplay();
         Thread.sleep(1000);
     }
+    
+    @And("I Create an account and click On Terms and Conditions Check Box On Confirmation Page")
+    public void iClickOnTermsAndConditionsCheckBoxAfterCreateAndAccount() {
+    	Confirmation.createAnAccount();
+    	Confirmation.enterDateOfBirth();
+    	Confirmation.clickOnTermsAndConditionsCheckBoxAndandCreateAccountBtn();
+    	
+    }
+    
+    @And("I verify your account has been created massage is display")
+    public void verifyYourCreatedAnAccountMessage(){
+    	Confirmation.createAnAccountMessageIsDisplay();
+    }
+    
 }

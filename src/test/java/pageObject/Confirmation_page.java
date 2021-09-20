@@ -13,6 +13,9 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
+import com.github.javafaker.Faker;
+
+import base.GlobalTestData;
 import base.Setup;
 
 public class Confirmation_page extends Setup {
@@ -20,7 +23,7 @@ public class Confirmation_page extends Setup {
     public Confirmation_page(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
-
+    Faker faker = new Faker();
     Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(100))
             .pollingEvery(Duration.ofMillis(600)).ignoring(NoSuchElementException.class);
     // Elements
@@ -40,6 +43,30 @@ public class Confirmation_page extends Setup {
     public WebElement VERIFY_BILLING;
     @FindBy(how = How.XPATH, using = "(//*[text()='Need Help?'])[1]")
     public WebElement VERIFY_NEED_HELP;
+    
+    @FindBy(how = How.XPATH, using = "//*[@id='firstname']")
+    public WebElement FIRST_NAME;
+    @FindBy(how = How.XPATH, using = "//*[@id='lastname']")
+    public WebElement LAST_NAME;
+    @FindBy(how = How.XPATH, using = "//*[@id='password']")
+    public WebElement PASSWORD_BOX;
+    @FindBy(how = How.XPATH, using = "//*[@id='password-confirmation']")
+    public WebElement CONFIRM_PASSWORD_BOX;
+    @FindBy(how = How.XPATH, using = "//*[@id='requestDate']")
+    public WebElement CALENDAR;
+    @FindBy(how = How.XPATH, using = "//*[@class='ui-datepicker-year']/*[text()='1991']")
+    public WebElement YEAR;
+    @FindBy(how = How.XPATH, using = "(//*[@class='ui-state-default'])[4]")
+    public WebElement DATE;
+    @FindBy(how = How.XPATH, using = "(//*[@class='field choice signuppolicy']/*)[2]")
+    public WebElement T_AND_C_CHECK_BOX;
+    @FindBy(how = How.XPATH, using = "//*[text()='Create Account']")
+    public WebElement CREATE_ACCOUNT_BUTTON;
+    @FindBy(how = How.XPATH, using = " //*[text()='Your account has been created!']")
+    public WebElement VERIFY_MESSAGE;
+ 
+    
+  
     
     public void verifyThanksYouIsDisplay()  {
         wait.until(ExpectedConditions.elementToBeClickable(VERIFY_THANKS_YOU_PAGE));
@@ -143,6 +170,58 @@ public class Confirmation_page extends Setup {
         }
     }
     
+    public void enterConsumerDetail(String name, String lastname, String password, String confirmPassword) {
+    	wait.until(ExpectedConditions.elementToBeClickable(FIRST_NAME));
+    	FIRST_NAME.clear();
+    	FIRST_NAME.sendKeys(name);
+    	LAST_NAME.clear();
+    	LAST_NAME.sendKeys(lastname);
+    	PASSWORD_BOX.clear();
+        PASSWORD_BOX.sendKeys(password);
+        CONFIRM_PASSWORD_BOX.clear();
+        CONFIRM_PASSWORD_BOX.sendKeys(confirmPassword);
+    }
+    
+    
+   public void createAnAccount() {
+	   
+	   GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME = faker.name().firstName();
+       GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME = faker.name().lastName();
+       
+       enterConsumerDetail(
+               GlobalTestData.GLOBAL_CUSTOMER_FIRST_NAME,
+               GlobalTestData.GLOBAL_CUSTOMER_LAST_NAME, 
+               GlobalTestData.GLOBAL_PASSWORD, 
+               GlobalTestData.GLOBAL_CONFIRM_PASSWORD
+              );
+      
+	      }
+   
+   public void enterDateOfBirth() {
+	   CALENDAR.click();
+	   YEAR.click();
+       DATE.click();
+   }
+   
+   public void clickOnTermsAndConditionsCheckBoxAndandCreateAccountBtn() {
+	   T_AND_C_CHECK_BOX.click();
+	   CREATE_ACCOUNT_BUTTON.click();
+   }
+   
+   public void createAnAccountMessageIsDisplay() {
+	        wait.until(ExpectedConditions.elementToBeClickable(VERIFY_MESSAGE));
+	        boolean isDisplayed = VERIFY_MESSAGE.isDisplayed();
+	        if (isDisplayed) {
+	            String actualTitle = VERIFY_MESSAGE.getText().trim();
+	            String expectedTitle = "Your account has been created!";
+	            Assert.assertEquals(actualTitle, expectedTitle);
+	        } else {
+	            Assert.fail("Account has been created Message not displayed");
+	        }
+	    
+   }
+    
+   
  
 
 
